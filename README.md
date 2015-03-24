@@ -1,0 +1,2 @@
+# RoseSystem
+RoseSystem是一个基于Codeigniter的内容管理系统
