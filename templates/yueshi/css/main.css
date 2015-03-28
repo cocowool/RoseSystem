@@ -4,6 +4,10 @@ html, * {
 	
 }
 
+body {
+	/* background-color:#fefefe; */
+}
+
 .container {
 	width:960px;
 }
@@ -16,6 +20,34 @@ html, * {
 	line-height:30px;
 }
 
-.ys_search input {
-	
+.ys_header .row {}
+
+.ys_header input {
+	padding:0;
+	margin:0;
+	height:1.8em;
+	line-height:1.8em;
+	margin-top:0.15em;
+	margin-right:0.5em;
+}
+
+.ys_top_title {
+	border-bottom:1px solid #c4c4c4;
+}
+
+.ys_top_title {
+	text-align:center;
+}
+.ys_top_title h1 {
+	margin:0px;
+	height:40px;
+	font-size:12;
+}
+.ys_top_title h1 a {
+	margin:0px;
+	padding:0px;
+	display:block;
+	height:40px;
+	text-indent:-9999px;
+	background:url(/templates/yueshi/images/yue.png) center center no-repeat;
 }
