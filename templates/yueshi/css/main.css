@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+html, * {
+	
+}
+
+.container {
+	width:960px;
+}
+
+.ys_header {
+	background-color:#f5f5f5;
+	border: none;
+	height: 30px;
+	min-height:30px;
+	line-height:30px;
+}
+
+.ys_search input {
+	
+}
