@@ -1,12 +1,21 @@
 @CHARSET "UTF-8";
 
+/* 类命名规范 .ys_ 开头为类 #YS_ 开头为ID  */
+
 html, * {
-	
+	font-size:12px;
 }
 
 body {
 	/* background-color:#fefefe; */
 }
+
+::selection {
+	background-color:#e13300;
+	color:#ffffff;
+}
+
+ul,li { list-style:none; }
 
 .container {
 	width:960px;
@@ -51,3 +60,32 @@ body {
 	text-indent:-9999px;
 	background:url(/templates/yueshi/images/yue.png) center center no-repeat;
 }
+
+.ys_logo {
+	
+}
+.ys_logo h2 {
+	margin:0;
+	padding:0;
+}
+.ys_logo h2 a {
+	display:block;
+	height:200px;
+	text-indent:-9999px;
+	background:url(/templates/yueshi/images/logo.jpg) top center no-repeat;
+}
+
+.ys_homefocus {
+	margin-top:15px;
+}
+
+.ys_footer {
+	border-top:1px solid #e1e1e1;
+	margin-top:20em;
+	color:#bbbbbb;
+	line-height:2em;
+}
+.ys_foot_links {
+	text-align:right;
+}
+.ys_foot_links li { margin-left:0.5em; float:right; }
