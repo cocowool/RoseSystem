@@ -71,8 +71,12 @@
 			<div class="col-md-2">
 				<div class="ys_logo">
 					<h2><a href="javascript:void(0);">悦食中国</a></h2>
+					<div class="ys_date">
+						<p><?php echo date('Y', time()); ?></p>
+						<p><?php echo date('m', time()); ?></p>
+						<p><?php echo date('d', time()); ?></p>
+					</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>

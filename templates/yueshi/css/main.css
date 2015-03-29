@@ -62,17 +62,32 @@ ul,li { list-style:none; }
 }
 
 .ys_logo {
-	
+	position:relative;
 }
 .ys_logo h2 {
 	margin:0;
 	padding:0;
 }
 .ys_logo h2 a {
+	position:relative;
 	display:block;
 	height:200px;
 	text-indent:-9999px;
 	background:url(/templates/yueshi/images/logo.jpg) top center no-repeat;
+}
+.ys_date {
+	position:absolute;
+	z-index:100;
+	top:3.3em;
+	left:1.4em;
+}
+.ys_date p {
+	text-align:center;
+	font-weight:bold;
+	font-size: 1.2em;
+	color:#ee3333;
+	line-height:2.2em;
+	font-family:Georgia, Helvetica, Verdana;
 }
 
 .ys_homefocus {
