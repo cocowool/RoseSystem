@@ -49,13 +49,13 @@
 			        </ol>
 			        <div class="carousel-inner" role="listbox">
           				<div class="item">
-            				<img data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide [1140x500]" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTE0MCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMTQwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSIxMTQwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzc3NyIvPjxnPjx0ZXh0IHg9IjQwMi4zMDQ2ODc1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiM1NTU7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6NTNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj5GaXJzdCBzbGlkZTwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true">
+            				<img data-src="" alt="First slide [1140x500]" src="/temp/f1.png" data-holder-rendered="false">
           				</div>
           				<div class="item active">
-            				<img data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide [1140x500]" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTE0MCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMTQwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSIxMTQwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiIvPjxnPjx0ZXh0IHg9IjM1MS4wMTU2MjUiIHk9IjI1MCIgc3R5bGU9ImZpbGw6IzQ0NDtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZTo1M3B0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPlNlY29uZCBzbGlkZTwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true">
+            				<img data-src="" alt="Second slide [1140x500]" src="/temp/f2.png" data-holder-rendered="false">
           				</div>
 	          			<div class="item">
-            				<img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide [1140x500]" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTE0MCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMTQwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSIxMTQwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSIvPjxnPjx0ZXh0IHg9IjM5MC41IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiMzMzM7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6NTNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj5UaGlyZCBzbGlkZTwvdGV4dD48L2c+PC9zdmc+" data-holder-rendered="true">
+            				<img data-src="" alt="Third slide [1140x500]" src="/temp/f3.png" data-holder-rendered="false">
           				</div>
         			</div>
         			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -66,6 +66,45 @@
           				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           				<span class="sr-only">Next</span>
         			</a>
+      			</div>
+      			
+      			<div class="ys_container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="ys_thumbnail_block">
+								<a href="javascript:void(0);">
+									<img src="/temp/tb1.png" />
+								</a>
+								<div class="ys_caption">
+									<h3><a href="javascript:void(0);">匠心独运</a></h3>
+									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="ys_thumbnail_block">
+								<a href="javascript:void(0);">
+									<img src="/temp/tb2.png" />
+								</a>
+								<div class="ys_caption">
+									<h3><a href="javascript:void(0);">匠心独运</a></h3>
+									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="ys_thumbnail_block">
+								<a href="javascript:void(0);">
+									<img src="/temp/tb3.png" />
+								</a>
+								<div class="ys_caption">
+									<h3><a href="javascript:void(0);">匠心独运</a></h3>
+									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			      			
       			</div>
 			</div>
 			<div class="col-md-2">
@@ -129,21 +168,6 @@
 						</div>				
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="ys_image_block">
-					
-				</div>
-			</div>
-			<div class="col-md-4">
-			
-			</div>
-			<div class="col-md-4">
-			
 			</div>
 		</div>
 	</div>
