@@ -94,6 +94,15 @@ ul,li { list-style:none; }
 	margin-top:15px;
 }
 
+#YS_MENU { height:auto; padding-top:10em; position:relative; z-index:0; }
+.ys_menu_container { position:relative; z-index:0; }
+.ys_menu { position:relative;list-style:none; padding-left:20%; z-index:0; }
+.ys_menu_item { position:relative; text-align:center; cursor:pointer; z-index:10; }
+.ys_menu_text { position:relative; z-index:100; display:block; text-decoration:none; color:#574e3f; font-size:1.2em; line-height:2em; }
+.ys_tie_1 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
+.ys_tie_2 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
+.ys_tie_3 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
+
 .ys_footer {
 	border-top:1px solid #e1e1e1;
 	margin-top:20em;
