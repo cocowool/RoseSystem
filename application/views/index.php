@@ -69,7 +69,7 @@
       			</div>
       			
       			<div class="ys_container">
-					<div class="row">
+					<div class="row ys_latest">
 						<div class="col-md-4">
 							<div class="ys_thumbnail_block">
 								<a href="javascript:void(0);">
