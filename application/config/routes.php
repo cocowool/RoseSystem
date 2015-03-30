@@ -41,7 +41,7 @@
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 
-$route['manage'] = '/manage/index';
+$route['manage'] = 'manage/index';
 
 
 /* End of file routes.php */
