@@ -196,5 +196,6 @@
 
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 </body>
 </html>
