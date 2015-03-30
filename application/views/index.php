@@ -104,7 +104,11 @@
 							</div>
 						</div>
 					</div>
-			      			
+			      	<div class="row">
+			      		<div class="ys_ajaxmore">
+			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
+			      		</div>
+			      	</div>	
       			</div>
 			</div>
 			<div class="col-md-2">

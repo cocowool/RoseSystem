@@ -13,6 +13,7 @@ body {
 ::selection { background-color:#e13300; color:#ffffff; }
 ul,li { list-style:none; }
 .hide { display:none; }
+a:hover { color:#e13300; }
 
 .container {
 	width:960px;
@@ -104,6 +105,10 @@ ul,li { list-style:none; }
 .ys_caption h3 a { font-size:0.8em; }
 .ys_caption h3 a:hover { color:#ddd; }
 .ys_caption p { color:#555; margin:0 1em 1em; font-size:1.2em; line-height:1.5em; }
+
+.ys_ajaxmore { margin:0 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
+.ys_ajaxmore a { text-decoration:none; color:#d7d7d7; line-height:2em; }
+.ys_ajaxmore a:hover { color:#e13300; }
 
 .ys_footer {
 	border-top:1px solid #e1e1e1;
