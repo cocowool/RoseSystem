@@ -10,7 +10,9 @@
 	<link href="/templates/manage/css/main.css" rel="stylesheet" media="screen">
 </head>
 <body>
-
+	<nav class="navbar navbar-inverse">
+	
+	</nav>
 </body>
 </html>
 <?php
