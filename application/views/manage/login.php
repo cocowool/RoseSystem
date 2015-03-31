@@ -13,6 +13,16 @@
 	<nav class="navbar navbar-inverse">
 	
 	</nav>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="rs_container_login">
+				<p><h3>后台登录</h3></p>
+				<p><label>账号：</label><input type="text" name="username" id="username" /></p>
+				<p><label>密码：</label><input type="text" name="username" id="username" /></p>
+				<p></p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 <?php
