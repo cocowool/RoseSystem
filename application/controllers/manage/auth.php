@@ -1,4 +1,4 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Auth extends MY_Controller {
 	public function __construct(){
@@ -6,6 +6,8 @@ class Auth extends MY_Controller {
 	}
 
 	public function index(){
-		echo "Auth Index";
+		$data = array();
+		
+		$this->load->view('manage/login', $data);
 	}
 }
