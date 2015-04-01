@@ -127,62 +127,46 @@
 			            </select>
 						<label class="focus hide">请选择居住地</label>
 					</div>
-					<div class="register-item">
-						<span class="block-left register-label">电子邮箱<b>*</b></span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-								<input type="text" name="email" id="email" value="<?php echo set_value('email'); ?>" />
-								<label class="focus hide">请输入合法的电子邮箱地址</label>
-							</div>
-						</div>
+					<div class="form-group">
+						<label class="ys_form_label" for="email">电子邮箱<b>*</b></label>
+						<input type="text" class="form-control" name="email" id="email" value="<?php echo set_value('email'); ?>" />
+						<label class="focus hide">请输入合法的电子邮箱地址</label>
 					</div>
-					<div class="register-item">
-						<span class="block-left register-label"></span>
-						<div class="block-right register-content">
-							<div class="register-policy">
-								<p>
-									<input type="checkbox" checked /> 我希望订阅 [ 悦食中国 ] 的电子刊物。
-								</p>
-								<p>
-									<input type="checkbox" checked /> 我同意 [ <a href="/article/detail/12">用户服务条款</a> ]。
-								</p>								
-							</div>
+					<div class="form-group">
+						<label class="ys_form_label"></label>
+						<div class="register-policy">
+							<p>
+								<input type="checkbox" checked /> 我希望订阅 [ 悦食中国 ] 的电子刊物。
+							</p>
+							<p>
+								<input type="checkbox" checked /> 我同意 [ <a href="/article/detail/12">用户服务条款</a> ]。
+							</p>								
 						</div>
 					</div>
 				</div>
-				<div class="register-section">
-					<div class="register-item">
-						<span class="block-left register-label">邮寄地址<b>*</b></span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-								<input type="text" name="address" id="address" value="<?php echo set_value('address'); ?>" />
-								<label class="focus hide">请输入邮寄地址</label>
-							</div>
-						</div>
+				<div class="ys_form_section">
+					<div class="form-group">
+						<label class="ys_form_label" for="address">邮寄地址<b>*</b></label>
+						<input type="text" class="form-control" name="address" id="address" value="<?php echo set_value('address'); ?>" />
+						<label class="focus hide">请输入邮寄地址</label>
 					</div>
-					<div class="register-item">
-						<span class="block-left register-label">手机号码<b>*</b></span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-								<input type="text" name="mobile" id="mobile" value="<?php echo set_value('mobile'); ?>" />
-								<label class="focus hide">请输入手机号码</label>
-								<label class="feedback hide"></label>
-							</div>
-						</div>
+					<div class="form-group">
+						<label class="ys_form_label" for="mobile">手机号码<b>*</b></label>
+						<input type="text" class="form-control" name="mobile" id="mobile" value="<?php echo set_value('mobile'); ?>" />
+						<label class="focus hide">请输入手机号码</label>
+						<label class="feedback hide"></label>
 					</div>
-					<div class="register-item">
-						<span class="block-left register-label">验证码<b>*</b></span>
-						<div class="block-right register-content input-item">
-							<div class="userinput register-chkmobile">
-								<input type="text" name="chkMobile" id="chkMobile" />
-								<b></b>
-								<img src="http://www.yueshichina.com/register/captcha" />
-							</div>
+					<div class="form-group">
+						<label class="ys_form_label" for="chkMobile">验证码<b>*</b></label>
+						<div class="userinput register-chkmobile">
+							<input type="text" class="form-control" name="chkMobile" id="chkMobile" />
+							<b></b>
+							<img src="http://www.yueshichina.com/register/captcha" />
 						</div>
 					</div>
 				</div>
-				<div class="register-section">
-					<div class="register-item">
+				<div class="ys_form_section">
+					<div class="form-group">
 						<span class="block-left register-label">&copy;您经常在家吃饭吗?</span>
 						<div class="block-right register-content input-item">
 							<div class="user-input register-username">
@@ -192,7 +176,7 @@
 					</div>
 					<div class="question-option">
 						<p>
-							<input type="radio" name="eathome" value="1" <?php echo set_radio('eathome', '1', true); ?> />&nbsp;每周五次以上&nbsp;&nbsp;&nbsp;
+							<input type="radio" class="form-control" name="eathome" value="1" <?php echo set_radio('eathome', '1', true); ?> />&nbsp;每周五次以上&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eathome" value="2" <?php echo set_radio('eathome', '2'); ?> />&nbsp;每周至少一次&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eathome" value="3" <?php echo set_radio('eathome', '3'); ?> />&nbsp;极偶尔
 						</p>						
