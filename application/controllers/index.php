@@ -9,8 +9,7 @@ class Index extends My_Controller {
 	
 	public function index(){
 		$data = array();
-		$data['tie'] = rand(1,3);	//随机首页的丝带图标
-		
+		$data = array_merge($data, $this->getPubData());
 		
 		$this->load->view('index', $data);
 	}

@@ -32,4 +32,13 @@ class MY_Controller extends CI_Controller {
 		return TRUE;
 	}
 
+	/**
+	 * 获取控制器中一些公共数据
+	 */
+	protected function getPubData(){
+		$data = array();
+		$data['tie'] = rand(1,3);	//随机首页的丝带图标
+		
+		return $data;
+	}
 }
