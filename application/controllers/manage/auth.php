@@ -8,6 +8,9 @@ class Auth extends MY_Controller {
 	public function index(){
 		$data = array();
 		
+		
+		
+		
 		$this->load->view('manage/login', $data);
 	}
 }
