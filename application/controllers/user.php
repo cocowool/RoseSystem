@@ -11,6 +11,9 @@ class User extends My_Controller {
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		
+		$this->config->set_item('language', 'chinese');		//加载中文验证信息
+		$this->load->library('form_validation');
+		
 		$this->load->view('user/register', $data);
 	}
 }
