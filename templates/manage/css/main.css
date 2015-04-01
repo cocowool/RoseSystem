@@ -6,7 +6,7 @@ html, body {
 }
 
 .rs_container_login { 
-	width: 500px;
+	width: 350px;
 	height:auto;
 	margin:0 auto;
 	border:1px solid #ddd;
@@ -17,4 +17,9 @@ html, body {
 .rs_container_login h3 {
 	text-align: center;
 	margin:0 0 35px 0; padding:0; 
+}
+
+.rs_container_login input {
+	width:20em;
+	padding:0.2em;
 }
