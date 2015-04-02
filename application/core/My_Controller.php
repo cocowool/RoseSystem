@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
 	}
 
 	public function backendAuthCheck(){
-		$tag_username = $this->config->item('adm_tag_username');
+		$tag_username = $this->config->item('adm_sess_username');
 		
 		if( !$this->session->userdata($tag_username) ){
 			redirect('/'.$this->config->item('adm_segment').'/'.$this->config->item('adm_segment_auth'));

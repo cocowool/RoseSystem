@@ -13,15 +13,17 @@
 	<nav class="navbar navbar-inverse">
 	
 	</nav>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="rs_container_login">
-			<form id='login' name='login' method='post' action='/manage/auth'>
-				<p><h3>后台登录</h3></p>
-				<p><label>账号：</label><input type="text" class="form-control" placeholder='请输入用户名' name="username" id="username" /></p>
-				<p><label>密码：</label><input type="text" class="form-control" placeholder='请输入密码' name="username" id="username" /></p>
-				<p><input type='submit' id='submit' name='submit' value='登录' class="form-control btn btn-primary" /></p>
-			</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="rs_container_login">
+				<form id='login' name='login' method='post' action='/manage/auth'>
+					<p><h3>后台登录</h3></p>
+					<p><label for="username">账号：</label><input type="text" class="form-control" placeholder='请输入用户名' name="username" id="username" /></p>
+					<p><label for="password">密码：</label><input type="password" class="form-control" placeholder='请输入密码' name="password" id="password" /></p>
+					<p><input type='submit' id='submit' name='submit' value='登录' class="form-control btn btn-primary" /></p>
+				</form>
+				</div>
 			</div>
 		</div>
 	</div>

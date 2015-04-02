@@ -5,3 +5,8 @@
 $config['adm_segment']	=	'manage';			//管理后台文件夹
 $config['adm_segment_auth'] = 'auth';			//管理后台登录地址
 $config['adm_tag_username']	=	'adm_username';
+$config['adm_username']	=	'admin';
+$config['adm_password']	=	'admin';
+$config['adm_sess_username'] = 'admUsername';
+$config['adm_sess_status']	=	'admStatus';
+$config['adm_sess_level'] = 'admLevel';
