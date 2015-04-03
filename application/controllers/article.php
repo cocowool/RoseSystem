@@ -32,7 +32,8 @@ class Article extends My_Controller {
 		}
 	
 		$data['related_article'] = $this->realted_article($data['category'], $data['id']);
-	
+		$data = array_merge($data, $this->getPubData());
+		
 		$this->load->view('article/detail', $data);
 	}	
 	

@@ -47,6 +47,10 @@ a:hover { color:#e13300; }
 .ys_form_label { font-size:1.2em;  }
 .ys_form_label b { color:#e13300; margin:0 2em 0 0.2em; }
 
+.ys_breadcrum { line-height:3em; font-size:1em; }
+.ys_article h1 { font-size:2em; text-align:center; }
+.ys_article .ys_article_content { line-height:180%; color:#666666; }
+.ys_article .ys_article_content p { text-indent:2em; }
 
 #YS_MENU { height:auto; padding-top:10em; position:relative; z-index:0; }
 .ys_menu_container { position:relative; z-index:0; }
