@@ -32,5 +32,31 @@ class MY_Model extends CI_Model{
 		
 		return $query->result_array();
 	}
+	
+	/**
+	 * 从数据库中获取结果数据集
+	 *
+	 * $condition	array( array('field'=>'', 'data' =>'', 'action'=>'' ) ) or string, 其中 action 指CI中数据库查询操作类型
+	 *
+	 **/
+	function getAll( $condition = array(), $start = 0, $pagesize = 500000, $sort = '', $direction = '' ){
+		if( !empty( $condition ) ){
+			if( is_string($condition) ){
+				$this->db->where("$condition");
+			}else if( is_array($condition) ){
+				foreach ($condition as $v){
+					if( isset($v['data']) ){
+						$this->db->$v['action']($v['field'], $v['data']);
+					}
+				}
+			}
+		}
+	
+		if( !empty($sort) && !empty($direction) ){
+			$this->db->order_by( $sort, $direction );
+		}
+		$query = $this->db->get($this->table, $pagesize, $start);
+		return $query->result_array();
+	}	
 }
 	

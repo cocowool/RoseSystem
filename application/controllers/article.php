@@ -6,13 +6,23 @@ class Article extends My_Controller {
 		parent::__construct();
 	}
 
+	/**
+	 * 文章详情页
+	 * 
+	 * @param int $article
+	 */
 	public function detail( $article ){
 		$this->load->model('Article_Model','a');
 		$this->load->model('Resource_Model', 'r');
 	
 		$data = array();
 		$data = $this->a->getById($article);
-			
+		if( count($data) == 1 ){
+			$data = $data[0];
+		}else{
+			//报错
+		}
+		
 		//获取资源列表
 		$res_option = array();
 		if( !empty($data['id']) ){
@@ -23,6 +33,27 @@ class Article extends My_Controller {
 	
 		$data['related_article'] = $this->realted_article($data['category'], $data['id']);
 	
-		$this->load->view('detail_v2', $data);
+		$this->load->view('article/detail', $data);
+	}	
+	
+	/**
+	 * 获取相关文章的列表
+	 *
+	 * @param integer $cid	文章分类ID
+	 */
+	private function realted_article($cid, $id = ''){
+		$this->load->model('Article_Model','a');
+		$option = array();
+		$option[] = array( 'data' => $cid, 'field' => 'category', 'action' => 'where' );
+		if( !empty($id) ){
+			$option[] = array( 'data' => $id, 'field' => 'id !=', 'action' => 'where' );
+		}
+		$data = $this->a->getAll($option, 0, 1000);
+	
+		if( empty($data) ){
+			return false;
+		}
+	
+		return $data;
 	}	
 }
