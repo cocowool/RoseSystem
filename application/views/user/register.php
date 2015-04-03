@@ -77,8 +77,8 @@
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label" for="gender">性别<b>*</b></label>
-						<input type="radio" class="form-control" name="gender" value="1" <?php echo set_radio('gender', '1', true); ?> />&nbsp;男&nbsp;
-						<input type="radio" class="form-control" name="gender" value="0" <?php echo set_radio('gender', '0'); ?> />&nbsp;女
+						<input type="radio" name="gender" value="1" <?php echo set_radio('gender', '1', true); ?> />&nbsp;男&nbsp;
+						<input type="radio" name="gender" value="0" <?php echo set_radio('gender', '0'); ?> />&nbsp;女
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label" for="birthday">生日<b>*</b></label>
@@ -86,8 +86,7 @@
 						<label class="focus hide">请选择您的出生日期</label>
 					</div>
 					<div class="form-group">
-						<label class="ys_form_label" for="hometown">居住地<b>*</b></label>
-						<select id="hometown" name="hometown" class="form-control">
+						<label class="ys_form_label" for="hometown">居住地<b>*</b></label><select id="hometown" name="hometown" class="form-control ys_form_select">
                             <option value="">请选择</option>
 				            <option value="北京">北京</option>
 				            <option value="上海">上海</option>
@@ -158,55 +157,29 @@
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label" for="chkMobile">验证码<b>*</b></label>
-						<div class="userinput register-chkmobile">
 							<input type="text" class="form-control" name="chkMobile" id="chkMobile" />
-							<b></b>
 							<img src="http://www.yueshichina.com/register/captcha" />
-						</div>
 					</div>
 				</div>
 				<div class="ys_form_section">
 					<div class="form-group">
-						<span class="block-left register-label">&copy;您经常在家吃饭吗?</span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-							</div>
-						</div>
-						<div class="hackbox"></div>
-					</div>
-					<div class="question-option">
+						<p>&copy;您经常在家吃饭吗?</p>
 						<p>
-							<input type="radio" class="form-control" name="eathome" value="1" <?php echo set_radio('eathome', '1', true); ?> />&nbsp;每周五次以上&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="eathome" value="1" <?php echo set_radio('eathome', '1', true); ?> />&nbsp;每周五次以上&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eathome" value="2" <?php echo set_radio('eathome', '2'); ?> />&nbsp;每周至少一次&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="eathome" value="3" <?php echo set_radio('eathome', '3'); ?> />&nbsp;极偶尔
 						</p>						
 					</div>
-					<div class="hackbox"></div>
-					<div class="register-item">
-						<span class="block-left register-label">&copy;您喜爱烹饪吗?</span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-							</div>
-						</div>
-						<div class="hackbox"></div>
-					</div>
-					<div class="question-option">
+					<div class="form-group">
+						<p>&copy;您喜爱烹饪吗?</p>
 						<p>
 							<input type="radio" name="cooklover" value="1" <?php echo set_radio('cooklover', '1', true); ?> />&nbsp;热爱且擅长&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="cooklover" value="2" <?php echo set_radio('cooklover', '2'); ?> />&nbsp;感兴趣但不擅长&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="cooklover" value="3" <?php echo set_radio('cooklover', '3'); ?> />&nbsp;不太感兴趣
 						</p>						
 					</div>
-					<div class="hackbox"></div>
-					<div class="register-item">
-						<span class="block-left register-label">&copy;您经常烹饪吗?</span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-							</div>
-						</div>
-						<div class="hackbox"></div>
-					</div>
-					<div class="question-option">
+					<div class="form-group">
+						<p>&copy;您经常烹饪吗?</p>
 						<p>
 							<input type="radio" name="cookoften" value="1"  <?php echo set_radio('cookoften', '1', true); ?> />&nbsp;每天&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="cookoften" value="2"  <?php echo set_radio('cookoften', '2'); ?> />&nbsp;每周至少一次&nbsp;&nbsp;&nbsp;
@@ -214,16 +187,8 @@
 							<input type="radio" name="cookoften" value="4"  <?php echo set_radio('cookoften', '4'); ?> />&nbsp;从不&nbsp;&nbsp;&nbsp;
 						</p>						
 					</div>
-					<div class="hackbox"></div>
-					<div class="register-item">
-						<span class="block-left register-label">&copy;您经常出国旅行吗?</span>
-						<div class="block-right register-content input-item">
-							<div class="user-input register-username">
-							</div>
-						</div>
-						<div class="hackbox"></div>
-					</div>
-					<div class="question-option">
+					<div class="form-group">
+						<p>&copy;您经常出国旅行吗?</p>
 						<p>
 							<input type="radio" name="travel" value="1" <?php echo set_radio('travel', '1', TRUE); ?> />&nbsp;每年多次&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="travel" value="2" <?php echo set_radio('travel', '2'); ?> />&nbsp;每年至少一次&nbsp;&nbsp;&nbsp;
@@ -231,17 +196,10 @@
 							<input type="radio" name="travel" value="4" <?php echo set_radio('travel', '4'); ?> />&nbsp;没有&nbsp;&nbsp;&nbsp;
 						</p>						
 					</div>
-					<div class="hackbox"></div>
 				</div>
-				<div class="register-section">
-					<div class="register-item">
-						<span class="block-left register-label">
-							<a href="#" class="register-button">注册</a>
-						</span>
-						<div class="block-right register-content input-item register-login-tip">
-							<p>* 已有帐号，<a href="/register/login">登陆</a>&nbsp;&nbsp;<a class="hide" href="#">忘记密码？</a></p>
-						</div>
-					</div>					
+				<div class="form-group">
+							<a href="#" class="btn btn-danger">注册</a>&nbsp;&nbsp;
+							<a href="/register/login">已有帐号，登陆</a>&nbsp;&nbsp;<a class="hide" href="#">忘记密码？</a>
 				</div>
 				
 				</form>
