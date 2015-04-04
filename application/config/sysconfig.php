@@ -10,3 +10,5 @@ $config['adm_password']	=	'admin';
 $config['adm_sess_username'] = 'admUsername';
 $config['adm_sess_status']	=	'admStatus';
 $config['adm_sess_level'] = 'admLevel';
+
+$config['project_name'] = '悦食中国';

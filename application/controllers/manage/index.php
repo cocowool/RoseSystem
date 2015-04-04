@@ -7,9 +7,10 @@ class Index extends MY_Controller {
 	}
 
 	public function index(){
-
-		echo "Hello, This is manage homepage";
-
+		$data = array();
+		
+	
+		$this->load->view('manage/main', $data);
 	}
 
 }
