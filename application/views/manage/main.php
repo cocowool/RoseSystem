@@ -47,8 +47,8 @@
     		<div class="col-sm-3 col-md-2 sidebar">
 	        	<ul class="nav nav-sidebar">
 	            	<li class="active"><a href="#">概览 <span class="sr-only">(current)</span></a></li>
-	            	<li><a href="#">文章管理</a></li>
-	            	<li><a href="#">活动管理</a></li>
+	            	<li><a href="#">杂志管理</a></li>
+	            	<li><a href="#">影像管理</a></li>
 	            	<li><a href="#">会员管理</a></li>
 	          	</ul>
 	          	<ul class="nav nav-sidebar">
