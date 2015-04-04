@@ -54,11 +54,42 @@
       			<div class="ys_article">
       				<h1><?php echo $name; ?></h1>
       				<h2><?php echo $subtitle; ?></h2>
+					<p class="ys_article_author">
+						<?php 
+						if( !empty($author) && !empty($photographer) ){
+							if( $author == $photographer ){
+								$prefix = '文/图&copy;' . $author;
+							}else{
+								$prefix = '文&copy;' . $author . ' 图&copy;' . $photographer . ' ' . $others;
+							}
+						}else{
+							if( !empty($author) ){
+								$prefix = '文&copy;' . $author;
+							}
+							
+							if( !empty($photographer) ){
+								$prefix .= ' 图&copy;' . $photographer;
+							}
+	
+							$prefix .= ' ' . $others;
+						}
+						
+						echo $prefix;
+						?>
+					</p>
       				<div class="ys_article_content">
       					<?php echo $content; ?>
       				</div>
-      				<div class="ys_article_like">
-      				
+      				<div class="ys_article_stat">
+      					<p>
+      						<span>阅读：</span>2888&nbsp;&nbsp;
+      						<button type="button" class="btn btn-default btn-xs">
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢
+							</button>
+      						<button type="button" class="btn btn-default btn-xs">
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏
+							</button>
+      					</p>
       				</div>
       				<div class="share-links">
 						<!-- JiaThis Button BEGIN -->
@@ -80,7 +111,12 @@
 						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=905086" charset="utf-8"></script>
 						<!-- JiaThis Button END -->						
 					</div>
+      				<div class="ys_article_comment">
       				
+      					<div class="ys_comment_list">
+      						
+      					</div>
+      				</div>
       			</div>
 			</div>
 			<div class="col-md-2">
