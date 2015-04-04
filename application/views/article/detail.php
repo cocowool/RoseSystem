@@ -117,6 +117,9 @@
       						
       					</div>
       				</div>
+      				<div class="ys_article_related">
+      					<h3>相关文章</h3>
+      				</div>
       			</div>
 			</div>
 			<div class="col-md-2">

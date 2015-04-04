@@ -48,13 +48,17 @@ a:hover { color:#e13300; }
 .ys_form_label b { color:#e13300; margin:0 2em 0 0.2em; }
 
 .ys_breadcrum { line-height:3em; font-size:1em; }
-.ys_article { padding:0 4em; }
+.ys_article { padding:0 4em; font-size:1.17em; }
 .ys_article h1 { font-size:2em; text-align:center; }
 .ys_article .ys_article_content { line-height:180%; color:#666666; }
-.ys_article .ys_article_content p { text-indent:2em; }
-.ys_article_author { text-align:center; }
+.ys_article .ys_article_content p { text-indent:2em; font-size:1.17em; }
+.ys_article .ys_article_content strong { font-size:1.17em; }
+.ys_article .ys_article_content p em {  }
+.ys_article_author { text-align:center; font-size:1.17em; }
 .ys_article_stat { text-align:right; }
 .ys_article_comment { }
+.ys_article_related { clear:both;  margin-top:5em; border-top:1px solid #c4c4c4; }
+.ys_article_related h3 { font-size:1.5em; margin:0; padding:0; line-height:3em; }
 
 
 #YS_MENU { height:auto; padding-top:10em; position:relative; z-index:0; }
