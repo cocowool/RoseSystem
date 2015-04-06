@@ -46,10 +46,10 @@
     	<div class="row">
     		<div class="col-sm-3 col-md-2 sidebar">
 	        	<ul class="nav nav-sidebar">
-	            	<li class="active"><a href="#">概览 <span class="sr-only">(current)</span></a></li>
-	            	<li><a href="#">杂志管理</a></li>
-	            	<li><a href="#">影像管理</a></li>
-	            	<li><a href="#">会员管理</a></li>
+	            	<li class="<?php echo $this->uri->segment(2)=='main'?'active':''; ?>"><a href="#">概览 <span class="sr-only">(current)</span></a></li>
+	            	<li class="<?php echo $this->uri->segment(2)=='article'?'active':''; ?>"><a href="#">杂志管理</a></li>
+	            	<li class="<?php echo $this->uri->segment(2)=='video'?'active':''; ?>"><a href="/manage/video">影像管理</a></li>
+	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="#">会员管理</a></li>
 	          	</ul>
 	          	<ul class="nav nav-sidebar">
 	            	<li><a href="">二维码</a></li>

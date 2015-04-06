@@ -10,9 +10,6 @@
 	<link href="/templates/manage/css/main.css" rel="stylesheet" media="screen">
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-	
-	</nav>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
