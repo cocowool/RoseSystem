@@ -124,4 +124,5 @@ body {
   border-radius: 50%;
 }
 
-.rs_container { margin:0; padding:0; }
+.rs_submenu .dropdown { display:inline-block; }
+.rs_container { margin:1em 0; padding:0; }
