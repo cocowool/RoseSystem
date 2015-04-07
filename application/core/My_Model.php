@@ -39,7 +39,7 @@ class MY_Model extends CI_Model{
 	 * $condition	array( array('field'=>'', 'data' =>'', 'action'=>'' ) ) or string, 其中 action 指CI中数据库查询操作类型
 	 *
 	 **/
-	function getAll( $condition = array(), $start = 0, $pagesize = 500000, $sort = '', $direction = '' ){
+	public function getAll( $condition = array(), $start = 0, $pagesize = 500000, $sort = '', $direction = '' ){
 		if( !empty( $condition ) ){
 			if( is_string($condition) ){
 				$this->db->where("$condition");

@@ -41,4 +41,20 @@ class MY_Controller extends CI_Controller {
 		
 		return $data;
 	}
+	
+	public function generate_add_form($model, $action){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->config('sysconfig');
+		
+		$html_form = '';
+		$html_form .= form_open_multipart($action, array('id' => 'rsAddForm') );
+
+		foreach ($model->fields as $k=>$v){
+			print_r($v);
+		}
+		
+		$html_form .= form_close();
+		return $html_form;
+	}
 }
