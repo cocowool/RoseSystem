@@ -51,9 +51,15 @@ class MY_Controller extends CI_Controller {
 		$html_form .= form_open_multipart($action, array('id' => 'rsAddForm') );
 
 		foreach ($model->fields as $k=>$v){
-			print_r($v);
+			if(!isset($v['form']))	continue;
+			switch ($v['form']['type']){
+				case 'text':
+					$html_form .= '<div class="form-group">' .form_label($v['comment'], $v['name']) . form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control' ) ) . '</div>';
+					break;
+			}
 		}
 		
+		$html_form .= form_submit(array('name'=>'rsSubmit', 'id'=>'rsSubmit', 'value'=>'保存', 'class' => 'btn btn-default'));
 		$html_form .= form_close();
 		return $html_form;
 	}
