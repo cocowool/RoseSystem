@@ -15,6 +15,11 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<link rel="stylesheet" type="text/css" href="/libs/DataTables-1.10.2/css/jquery.dataTables.css">  
+	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/libs/DataTables-1.10.2/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -58,14 +63,10 @@
 	        </div>
 	        
 	        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          		<h1 class="page-header">Dashboard</h1>
-
+				<?php $this->load->view($content_view, $content_data); ?>
           	</div>
     	</div>
     </div>
     
-	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 </body>
 </html>

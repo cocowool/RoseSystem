@@ -92,7 +92,7 @@ body {
  */
 
 .main {
-  padding: 20px;
+  padding: 20px; background-color:#fff;
 }
 @media (min-width: 768px) {
   .main {
@@ -123,3 +123,6 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.rs_submenu .dropdown { display:inline-block; }
+.rs_container { margin:1em 0; padding:0;  }
