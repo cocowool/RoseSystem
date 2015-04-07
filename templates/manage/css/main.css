@@ -123,3 +123,5 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.rs_container { margin:0; padding:0; }
