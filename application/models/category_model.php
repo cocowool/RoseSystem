@@ -10,13 +10,13 @@ class Category_Model extends MY_Model {
 	protected $id	=	'id';
 	protected $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
-		array('name'=>'category', 'comment'=>'栏目名称'),
-		array('name'=>'pid', 'comment'=>'父栏目', 'options' => ''),	
+		array('name'=>'category', 'comment'=>'栏目名称', 'form'=>array('type'=>'text')),
+		array('name'=>'pid', 'comment'=>'父栏目'),	
 		array('name'=>'description', 'comment'=>'栏目描述'),	
 		array('name'=>'keywords', 'comment'=>'栏目关键词'),	
-		array('name'=>'urltag', 'comment'=>'地址标志符', 'invisible' => TRUE),	
+		array('name'=>'urltag', 'comment'=>'地址标志符'),	
 		array('name'=>'create_at', 'comment'=>'创建时间'),	
-		array('name'=>'update_at', 'comment'=>'更新时间', 'invisible' => TRUE),
+		array('name'=>'update_at', 'comment'=>'更新时间'),
 		array('name'=>'operation', 'comment'=>'操作', 'allowHTML' => TRUE),
 	);
 	

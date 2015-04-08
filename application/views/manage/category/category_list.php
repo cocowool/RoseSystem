@@ -30,22 +30,20 @@
 			<thead>
 				<tr>
 					<th></th>
-					<th>事件时间</th>
-					<th>群组名称</th>
-					<th>岗位名称</th>
-					<th>系统名称</th>
-					<th>事件概述</th>
+					<th>栏目名称</th>
+					<th>栏目描述</th>
+					<th>上级栏目</th>
+					<th>栏目排序</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th></th>
-					<th>事件时间</th>
-					<th>群组名称</th>
-					<th>岗位名称</th>
-					<th>系统名称</th>
-					<th>事件概述</th>
+					<th>栏目名称</th>
+					<th>栏目描述</th>
+					<th>上级栏目</th>
+					<th>栏目排序</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
