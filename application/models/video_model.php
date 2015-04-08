@@ -4,10 +4,10 @@ class Video_Model extends MY_Model {
 	public $table = 'r_video';
 	public $id	=	'id';
 	public $fields = array(
-			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
+			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
 			array('name'=>'v_title', 'comment'=>'视频名称', 'form'=> array('type'=>'text'), 'validation'=>array('required') ),
 			array('name'=>'v_category', 'comment'=>'视频分类'),
-			array('name'=>'v_desc', 'comment'=>'视频简介', 'form'=> array('type'=>'text')),
+			array('name'=>'v_desc', 'comment'=>'视频简介', 'form'=> array('type'=>'textarea')),
 			array('name'=>'v_thumb', 'comment'=>'视频缩略图', 'form'=> array('type'=>'text')),
 			array('name'=>'v_click', 'comment'=>'访问次数', 'form'=> array('type'=>'text')),
 			array('name'=>'v_like', 'comment'=>'喜欢次数', 'form'=> array('type'=>'text')),
