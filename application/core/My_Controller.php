@@ -56,11 +56,15 @@ class MY_Controller extends CI_Controller {
 			if(isset($v['form']['validation'])){
 				$validation = '<b>*</b>';
 			}
+			$error_class = '';
 			switch ($v['form']['type']){
 				case 'primary':
 					break;
 				case 'text':
-					$html_form .= '<div class="form-group">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control' ) ) . '</div>';
+					if(form_error($v['name'])){
+						$error_class = ' has-error';
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control' ) ) . '</div>';
 					break;
 				case 'textarea':
 					$html_form .= '<div class="form-group">' . form_label($v['comment'], $v['name']) .$validation .  form_textarea( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control' ) ) . '</div>';
