@@ -23,6 +23,11 @@ class Category extends MY_Controller {
 	 * 处理用户的Ajax请求，返回对应的结果
 	 */
 	public function serverside(){
+		$request = $this->input->post();
+		$this->load->model('category_model','c');
 		
+		$data = $this->c->dtRequest($request);
+		//可以在此处进行返回数据的自定义处理
+		echo json_encode($data);
 	}
 }

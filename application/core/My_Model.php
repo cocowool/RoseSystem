@@ -58,5 +58,33 @@ class MY_Model extends CI_Model{
 		$query = $this->db->get($this->table, $pagesize, $start);
 		return $query->result_array();
 	}	
+	
+	/**
+	 * 接收DataTable格式的Ajax请求，响应对应的数据
+	 * 
+	 * @param array $request
+	 */
+	public function dtRequest($request = array()){
+		$start = $request['start'];
+		$length = $request['length'];
+		$condition = (isset($request['condition']))?$request['condition']:'';
+
+		$sort = ''; $direction = '';
+		foreach ($request['order'] as $v){
+			if($v['column'] != 0){
+				$sort = $request['columns'][$v['column']]['name'];
+				$direction = $v['dir'];
+			}
+		}
+		
+		$data = $this->getAll($condition, $start, $length,$sort,$direction);
+		
+		return array(
+			'draw'	=>	'',
+			'recordsTotal'	=>	'',
+			'recordsFiltered'	=>	'',
+			'data'	=>	$data
+		);
+	}
 }
 	

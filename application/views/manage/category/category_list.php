@@ -7,7 +7,7 @@
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/category">分类列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">新增分类</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/category/add">新增分类</a></li>
 		</ul>
 	</div>
 	<div class="dropdown">
@@ -53,6 +53,9 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var dt = $('#rs_table').DataTable({
+		'processing': true,
+		'serverSide': true,
+		'stateSave': true,
 		'language': {
 			'paginate': {
 				'previous':'前一页',
@@ -62,7 +65,32 @@ $(document).ready(function(){
 			'lengthMenu': '每页 _MENU_ 条记录',
 			'info': '当前页为 _PAGE_ 共 _PAGES_',
 			'infoEmpty':'没有找到记录'
-		}
+		},
+		'ajax': {
+			"url":'/index.php/manage/category/serverside',
+			"type":"post",
+			"data": function(d){
+				//d.position = $('#position').val();
+			}
+		},
+		'columns':[
+		    {
+			    "class":"details-control",
+			    "orderable":false,
+			    "data":null,
+			    "defaultContent":""
+			},
+			{"data":"category"},
+			{"data":"description"},
+			{"data":"parent_category"},
+			{"data":"sort"},
+			{
+				"class":"operation-control",
+				"orderable":false,
+				"data":"operation",
+				"defaultContent":"<a href='#'>删除</a>"
+			}
+		]
 	});
 });
 </script>
