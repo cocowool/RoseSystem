@@ -74,15 +74,10 @@ $(document).ready(function(){
 			}
 		},
 		'columns':[
-		    {
-			    "class":"details-control",
-			    "orderable":false,
-			    "data":null,
-			    "defaultContent":""
-			},
+		    {"data":"id"},
 			{"data":"category"},
 			{"data":"description"},
-			{"data":"parent_category"},
+			{"data":"pid"},
 			{"data":"sort"},
 			{
 				"class":"operation-control",

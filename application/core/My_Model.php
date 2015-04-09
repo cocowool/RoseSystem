@@ -59,6 +59,23 @@ class MY_Model extends CI_Model{
 		return $query->result_array();
 	}	
 	
+	public function getTotal($condition= ''){
+		if( !empty( $condition ) ){
+			if( is_string($condition) ){
+				$this->db->where("$condition");
+			}else if( is_array($condition) ){
+				foreach ($condition as $v){
+					if( isset($v['data']) ){
+						$this->db->$v['action']($v['field'], $v['data']);
+					}
+				}
+			}
+		}
+		
+		$this->db->from($this->table);
+		return $this->db->count_all_results();
+	}
+	
 	/**
 	 * 接收DataTable格式的Ajax请求，响应对应的数据
 	 * 
@@ -77,12 +94,13 @@ class MY_Model extends CI_Model{
 			}
 		}
 		
+		$total = $this->getTotal($condition);
 		$data = $this->getAll($condition, $start, $length,$sort,$direction);
 		
 		return array(
-			'draw'	=>	'',
-			'recordsTotal'	=>	'',
-			'recordsFiltered'	=>	'',
+			'draw'	=>	$request['draw'],
+			'recordsTotal'	=>	$total,
+			'recordsFiltered'	=>	$total,
 			'data'	=>	$data
 		);
 	}
