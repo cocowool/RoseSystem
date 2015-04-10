@@ -83,7 +83,7 @@ $(document).ready(function(){
 				"class":"operation-control",
 				"orderable":false,
 				"data":"operation",
-				"defaultContent":"<a href='#'>删除</a>"
+				"defaultContent":""
 			}
 		]
 	});

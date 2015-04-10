@@ -109,5 +109,11 @@ class MY_Model extends CI_Model{
 			'data'	=>	$data
 		);
 	}
+	
+	public function insert( $data = array() ){
+		$data = $this->filterInputArray($data);
+		$this->db->insert($this->table, $data);
+		return $this->db->insert_id();
+	}
 }
 	
