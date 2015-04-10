@@ -30,7 +30,12 @@ class MY_Model extends CI_Model{
 		}
 		$query = $this->db->get($this->table);
 		
-		return $query->result_array();
+		$data = $query->result_array();
+		if(count($data) == 1){
+			return $data[0];
+		}else{
+			return $data;
+		}
 	}
 	
 	/**

@@ -28,6 +28,15 @@ class Category extends MY_Controller {
 		
 		$data = $this->c->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
+		foreach($data['data'] as $k=>$v){
+			if($v['pid'] == 0){
+				$data['data'][$k]['parent'] = '首页';
+			}else{
+				$parent = $this->c->getById($v['pid']);
+				$data['data'][$k]['parent'] = $parent['category'];
+			}
+		}
+		
 		echo json_encode($data);
 	}
 }

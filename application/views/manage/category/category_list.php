@@ -77,7 +77,7 @@ $(document).ready(function(){
 		    {"data":"id"},
 			{"data":"category"},
 			{"data":"description"},
-			{"data":"pid"},
+			{"data":"parent"},
 			{"data":"sort"},
 			{
 				"class":"operation-control",
