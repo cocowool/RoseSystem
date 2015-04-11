@@ -55,7 +55,21 @@ class Video extends MY_Controller {
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
 			
-// 			$result = $this->v->insert( $data );
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+				die('Upload Failed');
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+				$data['filename'] = $updata['upload_data']['file_name'];
+				$data['web_path'] = $updata['upload_data']['sae_full_path'];
+				$data['path'] = $updata['upload_data']['full_path'];
+			}
+			
+			// 			$result = $this->v->insert( $data );
 			$result = TRUE;
 			if( $result ){
 				$data['content_view'] = 'manage/common/redirect';
