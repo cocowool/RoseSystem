@@ -23,9 +23,14 @@ class Video extends MY_Controller {
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
 			array(
-					'field'	=>	'v_title',
-					'label'	=>	'视频名称',
-					'rules'	=>	'trim|required'
+				'field'	=>	'v_title',
+				'label'	=>	'视频名称',
+				'rules'	=>	'trim|required'
+			),
+			array(
+				'field'	=>	'v_desc',
+				'label'	=>	'视频简介',
+				'rules'	=>	'trim|required'
 			),
 		);
 		$this->load->library('form_validation');
