@@ -58,19 +58,19 @@ class Video extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 			
-			if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+			if ( ! $this->upload->do_upload( 'v_thumb' ) ){
 				$error = array('error' => $this->upload->display_errors());
 				print_r($error);
 				die('Upload Failed');
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				$data['filename'] = $updata['upload_data']['file_name'];
-				$data['web_path'] = $updata['upload_data']['sae_full_path'];
-				$data['path'] = $updata['upload_data']['full_path'];
+				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
+				$data['v_location'] = $updata['upload_data']['full_path'];
 			}
 			
-			// 			$result = $this->v->insert( $data );
-			$result = TRUE;
+			$result = $this->v->insert( $data );
 			if( $result ){
 				$data['content_view'] = 'manage/common/redirect';
 				$data['content_data']['class'] = 'bg-success';

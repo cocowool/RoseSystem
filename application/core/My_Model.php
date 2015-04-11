@@ -115,5 +115,23 @@ class MY_Model extends CI_Model{
 		$this->db->insert($this->table, $data);
 		return $this->db->insert_id();
 	}
+	
+	//根据数据表字段过滤
+	function filterInputArray($data, $xss_clean = false, $table = '' ){
+		if(empty($table)){
+			$table = $this->table;
+		}
+
+		$fields = $this->db->list_fields($table);
+		foreach($data as $k => $v){
+			if( in_array($k, $fields) == false ){
+				unset($data[$k]);
+			}else{
+				if($xss_clean == true) $data[$k] = $this->input->xss_clean($data[$k]);
+			}
+		}
+
+		return $data;
+	}
 }
 	
