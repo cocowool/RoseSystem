@@ -15,13 +15,17 @@ class Video extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 
-	public function test(){
-		$data['content_view'] = 'manage/common/redirect';
-		$data['content_data']['class'] = 'bg-success';
-		$data['content_data']['text'] = '你所提交的操作已经成功处理';
-		$data['content_data']['url'] = '';
+	/**
+	 * 处理用户的Ajax请求，返回对应的结果
+	 */
+	public function serverside(){
+		$request = $this->input->post();
+		$this->load->model('video_model','v');
 		
-		$this->load->view('manage/main', $data);
+		$data = $this->v->dtRequest($request);
+		//可以在此处进行返回数据的自定义处理
+		
+		echo json_encode($data);
 	}
 	
 	public function add(){

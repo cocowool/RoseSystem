@@ -9,22 +9,16 @@
 			<thead>
 				<tr>
 					<th></th>
-					<th>事件时间</th>
-					<th>群组名称</th>
-					<th>岗位名称</th>
-					<th>系统名称</th>
-					<th>事件概述</th>
+					<th>视频名称</th>
+					<th>视频缩略图</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th></th>
-					<th>事件时间</th>
-					<th>群组名称</th>
-					<th>岗位名称</th>
-					<th>系统名称</th>
-					<th>事件概述</th>
+					<th>视频名称</th>
+					<th>视频缩略图</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -34,6 +28,9 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var dt = $('#rs_table').DataTable({
+		'processing': true,
+		'serverSide': true,
+		'stateSave': true,
 		'language': {
 			'paginate': {
 				'previous':'前一页',
@@ -43,7 +40,25 @@ $(document).ready(function(){
 			'lengthMenu': '每页 _MENU_ 条记录',
 			'info': '当前页为 _PAGE_ 共 _PAGES_',
 			'infoEmpty':'没有找到记录'
-		}
+		},
+		'ajax': {
+			"url":'/index.php/manage/video/serverside',
+			"type":"post",
+			"data": function(d){
+				//d.position = $('#position').val();
+			}
+		},
+		'columns':[
+		    {"data":"id"},
+			{"data":"v_title"},
+			{"data":"v_thumb"},
+			{
+				"class":"operation-control",
+				"orderable":false,
+				"data":"operation",
+				"defaultContent":""
+			}
+		]		
 	});
 });
 </script>
