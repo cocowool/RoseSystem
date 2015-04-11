@@ -75,6 +75,11 @@ class MY_Controller extends CI_Controller {
 					$html_form .= form_error($v['name']) . '</div>';
 					break;
 				case 'file':
+					if(form_error($v['name'])){
+						$error_class = ' has-error';
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_upload( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']) ) );
+					$html_form .= form_error($v['name']) . '</div>';
 					break;
 			}
 		}
