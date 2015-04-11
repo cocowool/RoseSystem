@@ -54,31 +54,27 @@ class Video extends MY_Controller {
 		
 		if($this->form_validation->run() == FALSE){
 			$data = $this->v->getById($id);
-			$data['html_form'] = $this->generate_edit_form($data, $this->v, 'manage/video/add');
+			$data['html_form'] = $this->generate_edit_form($data, $this->v, 'manage/video/edit/' . $id);
 				
 			$data['content_view'] = 'manage/video/video_add';
 			$data['content_data'] = '';
 		}else{
 			$this->load->helper('date');
-			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
 				
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 				
 			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( ! $this->upload->do_upload( 'v_thumb' ) ){
-				$error = array('error' => $this->upload->display_errors());
-				print_r($error);
-				die('Upload Failed');
-			}else{
+			if ( $this->upload->do_upload( 'v_thumb' ) ){
 				$updata = array('upload_data' => $this->upload->data());
 				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
 				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
 				$data['v_location'] = $updata['upload_data']['full_path'];
 			}
+			$data[$this->v->id] = $id;
 				
-			$result = $this->v->update( $data );
+			$result = $this->v->update( $data, $id );
 			if( $result ){
 				$data['content_view'] = 'manage/common/redirect';
 				$data['content_data']['class'] = 'bg-success';
