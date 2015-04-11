@@ -42,6 +42,60 @@ class MY_Controller extends CI_Controller {
 		return $data;
 	}
 	
+	public function generate_edit_form($data,$model,$action){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->config('sysconfig');
+		
+		$html_form = '';
+		$html_form .= form_open_multipart($action, array('id' => 'rsAddForm') );
+		
+		foreach ($model->fields as $k=>$v){
+			if(!isset($v['form']))	continue;
+			$validation = '';
+			if(isset($v['form']['validation'])){
+				$validation = '<b>*</b>';
+			}
+			$error_class = '';
+			switch ($v['form']['type']){
+				case 'primary':
+					break;
+				case 'text':
+					if(form_error($v['name'])){
+						$error_class = ' has-error';
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> $data[$v['name']], 'class'=>'form-control', 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
+					$html_form .= form_error($v['name']) . '</div>';
+					break;
+				case 'textarea':
+					if(form_error($v['name'])){
+						$error_class = ' has-error';
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_textarea( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> $data[$v['name']], 'class'=>'form-control', 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
+					$html_form .= form_error($v['name']) . '</div>';
+					break;
+				case 'file':
+					if(form_error($v['name'])){
+						$error_class = ' has-error';
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_upload( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> $data[$v['name']] ) );
+					$html_form .= form_error($v['name']) . '</div>';
+					break;
+			}
+		}
+		
+		$html_form .= form_submit(array('name'=>'rsSubmit', 'id'=>'rsSubmit', 'value'=>'保存', 'class' => 'btn btn-default'));
+		$html_form .= form_close();
+		return $html_form;		
+	}
+	
+	/**
+	 * 根据用户的数据模型生成对应的表单
+	 * 
+	 * @param string $model
+	 * @param string $action
+	 * @return string
+	 */
 	public function generate_add_form($model, $action){
 		$this->load->helper('form');
 		$this->load->library('form_validation');

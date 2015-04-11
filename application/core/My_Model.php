@@ -116,6 +116,24 @@ class MY_Model extends CI_Model{
 		return $this->db->insert_id();
 	}
 	
+	public function update($data = array(), $id = '', $where = ''){
+		$data = $this->filterInputArray($data);
+		if( $where != '' ){
+			$this->db->where($where, $id);
+		}else{
+			if( isset($data[$this->id])){
+				$id = $data[$this->id];
+				unset($data[$this->id]);
+				$this->db->where($this->id, $id);
+			}else{
+				return false;
+			}
+		}
+		
+		return $this->db->update($this->table, $data);
+		//return $this->db->affected_rows();
+	}
+	
 	//根据数据表字段过滤
 	function filterInputArray($data, $xss_clean = false, $table = '' ){
 		if(empty($table)){
