@@ -15,6 +15,14 @@ class Video extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 
+	public function test(){
+		$data['content_view'] = 'manage/common/redirect';
+		$data['content_data']['class'] = 'bg-success';
+		$data['content_data']['text'] = '你所提交的操作已经成功处理';
+		$data['content_data']['url'] = '';
+		
+		$this->load->view('manage/main', $data);
+	}
 	
 	public function add(){
 		$data = array();
@@ -38,7 +46,6 @@ class Video extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
 		if($this->form_validation->run() == FALSE){
-			
 			$data['html_form'] = $this->generate_add_form($this->v, 'manage/video/add');
 			
 			$data['content_view'] = 'manage/video/video_add';
@@ -48,24 +55,19 @@ class Video extends MY_Controller {
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
 			
-			$result = $this->v->insert( $data );
+// 			$result = $this->v->insert( $data );
+			$result = TRUE;
 			if( $result ){
-				$data['title'] = "系统提示";
-				$data['url'] = base_url() . $this->home_url;
-				$data['content'] = "操作成功，正在跳转";
-				$data['timeout'] = 5;
-				$this->load->view('include/sys_msg', $data);
+				$data['content_view'] = 'manage/common/redirect';
+				$data['content_data']['class'] = 'bg-success';
+				$data['content_data']['text'] = '你所提交的操作已经成功处理';
+				$data['content_data']['url'] = 'manage/video';
 			}else{
-				$data['title'] = "系统提示";
-				$data['url'] = base_url() . $this->home_url;
-				$data['timeout'] = 5;
-				$data['content'] = "<p style='color:red; font-weight:bold;'>操作失败，请联系管理员</p>";
-				$this->load->view('include/sys_msg', $data);
+				$data['content_view'] = 'manage/common/redirect';
+				$data['content_data']['class'] = 'bg-danger';
+				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
+				$data['content_data']['url'] = 'manage/video/add';
 			}
-				
-			
-			$data['content_view'] = 'manage/video/video_add';
-			$data['content_data'] = '';
 		}
 		
 		$this->load->view('manage/main', $data);

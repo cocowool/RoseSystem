@@ -127,3 +127,4 @@ body {
 .rs_submenu .dropdown { display:inline-block; }
 .rs_container { margin:1em 0; padding:0;  }
 .form-group b { color:#f00; }
+.rs_form_result p { padding:15px; }
