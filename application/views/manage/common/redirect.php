@@ -2,7 +2,7 @@
 	<div class="rs_form_result">
 		<h1>页面跳转</h1>
 		<p class="<?php echo $content_data['class']; ?>"><?php echo $content_data['text']; ?></p>
-		<p class="text-danger">页面将在 <b id="timer">10</b> 秒之后跳转</p>
+		<p class="text-danger">页面将在 <b id="timer">3</b> 秒之后跳转</p>
 	</div>
 </div>
 <script type="text/javascript">
@@ -15,7 +15,7 @@ $(document).ready(function(){
                 $('#timer').html(count);    
                 jump(count);    
             } else {    
-                location.href="/";    
+                location.href="<?php echo $content_data['url']; ?>";    
             }    
         }, 1000);    
     }    

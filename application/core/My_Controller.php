@@ -80,6 +80,12 @@ class MY_Controller extends CI_Controller {
 					}
 					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_upload( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> $data[$v['name']] ) );
 					$html_form .= form_error($v['name']) . '</div>';
+					
+					switch ($v['form']['edit']){
+						case 'img':
+							$html_form .= '<div class="form-group"><a href="javascript:void(0);"><img src="' . $data[$v['name']] . '" height="50" /></a></div>';
+							break;
+					}
 					break;
 			}
 		}
