@@ -10,6 +10,7 @@
 				<tr>
 					<th></th>
 					<th>视频名称</th>
+					<th>视频地址</th>
 					<th>视频缩略图</th>
 					<th>操作</th>
 				</tr>
@@ -18,6 +19,7 @@
 				<tr>
 					<th></th>
 					<th>视频名称</th>
+					<th>视频地址</th>
 					<th>视频缩略图</th>
 					<th>操作</th>
 				</tr>
@@ -51,6 +53,7 @@ $(document).ready(function(){
 		'columns':[
 		    {"data":"id"},
 			{"data":"v_title"},
+			{"data":"v_youku"},
 			{"data":"v_thumb"},
 			{
 				"class":"operation-control",

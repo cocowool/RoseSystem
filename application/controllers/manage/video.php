@@ -25,6 +25,8 @@ class Video extends MY_Controller {
 		$data = $this->v->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
+			$data['data'][$k]['v_youku'] = '<a href="' . $v['v_youku'] . '">查看</a>';
+			$data['data'][$k]['v_thumb'] = '<div><img src="' . $v['v_thumb'] . '" height="50px" /></div>';
 			$data['data'][$k]['operation'] = '<a href="/manage/video/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/video/del/' . $v['id'] . '">删除</a>';
 		}
@@ -168,12 +170,12 @@ class Video extends MY_Controller {
 				$data['content_view'] = 'manage/common/redirect';
 				$data['content_data']['class'] = 'bg-success';
 				$data['content_data']['text'] = '你所提交的操作已经成功处理';
-				$data['content_data']['url'] = 'manage/video';
+				$data['content_data']['url'] = '/index.php/manage/video';
 			}else{
 				$data['content_view'] = 'manage/common/redirect';
 				$data['content_data']['class'] = 'bg-danger';
 				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
-				$data['content_data']['url'] = 'manage/video/add';
+				$data['content_data']['url'] = '/index.php/manage/video/add';
 			}
 		}
 		

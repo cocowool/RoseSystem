@@ -19,6 +19,6 @@ $(document).ready(function(){
             }    
         }, 1000);    
     }    
-    jump(10);	
+    jump(3);	
 });
 </script>
