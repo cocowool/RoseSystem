@@ -1,4 +1,4 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $lang['required'] 			= "项目 %s 必须填写.";
 $lang['isset']				= "项目 %s 不能为空.";

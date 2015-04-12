@@ -134,6 +134,21 @@ class MY_Model extends CI_Model{
 		//return $this->db->affected_rows();
 	}
 	
+	/**
+	 * 删除数据库数据
+	 * 
+	 * @param int $id
+	 * @param string $field
+	 */
+	public function delete($id, $field = ''){
+		if( empty($field) && isset($this->id) ){
+			$field = $this->id;
+		}
+		
+		$this->db->where($field, $id);
+		return $this->db->delete($this->table);
+	}
+	
 	//根据数据表字段过滤
 	function filterInputArray($data, $xss_clean = false, $table = '' ){
 		if(empty($table)){

@@ -25,10 +25,36 @@ class Video extends MY_Controller {
 		$data = $this->v->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
-			$data['data'][$k]['operation'] = '<a href="/manage/video/edit/' . $v['id'] . '">编辑</a>';
+			$data['data'][$k]['operation'] = '<a href="/manage/video/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+			$data['data'][$k]['operation'] .= '<a href="/manage/video/del/' . $v['id'] . '">删除</a>';
 		}
 		
 		echo json_encode($data);
+	}
+	
+	public function del($id = ''){
+		$this->load->model('Video_Model','v');
+		if(empty($id) && !$this->v->getById($id) ){
+			$data['content_view'] = 'manage/common/redirect';
+			$data['content_data']['class'] = 'bg-danger';
+			$data['content_data']['text'] = '您所请求的数据不存在';
+			$data['content_data']['url'] = 'manage/video';
+			$this->load->view('manage/main', $data);
+		}
+		
+		$result = $this->v->delete($id);
+		if( $result ){
+			$data['content_view'] = 'manage/common/redirect';
+			$data['content_data']['class'] = 'bg-success';
+			$data['content_data']['text'] = '你所提交的操作已经成功处理';
+			$data['content_data']['url'] = 'manage/video';
+		}else{
+			$data['content_view'] = 'manage/common/redirect';
+			$data['content_data']['class'] = 'bg-danger';
+			$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
+			$data['content_data']['url'] = 'manage/video';
+		}
+		$this->load->view('manage/main', $data);
 	}
 	
 	public function edit($id){
