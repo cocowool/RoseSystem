@@ -6,14 +6,14 @@
  * @version	$Id$
  */
 class Category_Model extends MY_Model {
-	protected $table = 'r_category';
-	protected $id	=	'id';
-	protected $fields = array(
+	public $table = 'r_category';
+	public $id	=	'id';
+	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
 		array('name'=>'category', 'comment'=>'栏目名称', 'form'=>array('type'=>'text')),
 		array('name'=>'pid', 'comment'=>'父栏目'),	
-		array('name'=>'description', 'comment'=>'栏目描述'),	
-		array('name'=>'keywords', 'comment'=>'栏目关键词'),	
+		array('name'=>'description', 'comment'=>'栏目描述', 'form'=>array('type'=>'text')),	
+		array('name'=>'keywords', 'comment'=>'栏目关键词','form'=>array('type'=>'text', 'tips'=>'填写META中的关键词')),	
 		array('name'=>'urltag', 'comment'=>'地址标志符'),	
 		array('name'=>'create_at', 'comment'=>'创建时间'),	
 		array('name'=>'update_at', 'comment'=>'更新时间'),
