@@ -11,9 +11,14 @@ class Category_Model extends MY_Model {
 	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
 		array('name'=>'category', 'comment'=>'栏目名称', 'form'=>array('type'=>'text')),
-		array('name'=>'pid', 'comment'=>'父栏目'),	
-		array('name'=>'description', 'comment'=>'栏目描述', 'form'=>array('type'=>'text')),	
-		array('name'=>'keywords', 'comment'=>'栏目关键词','form'=>array('type'=>'text', 'tips'=>'填写META中的关键词')),	
+		array('name'=>'pid', 'comment'=>'父栏目', 'form'=>array('type'=>'select', 
+				'option'=>array('type'=>'function', 'data'=>array(
+					"model"=>"category_model",
+					"name"=>"get_all_category",
+					"parameter" => 0,
+				)))),	
+		array('name'=>'description', 'comment'=>'栏目描述', 'form'=>array('type'=>'text', 'tips'=>'填写META中的描述，做SEO用')),	
+		array('name'=>'keywords', 'comment'=>'栏目关键词','form'=>array('type'=>'text', 'tips'=>'填写META中的关键词，做SEO用')),	
 		array('name'=>'urltag', 'comment'=>'地址标志符'),	
 		array('name'=>'create_at', 'comment'=>'创建时间'),	
 		array('name'=>'update_at', 'comment'=>'更新时间'),
@@ -51,7 +56,7 @@ class Category_Model extends MY_Model {
 	 */
 	public function get_all_category( $pid = 0, $level = 0 ){
 		$condition = array(
-				array('field'=>'pid', 'data' =>$pid, 'action'=>'where' ),
+			array('field'=>'pid', 'data' =>$pid, 'action'=>'where' ),
 		);
 		$result = $this->getAll($condition);
 		
