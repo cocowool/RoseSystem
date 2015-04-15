@@ -88,7 +88,7 @@ class MY_Controller extends CI_Controller {
 							$options = $v['form']['option']['data'];
 							break;
 					}
-					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_dropdown( $v['name'],  $options, set_value($data[$v['name']]), 'class="form-control"' );
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_dropdown( $v['name'],  $options, $data[$v['name']], 'class="form-control"' );
 					$html_form .= form_error($v['name']) . '</div>';
 					break;
 				case 'file':
