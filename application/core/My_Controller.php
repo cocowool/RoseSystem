@@ -88,7 +88,7 @@ class MY_Controller extends CI_Controller {
 							$options = $v['form']['option']['data'];
 							break;
 					}
-					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_dropdown( $v['name'],  $options, set_value($v['name']), 'class="form-control"' );
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_dropdown( $v['name'],  $options, set_value($data[$v['name']]), 'class="form-control"' );
 					$html_form .= form_error($v['name']) . '</div>';
 					break;
 				case 'file':
@@ -149,6 +149,23 @@ class MY_Controller extends CI_Controller {
 						$error_class = ' has-error';
 					}
 					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_textarea( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control', 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
+					$html_form .= form_error($v['name']) . '</div>';
+					break;
+				case 'select':
+					if(form_error($v['name'])){
+						$error_class = ' has-error';
+					}
+					$options = '';
+					switch ($v['form']['option']['type']){
+						case "function":
+							$this->load->model($v['form']['option']['data']['model'], 'rsD');
+							$options = @call_user_method($v['form']['option']['data']['name'], $this->rsD, $v['form']['option']['data']['parameter']);
+							break;
+						case "static":
+							$options = $v['form']['option']['data'];
+							break;
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_dropdown( $v['name'],  $options, set_value($v['name']), 'class="form-control"' );
 					$html_form .= form_error($v['name']) . '</div>';
 					break;
 				case 'file':
