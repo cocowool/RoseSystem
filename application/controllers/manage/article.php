@@ -68,4 +68,41 @@ class Article extends MY_Controller {
 			$this->redirectAction($result, $data, '/manage/article', '/manage/article/add');
 		}
 	}
+	
+	public function edit($id){
+		$data = array();
+	
+		$this->load->model('Article_Model','a');
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+						'field'	=>	'name',
+						'label'	=>	'文章名称',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'content',
+						'label'	=>	'文章内容',
+						'rules'	=>	'trim|required'
+				),
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+	
+		if($this->form_validation->run() == FALSE){
+			$data = $this->a->getById($id);
+			$data['html_form'] = $this->generate_edit_form($data, $this->a, 'manage/article/edit/' . $id);
+	
+			$data['content_view'] = 'manage/article/article_add';
+			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
+		}else{
+			$this->load->helper('date');
+			$data = $this->input->post(NULL, true);
+	
+			$result = $this->a->update( $data, $id );
+			$this->redirectAction($result, $data, '/manage/article', '/manage/article/edit'.$id);
+		}
+	}
 }
