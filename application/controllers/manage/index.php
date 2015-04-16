@@ -9,7 +9,10 @@ class Index extends MY_Controller {
 	public function index(){
 		$data = array();
 		
-	
+		$data = array();
+		
+		$data['content_view'] = '';
+		$data['content_data'] = $data;
 		$this->load->view('manage/main', $data);
 	}
 
