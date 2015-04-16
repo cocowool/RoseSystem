@@ -43,22 +43,21 @@ class Category extends MY_Controller {
 	}
 	
 	
+	public function add(){
+		
+	}
+	
 	public function edit($id){
 		$data = array();
 		
 		$this->load->model('Category_Model','c');
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
-				array(
-						'field'	=>	'v_title',
-						'label'	=>	'视频名称',
-						'rules'	=>	'trim|required'
-				),
-				array(
-						'field'	=>	'v_desc',
-						'label'	=>	'视频简介',
-						'rules'	=>	'trim|required'
-				),
+			array(
+				'field'	=>	'category',
+				'label'	=>	'分类名称',
+				'rules'	=>	'trim|required'
+			)
 		);
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules($validations);
@@ -66,7 +65,7 @@ class Category extends MY_Controller {
 		
 		if($this->form_validation->run() == FALSE){
 			$data = $this->c->getById($id);
-			$data['html_form'] = $this->generate_edit_form($data, $this->c, 'manage/video/edit/' . $id);
+			$data['html_form'] = $this->generate_edit_form($data, $this->c, 'manage/category/edit/' . $id);
 		
 			$data['content_view'] = 'manage/video/video_add';
 			$data['content_data'] = '';
@@ -78,12 +77,12 @@ class Category extends MY_Controller {
 				$data['content_view'] = 'manage/common/redirect';
 				$data['content_data']['class'] = 'bg-success';
 				$data['content_data']['text'] = '你所提交的操作已经成功处理';
-				$data['content_data']['url'] = 'manage/video';
+				$data['content_data']['url'] = '/manage/category';
 			}else{
 				$data['content_view'] = 'manage/common/redirect';
 				$data['content_data']['class'] = 'bg-danger';
 				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
-				$data['content_data']['url'] = 'manage/video/add';
+				$data['content_data']['url'] = '/manage/cagetory/edit/' . $id;
 			}
 		}
 		

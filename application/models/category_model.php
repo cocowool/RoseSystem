@@ -9,7 +9,7 @@ class Category_Model extends MY_Model {
 	public $table = 'r_category';
 	public $id	=	'id';
 	public $fields = array(
-		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
+		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=> array('type'=>'primary')),
 		array('name'=>'category', 'comment'=>'栏目名称', 'form'=>array('type'=>'text')),
 		array('name'=>'pid', 'comment'=>'父栏目', 'form'=>array('type'=>'select', 
 				'option'=>array('type'=>'function', 'data'=>array(

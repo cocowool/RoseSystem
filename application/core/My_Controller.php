@@ -59,6 +59,7 @@ class MY_Controller extends CI_Controller {
 			$error_class = '';
 			switch ($v['form']['type']){
 				case 'primary':
+					$html_form .= form_hidden($v['name'],$data[$v['name']]);
 					break;
 				case 'text':
 					if(form_error($v['name'])){
