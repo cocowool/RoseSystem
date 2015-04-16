@@ -1,5 +1,8 @@
 <div class="rs_submenu">
 	<div class="dropdown">
+		<span class="h3 rs_menu_title">文章管理</span>
+	</div>
+	<div class="dropdown">
 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
     		文章分类
     		<span class="caret"></span>

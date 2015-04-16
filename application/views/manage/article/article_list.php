@@ -1,4 +1,3 @@
-<h1>文章管理</h1>
 <?php $this->load->view('manage/article/article_submenu'); ?>
 <div class="rs_container">
 	<div class="rs_container_condition">

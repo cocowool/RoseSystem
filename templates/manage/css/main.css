@@ -124,7 +124,9 @@ body {
   border-radius: 50%;
 }
 
+.rs_submenu { border-bottom:1px solid #e5e5e5; padding:0 0 0.5em; }
 .rs_submenu .dropdown { display:inline-block; }
+.rs_menu_title { margin-right:2em; }
 .rs_container { margin:1em 0; padding:0;  }
 .form-group b { color:#f00; }
 .rs_form_result p { padding:15px; }
