@@ -31,6 +31,21 @@ class MY_Controller extends CI_Controller {
 		
 		return TRUE;
 	}
+	
+	public function redirectAction($result, $data, $url_success, $url_failure){
+		if( $result ){
+			$data['content_view'] = 'manage/common/redirect';
+			$data['content_data']['class'] = 'bg-success';
+			$data['content_data']['text'] = '你所提交的操作已经成功处理';
+			$data['content_data']['url'] = $url_success;
+		}else{
+			$data['content_view'] = 'manage/common/redirect';
+			$data['content_data']['class'] = 'bg-danger';
+			$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
+			$data['content_data']['url'] = $url_failure;
+		}
+		$this->load->view('manage/main', $data);
+	}
 
 	/**
 	 * 获取控制器中一些公共数据

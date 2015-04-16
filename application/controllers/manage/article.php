@@ -58,40 +58,14 @@ class Article extends MY_Controller {
 				
 			$data['content_view'] = 'manage/article/article_add';
 			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
 		}else{
 			$this->load->helper('date');
-			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
+			$_POST['create_at'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
-				
-			$config = $this->config->item('image_upload_config');
-			$this->load->library('upload', $config);
-				
-			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( ! $this->upload->do_upload( 'v_thumb' ) ){
-				$error = array('error' => $this->upload->display_errors());
-				print_r($error);
-				die('Upload Failed');
-			}else{
-				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
-				$data['v_location'] = $updata['upload_data']['full_path'];
-			}
-				
-			$result = $this->v->insert( $data );
-			if( $result ){
-				$data['content_view'] = 'manage/common/redirect';
-				$data['content_data']['class'] = 'bg-success';
-				$data['content_data']['text'] = '你所提交的操作已经成功处理';
-				$data['content_data']['url'] = '/index.php/manage/video';
-			}else{
-				$data['content_view'] = 'manage/common/redirect';
-				$data['content_data']['class'] = 'bg-danger';
-				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
-				$data['content_data']['url'] = '/index.php/manage/video/add';
-			}
+			$result = $this->a->insert( $data );
+			
+			$this->redirectAction($result, $data, '/manage/article', '/manage/article/add');
 		}
-		
-		$this->load->view('manage/main', $data);
 	}
 }
