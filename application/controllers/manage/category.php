@@ -44,7 +44,44 @@ class Category extends MY_Controller {
 	
 	
 	public function add(){
+		$data = array();
 		
+		$this->load->model('Category_Model','c');
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+						'field'	=>	'category',
+						'label'	=>	'分类名称',
+						'rules'	=>	'trim|required'
+				)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+		
+		if($this->form_validation->run() == FALSE){
+			$data['html_form'] = $this->generate_add_form($this->c, 'manage/category/add');
+		
+			$data['content_view'] = 'manage/video/video_add';
+			$data['content_data'] = '';
+		}else{
+			$this->load->helper('date');
+			$data = $this->input->post(NULL, true);
+			$result = $this->c->insert( $data );
+			if( $result ){
+				$data['content_view'] = 'manage/common/redirect';
+				$data['content_data']['class'] = 'bg-success';
+				$data['content_data']['text'] = '你所提交的操作已经成功处理';
+				$data['content_data']['url'] = '/manage/category';
+			}else{
+				$data['content_view'] = 'manage/common/redirect';
+				$data['content_data']['class'] = 'bg-danger';
+				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
+				$data['content_data']['url'] = '/manage/cagetory/add';
+			}
+		}
+		
+		$this->load->view('manage/main', $data);		
 	}
 	
 	public function edit($id){

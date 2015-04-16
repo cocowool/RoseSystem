@@ -61,6 +61,7 @@ class Category_Model extends MY_Model {
 		$result = $this->getAll($condition);
 		
 		$options = array();
+		$options[0] = '一级分类';
 		$prefix = '';
 		foreach ($result as $k=>$v){
 			$prefix = '';
