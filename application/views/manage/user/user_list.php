@@ -8,18 +8,22 @@
 			<thead>
 				<tr>
 					<th></th>
-					<th>视频名称</th>
-					<th>视频地址</th>
-					<th>视频缩略图</th>
+					<th>用户名</th>
+					<th>性别</th>
+					<th>居住地</th>
+					<th>电子邮件</th>
+					<th>手机</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th></th>
-					<th>视频名称</th>
-					<th>视频地址</th>
-					<th>视频缩略图</th>
+					<th>用户名</th>
+					<th>性别</th>
+					<th>居住地</th>
+					<th>电子邮件</th>
+					<th>手机</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -43,7 +47,7 @@ $(document).ready(function(){
 			'infoEmpty':'没有找到记录'
 		},
 		'ajax': {
-			"url":'/index.php/manage/video/serverside',
+			"url":'/index.php/manage/user/serverside',
 			"type":"post",
 			"data": function(d){
 				//d.position = $('#position').val();
@@ -51,9 +55,11 @@ $(document).ready(function(){
 		},
 		'columns':[
 		    {"data":"id"},
-			{"data":"v_title"},
-			{"data":"v_youku"},
-			{"data":"v_thumb"},
+			{"data":"username"},
+			{"data":"gender"},
+			{"data":"hometown"},
+			{"data":"email"},
+			{"data":"mobile"},
 			{
 				"class":"operation-control",
 				"orderable":false,
