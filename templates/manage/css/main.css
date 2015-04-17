@@ -9,6 +9,8 @@ body {
 	padding-top:50px;
 }
 
+.hide { display:none; }
+
 .rs_container_login { 
 	width: 350px;
 	height:auto;

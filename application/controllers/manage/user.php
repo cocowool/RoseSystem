@@ -26,7 +26,6 @@ class User extends MY_Controller {
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
 			$data['data'][$k]['operation'] = '<a href="/manage/user/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="/manage/user/del/' . $v['id'] . '">删除</a>';
 		}
 		
 		echo json_encode($data);

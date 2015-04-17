@@ -21,10 +21,13 @@ class Article extends MY_Controller {
 	public function serverside(){
 		$request = $this->input->post();
 		$this->load->model('article_model','a');
+		$this->load->model('category_model', 'c');
+		$category = $this->c->get_all_category(0);
 		
 		$data = $this->a->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
+			$data['data'][$k]['category'] = $category[$v['category']];
 			$data['data'][$k]['operation'] = '<a href="/manage/article/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/article/del/' . $v['id'] . '">删除</a>';
 		}

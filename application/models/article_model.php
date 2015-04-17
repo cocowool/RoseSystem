@@ -11,9 +11,13 @@ class Article_Model extends MY_Model {
 	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
 		array('name'=>'name', 'comment'=>'文章名称','form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入文章标题')),
-		array('name'=>'category', 'comment'=>'所属栏目', 'options' => ''),	
+		array('name'=>'category', 'comment'=>'所属栏目', 'form'=>array('type'=>'select', 'option'=>array('type'=>'function', 'data'=>array(
+				"model"=>"category_model",
+				"name"=>"get_all_category",
+				"parameter" => 0,
+			)))),	
 		array('name'=>'subtitle', 'comment'=>'文章副标题','form'=> array('type'=>'text', 'tips'=>'请输入文章副标题')),
-		array('name'=>'foreword', 'comment'=>'引言','form'=> array('type'=>'text', 'tips'=>'请输入文章引言')),
+		array('name'=>'foreword', 'comment'=>'引言','form'=> array('type'=>'textarea', 'tips'=>'请输入文章引言')),
 		array('name'=>'author', 'comment'=>'作者','form'=> array('type'=>'text', 'tips'=>'请输入文章作者')),	
 		array('name'=>'photographer', 'comment'=>'图片作者','form'=> array('type'=>'text', 'tips'=>'请输入图片作者')),	
 		array('name'=>'others', 'comment'=>'其它作者', 'form'=> array('type'=>'text', 'tips'=>'请输入其他作者')),	
