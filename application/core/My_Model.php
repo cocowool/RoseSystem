@@ -94,11 +94,10 @@ class MY_Model extends CI_Model{
 		$sort = ''; $direction = '';
 		foreach ($request['order'] as $v){
 			if($v['column'] != 0){
-				$sort = $request['columns'][$v['column']]['name'];
+				$sort = $request['columns'][$v['column']]['data'];
 				$direction = $v['dir'];
 			}
 		}
-		
 		$total = $this->getTotal($condition);
 		$data = $this->getAll($condition, $start, $length,$sort,$direction);
 		
