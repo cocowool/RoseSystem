@@ -11,6 +11,7 @@
 					<th>文章名称</th>
 					<th>分类</th>
 					<th>排序</th>
+					<th>图片资源</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -20,6 +21,7 @@
 					<th>文章名称</th>
 					<th>分类</th>
 					<th>排序</th>
+					<th>图片资源</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -54,6 +56,7 @@ $(document).ready(function(){
 			{"data":"name"},
 			{"data":"category"},
 			{"data":"sort"},
+			{"data":"resource"},
 			{
 				"class":"operation-control",
 				"orderable":false,
