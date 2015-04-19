@@ -14,6 +14,15 @@ class MY_Controller extends CI_Controller {
 
 	}
 
+	public function _remap( $method, $params = array() ){
+		if( method_exists($this, $method) ){
+			return call_user_func_array(array($this,$method), $params);
+		}else{
+			array_push($params, $method);
+			return call_user_func_array(array($this,'index'), $params);
+		}
+	}
+	
 	public function isBackend(){
 		if( $this->uri->segment(1) == $this->config->item('adm_segment') && $this->uri->segment(2) != $this->config->item('adm_segment_auth') ){
 			return TRUE;
