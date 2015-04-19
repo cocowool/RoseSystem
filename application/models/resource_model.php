@@ -6,9 +6,9 @@
  * @version	$Id$
  */
 class Resource_Model extends MY_Model {
-	protected $table = 'r_source';
-	protected $id	=	'id';
-	protected $fields = array(
+	public $table = 'r_source';
+	public $id	=	'id';
+	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
 		array('name'=>'aid', 'comment'=>'关联文章', 'invisible' => TRUE, 'type' => 'hidden', 'hidden' => '' ),
 		array('name'=>'description', 'comment'=>'资源描述', 'options' => ''),	
