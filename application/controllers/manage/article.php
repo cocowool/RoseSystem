@@ -28,7 +28,8 @@ class Article extends MY_Controller {
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
 			$data['data'][$k]['category'] = $category[$v['category']];
-			$data['data'][$k]['resource'] = '<a href="/manage/resource/' . $v['id'] . '">图片资源</a>';
+			$data['data'][$k]['resource'] = '<a href="/manage/resource/' . $v['id'] . '">图片资源</a>&nbsp;&nbsp;';
+			$data['data'][$k]['resource'] .= '<a href="/manage/resource/add/' . $v['id'] . '">新增图片</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] = '<a href="/manage/article/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/article/del/' . $v['id'] . '">删除</a>';
 		}

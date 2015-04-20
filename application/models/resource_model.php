@@ -11,20 +11,20 @@ class Resource_Model extends MY_Model {
 	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
 		array('name'=>'aid', 'comment'=>'关联文章', 'form'=>array('type'=>'hidden')),
+		array('name'=>'web_path', 'comment'=>'网页访问路径', 'form'=>array('type'=>'file','validation'=>'required', 'edit'=>'img')),	
 		array('name'=>'description', 'comment'=>'资源描述', 'form'=>array('type'=>'text')),	
 		array('name'=>'author', 'comment'=>'作者', 'form'=>array('type'=>'text') ),	
 		array('name'=>'sort', 'comment'=>'排序', 'form'=>array('type'=>'text')),	
 		array('name'=>'tag', 'comment'=>'标签', 'form'=>array('type'=>'text')),	
 		array('name'=>'padtop', 'comment'=>'上边距', 'form'=>array('type'=>'text')),	
 		array('name'=>'padbottom', 'comment'=>'下边距', 'form'=>array('type'=>'text')),	
-		array('name'=>'filename', 'comment'=>'文件名称', 'form'=>array('type'=>'text')),	
-		array('name'=>'web_path', 'comment'=>'网页访问路径', 'form'=>array('type'=>'text')),	
-		array('name'=>'path', 'comment'=>'保存路径', 'type' => 'file', 'invisible' => TRUE),	
-		array('name'=>'status', 'comment'=>'状态', 'invisible' => TRUE, 'options' => array('0' => '草稿', '1' => '已发布' ) ),	
-		array('name'=>'thumb', 'comment'=>'缩略图', 'allowHTML' => TRUE),
+		array('name'=>'filename', 'comment'=>'文件名称'),	
+		array('name'=>'path', 'comment'=>'保存路径'),	
+		array('name'=>'status', 'comment'=>'状态','form'=>array('type'=>'select', 'option'=>array('type'=>'static','data'=>array('0' => '草稿', '1' => '已发布'))) ),	
+		array('name'=>'thumb', 'comment'=>'缩略图'),
 		array('name'=>'create_at', 'comment'=>'创建时间'),	
-		array('name'=>'update_at', 'comment'=>'更新时间', 'invisible' => TRUE),
-		array('name'=>'operation', 'comment'=>'操作', 'allowHTML' => TRUE),
+		array('name'=>'update_at', 'comment'=>'更新时间'),
+		array('name'=>'operation', 'comment'=>'操作'),
 	);
 	
 	function __construct(){

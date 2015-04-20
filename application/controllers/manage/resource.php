@@ -50,10 +50,17 @@ class Resource extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
-	public function add(){
+	
+	public function add($id = ''){
 		$data = array();
+		if(empty($id)){
+			$data['content_data']['user_text'] = '没有指定资源归属的文章。';
+			$this->redirectAction(FALSE, $data, '/manage/resource', '/manage/resource');
+			return false;
+		}
 		
-		$this->load->model('Article_Model','a');
+		
+		$this->load->model('Resource_Model','r');
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
 				array(
@@ -72,18 +79,18 @@ class Resource extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
 		if($this->form_validation->run() == FALSE){
-			$data['html_form'] = $this->generate_add_form($this->a, 'manage/article/add');
+			$data['html_form'] = $this->generate_add_form($this->r, 'manage/resource/add');
 				
-			$data['content_view'] = 'manage/article/article_add';
+			$data['content_view'] = 'manage/resource/resource_add';
 			$data['content_data'] = '';
 			$this->load->view('manage/main', $data);
 		}else{
 			$this->load->helper('date');
 			$_POST['create_at'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
-			$result = $this->a->insert( $data );
+			$result = $this->r->insert( $data );
 			
-			$this->redirectAction($result, $data, '/manage/article', '/manage/article/add');
+			$this->redirectAction($result, $data, '/manage/resource', '/manage/resource/add');
 		}
 	}
 	
