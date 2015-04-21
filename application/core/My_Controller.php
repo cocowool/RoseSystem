@@ -142,9 +142,11 @@ class MY_Controller extends CI_Controller {
 	 * 
 	 * @param string $model
 	 * @param string $action
+	 * @param array $extra
+	 * 	array('data'=>array('key'=>'value'));
 	 * @return string
 	 */
-	public function generate_add_form($model, $action){
+	public function generate_add_form($model, $action, $extra = ''){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->config('sysconfig');
@@ -161,6 +163,14 @@ class MY_Controller extends CI_Controller {
 			$error_class = '';
 			switch ($v['form']['type']){
 				case 'primary':
+					break;
+				case 'hidden':
+					switch ($v['form']['data']['source']){
+						case 'extra':
+							
+							$html_form .= form_hidden($v['name'], $extra['data'][$v['name']]);
+							break;
+					}
 					break;
 				case 'text':
 					if(form_error($v['name'])){

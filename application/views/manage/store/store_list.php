@@ -1,4 +1,4 @@
-<?php $this->load->view('manage/article/article_submenu'); ?>
+<?php $this->load->view('manage/store/store_submenu'); ?>
 <div class="rs_container">
 	<div class="rs_container_condition">
 	
@@ -8,20 +8,16 @@
 			<thead>
 				<tr>
 					<th></th>
-					<th>图片</th>
-					<th>介绍</th>
-					<th>作者</th>
-					<th>排序</th>
+					<th>商品名称</th>
+					<th>商品缩略图</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
 					<th></th>
-					<th>图片</th>
-					<th>介绍</th>
-					<th>作者</th>
-					<th>排序</th>
+					<th>商品名称</th>
+					<th>商品缩略图</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -45,18 +41,16 @@ $(document).ready(function(){
 			'infoEmpty':'没有找到记录'
 		},
 		'ajax': {
-			"url":'/index.php/manage/resource/serverside',
+			"url":'/index.php/manage/store/serverside',
 			"type":"post",
 			"data": function(d){
-				d.aid = <?php echo $aid; ?>;
+				//d.position = $('#position').val();
 			}
 		},
 		'columns':[
 		    {"data":"id"},
-			{"data":"image"},
-			{"data":"description"},
-			{"data":"author"},
-			{"data":"sort"},
+			{"data":"s_title"},
+			{"data":"s_thumb"},
 			{
 				"class":"operation-control",
 				"orderable":false,
