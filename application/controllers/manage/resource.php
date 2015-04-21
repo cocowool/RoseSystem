@@ -7,8 +7,9 @@ class Resource extends MY_Controller {
 		parent::__construct();
 	}
 
-	public function index(){
+	public function index($id){
 		$data = array();
+		$data['aid'] = $id;
 		
 		$data['content_view'] = 'manage/resource/resource_list';
 		$data['content_data'] = $data;
@@ -21,6 +22,11 @@ class Resource extends MY_Controller {
 	public function serverside(){
 		$request = $this->input->post();
 		$this->load->model('resource_model','r');
+		
+		//处理自定义条件
+		if( isset($request['aid']) ){
+			$request['condition'][] = array('data'	=>	$request['aid'], 'field' => 'aid', 'action' => 'where'	);
+		}
 		
 		$data = $this->r->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
@@ -64,14 +70,29 @@ class Resource extends MY_Controller {
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
 				array(
-						'field'	=>	'name',
-						'label'	=>	'文章名称',
-						'rules'	=>	'trim|required'
+						'field'	=>	'web_path',
+						'label'	=>	'网页访问路径',
+						'rules'	=>	'trim'
 				),
 				array(
-						'field'	=>	'content',
-						'label'	=>	'文章内容',
-						'rules'	=>	'trim|required'
+					'field'	=>	'description',
+					'label'	=>	'资源描述',
+					'rules'	=>	'trim',				
+				),
+				array(
+					'field'	=>	'author',
+					'label'	=>	'作者',
+					'rules'	=>	'trim',				
+				),
+				array(
+					'field'	=>	'sort',
+					'label'	=>	'排序',
+					'rules'	=>	'trim',				
+				),
+				array(
+					'field'	=>	'status',
+					'label'	=>	'状态',
+					'rules'	=>	'trim',				
 				),
 		);
 		$this->load->library('form_validation');
@@ -79,8 +100,8 @@ class Resource extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
 		if($this->form_validation->run() == FALSE){
-			$extra['aid'] = $id;
-			$data['html_form'] = $this->generate_add_form($this->r, 'manage/resource/add', $extra);
+			$extra['data']['aid'] = $id;
+			$data['html_form'] = $this->generate_add_form($this->r, 'manage/resource/add/' . $id, $extra);
 				
 			$data['content_view'] = 'manage/resource/resource_add';
 			$data['content_data'] = '';
@@ -89,8 +110,25 @@ class Resource extends MY_Controller {
 			$this->load->helper('date');
 			$_POST['create_at'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
+				
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+				
+			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+			if ( ! $this->upload->do_upload( 'web_path' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/resource', '/manage/resource');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+				$data['web_path'] = 'http://yueshichina.my/temp/' . $updata['upload_data']['file_name'];
+				$data['path'] = $updata['upload_data']['full_path'];
+				$data['filename'] = $updata['upload_data']['file_name'];
+			}
+				
 			$result = $this->r->insert( $data );
-			
 			$this->redirectAction($result, $data, '/manage/resource', '/manage/resource/add');
 		}
 	}

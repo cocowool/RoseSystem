@@ -48,7 +48,7 @@ $(document).ready(function(){
 			"url":'/index.php/manage/resource/serverside',
 			"type":"post",
 			"data": function(d){
-				//d.position = $('#position').val();
+				d.aid = <?php echo $aid; ?>;
 			}
 		},
 		'columns':[
