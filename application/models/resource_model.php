@@ -10,7 +10,7 @@ class Resource_Model extends MY_Model {
 	public $id	=	'id';
 	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
-		array('name'=>'aid', 'comment'=>'关联文章', 'form'=>array('type'=>'hidden')),
+		array('name'=>'aid', 'comment'=>'关联文章', 'form'=>array('type'=>'hidden', 'data'=>array('source'=>'extra','key'=>'aid'))),
 		array('name'=>'web_path', 'comment'=>'网页访问路径', 'form'=>array('type'=>'file','validation'=>'required', 'edit'=>'img')),	
 		array('name'=>'description', 'comment'=>'资源描述', 'form'=>array('type'=>'text')),	
 		array('name'=>'author', 'comment'=>'作者', 'form'=>array('type'=>'text') ),	

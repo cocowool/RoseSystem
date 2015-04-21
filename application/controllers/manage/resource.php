@@ -79,7 +79,8 @@ class Resource extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
 		if($this->form_validation->run() == FALSE){
-			$data['html_form'] = $this->generate_add_form($this->r, 'manage/resource/add');
+			$extra['aid'] = $id;
+			$data['html_form'] = $this->generate_add_form($this->r, 'manage/resource/add', $extra);
 				
 			$data['content_view'] = 'manage/resource/resource_add';
 			$data['content_data'] = '';
