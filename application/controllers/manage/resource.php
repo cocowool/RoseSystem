@@ -33,7 +33,8 @@ class Resource extends MY_Controller {
 		foreach($data['data'] as $k=>$v){
 			$data['data'][$k]['image'] = '<a href=""><img src="' .$v['web_path'] .'" height="50px" /></a>';
 			$data['data'][$k]['operation'] = '<a href="/manage/resource/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="/manage/resource/del/' . $v['id'] . '">删除</a>';
+			$data['data'][$k]['operation'] .= '<a href="/manage/resource/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+			$data['data'][$k]['operation'] .= '<a href="javascript:void(0);">复制链接</a>';
 		}
 		
 		echo json_encode($data);
