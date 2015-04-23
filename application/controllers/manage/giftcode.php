@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Store extends MY_Controller {
+class Giftcode extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 	}
@@ -8,7 +8,7 @@ class Store extends MY_Controller {
 	public function index(){
 		$data = array();
 	
-		$data['content_view'] = 'manage/store/store_list';
+		$data['content_view'] = 'manage/giftcode/giftcode_list';
 		$data['content_data'] = $data;
 		$this->load->view('manage/main', $data);
 	}
@@ -18,12 +18,11 @@ class Store extends MY_Controller {
 	 */
 	public function serverside(){
 		$request = $this->input->post();
-		$this->load->model('store_model','s');
+		$this->load->model('giftcode_model','s');
 				
 		$data = $this->s->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
-			$data['data'][$k]['s_thumb'] = '<a href=""><img src="' .$v['s_thumb'] .'" height="50px" /></a>';
 			$data['data'][$k]['operation'] = '<a href="/manage/store/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/store/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
