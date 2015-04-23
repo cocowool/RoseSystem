@@ -23,21 +23,62 @@ class Comment extends MY_Controller {
 		$data = $this->s->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
+			$data['data'][$k]['username'] = $v['userid'];
 			$data['data'][$k]['operation'] = '<a href="/manage/comment/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
 		
 		echo json_encode($data);
 	}
 	
+	public function add(){
+		$data = array();
+	
+		$this->load->model('Comment_Model','s');
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+					'field'	=>	'cid',
+					'label'	=>	'资源ID',
+					'rules'	=>	'trim|required'
+				),
+				array(
+					'field'	=>	'ctype',
+					'label'	=>	'资源类型',
+					'rules'	=>	'trim|required'
+				),
+				array(
+					'field'	=>	'content',
+					'label'	=>	'评论内容',
+					'rules'	=>	'trim|required'
+				)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+	
+		if($this->form_validation->run() == FALSE){
+			$data['html_form'] = $this->generate_add_form($this->s, 'manage/comment/add');
+			$data['content_view'] = 'manage/comment/comment_add';
+			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
+		}else{
+			$this->load->helper('date');
+			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
+			$data = $this->input->post(NULL, true);
+				
+			$result = $this->s->insert( $data );
+			$this->redirectAction($result, $data, '/manage/comment', '/manage/comment/add');
+		}
+	}
+		
 	public function del($id = ''){
-		$this->load->model('Store_Model','s');
+		$this->load->model('Comment_Model','s');
 		if(empty($id) && !$this->s->getById($id) ){
 			$data['content_data']['text'] = '您所请求的数据不存在';
-			$this->redirectAction(FALSE, $data, '/manage/store', '/manage/store');
+			$this->redirectAction(FALSE, $data, '/manage/comment', '/manage/comment');
 		}
-		
 		$result = $this->s->delete($id);
-		$this->redirectAction($result, $data, '/manage/store', '/manage/store');
+		$this->redirectAction($result, $data, '/manage/comment', '/manage/comment');
 	}
 	
 	public function edit($id){

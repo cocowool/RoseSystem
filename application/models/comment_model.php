@@ -9,12 +9,12 @@ class Comment_Model extends MY_Model {
 				'option'=>array('type'=>'static', 'data'=>array('1'=>'杂志','2'=>'影像')))
 			),
 			array('name'=>'cid', 'comment'=>'资源ID', 'form'=>array('type'=>'text')),
-			array('name'=>'userid', 'comment'=>'用户ID', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入商品的名称')),
-			array('name'=>'content', 'comment'=>'评论内容', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入商品的简介')),
-			array('name'=>'userip', 'comment'=>'用户IP', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入商品的简介')),
-			array('name'=>'ua', 'comment'=>'UserAgent', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img') ),	//存储WEB访问调用地址
+			array('name'=>'userid', 'comment'=>'用户ID', 'form'=> array('type'=>'text', 'validation'=>'required')),
+			array('name'=>'content', 'comment'=>'评论内容', 'form'=> array('type'=>'textarea', 'validation'=>'required')),
+			array('name'=>'userip', 'comment'=>'用户IP', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入商品的简介')),
+			array('name'=>'ua', 'comment'=>'UserAgent', 'form'=> array('type'=>'text', 'validation'=>'required', 'edit'=>'img') ),	//存储WEB访问调用地址
 			array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 
-				'option'=>array('type'=>'static', 'data'=>array('0'=>'草稿','1'=>'已删除')))
+				'option'=>array('type'=>'static', 'data'=>array('0'=>'正常','1'=>'已删除')))
 			),
 			array('name'=>'insert_time', 'comment'=>'创建时间'),
 			array('name'=>'update_time', 'comment'=>'更新时间'),
