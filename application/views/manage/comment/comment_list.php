@@ -45,6 +45,7 @@ $(document).ready(function(){
 			"type":"post",
 			"data": function(d){
 				//d.position = $('#position').val();
+				<?php echo $request_data; ?>
 			}
 		},
 		'columns':[

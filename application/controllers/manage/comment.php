@@ -5,8 +5,21 @@ class Comment extends MY_Controller {
 		parent::__construct();
 	}
 	
-	public function index(){
+	public function index( $type = ''){
 		$data = array();
+		$data['ctype'] = $type;
+		switch ($type){
+			case "article":
+				$request_data = "d.ctype = 1;";
+				break;
+			case "video":
+				$request_data = "d.ctype = 2;";
+				break;
+			default:
+				$request_data = "";
+				break;
+		}
+		$data['request_data'] = $request_data;
 	
 		$data['content_view'] = 'manage/comment/comment_list';
 		$data['content_data'] = $data;
@@ -19,7 +32,12 @@ class Comment extends MY_Controller {
 	public function serverside(){
 		$request = $this->input->post();
 		$this->load->model('comment_model','s');
-				
+		
+		//处理自定义条件
+		if( isset($request['ctype']) ){
+			$request['condition'][] = array('data'	=>	$request['ctype'], 'field' => 'ctype', 'action' => 'where'	);
+		}
+		
 		$data = $this->s->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
