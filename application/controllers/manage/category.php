@@ -69,6 +69,7 @@ class Category extends MY_Controller {
 			$data['category_type'] = $ctype;
 			//增加个隐藏字段
 			$this->c->setField( array(array('name'=>'ctype', 'comment'=>'分类', 'form'=> array('type'=>'hidden','data'=>array('source'=>'static','value'=> $ctype))) ));
+			$this->c->setFieldParameter('pid', array(0,0,$ctype));
 			$data['html_form'] = $this->generate_add_form($this->c, 'manage/category/add/' . $ctype );
 		
 			$data['content_view'] = 'manage/category/category_add';

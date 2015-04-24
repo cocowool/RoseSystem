@@ -107,7 +107,7 @@ class MY_Controller extends CI_Controller {
 					switch ($v['form']['option']['type']){
 						case "function":
 							$this->load->model($v['form']['option']['data']['model'], 'rsD');
-							$options = @call_user_method($v['form']['option']['data']['name'], $this->rsD, $v['form']['option']['data']['parameter']);
+							$options = @call_user_method_array($v['form']['option']['data']['name'], $this->rsD, $v['form']['option']['data']['parameter']);
 							break;
 						case "static":
 							$options = $v['form']['option']['data'];
@@ -196,7 +196,7 @@ class MY_Controller extends CI_Controller {
 					switch ($v['form']['option']['type']){
 						case "function":
 							$this->load->model($v['form']['option']['data']['model'], 'rsD');
-							$options = @call_user_method($v['form']['option']['data']['name'], $this->rsD, $v['form']['option']['data']['parameter']);
+							$options = @call_user_method_array($v['form']['option']['data']['name'], $this->rsD, $v['form']['option']['data']['parameter']);
 							break;
 						case "static":
 							$options = $v['form']['option']['data'];

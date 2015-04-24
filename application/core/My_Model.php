@@ -10,6 +10,16 @@ class MY_Model extends CI_Model{
 		$this->fields = array_merge($this->fields, $field);
 	}
 	
+	public function setFieldParameter($name, $parameters){
+		foreach ($this->fields as $k=>$v){
+			if($name == $v['name']){
+				$v['form']['option']['data']['parameter'] = $parameters;
+				$this->fields[$k] = $v;
+				return TRUE;
+			}
+		}
+	}
+	
 	/**
 	 * 根据ID取值，默认根据ID取
 	 * 
