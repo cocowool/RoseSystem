@@ -8,10 +8,11 @@ class Category extends MY_Controller {
 	
 	/**
 	 * 显示指定类别的分类菜单
+	 * 菜单分类，1为杂志，2为影像
 	 * 
 	 * @param string $type
 	 */
-	public function index($type=''){
+	public function index($type='1'){
 
 		$data['category_type'] = $type;
 		$data['content_view'] = 'manage/category/category_list';
@@ -25,6 +26,11 @@ class Category extends MY_Controller {
 	public function serverside(){
 		$request = $this->input->post();
 		$this->load->model('category_model','c');
+		
+		//处理自定义条件
+		if( isset($request['ctype']) ){
+			$request['condition'][] = array('data'	=>	$request['ctype'], 'field' => 'ctype', 'action' => 'where'	);
+		}
 		
 		$data = $this->c->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理

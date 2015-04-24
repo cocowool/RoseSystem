@@ -1,5 +1,15 @@
-<h1>视频管理</h1>
-<?php $this->load->view('manage/video/video_submenu'); ?>
+<?php 
+switch($category_type){
+	case 1:
+	default:
+		$this->load->view('manage/article/article_submenu'); 
+		break;
+	case 2:
+		$this->load->view('manage/video/video_submenu'); 
+		break;
+}
+
+?>
 <div class="rs_container">
 	<div class="rs_container_condition">
 	
@@ -49,7 +59,7 @@ $(document).ready(function(){
 			"url":'/index.php/manage/category/serverside',
 			"type":"post",
 			"data": function(d){
-				//d.position = $('#position').val();
+				d.ctype = <?php echo $category_type; ?>;
 			}
 		},
 		'columns':[
