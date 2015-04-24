@@ -15,11 +15,37 @@ class Giftcode extends MY_Controller {
 	
 	/**
 	 * 处理用户的Ajax请求，返回对应的结果
+	 * source区分用户获取的信息
+	 * 1	礼券信息
+	 * 2	订单信息
+	 * 3	订货地址信息
 	 */
 	public function serverside(){
 		$request = $this->input->post();
-		$this->load->model('giftcode_model','s');
 				
+		if(!isset($request['source'])){
+			$data = array();
+			echo json_encode($data);
+			return FALSE;
+		}
+		$source = $request['source'];
+		switch ($source){
+			case 1:
+			default:
+				$data = $this->getGiftcodeList($request);
+				break;
+			case 2:
+				$data = $this->getOrderList($request);
+				break;
+		}
+		
+		echo json_encode($data);
+	}
+	
+	private function getOrderList($request){
+		$this->load->model('giftcode_model','s');
+		$this->load->model('order_model','o');
+		$this->load->model('address_model','a');
 		$data = $this->s->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
@@ -27,7 +53,27 @@ class Giftcode extends MY_Controller {
 			$data['data'][$k]['operation'] .= '<a href="/manage/store/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
 		
-		echo json_encode($data);
+		return $data;
+	}
+	
+	private function getGiftcodeList($request){
+		$this->load->model('giftcode_model','s');
+		$data = $this->s->dtRequest($request);
+		//可以在此处进行返回数据的自定义处理
+		foreach($data['data'] as $k=>$v){
+			$data['data'][$k]['operation'] = '<a href="/manage/store/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+			$data['data'][$k]['operation'] .= '<a href="/manage/store/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+		}
+		
+		return $data;
+	}
+	
+	public function order(){
+		$data = array();
+		
+		$data['content_view'] = 'manage/giftcode/order_list';
+		$data['content_data'] = $data;
+		$this->load->view('manage/main', $data);		
 	}
 	
 	public function add(){
