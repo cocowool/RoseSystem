@@ -74,24 +74,14 @@ class Category extends MY_Controller {
 		
 			$data['content_view'] = 'manage/category/category_add';
 			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);		
 		}else{
 			$this->load->helper('date');
 			$data = $this->input->post(NULL, true);
 			$result = $this->c->insert( $data );
-			if( $result ){
-				$data['content_view'] = 'manage/common/redirect';
-				$data['content_data']['class'] = 'bg-success';
-				$data['content_data']['text'] = '你所提交的操作已经成功处理';
-				$data['content_data']['url'] = '/manage/category';
-			}else{
-				$data['content_view'] = 'manage/common/redirect';
-				$data['content_data']['class'] = 'bg-danger';
-				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
-				$data['content_data']['url'] = '/manage/cagetory/add';
-			}
+			$this->redirectAction($result, $data, '/manage/category/'.$ctype, '/manage/category/add/'.$ctype);
 		}
 		
-		$this->load->view('manage/main', $data);		
 	}
 	
 	public function edit($id){
