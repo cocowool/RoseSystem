@@ -121,7 +121,6 @@ class Video extends MY_Controller {
 	
 	public function add(){
 		$data = array();
-		
 		$this->load->model('Video_Model','v');
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
@@ -145,6 +144,7 @@ class Video extends MY_Controller {
 			
 			$data['content_view'] = 'manage/video/video_add';
 			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
 		}else{
 			$this->load->helper('date');
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
@@ -179,6 +179,5 @@ class Video extends MY_Controller {
 			}
 		}
 		
-		$this->load->view('manage/main', $data);
 	}
 }

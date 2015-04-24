@@ -54,8 +54,9 @@ class Category_Model extends MY_Model {
 	/**
 	 * 获取所有栏目列表
 	 */
-	public function get_all_category( $pid = 0, $level = 0 ){
+	public function get_all_category( $pid = 0, $level = 0, $ctype = 1 ){
 		$condition = array(
+			array('field'=>'ctype', 'data' =>$ctype, 'action'=>'where' ),
 			array('field'=>'pid', 'data' =>$pid, 'action'=>'where' ),
 		);
 		$result = $this->getAll($condition);

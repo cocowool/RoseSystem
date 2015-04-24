@@ -14,7 +14,7 @@ class Video_Model extends MY_Model {
 			array('name'=>'v_click', 'comment'=>'访问次数', 'form'=> array('type'=>'text')),
 			array('name'=>'v_like', 'comment'=>'喜欢次数', 'form'=> array('type'=>'text')),
 			array('name'=>'v_fav', 'comment'=>'收藏次数', 'form'=> array('type'=>'text')),
-			array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 'options'=>array('0'=>'草稿','1'=>'已发布')), 'invisible' => TRUE),
+			array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 'option'=>array('type'=>'static', 'data'=>array('0'=>'草稿','1'=>'已发布') )), 'invisible' => TRUE),
 			array('name'=>'insert_time', 'comment'=>'创建时间'),
 			array('name'=>'update_time', 'comment'=>'更新时间'),
 			array('name'=>'operation', 'comment'=>'操作'),
