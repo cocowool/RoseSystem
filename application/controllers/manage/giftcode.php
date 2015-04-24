@@ -43,14 +43,20 @@ class Giftcode extends MY_Controller {
 	}
 	
 	private function getOrderList($request){
-		$this->load->model('giftcode_model','s');
+		$this->load->model('giftcode_model','g');
 		$this->load->model('order_model','o');
 		$this->load->model('address_model','a');
-		$data = $this->s->dtRequest($request);
+		$data = $this->o->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
-			$data['data'][$k]['operation'] = '<a href="/manage/store/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="/manage/store/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+			$address = $this->a->getById($v['shopaddress']);
+			$giftcode = $this->g->getById($v['payment']);
+			$data['data'][$k]['serialnumber'] = isset($giftcode['serialnumber'])?$giftcode['serialnumber']:'';
+			$data['data'][$k]['password'] = isset($giftcode['password'])?$giftcode['password']:'';
+			$data['data'][$k]['cnname'] = $address['cnname'];
+			
+			$data['data'][$k]['operation'] = '<a href="/manage/giftcode/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+// 			$data['data'][$k]['operation'] .= '<a href="/manage/giftcode/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
 		
 		return $data;
@@ -61,11 +67,16 @@ class Giftcode extends MY_Controller {
 		$data = $this->s->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
-			$data['data'][$k]['operation'] = '<a href="/manage/store/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="/manage/store/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+// 			$data['data'][$k]['operation'] = '<a href="/manage/giftcode/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+// 			$data['data'][$k]['operation'] .= '<a href="/manage/giftcode/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
 		
 		return $data;
+	}
+	
+	
+	public function export(){
+		
 	}
 	
 	public function order(){

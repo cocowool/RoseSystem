@@ -51,14 +51,14 @@
     	<div class="row">
     		<div class="col-sm-3 col-md-2 sidebar">
 	        	<ul class="nav nav-sidebar">
-	            	<li class="<?php echo $this->uri->segment(2)=='main'?'active':''; ?>"><a href="#">概览 <span class="sr-only">(current)</span></a></li>
+	            	<li class="<?php echo $this->uri->segment(2)=='main'?'active':''; ?> hide"><a href="#">概览 <span class="sr-only">(current)</span></a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='article'?'active':''; ?>"><a href="/manage/article">杂志管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='video'?'active':''; ?>"><a href="/manage/video">影像管理</a></li>
-	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="/manage/store">店铺-悦食家</a></li>
-	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="/manage/chef">厨艺学校</a></li>
-	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="/manage/giftcode">礼券管理</a></li>
-	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="/manage/comment">评论管理</a></li>
-	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="/manage/user">会员管理</a></li>
+	            	<li class="<?php echo $this->uri->segment(1)=='store'?'active':''; ?>"><a href="/manage/store">店铺-悦食家</a></li>
+	            	<li class="<?php echo $this->uri->segment(1)=='chef'?'active':''; ?>"><a href="/manage/chef">厨艺学校</a></li>
+	            	<li class="<?php echo $this->uri->segment(1)=='giftcode'?'active':''; ?>"><a href="/manage/giftcode">礼券管理</a></li>
+	            	<li class="<?php echo $this->uri->segment(1)=='comment'?'active':''; ?>"><a href="/manage/comment">评论管理</a></li>
+	            	<li class="<?php echo $this->uri->segment(1)=='user'?'active':''; ?>"><a href="/manage/user">会员管理</a></li>
 	          	</ul>
 	          	<ul class="nav nav-sidebar">
 	            	<li class="<?php echo $this->uri->segment(1)=='member'?'active':''; ?>"><a href="/manage/barcode">二维码</a></li>
