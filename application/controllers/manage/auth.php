@@ -7,9 +7,11 @@ class Auth extends MY_Controller {
 
 	public function index(){
 		$data = array();
+		isset($_SERVER['HTTP_REFERER'])?$data['HTTP_REFERER'] = $_SERVER['HTTP_REFERER']:'';
 
 		$username = $this->input->post('username', TRUE);
 		$password = $this->input->post('password', TRUE);
+		$referer = $this->input->post('referer', TRUE);
 		
 		if( !$username || !$password ){
 			$this->load->view('manage/login', $data);
@@ -19,7 +21,12 @@ class Auth extends MY_Controller {
 				$this->session->set_userdata($this->config->item('adm_sess_status'), 1);
 				$this->session->set_userdata($this->config->item('adm_sess_level'), 9999);
 			
-				redirect( $this->config->item('adm_segment') );
+				if(!empty($referer)){
+					$url = $referer;
+				}else{
+					$url = $this->config->item('adm_segment');
+				}
+				redirect( $url );
 				return TRUE;
 			}else{
 				$this->load->model('User_model', 'u');
@@ -29,7 +36,12 @@ class Auth extends MY_Controller {
 					$this->session->set_userdata('admId', $userinfo['id']);
 					$this->session->set_userdata('adminLogin', 2);
 			
-					redirect($this->config->item('adm_segment') . '/main');
+					if(!empty($referer)){
+						$url = $this->input->post('referer');
+					}else{
+						$url = $this->config->item('adm_segment' . '/main');
+					}
+					redirect( $url );
 					return TRUE;
 				}else 
 					
