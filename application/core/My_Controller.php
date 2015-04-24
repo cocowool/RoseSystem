@@ -166,8 +166,10 @@ class MY_Controller extends CI_Controller {
 					break;
 				case 'hidden':
 					switch ($v['form']['data']['source']){
+						case 'static':
+							$html_form .= form_hidden($v['name'], $v['form']['data']['value']);
+							break;
 						case 'extra':
-							
 							$html_form .= form_hidden($v['name'], $extra['data'][$v['name']]);
 							break;
 					}

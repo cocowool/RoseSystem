@@ -6,6 +6,10 @@ class MY_Model extends CI_Model{
 		parent::__construct();
 	}
 	
+	public function setField( $field ){
+		$this->fields = array_merge($this->fields, $field);
+	}
+	
 	/**
 	 * 根据ID取值，默认根据ID取
 	 * 

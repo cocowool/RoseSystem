@@ -10,8 +10,8 @@ class Category_Model extends MY_Model {
 	public $id	=	'id';
 	public $fields = array(
 		array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=> array('type'=>'primary')),
-		array('name'=>'category', 'comment'=>'栏目名称', 'form'=>array('type'=>'text')),
-		array('name'=>'pid', 'comment'=>'父栏目', 'form'=>array('type'=>'select', 
+		array('name'=>'category', 'comment'=>'栏目名称', 'form'=>array('type'=>'text','validation'=>'required','tips'=>'请填写分类栏目名称')),
+		array('name'=>'pid', 'comment'=>'父栏目', 'form'=>array('type'=>'select', 'validation'=>'required',
 				'option'=>array('type'=>'function', 'data'=>array(
 					"model"=>"category_model",
 					"name"=>"get_all_category",

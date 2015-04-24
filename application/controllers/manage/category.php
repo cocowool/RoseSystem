@@ -49,24 +49,26 @@ class Category extends MY_Controller {
 	}
 	
 	
-	public function add(){
+	public function add($ctype = 1){
 		$data = array();
 		
 		$this->load->model('Category_Model','c');
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
-				array(
-						'field'	=>	'category',
-						'label'	=>	'分类名称',
-						'rules'	=>	'trim|required'
-				)
+			array(
+				'field'	=>	'category',
+				'label'	=>	'分类名称',
+				'rules'	=>	'trim|required'
+			)
 		);
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules($validations);
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
 		if($this->form_validation->run() == FALSE){
-			$data['html_form'] = $this->generate_add_form($this->c, 'manage/category/add');
+			//增加个隐藏字段
+			$this->c->setField( array(array('name'=>'ctype', 'comment'=>'分类', 'form'=> array('type'=>'hidden','data'=>array('source'=>'static','value'=> $ctype))) ));
+			$data['html_form'] = $this->generate_add_form($this->c, 'manage/category/add/' . $ctype );
 		
 			$data['content_view'] = 'manage/video/video_add';
 			$data['content_data'] = '';
