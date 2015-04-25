@@ -6,7 +6,11 @@ class Video_Model extends MY_Model {
 	public $fields = array(
 			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
 			array('name'=>'v_title', 'comment'=>'视频名称', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入视频的名称')),
-			array('name'=>'v_category', 'comment'=>'视频分类'),
+			array('name'=>'v_category', 'comment'=>'视频分类','form'=>array('type'=>'select','option'=>array('type'=>'function', 'data'=>array(
+				"model"=>"category_model",
+				"name"=>"get_all_category",
+				"parameter" => 0,
+			)))),
 			array('name'=>'v_desc', 'comment'=>'视频简介', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入视频简介')),
 			array('name'=>'v_youku', 'comment'=>'优酷链接', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入优酷链接')),
 			array('name'=>'v_thumb', 'comment'=>'视频缩略图', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img') ),	//存储WEB访问调用地址

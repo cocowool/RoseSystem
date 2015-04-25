@@ -82,6 +82,7 @@ class Video extends MY_Controller {
 		
 		if($this->form_validation->run() == FALSE){
 			$data = $this->v->getById($id);
+			$this->v->setFieldParameter('v_category', array(0,0,2));
 			$data['html_form'] = $this->generate_edit_form($data, $this->v, 'manage/video/edit/' . $id);
 				
 			$data['content_view'] = 'manage/video/video_add';
@@ -140,6 +141,7 @@ class Video extends MY_Controller {
 		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
 		if($this->form_validation->run() == FALSE){
+			$this->v->setFieldParameter('v_category', array(0,0,2));
 			$data['html_form'] = $this->generate_add_form($this->v, 'manage/video/add');
 			
 			$data['content_view'] = 'manage/video/video_add';
