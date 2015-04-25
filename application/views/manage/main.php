@@ -51,7 +51,7 @@
     	<div class="row">
     		<div class="col-sm-3 col-md-2 sidebar">
 	        	<ul class="nav nav-sidebar">
-	            	<li class="<?php echo $this->uri->segment(2)=='main'?'active':''; ?> hide"><a href="#">概览 <span class="sr-only">(current)</span></a></li>
+	            	<li class="<?php echo ($this->uri->segment(2)=='index' or $this->uri->segment(2)=='' )?'active':''; ?>"><a href="/manage">首页管理 <span class="sr-only">(current)</span></a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='article'?'active':''; ?>"><a href="/manage/article">杂志管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='video'?'active':''; ?>"><a href="/manage/video">影像管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='store'?'active':''; ?>"><a href="/manage/store">店铺-悦食家</a></li>
