@@ -8,8 +8,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/index/focus">焦点图列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/giftcode/generate">新增焦点图</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/focus">焦点图列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/focus/add">新增焦点图</a></li>
 		</ul>
 	</div>
 	<div class="dropdown">
