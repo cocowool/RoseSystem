@@ -50,7 +50,7 @@ class Giftcode extends MY_Controller {
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
 			$address = $this->a->getById($v['shopaddress']);
-			$giftcode = $this->g->getById($v['payment']);
+			$giftcode = $this->g->getById($v['payment'],'serialnumber');
 			$data['data'][$k]['serialnumber'] = isset($giftcode['serialnumber'])?$giftcode['serialnumber']:'';
 			$data['data'][$k]['password'] = isset($giftcode['password'])?$giftcode['password']:'';
 			$data['data'][$k]['cnname'] = $address['cnname'];
