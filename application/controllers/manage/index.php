@@ -20,10 +20,10 @@ class Index extends MY_Controller {
 				$this->addTop();
 				break;
 			case "edit":
-				$this->editData($id);
+				$this->editData('top', $id);
 				break;
 			case "del":
-				$this->delData($id);
+				$this->delData('top', $id);
 				break;
 			default:
 				$data['content_view'] = 'manage/index/top_list';
@@ -34,11 +34,17 @@ class Index extends MY_Controller {
 	}
 	
 	
-	public function focus($action = ''){
+	public function focus($action = '', $id=''){
 		$data = array();
 		switch ($action){
 			case "add":
 				$this->addFocus();
+				break;
+			case "edit":
+				$this->editData('focus', $id);
+				break;
+			case "del":
+				$this->delData('focus', $id);
 				break;
 			default:
 				$data['content_view'] = 'manage/index/focus_list';
@@ -195,4 +201,82 @@ class Index extends MY_Controller {
 		}
 		echo json_encode($data);
 	}
+
+	private function editData($action, $id){
+		$data = array();
+		switch ($action){
+			case "focus":
+				$this->load->model('Focus_Model','s');
+				break;
+			case "top":
+				$this->load->model('Top_Model','s');
+				break;
+		}
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+						'field'	=>	'f_title',
+						'label'	=>	'名称',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_desc',
+						'label'	=>	'简介',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_link',
+						'label'	=>	'链接',
+						'rules'	=>	'trim|required'
+				)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+	
+		if($this->form_validation->run() == FALSE){
+			$data = $this->s->getById($id);
+			$data['html_form'] = $this->generate_edit_form($data, $this->s, 'manage/index/'.$action.'/edit/' . $id);
+			$data['content_view'] = 'manage/index/focus_add';
+			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
+		}else{
+			$this->load->helper('date');
+			$data = $this->input->post(NULL, true);
+	
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+	
+			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+			if ( $this->upload->do_upload( 'f_img' ) ){
+				$updata = array('upload_data' => $this->upload->data());
+				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_location'] = $updata['upload_data']['full_path'];
+			}
+	
+			$result = $this->s->update( $data, $data['id'] );
+			$this->redirectAction($result, $data, '/manage/index/'.$action, '/manage/index/'.$action.'/edit/'.$data['id']);
+		}
+	
+	}
+	
+	public function delData($action, $id = ''){
+		$data = array();
+		switch ($action){
+			case "focus":
+				$this->load->model('Focus_Model','s');
+				break;
+			case "top":
+				$this->load->model('Top_Model','s');
+				break;
+		}
+		if(empty($id) && !$this->s->getById($id) ){
+			$data['content_data']['text'] = '您所请求的数据不存在';
+			$this->redirectAction(FALSE, $data, '/manage/index/'.$action, '/manage/index/'.$action);
+		}
+	
+		$result = $this->s->delete($id);
+		$this->redirectAction($result, $data,  '/manage/index/'.$action, '/manage/index/'.$action);
+	}	
 }
