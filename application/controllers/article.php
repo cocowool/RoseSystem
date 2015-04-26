@@ -6,6 +6,10 @@ class Article extends My_Controller {
 		parent::__construct();
 	}
 
+	public function index(){
+		
+	}
+	
 	/**
 	 * 文章详情页
 	 * 

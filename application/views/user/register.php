@@ -198,8 +198,8 @@
 					</div>
 				</div>
 				<div class="form-group">
-							<a href="#" class="btn btn-danger">注册</a>&nbsp;&nbsp;
-							<a href="/user/login">已有帐号，登陆</a>&nbsp;&nbsp;<a class="hide" href="#">忘记密码？</a>
+					<a href="#" class="btn btn-danger">注册</a>&nbsp;&nbsp;
+					<a href="/user/login">已有帐号，登陆</a>&nbsp;&nbsp;<a class="hide" href="#">忘记密码？</a>
 				</div>
 				
 				</form>
