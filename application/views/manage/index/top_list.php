@@ -43,7 +43,7 @@ $(document).ready(function(){
 			'infoEmpty':'没有找到记录'
 		},
 		'ajax': {
-			"url":'/index.php/manage/index/serverside/focus',
+			"url":'/index.php/manage/index/serverside/top',
 			"type":"post",
 			"data": function(d){
 				//d.position = $('#position').val();
