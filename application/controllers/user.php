@@ -122,4 +122,62 @@ class User extends My_Controller {
 			}
 		}
 	}
+
+
+	public function success(){
+		$data['status'] = '注册成功，欢迎加入悦食会。前往 <a href="/">首页</a>';
+		$data['errmsg'] = '';
+		$this->load->view('user/register_result', $data);
+	}
+	
+	public function failure(){
+		$data['status'] = '注册失败';
+		$data['errmsg'] = '具体原因，请咨询网站管理员';
+		$this->load->view('user/register_result', $data);
+	}
+
+	public function login( $eventid = '' ){
+		$this->load->model('User_Model', 'u');
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		
+		$config = array(
+				array(
+						'field'	=>	'username',
+						'label'	=>	'用户名称',
+						'rules'	=>	'trim|required|min_length[3]|max_length[12]|xss_clean'
+				),
+				array(
+						'field'	=>	'password',
+						'label'	=>	'用户密码',
+						'rules'	=>	'trime|required',
+				),
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($config);
+	
+		if($this->form_validation->run() == FALSE){
+			$data['eventid'] = $eventid;
+			$this->load->view('user/login', $data);
+		}else{
+			$username = $this->input->post('username', TRUE);
+			$password = $this->input->post('password', TRUE);
+			$eventid = $this->input->post('eventid', TRUE);
+	
+			$userinfo = $this->u->getById($username, 'username');
+			if( $userinfo && $userinfo['password'] == $password ){
+				$this->session->set_userdata('gUsername', $username);
+				$this->session->set_userdata('gUserid', $userinfo['id']);
+	
+				if( !empty($eventid) ){
+					redirect('/events/register/' . $eventid . '/' . $userinfo['id'] );
+				}else{
+					redirect('/');
+				}
+				return TRUE;
+			}
+				
+			return FALSE;
+		}
+	}	
 }
