@@ -7,7 +7,11 @@ class Article extends My_Controller {
 	}
 
 	public function index(){
+		$data = array();
+		$this->load->model('Article_Model', 'a');
+		$this->load->model('Resource_Model', 'r');
 		
+		$this->load->view('article/list', $data);
 	}
 	
 	/**
