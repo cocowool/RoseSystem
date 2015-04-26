@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Store_Model extends MY_Model {
-	public $table = 'r_store';
+class Focus_Model extends MY_Model {
+	public $table = 'r_focus';
 	public $id	=	'id';
 	public $fields = array(
 			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),

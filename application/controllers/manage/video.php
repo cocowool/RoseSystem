@@ -168,18 +168,7 @@ class Video extends MY_Controller {
 			}
 			
 			$result = $this->v->insert( $data );
-			if( $result ){
-				$data['content_view'] = 'manage/common/redirect';
-				$data['content_data']['class'] = 'bg-success';
-				$data['content_data']['text'] = '你所提交的操作已经成功处理';
-				$data['content_data']['url'] = '/index.php/manage/video';
-			}else{
-				$data['content_view'] = 'manage/common/redirect';
-				$data['content_data']['class'] = 'bg-danger';
-				$data['content_data']['text'] = '后台没能正确处理您的请求，我们将带您引导至其他页面';
-				$data['content_data']['url'] = '/index.php/manage/video/add';
-			}
+			$this->redirectAction($result, $data, '/manage/video', '/manage/video/add');
 		}
-		
 	}
 }
