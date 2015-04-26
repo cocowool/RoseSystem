@@ -8,8 +8,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/focus">焦点图列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/focus/add">新增焦点图</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/index/focus">焦点图列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/index/focus/add">新增焦点图</a></li>
 		</ul>
 	</div>
 	<div class="dropdown">
@@ -18,8 +18,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/giftcode/order">文章列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/giftcode/orderexport">新增文章</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/index/top">文章列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/index/top/add">新增文章</a></li>
 		</ul>
 	</div>
 </div>
