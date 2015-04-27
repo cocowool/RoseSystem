@@ -6,7 +6,7 @@ class Video extends My_Controller {
 		parent::__construct();
 	}
 
-	public function index(){
+	public function index($id = ''){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Video_Model', 'v');
@@ -16,4 +16,13 @@ class Video extends My_Controller {
 		$this->load->view('video/list', $data);
 	}
 	
+	public function detail($id){
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		$this->load->model('Video_Model', 'v');
+		$this->load->model('Category_Model', 'c');
+		$this->load->model('Resource_Model', 'r');
+		
+		$this->load->view('video/detail', $data);
+	}
 }
