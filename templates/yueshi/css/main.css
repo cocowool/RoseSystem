@@ -75,13 +75,15 @@ a:hover { color:#e13300; }
 
 .ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:2em; border:1px solid #ddd; padding:4px; background-color:#fff; }
 .ys_thumbnail_block img { width:100%; }
+.ys_video_item_container { display:block; background-color:#f9f9f9; text-align:center; }
+.ys_video_item_container img { width:370px; height:230px; }
 .ys_caption { height:auto; overflow-y:hidden; color:#555; }
 .ys_caption a { color:#337ab7; text-decoration:none; }
 .ys_caption h3 a { font-size:0.8em; }
 .ys_caption h3 a:hover { color:#ddd; }
-.ys_caption p { color:#555; margin:0 1em 1em; font-size:1.2em; line-height:1.5em; }
+.ys_caption p { color:#555; margin:0 1em 1em; font-size:1.2em; line-height:1.5em; text-align:left; }
 
-.ys_ajaxmore { margin:0 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
+.ys_ajaxmore { margin:10px 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
 .ys_ajaxmore a { text-decoration:none; color:#d7d7d7; line-height:2em; }
 .ys_ajaxmore a:hover { color:#e13300; }
 
