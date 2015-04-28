@@ -1,5 +1,19 @@
 //网站主要JS文件 by shiqiang at 2015-03-30
 $(document).ready(function(){
+	$('#loginBtn').click(function(){
+		if($('#username').val() == ''){
+			alert('请输入用户名');
+			$('#username').focus();
+			return false;
+		}
+		if($('#password').val() == ''){
+			alert('请输入密码');
+			$('#password').focus();
+			return false;
+		}
+		
+		$('#ys_login').submit();
+	});
 	
 	$('.ys_ajaxmore a').click(function(){
 		

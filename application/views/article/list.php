@@ -17,24 +17,8 @@
     <![endif]-->
 </head>
 <body>
-	<nav class="navbar ys_header">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 ys_search">
-					<p><input type='text' name='ys_site_search' id='ys_site_search' /><a href="#">搜索</a></p>
-				</div>
-				<div class="col-md-8">
-					<p>
-						<a href="/user/register">注册</a>
-						<input type='text' name='ys_username' id='ys_username' />
-						<input type='text' name='ys_password' id='ys_password' />
-						<a href="javascript:void(0);">登录</a>
-						<a href="javascript:void(0);">忘记密码</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</nav>
+	<?php $this->load->view('common/header'); ?>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
