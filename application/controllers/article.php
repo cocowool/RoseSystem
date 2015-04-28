@@ -8,8 +8,10 @@ class Article extends My_Controller {
 
 	public function index(){
 		$data = array();
+		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Article_Model', 'a');
 		$this->load->model('Resource_Model', 'r');
+		$this->load->model('Category_Model', 'c');
 		
 		$this->load->view('article/list', $data);
 	}

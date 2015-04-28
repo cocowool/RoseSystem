@@ -4,6 +4,7 @@
 
 html, * {
 	font-size:12px;
+	font-family:"微软雅黑",sans-serif;
 }
 
 body {
@@ -72,6 +73,11 @@ a:hover { color:#e13300; }
 .ys_tie_1 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
 .ys_tie_2 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
 .ys_tie_3 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
+.ys_menu_nav { position:relatvie; text-align:center; font-size:1.2em; }
+.ys_menu_nav li { display:inline-block; margin-right:1.5em; }
+.ys_menu_nav li a { color:#444; font-size:1.2em; display:inline-block; line-height:2em; border-bottom:1px solid transparent; }
+.ys_menu_nav li a:hover { text-decoration:none;  }
+.ys_menu_nav li a:hover, .ys_menu_nav li a.active { border-bottom:1px solid #f33; }
 
 .ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:2em; border:1px solid #ddd; padding:4px; background-color:#fff; }
 .ys_thumbnail_block img { width:100%; }
