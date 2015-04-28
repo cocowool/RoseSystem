@@ -109,9 +109,22 @@
 						<!-- JiaThis Button END -->						
 					</div>
       				<div class="ys_article_comment">
-      				
-      					<div class="ys_comment_list">
+      					<div class="ys_comment_recorder">
       						
+      					</div>
+      					
+      					<div class="ys_comment_list">
+      						<div class="ys_comment_item container-fluid">
+      							<div class="row">
+      								<div class="col-md-2">
+      									<img src="/temp/head.jpg" />
+      								</div>
+      								<div class="col-md-10">
+      									<p>春天的花朵 2015-01-25 12:00</p>
+      									<p>我喜欢体验挑战极限，超越自我，永不妥协的精神。</p>
+      								</div>
+      							</div>
+      						</div>
       					</div>
       				</div>
       				<div class="ys_article_related">

@@ -57,7 +57,8 @@ a:hover { color:#e13300; }
 .ys_article .ys_article_content p em {  }
 .ys_article_author { text-align:center; font-size:1.17em; }
 .ys_article_stat { text-align:right; }
-.ys_article_comment { }
+.ys_article_comment { border-top:1px solid #c4c4c4; padding:1em 90px; }
+.ys_comment_recorder { border-top:1px solid #c4c4c4; border-bottom:1px solid #c4c4c4; }
 .ys_article_related { clear:both;  margin-top:5em; border-top:1px solid #c4c4c4; }
 .ys_article_related h3 { font-size:1.5em; margin:0; padding:0; line-height:3em; }
 
