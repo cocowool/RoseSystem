@@ -16,6 +16,10 @@ class Article extends My_Controller {
 		$this->load->view('article/list', $data);
 	}
 	
+	public function lists($id){
+		
+	}
+	
 	/**
 	 * 文章详情页
 	 * 
@@ -29,6 +33,7 @@ class Article extends My_Controller {
 		$data = array();
 		$data = $this->a->getById($article);
 		$data['breadcrum'] = $this->c->get_breadcrum($data['category']);
+		$this->click_addone($data, $article);
 		
 		//获取资源列表
 		$res_option = array();
@@ -43,6 +48,15 @@ class Article extends My_Controller {
 		
 		$this->load->view('article/detail', $data);
 	}	
+	
+	private function click_addone($data, $id){
+		$this->load->model('Article_Model', 'a');
+		$updateData['click'] = $data['click'] + 1;
+		$updateData['id'] = $id;
+		$result = $this->a->update($updateData);
+		
+		return $result;
+	}
 	
 	/**
 	 * 获取相关文章的列表

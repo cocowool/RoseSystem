@@ -79,12 +79,12 @@
       				</div>
       				<div class="ys_article_stat">
       					<p>
-      						<span>阅读：</span>2888&nbsp;&nbsp;
+      						<span>阅读：</span><?php echo $click; ?>&nbsp;&nbsp;
       						<button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <?php echo $like; ?>
 							</button>
       						<button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <?php echo $fav; ?>
 							</button>
       					</p>
       				</div>
