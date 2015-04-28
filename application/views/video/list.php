@@ -42,7 +42,19 @@
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
 				
-      			
+				<div class="ys_container">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="ys_menu_nav">
+								<li><a href='javascript:void(0);' class="active">专题故事</a></li>
+								<li><a href='javascript:void(0);'>封面人物</a></li>
+								<li><a href='javascript:void(0);'>寻味</a></li>
+								<li><a href='javascript:void(0);'>专栏</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
       			<div class="ys_container">
 					<div class="row ys_latest">
 						<div class="col-md-6">

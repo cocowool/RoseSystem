@@ -53,8 +53,51 @@
 						</div>
 					</div>
 				</div>
-      			<div class="">
+      			
+      			<div class="ys_container">
+					<div class="row ys_latest">
+						<div class="col-md-4">
+							<div class="ys_thumbnail_block">
+								<a href="javascript:void(0);">
+									<img src="/temp/tb1.png" />
+								</a>
+								<div class="ys_caption">
+									<h3><a href="javascript:void(0);">匠心独运</a></h3>
+									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="ys_thumbnail_block">
+								<a href="javascript:void(0);">
+									<img src="/temp/tb2.png" />
+								</a>
+								<div class="ys_caption">
+									<h3><a href="javascript:void(0);">匠心独运</a></h3>
+									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="ys_thumbnail_block">
+								<a href="javascript:void(0);">
+									<img src="/temp/tb2.png" />
+								</a>
+								<div class="ys_caption">
+									<h3><a href="javascript:void(0);">匠心独运</a></h3>
+									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+			      	<div class="row">
+			      		<div class="ys_ajaxmore">
+			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
+			      		</div>
+			      	</div>	
       			</div>
+      			
 			</div>
 			<div class="col-md-2">
 				<div class="ys_logo">

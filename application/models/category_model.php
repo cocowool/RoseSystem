@@ -31,6 +31,20 @@ class Category_Model extends MY_Model {
 		$this->fields[2]['options'] = $this->get_parent_category();
 	}
 	
+	public function get_breadcrum($id){
+		$breadcrum = '';
+		$category = $this->getById($id);
+		$breadcrum = "&nbsp;>&nbsp;<a href='/article/list/" . $id . "'>".$category['category']."</a>";
+		if( $category['pid'] != 0 ){
+			$p_category = $this->get_breadcrum($category['pid']);
+			$breadcrum = $p_category . $breadcrum;
+		}else{
+			$breadcrum = "<a href='/'>首页</a>" . $breadcrum;
+		}
+		
+		return $breadcrum;
+	}
+	
 	/**
 	 * 获取某一级别菜单列表
 	 * 

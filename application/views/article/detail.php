@@ -44,10 +44,7 @@
 				
 				<div class="ys_breadcrum">
 					<p>
-						<a href="javascript:void(0);">首页</a>&nbsp;&nbsp;
-						<a href="javascript:void(0);"></a>&nbsp;&nbsp;
-						<a href="javascript:void(0);"></a>&nbsp;&nbsp;
-						<a href="javascript:void(0);"></a>&nbsp;&nbsp;
+						<?php echo $breadcrum; ?>
 					</p>
 				</div>
       			

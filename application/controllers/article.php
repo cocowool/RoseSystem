@@ -24,14 +24,11 @@ class Article extends My_Controller {
 	public function detail( $article ){
 		$this->load->model('Article_Model','a');
 		$this->load->model('Resource_Model', 'r');
+		$this->load->model('Category_Model','c');
 	
 		$data = array();
 		$data = $this->a->getById($article);
-		if( count($data) == 1 ){
-			$data = $data[0];
-		}else{
-			//报错
-		}
+		$data['breadcrum'] = $this->c->get_breadcrum($data['category']);
 		
 		//获取资源列表
 		$res_option = array();
