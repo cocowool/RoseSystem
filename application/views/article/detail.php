@@ -94,7 +94,19 @@
 					</div>
       				<div class="ys_article_comment">
       					<div class="ys_comment_recorder">
-      						
+      						<?php 
+      						if(isset($sess_data['gUsername']) and !empty($sess_data['gusername']) ){
+							?>
+							<form name='commentForm' id='commentForm' method='post' action='/comment'>
+							
+							</form>
+							<?php
+							}else{
+							?>
+
+							<?php
+							}
+      						?>
       					</div>
       					
       					<div class="ys_comment_list">

@@ -62,6 +62,7 @@ class MY_Controller extends CI_Controller {
 	protected function getPubData(){
 		$data = array();
 		$data['tie'] = rand(1,3);	//随机首页的丝带图标
+		$data['sess_data'] = $this->session->all_userdata();
 		
 		return $data;
 	}
