@@ -10,6 +10,7 @@ class Index extends My_Controller {
 	public function index(){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
+		$data['sess_data'] = $this->session->all_userdata();
 		
 		$this->load->view('index', $data);
 	}

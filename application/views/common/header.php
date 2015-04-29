@@ -6,9 +6,9 @@
 				</div>
 				<div class="col-md-8">
 					<?php 
-					if( $this->session->userdata('gUsername') != '' ){
+					if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername'])){
 					?>
-					<p>
+					<p class="ys_top_info">
 							<a href="/user/detail"><?php echo $this->session->userdata('gUsername'); ?></a>
 							<a href="/user/logout" id='loginBtn'>注销</a>
 					</p>
@@ -16,7 +16,7 @@
 					}else{
 					?>
 					<form name='ys_login' id='ys_login' method='post' action='/user/login'>
-					<p>
+					<p class="ys_top_info">
 						<a href="/user/register">注册</a>
 							<input type='text' name='username' id='username' >
 							<input type='password' name='password' id='password' />

@@ -136,6 +136,11 @@ class User extends My_Controller {
 		$this->load->view('user/register_result', $data);
 	}
 
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('/');
+	}
+	
 	public function login( $eventid = '' ){
 		$this->load->model('User_Model', 'u');
 		$data = array();
