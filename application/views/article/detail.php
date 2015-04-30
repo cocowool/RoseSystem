@@ -95,14 +95,21 @@
       				<div class="ys_article_comment">
       					<div class="ys_comment_recorder">
       						<?php 
-      						if(isset($sess_data['gUsername']) and !empty($sess_data['gusername']) ){
+      						if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername']) ){
 							?>
 							<form name='commentForm' id='commentForm' method='post' action='/comment'>
 								<div class="form-group">
-									<label>评论内容：</label>
-									<input type="textarea" id="comment" name="comment" >
+									<label for="comment">评论内容：</label>
+									<input type="textarea" id="comment" name="comment" class="form-control" >
 								</div>
-								<p></p>
+								<div class="form-group">
+									<label form="verifycode">验证码：</label>
+									<input type="text" id="verifycode" name="verifycode" class="form-control">
+									
+								</div>
+								<div class="form-group">
+									<input type="submit" value="提交" class="btn">
+								</div>
 							</form>
 							<?php
 							}else{
