@@ -168,14 +168,19 @@ class User extends My_Controller {
 			$username = $this->input->post('username', TRUE);
 			$password = $this->input->post('password', TRUE);
 			$eventid = $this->input->post('eventid', TRUE);
+			$referer = $this->input->post('referer', TRUE);
 	
 			$userinfo = $this->u->getById($username, 'username');
 			if( $userinfo && $userinfo['password'] == $password ){
 				$this->session->set_userdata('gUsername', $username);
 				$this->session->set_userdata('gUserid', $userinfo['id']);
 	
+				
+				
 				if( !empty($eventid) ){
 					redirect('/events/register/' . $eventid . '/' . $userinfo['id'] );
+				}else if( !empty($referer) ){
+					redirect($referer);
 				}else{
 					redirect('/');
 				}

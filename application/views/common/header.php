@@ -20,6 +20,7 @@
 						<a href="/user/register">注册</a>
 							<input type='text' name='username' id='username' >
 							<input type='password' name='password' id='password' />
+							<input type='hidden' name='referer' id='referer' value='<?php echo current_url(); ?>' />
 							<a href="javascript:void(0);" id='loginBtn'>登录</a>
 							<a href="javascript:void(0);">忘记密码</a>
 					</p>
