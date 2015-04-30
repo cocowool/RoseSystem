@@ -17,24 +17,7 @@
     <![endif]-->
 </head>
 <body>
-	<nav class="navbar ys_header">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 ys_search">
-					<p><input type='text' name='ys_site_search' id='ys_site_search' /><a href="#">搜索</a></p>
-				</div>
-				<div class="col-md-8">
-					<p>
-						<a href="/user/register">注册</a>
-						<input type='text' name='ys_username' id='ys_username' />
-						<input type='text' name='ys_password' id='ys_password' />
-						<a href="javascript:void(0);">登录</a>
-						<a href="javascript:void(0);">忘记密码</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</nav>
+	<?php $this->load->view('common/header')?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
@@ -43,7 +26,7 @@
 				</div>
 				
       			<div class="ys_container_register">
-					<form name="loginForm" id="loginForm" action="/register/login" method="post">
+					<form name="loginForm" id="loginForm" action="/user/login" method="post">
 					<?php if(validation_errors() ){ ?>
 					<div class="ys_tips_error">
 						<?php echo validation_errors(); ?>
@@ -54,15 +37,18 @@
 						<div class="form-group">
 							<label class="ys_form_label" for="username">用户名称<b>*</b></label>
 							<input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="<?php echo set_value('username'); ?>" />
+							<span></span>
+							<span></span>
 						</div>
 						<div class="form-group">
 							<label for="password" class="ys_form_label">用户密码<b>*</b></label>
 							<input type="password" class="form-control" name="password" id="password" placeholder="请输入密码" value="<?php echo set_value('password'); ?>" />
 							<span class="focus two-line hide">6-20位字符，可使用数字、字母和符号的组合</span>
+							<span></span>
 						</div>
 						<input type="hidden" name="eventid" id="eventid" value="<?php echo $eventid; ?>" />
 						<div class="form-group">
-							<a href="#" class="btn btn-danger login-button">登陆</a>&nbsp;&nbsp;
+							<a href="javascript:void(0);" class="btn btn-danger login-button">登陆</a>&nbsp;&nbsp;
 							<a href="/user/register">没有帐号？马上注册</a>
 						</div>
 					</div>
@@ -87,7 +73,9 @@
 	</div>
 	<?php $this->load->view('common/footer'); ?>
 	
-	<script type="text/javascript" src="/static/lib/jquery1.9.1/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 		$(window).ready(function(){
 			$('.main-menu-item').hover(function(){
@@ -104,22 +92,22 @@
 				$(this).next().hide();
 			});		
 
-			$('#username').keypress(function(){
-				$('#username').next().next().hide();
+			$('.ys_form_section #username').keypress(function(){
+				$('.ys_form_section #username').next().next().hide();
 			});
-			$('#password').keypress(function(){
-				$('#password').next().next().hide();
+			$('.ys_form_section #password').keypress(function(){
+				$('.ys_form_section #password').next().next().hide();
 			});
 
 			$('.login-button').click(function(){
-				if(  ! $('#username').val() ){					
-					$('#username').next().next().html('用户名称不能为空').show();
+				if(  ! $('.ys_form_section #username').val() ){					
+					$('.ys_form_section #username').next().next().html('用户名称不能为空').show();
 					return false;
 				}
-				if(  ! $('#password').val() ){					
-					$('#password').next().next().html('用户密码不能为空').show();
-					return false;
+				if(  ! $('.ys_form_section #password').val() ){					
+					$('.ys_form_section #password').next().next().html('用户密码不能为空').show();
 				}
+				console.log('test');
 				$('#loginForm').submit();
 			});
 		});

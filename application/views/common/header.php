@@ -4,7 +4,7 @@
 				<div class="col-md-4 ys_search">
 					<p><input type='text' name='ys_site_search' id='ys_site_search' /><a href="#">搜索</a></p>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-8 ys_top_login">
 					<?php 
 					if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername'])){
 					?>

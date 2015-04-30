@@ -98,12 +98,18 @@
       						if(isset($sess_data['gUsername']) and !empty($sess_data['gusername']) ){
 							?>
 							<form name='commentForm' id='commentForm' method='post' action='/comment'>
-							
+								<div class="form-group">
+									<label>评论内容：</label>
+									<input type="textarea" id="comment" name="comment" >
+								</div>
+								<p></p>
 							</form>
 							<?php
 							}else{
 							?>
-
+							<div>
+								<p>发表留言，请先<a href="/user/login">登录</a></p>
+							</div>
 							<?php
 							}
       						?>
