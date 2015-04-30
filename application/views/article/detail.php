@@ -100,15 +100,21 @@
 							<form name='commentForm' id='commentForm' method='post' action='/comment'>
 								<div class="form-group">
 									<label for="comment">评论内容：</label>
-									<input type="textarea" id="comment" name="comment" class="form-control" >
+									<input type="textarea" row="10" id="comment" name="comment" class="form-control" >
 								</div>
-								<div class="form-group">
-									<label form="verifycode">验证码：</label>
-									<input type="text" id="verifycode" name="verifycode" class="form-control">
-									
+								<div class="form-inline">
+									<div class="form-group">
+										<label form="verifycode">验证码：</label>
+										<input type="text" id="verifycode" name="verifycode" class="form-control input-sm">
+										
+									</div>
 								</div>
+								<p>
+									<input type="hidden" id="ctype" name="ctype" value="1">
+									<input type="hidden" id="cid" name="cid" value="<?php echo $id; ?>">
+								</p>
 								<div class="form-group">
-									<input type="submit" value="提交" class="btn">
+									<input type="submit" value="提交" class="btn btn-primary">
 								</div>
 							</form>
 							<?php

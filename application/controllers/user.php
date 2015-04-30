@@ -174,8 +174,6 @@ class User extends My_Controller {
 			if( $userinfo && $userinfo['password'] == $password ){
 				$this->session->set_userdata('gUsername', $username);
 				$this->session->set_userdata('gUserid', $userinfo['id']);
-	
-				
 				
 				if( !empty($eventid) ){
 					redirect('/events/register/' . $eventid . '/' . $userinfo['id'] );
