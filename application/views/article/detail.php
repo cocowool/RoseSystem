@@ -95,15 +95,34 @@
       				<div class="ys_article_comment">
       					<div class="ys_comment_recorder">
       						<?php 
-      						if(isset($sess_data['gUsername']) and !empty($sess_data['gusername']) ){
+      						if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername']) ){
 							?>
 							<form name='commentForm' id='commentForm' method='post' action='/comment'>
-							
+								<div class="form-group">
+									<label for="comment">评论内容：</label>
+									<input type="textarea" row="10" id="comment" name="comment" class="form-control" >
+								</div>
+								<div class="form-inline">
+									<div class="form-group">
+										<label form="verifycode">验证码：</label>
+										<input type="text" id="verifycode" name="verifycode" class="form-control input-sm">
+										
+									</div>
+								</div>
+								<p>
+									<input type="hidden" id="ctype" name="ctype" value="1">
+									<input type="hidden" id="cid" name="cid" value="<?php echo $id; ?>">
+								</p>
+								<div class="form-group">
+									<input type="submit" value="提交" class="btn btn-primary">
+								</div>
 							</form>
 							<?php
 							}else{
 							?>
-
+							<div>
+								<p>发表留言，请先<a href="/user/login">登录</a></p>
+							</div>
 							<?php
 							}
       						?>

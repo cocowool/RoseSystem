@@ -4,7 +4,7 @@
 				<div class="col-md-4 ys_search">
 					<p><input type='text' name='ys_site_search' id='ys_site_search' /><a href="#">搜索</a></p>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-8 ys_top_login">
 					<?php 
 					if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername'])){
 					?>
@@ -20,6 +20,7 @@
 						<a href="/user/register">注册</a>
 							<input type='text' name='username' id='username' >
 							<input type='password' name='password' id='password' />
+							<input type='hidden' name='referer' id='referer' value='<?php echo current_url(); ?>' />
 							<a href="javascript:void(0);" id='loginBtn'>登录</a>
 							<a href="javascript:void(0);">忘记密码</a>
 					</p>
