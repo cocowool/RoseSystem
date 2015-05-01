@@ -130,6 +130,14 @@
       					
       					<div class="ys_comment_list">
       						<div class="ys_comment_item container-fluid">
+      							<?php 
+      							if(isset($comment_list) and is_array($comment_list)){
+      							foreach ($comment_list as $k=>$v){
+
+
+								}
+								}
+      							?>
       							<div class="row">
       								<div class="col-md-2">
       									<img src="/temp/head.jpg" />

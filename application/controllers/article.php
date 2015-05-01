@@ -29,8 +29,10 @@ class Article extends My_Controller {
 		$this->load->model('Article_Model','a');
 		$this->load->model('Resource_Model', 'r');
 		$this->load->model('Category_Model','c');
+		$this->load->model('Comment_Model', 't');
 	
 		$data = array();
+		$data['comment_list'] = $this->t->getCommentList($article);
 		$data = $this->a->getById($article);
 		$data['breadcrum'] = $this->c->get_breadcrum($data['category']);
 		$this->click_addone($data, $article);

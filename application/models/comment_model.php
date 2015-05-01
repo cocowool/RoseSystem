@@ -25,4 +25,11 @@ class Comment_Model extends MY_Model {
 		parent::__construct();
 	}
 
+	public function getCommentList($id){
+		if(empty($id)){
+			return false;
+		}
+		
+		return $this->getById($id, 'cid');
+	}
 }
