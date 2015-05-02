@@ -133,7 +133,7 @@
       							<?php 
       							if(isset($comment_list) and is_array($comment_list)){
       							foreach ($comment_list as $k=>$v){
-
+		
 
 								}
 								}
