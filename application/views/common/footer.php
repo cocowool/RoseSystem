@@ -10,7 +10,7 @@
 				<li><a href="/article/detail/48">©联系我们</a></li>
 				<li><a href="/article/detail/12">©用户服务条款</a></li>
 				<li><a href="/article/detail/11">©隐私权声明</a></li>
-				<li><a href="/register">注册登录</a></li>
+				<li><a href="/user/register">注册登录</a></li>
 				<li><a href="/events">会员活动</a></li>
 			</ul>
 		</div>
