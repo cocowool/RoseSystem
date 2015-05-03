@@ -133,20 +133,26 @@
       							<?php 
       							if(isset($comment_list) and is_array($comment_list)){
       							foreach ($comment_list as $k=>$v){
-		
-
+								?>
+      							<div class="row">
+      								<div class="col-md-2">
+      								<?php
+      									if(empty($v['userinfo']['usericon'])){
+      										echo "<img src='" . $this->config->item('default_icon') . "' width='50px' />";
+      									}else{
+											echo "<img src='" . $v['userinfo']['usericon'] . "' width='50px'>";
+										}
+      								?>
+      								</div>
+      								<div class="col-md-10">
+      									<p><?php echo $v['userinfo']['username']; ?>&nbsp;&nbsp;<?php echo $v['insert_time']; ?></p>
+      									<p><?php echo $v['content']; ?></p>
+      								</div>
+      							</div>
+								<?php
 								}
 								}
       							?>
-      							<div class="row">
-      								<div class="col-md-2">
-      									<img src="/temp/head.jpg" />
-      								</div>
-      								<div class="col-md-10">
-      									<p>春天的花朵 2015-01-25 12:00</p>
-      									<p>我喜欢体验挑战极限，超越自我，永不妥协的精神。</p>
-      								</div>
-      							</div>
       						</div>
       					</div>
       				</div>

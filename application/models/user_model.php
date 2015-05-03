@@ -7,6 +7,7 @@ class User_Model extends MY_Model {
 			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE),
 			array('name'=>'username', 'comment'=>'用户名'),
 			array('name'=>'password', 'comment'=>'密码', 'invisible' => TRUE),
+			array('name'=>'usericon', 'comment'=>'用户头像'),
 			array('name'=>'lastname', 'comment'=>'姓'),
 			array('name'=>'firstname', 'comment'=>'名'),
 			array('name'=>'gender', 'comment'=>'性别', 'options' => array('0' => '女士', '1' => '男士' )),

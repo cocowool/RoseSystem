@@ -20,3 +20,5 @@ $config['image_upload_config'] = array(
 	'max_width' => '1024',
 	'max_height' => '768',
 );
+
+$config['default_icon'] = '/templates/yueshi/images/male.jpg';
