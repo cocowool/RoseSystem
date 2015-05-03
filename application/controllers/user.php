@@ -88,6 +88,21 @@ class User extends My_Controller {
 		parent::__construct();
 	}
 	
+	public function detail(){
+		$this->load->model('User_Model','u');
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		
+		$config = array();
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($config);
+		
+		if($this->form_validation->run() == FALSE){
+			$this->load->view('user/detail', $data);
+		}else{
+			
+		}
+	}
 	
 	public function register(){
 		$this->load->model('User_Model','u');
