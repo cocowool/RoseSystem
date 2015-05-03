@@ -43,26 +43,16 @@
 					<div class="ys_form_section">
 						<div class="form-group">
 							<label class="ys_form_label" for="username">用户名称<b>*</b></label>
-							<input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="<?php echo set_value('username'); ?>" />
-						</div>
-						<div class="form-group">
-							<label for="password" class="ys_form_label">用户密码<b>*</b></label>
-							<input type="password" class="form-control" name="password" id="password" value="<?php echo set_value('password'); ?>" />
-							<span class="focus two-line hide">6-20位字符，可使用数字、字母和符号的组合</span>
-						</div>
-						<div class="form-group">
-							<label class="ys_form_label" for="chkPassword">确认密码<b>*</b></label>
-							<input type="password" class="form-control" name="chkPassword" id="chkPassword" value="<?php echo set_value('chkPassword'); ?>" />
-							<span class="focus hide">请再次输入密码</span>
+							<input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="<?php echo set_value('username', $userinfo['username']); ?>" />
 						</div>
 						<div class="form-group">
 							<label class="ys_form_label" for="lastname">姓<b>*</b></label>
-							<input type="text" class="form-control" name="lastname" id="lastname" value="<?php echo set_value('lastname'); ?>" />
+							<input type="text" class="form-control" name="lastname" id="lastname" value="<?php echo set_value('lastname', $userinfo['lastname']); ?>" />
 							<span class="focus hide">请输入姓氏</span>
 						</div>
 						<div class="form-group">
 							<label class="ys_form_label" for="firstname">名<b>*</b></label>
-							<input type="text" class="form-control" name="firstname" id="firstname" value="<?php echo set_value('firstname'); ?>" />
+							<input type="text" class="form-control" name="firstname" id="firstname" value="<?php echo set_value('firstname', $userinfo['firstname']); ?>" />
 							<span class="focus hide">请输入您的名字</span>
 						</div>
 						<div class="form-group">
@@ -72,7 +62,7 @@
 						</div>
 						<div class="form-group">
 							<label class="ys_form_label" for="birthday">生日<b>*</b></label>
-							<input type="text" class="form-control" name="birthday" id="birthday" value="<?php echo set_value('birthday'); ?>" />
+							<input type="text" class="form-control" name="birthday" id="birthday" value="<?php echo set_value('birthday', $userinfo['birthday']); ?>" />
 							<label class="focus hide">请选择您的出生日期</label>
 						</div>
 						<div class="form-group">

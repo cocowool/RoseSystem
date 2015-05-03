@@ -89,6 +89,12 @@ class User extends My_Controller {
 	}
 	
 	public function detail(){
+		$username = $this->session->userdata('gUsername');
+		if(empty($username)){
+			redirect('/user/login');
+			return true;
+		}
+		
 		$this->load->model('User_Model','u');
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
@@ -98,6 +104,7 @@ class User extends My_Controller {
 		$this->form_validation->set_rules($config);
 		
 		if($this->form_validation->run() == FALSE){
+			$data['userinfo'] = $this->u->getById($username,'username');
 			$this->load->view('user/detail', $data);
 		}else{
 			

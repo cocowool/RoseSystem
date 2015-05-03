@@ -11,6 +11,7 @@ class User_Model extends MY_Model {
 			array('name'=>'lastname', 'comment'=>'姓'),
 			array('name'=>'firstname', 'comment'=>'名'),
 			array('name'=>'gender', 'comment'=>'性别', 'options' => array('0' => '女士', '1' => '男士' )),
+			array('name'=>'birthday', 'comment'=>'出生日期'),
 			array('name'=>'city', 'comment'=>'所在城市', 'invisible' => TRUE),
 			array('name'=>'hometown', 'comment'=>'住址', 'invisible' => TRUE),
 			array('name'=>'address', 'comment'=>'邮寄地址', 'invisible' => TRUE),
