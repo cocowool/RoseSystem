@@ -16,7 +16,6 @@ $(document).ready(function(){
 	});
 	
 	$('.ys_btn_edit_user').click(function(){
-		alert('test');
 		$('#editForm').submit();
 	});
 	

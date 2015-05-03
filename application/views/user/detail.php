@@ -41,6 +41,7 @@
 					<?php } ?>
 					<h2 class="ys_title_register">会员信息</h2>
 					<div class="ys_form_section">
+						<input type='hidden' name='id' value='<?php echo $userinfo['id']; ?>' />
 						<div class="form-group">
 							<label class="ys_form_label" for="username">用户名称<b>*</b></label>
 							<input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="<?php echo set_value('username', $userinfo['username']); ?>" />
