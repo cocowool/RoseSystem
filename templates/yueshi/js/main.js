@@ -15,8 +15,12 @@ $(document).ready(function(){
 		$('#ys_login').submit();
 	});
 	
+	$('.ys_btn_edit_user').click(function(){
+		alert('test');
+		$('#editForm').submit();
+	});
+	
 	$('.ys_ajaxmore a').click(function(){
-		
 		$.ajax({
 			'type'	:	'POST',
 			'url'	:	'/index/latest',

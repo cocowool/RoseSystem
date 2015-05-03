@@ -41,6 +41,17 @@ class MY_Controller extends CI_Controller {
 		return TRUE;
 	}
 	
+	public function stageRedirect($result, $action = ''){
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		$data['result'] = $result;
+		if(!empty($action)){
+			$data['action'] .= '您也可以选择以下操作：' . $action;
+		}
+		
+		$this->load->view('common/redirect', $data);
+	}
+	
 	public function redirectAction($result, $data, $url_success, $url_failure){
 		if( $result ){
 			$data['content_view'] = 'manage/common/redirect';

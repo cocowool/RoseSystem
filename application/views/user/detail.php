@@ -33,7 +33,7 @@
       			</div>
       			
       			<div class="ys_container_register">
-					<form name="editForm" id=""editForm"" action="/user/detail" method="post">
+					<form name="editForm" id="editForm" action="/user/detail" method="post" enctype="multipart/form-data">
 					<?php if(validation_errors() ){ ?>
 					<div class="ys_tips_error">
 						<?php echo validation_errors(); ?>
@@ -54,6 +54,11 @@
 							<label class="ys_form_label" for="firstname">名<b>*</b></label>
 							<input type="text" class="form-control" name="firstname" id="firstname" value="<?php echo set_value('firstname', $userinfo['firstname']); ?>" />
 							<span class="focus hide">请输入您的名字</span>
+						</div>
+						<div class="form-group">
+							<label class="ys_form_label" for="firstname">头像<b>*</b></label>
+							<input type="file" name="usericon" id="usericon" />
+							<span class="focus hide"></span>
 						</div>
 						<div class="form-group">
 							<label class="ys_form_label" for="gender">性别<b>*</b></label>
@@ -97,7 +102,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<a href="#" class="btn btn-primary">保存</a>&nbsp;&nbsp;
+						<a href="javascript:void(0);" class="btn btn-primary ys_btn_edit_user">保存</a>&nbsp;&nbsp;
 					</div>
 					</form>
 				</div>
