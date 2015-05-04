@@ -121,7 +121,7 @@
 							}else{
 							?>
 							<div>
-								<p>发表留言，请先<a href="/user/login">登录</a></p>
+								<p>发表留言，请先<a href="/user/login" class="ys_link_red">登录</a></p>
 							</div>
 							<?php
 							}

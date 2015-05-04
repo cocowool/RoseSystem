@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
 /* 类命名规范 .ys_ 开头为类 #YS_ 开头为ID  */
-
 html, * {
 	font-size:12px;
 	font-family:"微软雅黑",sans-serif;
@@ -15,11 +14,10 @@ body {
 ul,li { list-style:none; }
 .hide { display:none; }
 a:hover { color:#e13300; }
+.container { width:960px; }
 
-.container {
-	width:960px;
-}
-
+a.ys_link_red { text-decoration:underline; margin:0 0.5em; color:#e13300; }
+a.ys_link_red:hover { text-decoration:none; }
 .ys_container { margin-top:1em; }
 .ys_container_register { margin-top:1em; }
 
@@ -60,6 +58,7 @@ a:hover { color:#e13300; }
 .ys_article_stat { text-align:right; }
 .ys_article_comment { border-top:1px solid #c4c4c4; padding:1em 90px; }
 .ys_comment_recorder { border-top:1px solid #c4c4c4; border-bottom:1px solid #c4c4c4; margin:1.5em 0; padding:1em 0; }
+.ys_comment_recorder p { margin:0; text-align:center; }
 .ys_comment_list { position:relative; }
 .ys_article_related { clear:both;  margin-top:5em; border-top:1px solid #c4c4c4; }
 .ys_article_related h3 { font-size:1.5em; margin:0; padding:0; line-height:3em; }
