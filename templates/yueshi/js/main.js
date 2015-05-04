@@ -37,16 +37,18 @@ $(document).ready(function(){
 			dataType	:	'json',
 			data	:	$('#commentForm').serialize(),
 			success	:	function(result){
-				alert(result);
+				//alert(result);
+				$('.ys_comment_list').prepend('test');
 			},
 			error : function(result){
-				alert(result);
+				//alert(result);
+				alert('评论提交失败');
 			},
 			beforeSend : function(){
-				
+				$('.ys_ajax_msg').html('正在提交');
 			},
 			complete : function(){
-				
+				$('.ys_ajax_msg').html('评论提交成功');
 			}
 		});
 	});

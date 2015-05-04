@@ -116,6 +116,7 @@
 								</p>
 								<div class="form-group">
 									<input type="button" id="btnComment" name="btnComment" value="提交" class="btn btn-primary">
+									<span class="ys_ajax_msg"></span>
 								</div>
 							</form>
 							<?php
@@ -130,11 +131,11 @@
       					</div>
       					
       					<div class="ys_comment_list">
-      						<div class="ys_comment_item container-fluid">
       							<?php 
       							if(isset($comment_list) and is_array($comment_list)){
       							foreach ($comment_list as $k=>$v){
 								?>
+      						<div class="ys_comment_item container-fluid">
       							<div class="row">
       								<div class="col-md-2">
       								<?php
@@ -150,11 +151,11 @@
       									<p><?php echo $v['content']; ?></p>
       								</div>
       							</div>
+      						</div>
 								<?php
 								}
 								}
       							?>
-      						</div>
       					</div>
       				</div>
       				<div class="ys_article_related">
