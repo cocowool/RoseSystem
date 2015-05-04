@@ -46,6 +46,7 @@
 							<span class="focus two-line hide">6-20位字符，可使用数字、字母和符号的组合</span>
 							<span></span>
 						</div>
+						<input type='hidden' name='referer' id='referer' value="<?php echo $referer; ?>" />
 						<input type="hidden" name="eventid" id="eventid" value="<?php echo $eventid; ?>" />
 						<div class="form-group">
 							<a href="javascript:void(0);" class="btn btn-danger login-button">登陆</a>&nbsp;&nbsp;

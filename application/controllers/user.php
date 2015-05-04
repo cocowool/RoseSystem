@@ -237,7 +237,7 @@ class User extends My_Controller {
 
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('/');
+		redirect('');
 	}
 	
 	public function login( $eventid = '' ){
@@ -257,11 +257,17 @@ class User extends My_Controller {
 						'rules'	=>	'trime|required',
 				),
 		);
+		$this->config->set_item('language', 'chinese');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules($config);
 	
 		if($this->form_validation->run() == FALSE){
 			$data['eventid'] = $eventid;
+			if($this->input->server('HTTP_REFERER') != ''){
+				$data['referer'] = $this->input->server('HTTP_REFERER');
+			}else{
+				$data['referer'] = '';
+			}
 			$this->load->view('user/login', $data);
 		}else{
 			$username = $this->input->post('username', TRUE);
