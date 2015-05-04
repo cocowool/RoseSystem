@@ -100,21 +100,21 @@
 							<form name='commentForm' id='commentForm' method='post' action='/comment'>
 								<div class="form-group">
 									<label for="comment">评论内容：</label>
-									<input type="textarea" row="10" id="comment" name="comment" class="form-control" >
+									<textarea rows="3" cols="" class="form-control" id="comment" name="comment"></textarea>
 								</div>
 								<div class="form-inline">
 									<div class="form-group">
 										<label form="verifycode">验证码：</label>
 										<input type="text" id="verifycode" name="verifycode" class="form-control input-sm">
-										
+										<img src="http://www.yueshichina.com/register/captcha" />
 									</div>
 								</div>
-								<p>
+								<p>&nbsp;
 									<input type="hidden" id="ctype" name="ctype" value="1">
 									<input type="hidden" id="cid" name="cid" value="<?php echo $id; ?>">
 								</p>
 								<div class="form-group">
-									<input type="submit" value="提交" class="btn btn-primary">
+									<input type="button" id="btnComment" name="btnComment" value="提交" class="btn btn-primary">
 								</div>
 							</form>
 							<?php
@@ -225,25 +225,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container ys_footer">
-		<div class="row">
-			<div class="col-md-5">
-				CopyRight&copy;2015 Vita Group(China). All Rights Reserved.
-			</div>
-			<div class="col-md-7">
-				<ul class="ys_foot_links">
-					<li><a href="/article/detail/18">©官方微信</a></li>
-					<li><a href="http://e.weibo.com/yszg2012/profile">©官方微博</a></li>
-					<li><a href="/article/detail/48">©联系我们</a></li>
-					<li><a href="/article/detail/12">©用户服务条款</a></li>
-					<li><a href="/article/detail/11">©隐私权声明</a></li>
-					<li><a href="/register">注册登录</a></li>
-					<li><a href="/events">会员活动</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
+	<?php $this->load->view('common/footer'); ?>
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>

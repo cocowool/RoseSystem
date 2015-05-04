@@ -19,6 +19,21 @@ $(document).ready(function(){
 		$('#editForm').submit();
 	});
 	
+	$('#btnComment').click(function(){
+		if($('#comment').val() == ''){
+			alert('请输入评论内容');
+			$('#comment').focus();
+			return false;
+		}
+		if($('#verifycode').val() == ''){
+			alert('请输入验证码');
+			$('#verifycode').focus();
+			return false;
+		}
+		
+		
+	});
+	
 	$('.ys_ajaxmore a').click(function(){
 		$.ajax({
 			'type'	:	'POST',
