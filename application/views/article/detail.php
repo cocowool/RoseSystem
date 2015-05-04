@@ -100,7 +100,7 @@
 							<form name='commentForm' id='commentForm' method='post' action='/comment'>
 								<div class="form-group">
 									<label for="comment">评论内容：</label>
-									<textarea rows="3" cols="" class="form-control" id="comment" name="comment"></textarea>
+									<textarea rows="3" cols="" class="form-control" id="content" name="content"></textarea>
 								</div>
 								<div class="form-inline">
 									<div class="form-group">
@@ -112,6 +112,7 @@
 								<p>&nbsp;
 									<input type="hidden" id="ctype" name="ctype" value="1">
 									<input type="hidden" id="cid" name="cid" value="<?php echo $id; ?>">
+									<input type="hidden" id="userid" name="userid" value="<?php echo $sess_data['gUserid']; ?>">
 								</p>
 								<div class="form-group">
 									<input type="button" id="btnComment" name="btnComment" value="提交" class="btn btn-primary">

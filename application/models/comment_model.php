@@ -30,6 +30,6 @@ class Comment_Model extends MY_Model {
 			return false;
 		}
 		
-		return $this->getById($id, 'cid');
+		return $this->getById($id, 'cid', 'insert_time','desc',true);
 	}
 }

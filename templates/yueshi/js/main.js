@@ -20,9 +20,9 @@ $(document).ready(function(){
 	});
 	
 	$('#btnComment').click(function(){
-		if($('#comment').val() == ''){
+		if($('#content').val() == ''){
 			alert('请输入评论内容');
-			$('#comment').focus();
+			$('#content').focus();
 			return false;
 		}
 		if($('#verifycode').val() == ''){
@@ -31,7 +31,24 @@ $(document).ready(function(){
 			return false;
 		}
 		
-		
+		$.ajax({
+			type	:	'POST',
+			url	:	'/comment/add',
+			dataType	:	'json',
+			data	:	$('#commentForm').serialize(),
+			success	:	function(result){
+				alert(result);
+			},
+			error : function(result){
+				alert(result);
+			},
+			beforeSend : function(){
+				
+			},
+			complete : function(){
+				
+			}
+		});
 	});
 	
 	$('.ys_ajaxmore a').click(function(){

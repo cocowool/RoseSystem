@@ -33,15 +33,15 @@ class Article extends My_Controller {
 		$this->load->model('User_Model','u');
 	
 		$data = array();
+		$data = $this->a->getById($article);
+		$data['breadcrum'] = $this->c->get_breadcrum($data['category']);
+		$this->click_addone($data, $article);
+		
 		$data['comment_list'] = $this->t->getCommentList($article);
 		foreach ($data['comment_list'] as $k=>$v){
 			$userinfo = $this->u->getById($v['userid']);
 			$data['comment_list'][$k]['userinfo'] = $userinfo;
 		}
-		
-		$data = $this->a->getById($article);
-		$data['breadcrum'] = $this->c->get_breadcrum($data['category']);
-		$this->click_addone($data, $article);
 		
 		//获取资源列表
 		$res_option = array();

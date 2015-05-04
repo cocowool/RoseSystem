@@ -28,8 +28,7 @@ class MY_Model extends CI_Model{
 	 * @param string $sort
 	 * @param string $direction
 	 */
-	public  function getById($id, $field = '', $sort = '', $direction = ''){
-		
+	public  function getById($id, $field = '', $sort = '', $direction = '', $alwaysArray = false ){
 		if(empty($field) && !isset($this->id)){
 			return FALSE;
 		}
@@ -45,7 +44,7 @@ class MY_Model extends CI_Model{
 		$query = $this->db->get($this->table);
 		
 		$data = $query->result_array();
-		if(count($data) == 1){
+		if(count($data) == 1 and !$alwaysArray){
 			return $data[0];
 		}else{
 			return $data;
