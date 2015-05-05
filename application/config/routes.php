@@ -41,6 +41,7 @@
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 
+$route['article/(:num)/(:num)'] = "article/index/$1/$2";
 $route['manage'] = 'manage/index';
 
 

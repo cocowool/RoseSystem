@@ -46,6 +46,31 @@ class Category_Model extends MY_Model {
 	}
 	
 	/**
+	 * 根据ID查找此分类以及子分类下所有ID数组
+	 * 
+	 * @param int $category_id
+	 */
+	public function get_category_ids($category_id){
+		$ids = array();
+		$ids[] = $category_id;
+		$category = $this->getById($category_id, 'pid','pid','desc',true);
+		if($category){
+			foreach ($category as $k=>$v){
+				$ids[] = $v['id'];
+				$sub_ids = $this->get_category_ids($v['id']);
+				if($sub_ids){
+					$ids = array_merge($ids, $sub_ids);
+				}
+			}
+
+			return $ids;
+		}else{
+			return false;
+		}
+		
+	}
+	
+	/**
 	 * 获取某一级别菜单列表
 	 * 
 	 * @param number $level

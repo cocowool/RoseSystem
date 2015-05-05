@@ -29,52 +29,42 @@
 					<div class="row">
 						<div class="col-md-12">
 							<ul class="ys_menu_nav">
-								<li><a href='javascript:void(0);' class="active">专题故事</a></li>
-								<li><a href='javascript:void(0);'>封面人物</a></li>
-								<li><a href='javascript:void(0);'>寻味</a></li>
-								<li><a href='javascript:void(0);'>专栏</a></li>
+							<?php
+								$category_html = ''; 
+								foreach ($category_list as $k=>$v){
+									$class = '';
+									if($v['id']==$current_category){
+										$class='active';
+									}
+									$category_html .= '<li><a href="/article/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
+								}
+								echo $category_html;
+							?>
 							</ul>
 						</div>
 					</div>
 				</div>
       			
       			<div class="ys_container">
-					<div class="row ys_latest">
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb1.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb2.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb2.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
+					<?php
+					$article_html = '<div class="row ys_latest">'; 
+					$article_row_count = 0;
+					$article_html .= '';
+					foreach($article_list as $k=>$v){
+						$article_html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
+						$article_html .= '<a href="/article/detail/'.$v['id'].'"><img src="'.$v['cover'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h3><a href="/article/detail/'.$v['id'].'">'.$v['name'].'</a></h3>';
+						$article_html .= '<p>'.$v['foreword'].'</p>';
+						$article_html .= '</div></div></div>';
 						
-					</div>
+						$article_row_count++;
+						if($article_row_count%3==0){
+							//$article_html .= '</div><div class="row ys_latest">';
+						}
+					}
+					$article_html .= '</div>';
+					echo $article_html;
+					?>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>

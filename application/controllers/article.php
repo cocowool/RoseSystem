@@ -5,14 +5,36 @@ class Article extends My_Controller {
 	public function __construct(){
 		parent::__construct();
 	}
-
-	public function index(){
+	
+	public function _remap( $method, $params = array() ){
+		if( method_exists($this, $method) ){
+			return call_user_func_array(array($this,$method), $params);
+		}else{
+			array_push($params, $method);
+			return call_user_func_array(array($this,'index'), $params);
+		}
+	}
+	
+	public function index($category = 0, $page = 1){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Article_Model', 'a');
 		$this->load->model('Resource_Model', 'r');
 		$this->load->model('Category_Model', 'c');
 		
+		$data['current_category'] = $category;
+		//默认调取杂志分类下的信息
+		$default_category = '0';
+		$option = array();
+		$option[] = array('data' => '1', 'field' => 'ctype', 'action' => 'where' );
+		$option[] = array('data' => $default_category, 'field' => 'pid', 'action' => 'where' );
+		$data['category_list'] = $this->c->getAll($option);
+		
+		$option = array();
+		$ids = $this->c->get_category_ids($category);
+		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
+		$data['article_list'] = $this->a->getAll($option);
+
 		$this->load->view('article/list', $data);
 	}
 	
