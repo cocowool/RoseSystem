@@ -45,7 +45,7 @@
 					</div>
 				</div>
       			
-      			<div class="ys_container">
+      			<div class="ys_container ys_article_list">
 					<?php
 					$article_html = '<div class="row ys_latest">'; 
 					$article_row_count = 0;
@@ -58,8 +58,8 @@
 						$article_html .= '</div></div></div>';
 						
 						$article_row_count++;
-						if($article_row_count%3==0){
-							//$article_html .= '</div><div class="row ys_latest">';
+						if($article_row_count%3==0 and $article_row_count != 9){
+							$article_html .= '</div><div class="row ys_latest hide">';
 						}
 					}
 					$article_html .= '</div>';

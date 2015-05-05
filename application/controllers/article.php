@@ -33,12 +33,35 @@ class Article extends My_Controller {
 		$option = array();
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
-		$data['article_list'] = $this->a->getAll($option);
+		$data['article_list'] = $this->a->getAll($option, 0, 9);
 
 		$this->load->view('article/list', $data);
 	}
 	
-	public function lists($id){
+	/**
+	 * 返回Ajax请求对应的数据
+	 * @param number $category
+	 * @param number $count
+	 */
+	public function serverside($category, $start = 0, $count = 3){
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		$this->load->model('Article_Model', 'a');
+		$this->load->model('Resource_Model', 'r');
+		$this->load->model('Category_Model', 'c');
+		
+		$data['current_category'] = $category;
+		//默认调取杂志分类下的信息
+		$default_category = '0';
+		$option = array();
+		$option[] = array('data' => '1', 'field' => 'ctype', 'action' => 'where' );
+		$option[] = array('data' => $default_category, 'field' => 'pid', 'action' => 'where' );
+		$data['category_list'] = $this->c->getAll($option);
+		
+		$option = array();
+		$ids = $this->c->get_category_ids($category);
+		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
+		$data['article_list'] = $this->a->getAll($option,$start,$count);
 		
 	}
 	

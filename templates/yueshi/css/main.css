@@ -89,7 +89,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_video_item_container img { width:370px; height:230px; }
 .ys_caption { height:auto; overflow-y:hidden; color:#555; }
 .ys_caption a { color:#337ab7; text-decoration:none; }
-.ys_caption h3 a { font-size:0.8em; }
+.ys_caption h3 a { font-size:0.7em; }
 .ys_caption h3 a:hover { color:#ddd; }
 .ys_caption p { color:#555; margin:0 1em 1em; font-size:1.2em; line-height:1.5em; text-align:left; }
 
