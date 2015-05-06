@@ -70,6 +70,9 @@
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
 			      	</div>	
+			      	<div class="row">
+			      		<?php echo $page_links; ?>
+			      	</div>
       			</div>
       			
 			</div>

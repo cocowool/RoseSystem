@@ -33,8 +33,17 @@ class Article extends My_Controller {
 		$option = array();
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
-		$data['article_list'] = $this->a->getAll($option, 0, 9);
+		$data['article_total'] = $this->a->getTotal($option);
+		$data['article_list'] = $this->a->getAll($option, ($page-1)*9, 9);
 
+		$this->load->library('pagination');
+		$config['base_url'] = '/article/index/'.$category.'/';
+		$config['total_rows'] = $data['article_total'];
+		$config['uri_segment'] = 4;
+		$config['per_page'] = 9;
+		$this->pagination->initialize($config);
+		$data['page_links'] = $this->pagination->create_links();
+		
 		$this->load->view('article/list', $data);
 	}
 	
