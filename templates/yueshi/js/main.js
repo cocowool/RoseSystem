@@ -52,18 +52,4 @@ $(document).ready(function(){
 			}
 		});
 	});
-	
-	$('.ys_ajaxmore a').click(function(){
-		$.ajax({
-			'type'	:	'POST',
-			'url'	:	'/article',
-			'data'	:	{
-				'count'	:	1
-			},
-			'success'	:	function(result){
-				console.log($('.ys_article_list .hide').first().removeClass('hide  '));
-				$('.ys_article_list .hide').first().show();
-			}
-		});
-	});
 });

@@ -92,5 +92,21 @@
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.ys_ajaxmore a').click(function(){
+			$.ajax({
+				'type'	:	'POST',
+				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+				'data'	:	{
+					'count'	:	1
+				},
+				'success'	:	function(result){
+					$('.ys_article_list .hide').first().show();
+				}
+			});
+		});
+	});
+	</script>
 </body>
 </html>
