@@ -34,7 +34,7 @@ class Article extends My_Controller {
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
 		$data['article_total'] = $this->a->getTotal($option);
-		$data['article_list'] = $this->a->getAll($option, ($page-1)*9, 9);
+		$data['article_list'] = $this->a->getAll($option, $page, 9);
 
 		$this->load->library('pagination');
 		$config['base_url'] = '/article/index/'.$category.'/';
