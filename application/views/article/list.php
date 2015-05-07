@@ -71,7 +71,9 @@
 			      		</div>
 			      	</div>	
 			      	<div class="row">
-			      		<?php echo $page_links; ?>
+			      		<div class="ys_pagelink">
+				      		<?php echo $page_links; ?>
+			      		</div>
 			      	</div>
       			</div>
       			

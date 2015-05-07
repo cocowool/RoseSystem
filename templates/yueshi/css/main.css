@@ -96,6 +96,8 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_ajaxmore { margin:10px 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
 .ys_ajaxmore a { text-decoration:none; color:#d7d7d7; line-height:2em; }
 .ys_ajaxmore a:hover { color:#e13300; }
+.ys_pagelink { margin:10px 15px; text-align:center; }
+.ys_pagelink a { display:inline-block; border:1px solid rgb(51, 122, 183); padding:0.2em 0.5em; margin:0 0.5em; }
 
 .ys_footer { border-top:1px solid #e1e1e1; margin-top:1em; color:#bbbbbb; line-height:2em; }
 .ys_foot_links { text-align:right; }
