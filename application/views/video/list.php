@@ -25,52 +25,58 @@
 				<div class='ys_top_title'>
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
-				
 				<div class="ys_container">
 					<div class="row">
 						<div class="col-md-12">
 							<ul class="ys_menu_nav">
-								<li><a href='javascript:void(0);' class="active">专题故事</a></li>
-								<li><a href='javascript:void(0);'>封面人物</a></li>
-								<li><a href='javascript:void(0);'>寻味</a></li>
-								<li><a href='javascript:void(0);'>专栏</a></li>
+							<?php
+								$category_html = ''; 
+								foreach ($category_list as $k=>$v){
+									$class = '';
+									if($v['id']==$current_category){
+										$class='active';
+									}
+									$category_html .= '<li><a href="/article/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
+								}
+								echo $category_html;
+							?>
 							</ul>
 						</div>
 					</div>
 				</div>
-				
-      			<div class="ys_container">
-					<div class="row ys_latest">
-						<div class="col-md-6">
-							<div class="ys_video_item_container">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb1.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="ys_video_item_container">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb2.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
+      			
+      			<div class="ys_container ys_article_list">
+					<?php
+					$article_html = '<div class="row ys_latest">'; 
+					$article_row_count = 0;
+					$article_html .= '';
+					foreach($video_list as $k=>$v){
+						$article_html .= '<div class="col-md-6"><div class="ys_video_item_container">';
+						$article_html .= '<a href="/video/detail/'.$v['id'].'"><img src="'.$v['v_thumb'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h3><a href="/video/detail/'.$v['id'].'">'.$v['v_title'].'</a></h3>';
+						$article_html .= '<p>'.$v['v_desc'].'</p>';
+						$article_html .= '</div></div></div>';
 						
-					</div>
+						$article_row_count++;
+						if($article_row_count%3==0 and $article_row_count != 9){
+							$article_html .= '</div><div class="row ys_latest hide">';
+						}
+					}
+					$article_html .= '</div>';
+					echo $article_html;
+					?>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
 			      	</div>	
+			      	<div class="row">
+			      		<div class="ys_pagelink hide">
+				      		<?php echo $page_links; ?>
+			      		</div>
+			      	</div>
       			</div>
+      			
 			</div>
 			<div class="col-md-2">
 				<div class="ys_logo">
@@ -88,9 +94,30 @@
 		</div>
 	</div>
 	<?php $this->load->view('common/footer'); ?>
-
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var count = 1;
+		$('.ys_ajaxmore a').click(function(){
+			if(count == 3){
+				$('.ys_ajaxmore').hide();
+				$('.ys_pagelink').show();
+				$('.ys_pagelink').removeClass('hide');
+			}
+			$.ajax({
+				'type'	:	'POST',
+				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+				'data'	:	{
+					'count'	:	1
+				},
+				'success'	:	function(result){
+					$('.ys_article_list .hide').first().removeClass('hide');
+				}
+			});
+		});
+	});
+	</script>
 </body>
 </html>

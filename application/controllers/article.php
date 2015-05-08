@@ -6,15 +6,6 @@ class Article extends My_Controller {
 		parent::__construct();
 	}
 	
-	public function _remap( $method, $params = array() ){
-		if( method_exists($this, $method) ){
-			return call_user_func_array(array($this,$method), $params);
-		}else{
-			array_push($params, $method);
-			return call_user_func_array(array($this,'index'), $params);
-		}
-	}
-	
 	public function index($category = 0, $page = 1){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
