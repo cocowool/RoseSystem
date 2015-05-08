@@ -65,11 +65,17 @@
 					$article_html .= '</div>';
 					echo $article_html;
 					?>
+					<?php 
+					if(!empty($page_links)){
+					?>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
 			      	</div>	
+			      	<?php 
+			      	}
+			      	?>
 			      	<div class="row">
 			      		<div class="ys_pagelink hide">
 				      		<?php echo $page_links; ?>
