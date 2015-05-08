@@ -25,26 +25,6 @@
 				<div class='ys_top_title'>
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
-				<div class="ys_container">
-					<div class="row">
-						<div class="col-md-12">
-							<ul class="ys_menu_nav">
-							<?php
-								$category_html = ''; 
-								foreach ($category_list as $k=>$v){
-									$class = '';
-									if($v['id']==$current_category){
-										$class='active';
-									}
-									$category_html .= '<li><a href="/article/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
-								}
-								echo $category_html;
-							?>
-							</ul>
-						</div>
-					</div>
-				</div>
-      			
       			<div class="ys_container ys_article_list">
 					<?php
 					$article_html = '<div class="row ys_latest">'; 
