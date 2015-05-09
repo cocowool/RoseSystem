@@ -64,7 +64,7 @@ class Video extends My_Controller {
 			$data['images'] = $res_data;
 		}
 	
-		//$data['related_article'] = $this->realted_article($data['category'], $data['id']);
+		$data['related_video'] = $this->realted_video($data['v_category'], $data['id']);
 		$data = array_merge($data, $this->getPubData());
 		
 		$this->load->view('video/detail', $data);
@@ -77,6 +77,22 @@ class Video extends My_Controller {
 		$result = $this->a->update($updateData);
 	
 		return $result;
+	}
+	
+	private function realted_video($cid, $id = ''){
+		$this->load->model('Video_Model','v');
+		$option = array();
+		$option[] = array( 'data' => $cid, 'field' => 'v_category', 'action' => 'where' );
+		if( !empty($id) ){
+			$option[] = array( 'data' => $id, 'field' => 'id !=', 'action' => 'where' );
+		}
+		$data = $this->v->getAll($option, 0, 1000);
+	
+		if( empty($data) ){
+			return false;
+		}
+	
+		return $data;
 	}
 	
 }

@@ -139,21 +139,23 @@
       					</div>
       				</div>
       				<div class="ys_article_related">
-      					<h3>相关文章</h3>
+      					<h3>相关影像</h3>
       					<div class="ys_container">
       						<div class="row">
       						<?php
+      						if($related_video){
       						$count = 0;
       						$html = '';
-      						foreach ($related_article as $k=>$v){
+      						foreach ($related_video as $k=>$v){
 								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
-								$html .= '<a href="/article/detail/'.$v['id'].'"><img src="' . $v['cover'] . '" /></a>';
-								$html .= '<div class="ys_caption"><h3><a href="/article/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
+								$html .= '<a href="/video/detail/'.$v['id'].'"><img src="' . $v['v_thumb'] . '" /></a>';
+								$html .= '<div class="ys_caption"><h3><a href="/video/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
 								$count++;
 								if($count>2) break;
 							}
 							
 							echo $html;
+							}
       						?>
       						</div>
       					</div>
