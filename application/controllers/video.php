@@ -38,6 +38,44 @@ class Video extends My_Controller {
 		$this->load->view('video/list', $data);
 	}
 	
+	/**
+	 * 用户点击后更新喜欢与收藏次数
+	 *
+	 * @param number $id
+	 */
+	public function feedback($type = 'like', $id){
+		switch ($type){
+			case 'like':
+				$type = 'v_like';
+				break;
+			case 'fav':
+				$type = 'v_fav';
+				break;
+		}
+		
+		$this->load->model('Video_Model', 'v');
+		$article = $this->v->getById($id);
+		$data['id'] = $id;
+		$data[$type] = $article[$type] + 1;
+		$result = $this->v->update($data, $id);
+	
+		if($result){
+			$json = array(
+					'errno'=>0,
+					'errinfo'=>'更新成功',
+					'count'=>$article[$type]+1,
+			);
+		}else{
+			$json = array(
+					'errno'=>'E500',
+					'errinfo'=>'数据库更新失败',
+					'count'=>$article[$type]+1,
+			);
+		}
+	
+		echo json_encode($json);
+	}
+	
 	public function detail($id){
 		$this->load->model('Video_Model','v');
 		$this->load->model('Resource_Model', 'r');

@@ -44,11 +44,11 @@
       				<div class="ys_article_stat">
       					<p>
       						<span>阅读：</span><?php echo $v_click; ?>&nbsp;&nbsp;
-      						<button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <?php echo $v_like; ?>
+      						<button type="button" class="btn btn-default btn-xs ys_like">
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <em><?php echo $v_like; ?></em>
 							</button>
-      						<button type="button" class="btn btn-default btn-xs">
-								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <?php echo $v_fav; ?>
+      						<button type="button" class="btn btn-default btn-xs ys_fav">
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <em><?php echo $v_fav; ?></em>
 							</button>
       					</p>
       				</div>
@@ -182,5 +182,27 @@
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.ys_like').click(function(){
+			$.ajax({
+				dataType : 'json',
+				url	:	'/video/feedback/like/<?php echo $id; ?>',
+				success : function(result){
+					$('.ys_like em').html(result.count);
+				}
+			});
+		});
+		$('.ys_fav').click(function(){
+			$.ajax({
+				dataType : 'json',
+				url	:	'/video/feedback/fav/<?php echo $id; ?>',
+				success : function(result){
+					$('.ys_fav em').html(result.count);
+				}
+			});
+		});
+	});
+	</script>
 </body>
 </html>
