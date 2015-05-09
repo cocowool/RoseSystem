@@ -116,6 +116,7 @@
       							foreach ($comment_list as $k=>$v){
 								?>
       						<div class="ys_comment_item container-fluid">
+      						
       							<div class="row">
       								<div class="col-md-2">
       								<?php

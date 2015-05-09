@@ -66,6 +66,35 @@ class Article extends My_Controller {
 	}
 	
 	/**
+	 * 用户点击后更新喜欢与收藏次数
+	 * 
+	 * @param number $id
+	 */
+	public function feedback($type = 'like', $id){
+		$this->load->model('Article_Model', 'a');
+		$article = $this->a->getById($id);
+		$data['id'] = $id;
+		$data[$type] = $article[$type] + 1;
+		$result = $this->a->update($data, $id);
+		
+		if($result){
+			$json = array(
+				'errno'=>0,
+				'errinfo'=>'更新成功',
+				'count'=>$article[$type]+1,
+			);
+		}else{
+			$json = array(
+				'errno'=>'E500',
+				'errinfo'=>'数据库更新失败',
+				'count'=>$article[$type]+1,
+			);
+		}
+		
+		echo json_encode($json);
+	}
+	
+	/**
 	 * 文章详情页
 	 * 
 	 * @param int $article
