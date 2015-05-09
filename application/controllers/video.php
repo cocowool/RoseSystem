@@ -39,12 +39,44 @@ class Video extends My_Controller {
 	}
 	
 	public function detail($id){
-		$data = array();
-		$data = array_merge($data, $this->getPubData());
-		$this->load->model('Video_Model', 'v');
-		$this->load->model('Category_Model', 'c');
+		$this->load->model('Video_Model','v');
 		$this->load->model('Resource_Model', 'r');
+		$this->load->model('Category_Model','c');
+		$this->load->model('Comment_Model', 't');
+		$this->load->model('User_Model','u');
+	
+		$data = array();
+		$data = $this->v->getById($id);
+		$data['breadcrum'] = $this->c->get_breadcrum($data['v_category']);
+		$this->click_addone($data, $id);
+		
+		$data['comment_list'] = $this->t->getCommentList($id);
+		foreach ($data['comment_list'] as $k=>$v){
+			$userinfo = $this->u->getById($v['userid']);
+			$data['comment_list'][$k]['userinfo'] = $userinfo;
+		}
+		
+		//获取资源列表
+		$res_option = array();
+		if( !empty($data['id']) ){
+			$res_option[] = array('data' => $data['id'], 'field' => 'aid', 'action' => 'where');
+			$res_data = $this->r->getAll($res_option, 0, 100, 'sort', 'desc');
+			$data['images'] = $res_data;
+		}
+	
+		//$data['related_article'] = $this->realted_article($data['category'], $data['id']);
+		$data = array_merge($data, $this->getPubData());
 		
 		$this->load->view('video/detail', $data);
 	}
+	
+	private function click_addone($data, $id){
+		$this->load->model('Video_Model', 'a');
+		$updateData['v_click'] = $data['v_click'] + 1;
+		$updateData['id'] = $id;
+		$result = $this->a->update($updateData);
+	
+		return $result;
+	}
+	
 }
