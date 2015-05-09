@@ -64,10 +64,10 @@
       				<div class="ys_article_stat">
       					<p>
       						<span>阅读：</span><?php echo $click; ?>&nbsp;&nbsp;
-      						<button type="button" class="btn btn-default btn-xs">
+      						<button type="button" class="btn btn-default btn-xs ys_like">
 								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <?php echo $like; ?>
 							</button>
-      						<button type="button" class="btn btn-default btn-xs">
+      						<button type="button" class="btn btn-default btn-xs ys_fav">
 								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <?php echo $fav; ?>
 							</button>
       					</p>
