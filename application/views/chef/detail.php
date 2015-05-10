@@ -30,20 +30,22 @@
 					<div class="ys_chef_top">
 						<img src="<?php echo $current_chef['s_thumb']; ?>" />
 					</div>
-					<div class="ys_chef_menu">
-						<ul>
-						<?php
-						$html_chef_list = ''; 
-						foreach ($chef_list as $k=>$v ){
-							$html_chef_list .= '<li>';
-							$html_chef_list .= '<a href="/chef/'.$v['id'].'">'.$v['s_title'].'</a>';
-							$html_chef_list .= '</li>';
-						}
-						echo $html_chef_list;
-						?>
-						</ul>
+					<div class="ys_chef_links">
+						<div class="ys_chef_links_bg"></div>
+						<div class="ys_chef_links_list">
+							<ul>
+							<?php
+							$html_chef_list = ''; 
+							foreach ($chef_list as $k=>$v ){
+								$html_chef_list .= '<li>';
+								$html_chef_list .= '<a href="/chef/'.$v['id'].'">'.$v['s_title'].'</a>';
+								$html_chef_list .= '</li>';
+							}
+							echo $html_chef_list;
+							?>
+							</ul>
+						</div>
 					</div>
-					
 				</div>
 				
 				<div class="ys_chef_content">
@@ -51,15 +53,43 @@
 						<?php echo $current_chef['s_desc']; ?>
 					</div>
 					<div class="ys_chef_menu row">
-						<div clss="col-md-6">
-		      				<div class="embed-responsive embed-responsive-16by9">
+						<div class="col-md-6">
+							<div class="ys_video_player embed-responsive embed-responsive-16by9">
 			      				<iframe class="embed-responsive-item" src="<?php echo $current_chef['s_youku']; ?>" frameborder=0 allowfullscreen></iframe>
 		      				</div>
 						</div>
 						<div class="col-md-6">
-							<?php echo $current_chef['s_text']; ?>
+							<div class="ys_chef_menu_text">
+								<?php echo $current_chef['s_text']; ?>
+							</div>
 						</div>
 					</div>
+				</div>
+				<div class="ys_chef_focus">
+					<div id="carousel-example-generic" class="carousel slide ys_homefocus" data-ride="carousel">
+				        <ol class="carousel-indicators">
+				        <?php 
+				        foreach ($focus_html as $k=>$v){
+				        ?>
+	         	 			<li data-target="#carousel-example-generic" data-slide-to="<?php echo $k; ?>" class=""></li>
+	         	 		<?php } ?>
+				        </ol>
+				        <div class="carousel-inner" role="listbox">
+				        <?php foreach($focus_html as $k=>$v){?>
+	          				<div class="item">
+	            				<img data-src="" alt="First slide [1140x500]" src="<?php echo $v; ?>" data-holder-rendered="false">
+	          				</div>
+	          			<?php }?>
+	        			</div>
+	        			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	          				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	          				<span class="sr-only">Previous</span>
+	        			</a>
+	        			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	          				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	          				<span class="sr-only">Next</span>
+	        			</a>
+	      			</div>			
 				</div>
 			</div>
 			<div class="col-md-2">

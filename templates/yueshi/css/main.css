@@ -97,6 +97,25 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_caption h3 a:hover { color:#ddd; }
 .ys_caption p { color:#555; margin:0 1em 1em; font-size:1.2em; line-height:1.5em; text-align:left; }
 
+.ys_chef_nav { margin-top:0.5em; position:relative; }
+.ys_chef_top { position:relative; }
+.ys_chef_links { position:relative; display:block;  }
+.ys_chef_links_bg {
+	position:absolute; z-index:10; display:block; height:3em; line-height:3em; background-color:#000;
+	top:-3em; filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5; width:100%;
+}
+.ys_chef_links_list  { position:absolute; top:-3em; width:100%; line-height:3em; z-index:50; text-align:right;
+	padding:0 1em; }
+.ys_chef_links_list ul { display:block; width:100%; text-align:right; }
+.ys_chef_links_list ul li { display:inline-block; }
+.ys_chef_links_list ul li a { color:#fff; }
+.ys_chef_content { }
+.ys_chef_desc { padding:1.5em 2em; text-indent:2em; line-height:150%; border-bottom:1px solid #ececec; }
+.ys_chef_menu { padding:1.5em 0; }
+.ys_chef_youku { width:400px; }
+.ys_chef_menu_text {  }
+.ys_chef_focus { border-top:1px solid #ececec; padding:1.5em 0; }
+
 .ys_ajaxmore { margin:10px 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
 .ys_ajaxmore a { text-decoration:none; color:#d7d7d7; line-height:2em; }
 .ys_ajaxmore a:hover { color:#e13300; }
