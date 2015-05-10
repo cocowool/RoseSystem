@@ -141,13 +141,13 @@
       					<div class="ys_container">
       						<div class="row">
       						<?php
-      						if($related_video){
+      						if($related_store){
       						$count = 0;
       						$html = '';
-      						foreach ($related_video as $k=>$v){
+      						foreach ($related_store as $k=>$v){
 								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
-								$html .= '<a href="/video/detail/'.$v['id'].'"><img src="' . $v['v_thumb'] . '" /></a>';
-								$html .= '<div class="ys_caption"><h3><a href="/video/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
+								$html .= '<a href="/store/detail/'.$v['id'].'"><img src="' . $v['s_thumb'] . '" /></a>';
+								$html .= '<div class="ys_caption"><h3><a href="/store/detail/' . $v['id'] . '">' . $v['s_title'] . '</a></h3></div></div></div>';
 								$count++;
 								if($count>2) break;
 							}

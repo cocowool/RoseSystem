@@ -53,10 +53,21 @@ class Store extends My_Controller {
 			$data['images'] = $res_data;
 		}
 		
-		//$data['related_video'] = $this->realted_video($data['v_category'], $data['id']);
+		$data['related_store'] = $this->related_store($data['id']);
 		$data = array_merge($data, $this->getPubData());
 		
 		$this->load->view('store/detail', $data);
+	}
+	
+	private function related_store($id){
+		$this->load->model("Store_Model","s");
+		$data = $this->s->getById($id);
+		
+		$option = array();
+		$option[] = array('data' => $id, 'field' => 'id !=', 'action' => 'where');
+		$related_store = $this->s->getAll($option);
+		
+		return $related_store;
 	}
 	
 	private function click_addone($data, $id){
