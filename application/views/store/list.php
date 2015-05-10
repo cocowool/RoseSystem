@@ -32,8 +32,8 @@
 					$article_html .= '';
 					foreach($store_list as $k=>$v){
 						$article_html .= '<div class="col-md-6"><div class="ys_video_item_container">';
-						$article_html .= '<a href="/video/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h3><a href="/video/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
+						$article_html .= '<a href="/store/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h3><a href="/store/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
 						$article_html .= '<p>'.$v['s_desc'].'</p>';
 						$article_html .= '</div></div></div>';
 						

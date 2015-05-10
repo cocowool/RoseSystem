@@ -25,66 +25,140 @@
 				<div class='ys_top_title'>
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
-				<div class="ys_container">
-					<div class="row">
-						<div class="col-md-12">
-							<ul class="ys_menu_nav">
-							<?php
-								$category_html = ''; 
-								foreach ($category_list as $k=>$v){
-									$class = '';
-									if($v['id']==$current_category){
-										$class='active';
-									}
-									$category_html .= '<li><a href="/article/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
-								}
-								echo $category_html;
-							?>
-							</ul>
-						</div>
-					</div>
+				
+				<div class="ys_breadcrum">
+					<p>
+						<?php //echo $breadcrum; ?>
+					</p>
 				</div>
       			
-      			<div class="ys_container ys_article_list">
-					<?php
-					$article_html = '<div class="row ys_latest">'; 
-					$article_row_count = 0;
-					$article_html .= '';
-					foreach($video_list as $k=>$v){
-						$article_html .= '<div class="col-md-6"><div class="ys_video_item_container">';
-						$article_html .= '<a href="/video/detail/'.$v['id'].'"><img src="'.$v['v_thumb'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h3><a href="/video/detail/'.$v['id'].'">'.$v['v_title'].'</a></h3>';
-						$article_html .= '<p>'.$v['v_desc'].'</p>';
-						$article_html .= '</div></div></div>';
-						
-						$article_row_count++;
-						if($article_row_count%3==0 and $article_row_count != 9){
-							$article_html .= '</div><div class="row ys_latest hide">';
+      			<div class="ys_video">
+      				<h1><?php echo $s_title; ?></h1>
+      				<h2><?php //echo $subtitle; ?></h2>
+      				<div class="ys_store_desc">
+      					<?php echo $s_desc; ?>
+      				</div>
+      				<div class="ys_article_stat">
+      					<p>
+      						<span>阅读：</span><?php echo $s_click; ?>&nbsp;&nbsp;
+      						<button type="button" class="btn btn-default btn-xs ys_like">
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <em><?php echo $s_like; ?></em>
+							</button>
+      						<button type="button" class="btn btn-default btn-xs ys_fav">
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <em><?php echo $s_fav; ?></em>
+							</button>
+      					</p>
+      				</div>
+      				<div class="share-links">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+						<a class="jiathis_button_tsina"></a>
+						<a class="jiathis_button_weixin"></a>
+						<a class="jiathis_button_email"></a>
+						<a class="jiathis_button_douban"></a>
+						<a href="http://www.jiathis.com/share?uid=905086" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+						<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript" >
+						var jiathis_config={
+							data_track_clickback:true,
+							summary:"",
+							hideMore:false
 						}
-					}
-					$article_html .= '</div>';
-					echo $article_html;
-					?>
-					
-					<?php 
-					if(!empty($page_links)){
-					?>
-			      	<div class="row">
-			      		<div class="ys_ajaxmore">
-			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
-			      		</div>
-			      	</div>	
-			      	<?php 
-			      	}
-			      	?>
-			      	
-			      	<div class="row">
-			      		<div class="ys_pagelink hide">
-				      		<?php echo $page_links; ?>
-			      		</div>
-			      	</div>
+						</script>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=905086" charset="utf-8"></script>
+						<!-- JiaThis Button END -->						
+					</div>
+      				<div class="ys_article_comment">
+      					<div class="ys_comment_recorder">
+      						<?php 
+      						if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername']) ){
+							?>
+							<form name='commentForm' id='commentForm' method='post' action='/comment'>
+								<div class="form-group">
+									<label for="comment">评论内容：</label>
+									<textarea rows="3" cols="" class="form-control" id="content" name="content"></textarea>
+								</div>
+								<div class="form-inline">
+									<div class="form-group">
+										<label form="verifycode">验证码：</label>
+										<input type="text" id="verifycode" name="verifycode" class="form-control input-sm">
+										<img src="http://www.yueshichina.com/register/captcha" />
+									</div>
+								</div>
+								<p>&nbsp;
+									<input type="hidden" id="ctype" name="ctype" value="1">
+									<input type="hidden" id="cid" name="cid" value="<?php echo $id; ?>">
+									<input type="hidden" id="userid" name="userid" value="<?php echo $sess_data['gUserid']; ?>">
+								</p>
+								<div class="form-group">
+									<input type="button" id="btnComment" name="btnComment" value="提交" class="btn btn-primary">
+									<span class="ys_ajax_msg"></span>
+								</div>
+							</form>
+							<?php
+							}else{
+							?>
+							<div>
+								<p>发表留言，请先<a href="/user/login" class="ys_link_red">登录</a></p>
+							</div>
+							<?php
+							}
+      						?>
+      					</div>
+      					
+      					<div class="ys_comment_list">
+      							<?php 
+      							if(isset($comment_list) and is_array($comment_list)){
+      							foreach ($comment_list as $k=>$v){
+								?>
+      						<div class="ys_comment_item container-fluid">
+      						
+      							<div class="row">
+      								<div class="col-md-2">
+      								<?php
+      									if(empty($v['userinfo']['usericon'])){
+      										echo "<img src='" . $this->config->item('default_icon') . "' width='50px' />";
+      									}else{
+											echo "<img src='" . $v['userinfo']['usericon'] . "' width='50px'>";
+										}
+      								?>
+      								</div>
+      								<div class="col-md-10">
+      									<p><?php echo $v['userinfo']['username']; ?>&nbsp;&nbsp;<?php echo $v['insert_time']; ?></p>
+      									<p><?php echo $v['content']; ?></p>
+      								</div>
+      							</div>
+      						</div>
+								<?php
+								}
+								}
+      							?>
+      					</div>
+      				</div>
+      				<div class="ys_article_related">
+      					<h3>相关影像</h3>
+      					<div class="ys_container">
+      						<div class="row">
+      						<?php
+      						if($related_video){
+      						$count = 0;
+      						$html = '';
+      						foreach ($related_video as $k=>$v){
+								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
+								$html .= '<a href="/video/detail/'.$v['id'].'"><img src="' . $v['v_thumb'] . '" /></a>';
+								$html .= '<div class="ys_caption"><h3><a href="/video/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
+								$count++;
+								if($count>2) break;
+							}
+							
+							echo $html;
+							}
+      						?>
+      						</div>
+      					</div>
+      				</div>
       			</div>
-      			
 			</div>
 			<div class="col-md-2">
 				<div class="ys_logo">
@@ -107,21 +181,21 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
-		var count = 1;
-		$('.ys_ajaxmore a').click(function(){
-			if(count == 3){
-				$('.ys_ajaxmore').hide();
-				$('.ys_pagelink').show();
-				$('.ys_pagelink').removeClass('hide');
-			}
+		$('.ys_like').click(function(){
 			$.ajax({
-				'type'	:	'POST',
-				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
-				'data'	:	{
-					'count'	:	1
-				},
-				'success'	:	function(result){
-					$('.ys_article_list .hide').first().removeClass('hide');
+				dataType : 'json',
+				url	:	'/store/feedback/like/<?php echo $id; ?>',
+				success : function(result){
+					$('.ys_like em').html(result.count);
+				}
+			});
+		});
+		$('.ys_fav').click(function(){
+			$.ajax({
+				dataType : 'json',
+				url	:	'/store/feedback/fav/<?php echo $id; ?>',
+				success : function(result){
+					$('.ys_fav em').html(result.count);
 				}
 			});
 		});
