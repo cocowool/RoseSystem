@@ -116,6 +116,10 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_chef_menu_text {  }
 .ys_chef_focus { border-top:1px solid #ececec; padding:1.5em 0; }
 
+.ys_fest_container { position:relative; }
+.ys_fest_logo { text-align:center; }
+.ys_fest_logo img { width:150px; }
+
 .ys_ajaxmore { margin:10px 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
 .ys_ajaxmore a { text-decoration:none; color:#d7d7d7; line-height:2em; }
 .ys_ajaxmore a:hover { color:#e13300; }
