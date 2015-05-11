@@ -37,6 +37,7 @@
       				<h2><?php echo $subtitle; ?></h2>
 					<p class="ys_article_author">
 						<?php 
+						$prefix = '';
 						if( !empty($author) && !empty($photographer) ){
 							if( $author == $photographer ){
 								$prefix = '文/图&copy;' . $author;
