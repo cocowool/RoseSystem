@@ -38,9 +38,27 @@
       					<p><a href="/fest"></a><img src="/templates/yueshi/images/festlogo.png" /></a></p>
       				</div>
       				<div class="ys_fest_nav">
-      					
+      					<ul class="ys_menu_nav">
+      						<li><a href="javascript:void(0);" class="active">2014</a></li>
+      						<li><a href="javascript:void(0);">2015</a></li>
+      					</ul>
       				</div>
-      			
+      				<div class="ys_fest_desc">
+      					<?php 
+      						if(!empty($f_desc)){
+								echo $f_desc;
+							}
+      					?>
+      				</div>
+      				<div class="ys_fest_forum">
+      				
+      				</div>
+      				<div class="ys_fest_carnival">
+      				
+      				</div>
+      				<div class="ys_fest_consultant">
+      				
+      				</div>
       			</div>
       			
 			</div>
@@ -64,26 +82,7 @@
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('.ys_like').click(function(){
-			$.ajax({
-				dataType : 'json',
-				url	:	'/store/feedback/like/<?php echo $id; ?>',
-				success : function(result){
-					$('.ys_like em').html(result.count);
-				}
-			});
-		});
-		$('.ys_fav').click(function(){
-			$.ajax({
-				dataType : 'json',
-				url	:	'/store/feedback/fav/<?php echo $id; ?>',
-				success : function(result){
-					$('.ys_fav em').html(result.count);
-				}
-			});
-		});
-	});
+
 	</script>
 </body>
 </html>
