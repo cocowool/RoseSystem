@@ -57,6 +57,9 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_article_author { text-align:center; font-size:1.17em; }
 .ys_article_stat { text-align:right; }
 .ys_article_comment { border-top:1px solid #c4c4c4; padding:1em 90px; }
+.ys_video { padding:0; }
+.ys_video h1 { font-size:2em; }
+.ys_video_player { }
 .ys_comment_recorder { border-top:1px solid #c4c4c4; border-bottom:1px solid #c4c4c4; margin:1.5em 0; padding:1em 0; }
 .ys_comment_recorder p { margin:0; text-align:center; }
 .ys_comment_list { position:relative; }
@@ -85,8 +88,9 @@ a.ys_link_red:hover { text-decoration:none; }
 
 .ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:2em; border:1px solid #ddd; padding:4px; background-color:#fff; }
 .ys_thumbnail_block img { width:100%; }
-.ys_video_item_container { display:block; background-color:#f9f9f9; text-align:center; }
-.ys_video_item_container img { width:370px; height:230px; }
+.ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; }
+.ys_video_item_container a { display:inline-block; }
+.ys_video_item_container img { padding:1px;width:100%; }
 .ys_caption { height:auto; overflow-y:hidden; color:#555; }
 .ys_caption a { color:#337ab7; text-decoration:none; }
 .ys_caption h3 a { font-size:0.7em; }

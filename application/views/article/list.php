@@ -65,13 +65,19 @@
 					$article_html .= '</div>';
 					echo $article_html;
 					?>
+					<?php 
+					if(!empty($page_links)){
+					?>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
 			      	</div>	
+			      	<?php 
+			      	}
+			      	?>
 			      	<div class="row">
-			      		<div class="ys_pagelink">
+			      		<div class="ys_pagelink hide">
 				      		<?php echo $page_links; ?>
 			      		</div>
 			      	</div>
@@ -99,7 +105,13 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
+		var count = 1;
 		$('.ys_ajaxmore a').click(function(){
+			if(count == 3){
+				$('.ys_ajaxmore').hide();
+				$('.ys_pagelink').show();
+				$('.ys_pagelink').removeClass('hide');
+			}
 			$.ajax({
 				'type'	:	'POST',
 				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
@@ -107,7 +119,7 @@
 					'count'	:	1
 				},
 				'success'	:	function(result){
-					$('.ys_article_list .hide').first().show();
+					$('.ys_article_list .hide').first().removeClass('hide');
 				}
 			});
 		});

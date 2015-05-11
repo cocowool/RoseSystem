@@ -25,36 +25,16 @@
 				<div class='ys_top_title'>
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
-				<div class="ys_container">
-					<div class="row">
-						<div class="col-md-12">
-							<ul class="ys_menu_nav">
-							<?php
-								$category_html = ''; 
-								foreach ($category_list as $k=>$v){
-									$class = '';
-									if($v['id']==$current_category){
-										$class='active';
-									}
-									$category_html .= '<li><a href="/article/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
-								}
-								echo $category_html;
-							?>
-							</ul>
-						</div>
-					</div>
-				</div>
-      			
       			<div class="ys_container ys_article_list">
 					<?php
 					$article_html = '<div class="row ys_latest">'; 
 					$article_row_count = 0;
 					$article_html .= '';
-					foreach($video_list as $k=>$v){
+					foreach($store_list as $k=>$v){
 						$article_html .= '<div class="col-md-6"><div class="ys_video_item_container">';
-						$article_html .= '<a href="/video/detail/'.$v['id'].'"><img src="'.$v['v_thumb'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h3><a href="/video/detail/'.$v['id'].'">'.$v['v_title'].'</a></h3>';
-						$article_html .= '<p>'.$v['v_desc'].'</p>';
+						$article_html .= '<a href="/store/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h3><a href="/store/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
+						$article_html .= '<p>'.$v['s_desc'].'</p>';
 						$article_html .= '</div></div></div>';
 						
 						$article_row_count++;

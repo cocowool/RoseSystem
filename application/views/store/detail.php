@@ -28,27 +28,24 @@
 				
 				<div class="ys_breadcrum">
 					<p>
-						<?php echo $breadcrum; ?>
+						<?php //echo $breadcrum; ?>
 					</p>
 				</div>
       			
       			<div class="ys_video">
-      				<h1><?php echo $v_title; ?></h1>
+      				<h1><?php echo $s_title; ?></h1>
       				<h2><?php //echo $subtitle; ?></h2>
-      				<div class="ys_video_player embed-responsive embed-responsive-16by9">
-	      				<iframe class="embed-responsive-item" src="<?php echo $v_youku; ?>" frameborder=0 allowfullscreen></iframe>
-      				</div>
-      				<div class="ys_video_desc well">
-      					<?php echo $v_desc; ?>
+      				<div class="ys_store_desc">
+      					<?php echo $s_desc; ?>
       				</div>
       				<div class="ys_article_stat">
       					<p>
-      						<span>阅读：</span><?php echo $v_click; ?>&nbsp;&nbsp;
+      						<span>阅读：</span><?php echo $s_click; ?>&nbsp;&nbsp;
       						<button type="button" class="btn btn-default btn-xs ys_like">
-								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <em><?php echo $v_like; ?></em>
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 喜欢 <em><?php echo $s_like; ?></em>
 							</button>
       						<button type="button" class="btn btn-default btn-xs ys_fav">
-								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <em><?php echo $v_fav; ?></em>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏 <em><?php echo $s_fav; ?></em>
 							</button>
       					</p>
       				</div>
@@ -144,13 +141,13 @@
       					<div class="ys_container">
       						<div class="row">
       						<?php
-      						if($related_video){
+      						if($related_store){
       						$count = 0;
       						$html = '';
-      						foreach ($related_video as $k=>$v){
+      						foreach ($related_store as $k=>$v){
 								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
-								$html .= '<a href="/video/detail/'.$v['id'].'"><img src="' . $v['v_thumb'] . '" /></a>';
-								$html .= '<div class="ys_caption"><h3><a href="/video/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
+								$html .= '<a href="/store/detail/'.$v['id'].'"><img src="' . $v['s_thumb'] . '" /></a>';
+								$html .= '<div class="ys_caption"><h3><a href="/store/detail/' . $v['id'] . '">' . $v['s_title'] . '</a></h3></div></div></div>';
 								$count++;
 								if($count>2) break;
 							}
@@ -187,7 +184,7 @@
 		$('.ys_like').click(function(){
 			$.ajax({
 				dataType : 'json',
-				url	:	'/video/feedback/like/<?php echo $id; ?>',
+				url	:	'/store/feedback/like/<?php echo $id; ?>',
 				success : function(result){
 					$('.ys_like em').html(result.count);
 				}
@@ -196,7 +193,7 @@
 		$('.ys_fav').click(function(){
 			$.ajax({
 				dataType : 'json',
-				url	:	'/video/feedback/fav/<?php echo $id; ?>',
+				url	:	'/store/feedback/fav/<?php echo $id; ?>',
 				success : function(result){
 					$('.ys_fav em').html(result.count);
 				}

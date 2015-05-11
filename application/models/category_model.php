@@ -31,15 +31,19 @@ class Category_Model extends MY_Model {
 		$this->fields[2]['options'] = $this->get_parent_category();
 	}
 	
-	public function get_breadcrum($id){
+	public function get_breadcrum($id, $category = 'article'){
 		$breadcrum = '';
 		$category = $this->getById($id);
-		$breadcrum = "&nbsp;>&nbsp;<a href='/article/list/" . $id . "'>".$category['category']."</a>";
+		$breadcrum = "&nbsp;>&nbsp;<a href='/'.$category.'/list/" . $id . "'>".$category['category']."</a>";
 		if( $category['pid'] != 0 ){
 			$p_category = $this->get_breadcrum($category['pid']);
 			$breadcrum = $p_category . $breadcrum;
 		}else{
-			$breadcrum = "<a href='/'>首页</a>" . $breadcrum;
+			if($category == 'article'){
+				$breadcrum = "<a href='/'>首页</a>&nbsp;>&nbsp;<a href='/article'>杂志</a>" . $breadcrum;
+			}else{
+				$breadcrum = "<a href='/'>首页</a>&nbsp;>&nbsp;<a href='/video'>影像</a>" . $breadcrum;
+			}
 		}
 		
 		return $breadcrum;

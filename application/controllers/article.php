@@ -6,15 +6,6 @@ class Article extends My_Controller {
 		parent::__construct();
 	}
 	
-	public function _remap( $method, $params = array() ){
-		if( method_exists($this, $method) ){
-			return call_user_func_array(array($this,$method), $params);
-		}else{
-			array_push($params, $method);
-			return call_user_func_array(array($this,'index'), $params);
-		}
-	}
-	
 	public function index($category = 0, $page = 1){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
@@ -72,6 +63,35 @@ class Article extends My_Controller {
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
 		$data['article_list'] = $this->a->getAll($option,$start,$count);
 		
+	}
+	
+	/**
+	 * 用户点击后更新喜欢与收藏次数
+	 * 
+	 * @param number $id
+	 */
+	public function feedback($type = 'like', $id){
+		$this->load->model('Article_Model', 'a');
+		$article = $this->a->getById($id);
+		$data['id'] = $id;
+		$data[$type] = $article[$type] + 1;
+		$result = $this->a->update($data, $id);
+		
+		if($result){
+			$json = array(
+				'errno'=>0,
+				'errinfo'=>'更新成功',
+				'count'=>$article[$type]+1,
+			);
+		}else{
+			$json = array(
+				'errno'=>'E500',
+				'errinfo'=>'数据库更新失败',
+				'count'=>$article[$type]+1,
+			);
+		}
+		
+		echo json_encode($json);
 	}
 	
 	/**
