@@ -56,6 +56,7 @@
 	            	<li class="<?php echo $this->uri->segment(2)=='video'?'active':''; ?>"><a href="/manage/video">影像管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='store'?'active':''; ?>"><a href="/manage/store">店铺-悦食家</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='chef'?'active':''; ?>"><a href="/manage/chef">厨艺学校</a></li>
+	            	<li class="<?php echo $this->uri->segment(2)=='fest'?'active':''; ?>"><a href="/manage/fest">悦食大会</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='giftcode'?'active':''; ?>"><a href="/manage/giftcode">礼券管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='comment'?'active':''; ?>"><a href="/manage/comment">评论管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='user'?'active':''; ?>"><a href="/manage/user">会员管理</a></li>
