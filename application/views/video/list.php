@@ -116,7 +116,7 @@
 			}
 			$.ajax({
 				'type'	:	'POST',
-				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+				'url'	:	'/video/serverside/<?php echo $current_category ?>/1',
 				'data'	:	{
 					'count'	:	1
 				},
