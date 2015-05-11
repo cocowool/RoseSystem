@@ -8,8 +8,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store">大会列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store/add">新增大会</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest">大会列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/add">新增大会</a></li>
 		</ul>
 	</div>
 	<div class="dropdown">
