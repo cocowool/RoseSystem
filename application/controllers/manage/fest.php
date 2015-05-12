@@ -15,6 +15,62 @@ class Fest extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
+	public function consultant($action = 'list'){
+		switch ($action){
+			case 'add':
+				$this->consultant_add();
+				break;
+			case 'edit':
+				break;
+			case "del":
+				break;
+			case 'list':
+			default:
+				break;
+		}
+	}
+	
+	private function consultant_add(){
+		$data = array();
+		
+		$this->load->model('Consultant_Model','s');
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+						'field'	=>	'f_year',
+						'label'	=>	'大会年份',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_name',
+						'label'	=>	'大会名称',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_desc',
+						'label'	=>	'大会简介',
+						'rules'	=>	'trim|required'
+				)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+		
+		if($this->form_validation->run() == FALSE){
+			$data['html_form'] = $this->generate_add_form($this->s, 'manage/fest/add');
+			$data['content_view'] = 'manage/fest/fest_add';
+			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
+		}else{
+			$this->load->helper('date');
+			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
+			$data = $this->input->post(NULL, true);
+		
+			$result = $this->s->insert( $data );
+			$this->redirectAction($result, $data, '/manage/fest', '/manage/fest/add');
+		}		
+	}
+	
 	public function serverside(){
 		$request = $this->input->post();
 		$this->load->model('fest_model','f');
