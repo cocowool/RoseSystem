@@ -18,8 +18,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store">论坛列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store/add">新增论坛</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/forum">论坛列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/forum/add">新增论坛</a></li>
 		</ul>
 	</div>
 	<div class="dropdown">
@@ -28,8 +28,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store">嘉年华列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store/add">新增嘉年华</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/carnival">嘉年华列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/carnival/add">新增嘉年华</a></li>
 		</ul>
 	</div>
 	<div class="dropdown">
@@ -38,8 +38,8 @@
     		<span class="caret"></span>
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store">顾问列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/store/add">新增顾问</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/consultant">顾问列表</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/fest/consultant/add">新增顾问</a></li>
 		</ul>
 	</div>
 </div>
