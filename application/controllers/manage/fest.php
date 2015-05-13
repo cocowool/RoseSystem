@@ -26,8 +26,17 @@ class Fest extends MY_Controller {
 				break;
 			case 'list':
 			default:
+				$this->consultant_list();
 				break;
 		}
+	}
+	
+	private function consultant_list(){
+		$data = array();
+		
+		$data['content_view'] = 'manage/fest/consultant_list';
+		$data['content_data'] = $data;
+		$this->load->view('manage/main', $data);
 	}
 	
 	private function consultant_add(){
