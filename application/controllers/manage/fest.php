@@ -81,16 +81,39 @@ class Fest extends MY_Controller {
 	
 	public function serverside(){
 		$request = $this->input->post();
-		$this->load->model('fest_model','f');
-		
-		$data = $this->f->dtRequest($request);
-		//可以在此处进行返回数据的自定义处理
-		foreach($data['data'] as $k=>$v){
-			$data['data'][$k]['operation'] = '<a href="/manage/fest/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="/manage/fest/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+		$source = 'fest';
+		if(isset($request['source']) and !empty($request['source'])){
+			$source = $request['source'];
 		}
 		
-		echo json_encode($data);
+		switch($source){
+			case 'consultant':
+				$this->load->model('consultant_model','c');
+				$this->load->model('fest_model','f');
+				$data = $this->c->dtRequest($request);
+				//可以在此处进行返回数据的自定义处理
+				foreach($data['data'] as $k=>$v){
+					$fest = $this->f->getById($v['fid']);
+					$data['data'][$k]['fid'] = $fest['f_year'];
+					
+					$data['data'][$k]['operation'] = '<a href="/manage/consultant/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] .= '<a href="/manage/consultant/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+				}
+				echo json_encode($data);
+				break;
+			case 'fest':
+			default:
+				$this->load->model('fest_model','f');
+				$data = $this->f->dtRequest($request);
+				//可以在此处进行返回数据的自定义处理
+				foreach($data['data'] as $k=>$v){
+					$data['data'][$k]['operation'] = '<a href="/manage/fest/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] .= '<a href="/manage/fest/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+				}
+				echo json_encode($data);
+				break;
+		}
+		
 	}
 	
 	public function add(){
