@@ -15,12 +15,13 @@ class Fest extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
-	public function consultant($action = 'list'){
+	public function consultant($action = 'list', $id = ''){
 		switch ($action){
 			case 'add':
 				$this->consultant_add();
 				break;
 			case 'edit':
+				$this->consultant_edit($id);
 				break;
 			case "del":
 				break;
@@ -37,6 +38,46 @@ class Fest extends MY_Controller {
 		$data['content_view'] = 'manage/fest/consultant_list';
 		$data['content_data'] = $data;
 		$this->load->view('manage/main', $data);
+	}
+	
+	private function consultant_edit($id){
+		$data = array();
+		$this->load->model('Consultant_Model','s');
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+						'field'	=>	'f_name',
+						'label'	=>	'顾问姓名',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_words',
+						'label'	=>	'顾问评价',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_desc',
+						'label'	=>	'大会简介',
+						'rules'	=>	'trim|required'
+				)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+		
+		if($this->form_validation->run() == FALSE){
+			$data = $this->s->getById($id);
+			$data['html_form'] = $this->generate_edit_form($data, $this->s, 'manage/fest/consultant/edit', $id);
+			$data['content_view'] = 'manage/fest/fest_add';
+			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
+		}else{
+			$this->load->helper('date');
+			$data = $this->input->post(NULL, true);
+		
+			$result = $this->s->update( $data );
+			$this->redirectAction($result, $data, '/manage/fest/consultant', '/manage/fest/consultant/edit/'.$id);
+		}		
 	}
 	
 	private function consultant_add(){
@@ -96,8 +137,8 @@ class Fest extends MY_Controller {
 					$fest = $this->f->getById($v['fid']);
 					$data['data'][$k]['fid'] = $fest['f_year'];
 					
-					$data['data'][$k]['operation'] = '<a href="/manage/consultant/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-					$data['data'][$k]['operation'] .= '<a href="/manage/consultant/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] = '<a href="/manage/fest/consultant/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] .= '<a href="/manage/fest/consultant/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 				}
 				echo json_encode($data);
 				break;
