@@ -128,6 +128,11 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_pagelink a { display:inline-block; border:1px solid rgb(51, 122, 183); padding:0.2em 0.5em; margin:0 0.5em; }
 .ys_pagelink strong { display:inline-block; border:1px solid rgb(51,122,183); padding:0.2em 0.5em; }
 
+.ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }
+.ys_share_links .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style {
+	width:64px !important;
+}
+
 .ys_footer { border-top:1px solid #e1e1e1; margin-top:1em; color:#bbbbbb; line-height:2em; }
 .ys_foot_links { text-align:right; }
 .ys_foot_links li { margin-left:0.5em; float:right; }
