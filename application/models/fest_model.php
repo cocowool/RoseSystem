@@ -20,5 +20,15 @@ class Fest_Model extends MY_Model {
 	function __construct(){
 		parent::__construct();
 	}
+	
+	public function get_all_fest($status = ''){
+		$result = $this->getAll();
+		$options = array();
+		foreach ($result as $k=>$v){
+			$options[$v['id']] = $v['f_year'];
+		}
+		
+		return $options;
+	}
 
 }
