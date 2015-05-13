@@ -32,7 +32,6 @@ class Fest extends MY_Controller {
 	
 	private function consultant_add(){
 		$data = array();
-		
 		$this->load->model('Consultant_Model','s');
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
