@@ -15,6 +15,41 @@ class Fest extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
+	public function forum($action = 'list', $id = ''){
+		switch ($action){
+			case 'add':
+				$this->forum_add();
+				break;
+			case 'edit':
+				$this->forum_edit($id);
+				break;
+			case "del":
+				$this->forum_del($id);
+				break;
+			case 'list':
+			default:
+				$this->forum_list();
+				break;
+		}
+	}
+	
+	private function forum_add(){
+		
+	}
+	
+	private function forum_edit($id){
+		
+	}
+	
+	private function forum_del($id){
+		
+	}
+	
+	private function forum_list(){
+		
+	}
+	
+	
 	public function consultant($action = 'list', $id = ''){
 		switch ($action){
 			case 'add':
@@ -24,6 +59,7 @@ class Fest extends MY_Controller {
 				$this->consultant_edit($id);
 				break;
 			case "del":
+				$this->consultant_del($id);
 				break;
 			case 'list':
 			default:
@@ -38,6 +74,18 @@ class Fest extends MY_Controller {
 		$data['content_view'] = 'manage/fest/consultant_list';
 		$data['content_data'] = $data;
 		$this->load->view('manage/main', $data);
+	}
+	
+	private function consultant_del($id){
+		$data = array();
+		$this->load->model('Consultant_Model','s');
+		if(empty($id) && !$this->s->getById($id) ){
+			$data['content_data']['text'] = '您所请求的数据不存在';
+			$this->redirectAction(FALSE, $data, '/manage/fest/consultant', '/manage/fest/consultant');
+		}
+		
+		$result = $this->s->delete($id);
+		$this->redirectAction($result, $data, '/manage/fest/consultant', '/manage/fest/consultant');
 	}
 	
 	private function consultant_edit($id){
