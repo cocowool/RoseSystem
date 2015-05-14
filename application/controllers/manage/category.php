@@ -20,6 +20,21 @@ class Category extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
+	public function ajaxGet(){
+		$request = $this->input->post();
+		$this->load->model('category_model','c');
+		
+		$result = $this->c->get_all_category(0,0,$request['f_type']);
+		$json_data = array(); $i = 0;
+		foreach ($result as $k=>$v){
+			$json_data[$i]['key'] = $k;
+			$json_data[$i]['val'] = $v;
+			$i++;
+		}
+		
+		echo json_encode($json_data);
+	}
+	
 	/**
 	 * 处理用户的Ajax请求，返回对应的结果
 	 */

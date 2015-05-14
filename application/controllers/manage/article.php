@@ -15,6 +15,20 @@ class Article extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 
+	public function ajaxGet(){
+		$json_data = array();
+		$request = $this->input->post();
+		$this->load->model('article_model','a');
+		$this->load->model('category_model','c');
+		
+		$option = array();
+		$ids = $this->c->get_category_ids($request['category']);
+		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
+		$json_data = $this->a->getAll($option);
+		
+		echo json_encode($json_data);
+	}
+	
 	/**
 	 * 处理用户的Ajax请求，返回对应的结果
 	 */
