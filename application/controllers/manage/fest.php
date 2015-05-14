@@ -74,11 +74,56 @@ class Fest extends MY_Controller {
 	}
 	
 	private function forum_edit($id){
+		$data = array();
+		$this->load->model('Forum_Model','s');
+		$this->lang->load('form_validation', 'chinese');
+		$validations = array(
+				array(
+						'field'	=>	'f_title',
+						'label'	=>	'自定义标题',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_order',
+						'label'	=>	'排序',
+						'rules'	=>	'trim|required'
+				),
+				array(
+						'field'	=>	'f_thumb',
+						'label'	=>	'缩略图',
+						'rules'	=>	'trim|required'
+				)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($validations);
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 		
+		if($this->form_validation->run() == FALSE){
+			$data = $this->s->getById($id);
+			$data['html_form'] = $this->generate_edit_form($data, $this->s, 'manage/fest/forum/edit', $id);
+			$data['content_view'] = 'manage/fest/forum_add';
+			$data['content_data'] = '';
+			$this->load->view('manage/main', $data);
+		}else{
+			$this->load->helper('date');
+			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
+			$data = $this->input->post(NULL, true);
+		
+			$result = $this->s->update( $data );
+			$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum/add');
+		}		
 	}
 	
 	private function forum_del($id){
+		$data = array();
+		$this->load->model('Forum_Model','s');
+		if(empty($id) && !$this->s->getById($id) ){
+			$data['content_data']['text'] = '您所请求的数据不存在';
+			$this->redirectAction(FALSE, $data, '/manage/fest/forum', '/manage/fest/forum');
+		}
 		
+		$result = $this->s->delete($id);
+		$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum');
 	}
 	
 	private function forum_list(){
@@ -252,8 +297,8 @@ class Fest extends MY_Controller {
 					$data['data'][$k]['fid'] = $fest['f_year'];
 					$data['data'][$k]['f_thumb'] = "<img src='".$v['f_thumb']."' height='50px;' />";
 					
-					$data['data'][$k]['operation'] = '<a href="/manage/fest/consultant/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-					$data['data'][$k]['operation'] .= '<a href="/manage/fest/consultant/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] = '<a href="/manage/fest/forum/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] .= '<a href="/manage/fest/forum/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 				}
 				echo json_encode($data);
 				break;
