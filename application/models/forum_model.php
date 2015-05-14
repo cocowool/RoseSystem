@@ -13,6 +13,9 @@ class Forum_Model extends MY_Model {
 			array('name'=>'f_type', 'comment'=>'资源类型', 'form'=>array('type'=>'select', 
 				'option'=>array('type'=>'static', 'data'=>array('1'=>'杂志','2'=>'影像')))
 			),
+			array('name'=>'f_selector', 'comment'=>'选择资源','form'=>array('type'=>'html','data'=>array(
+				'function'	=>	'get_selector_html',	
+			))),
 			array('name'=>'aid', 'comment'=>'杂志ID', 'form'=> array('type'=>'hidden', 'data'=>array('source'=>'static','value'=>''))),
 			array('name'=>'f_title', 'comment'=>'自定标题', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'默认为杂志/影像标题，可自定义修改')),
 			array('name'=>'f_thumb', 'comment'=>'缩略图', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请选择所显示的缩略图')),

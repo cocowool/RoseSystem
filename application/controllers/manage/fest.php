@@ -85,6 +85,12 @@ class Fest extends MY_Controller {
 		
 	}
 	
+	protected function get_selector_html(){
+		$html = "<p>This is a html selector.</p>";
+		echo 'xxxxxx';
+		return $html;
+	}
+	
 	
 	public function consultant($action = 'list', $id = ''){
 		switch ($action){

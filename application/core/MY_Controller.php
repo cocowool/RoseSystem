@@ -141,6 +141,9 @@ class MY_Controller extends CI_Controller {
 							break;
 					}
 					break;
+				case 'html':
+					$html_form .= @call_user_method($v['form']['data']['function'], $this, '');
+					break;
 			}
 		}
 		
@@ -223,6 +226,9 @@ class MY_Controller extends CI_Controller {
 					}
 					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_upload( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']) ) );
 					$html_form .= form_error($v['name']) . '</div>';
+					break;
+				case 'html':
+					$html_form .= @call_user_method($v['form']['data']['function'], $this, '');
 					break;
 			}
 		}
