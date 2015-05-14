@@ -13,6 +13,66 @@ class Giftcode extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
+	public function orderexport(){
+		$data = array();
+		$this->load->model('Order_Model','o');
+		$this->load->model('Shopaddress_Model','s');
+		$this->load->model('Giftcode_Model','g');
+		$this->lang->load('form_validation', 'chinese');
+		$config = array(
+			array(
+					'field'	=>	'orderDate',
+					'label'	=>	'导出日期',
+					'rules'	=>	'trim|required'
+			)
+		);
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($config);
+		
+		if($this->form_validation->run() == FALSE){
+			$data['title']	=	'导出页面';
+			$this->load->view('manage/order/order_export', $data);
+		}else{
+			$this->load->helper('date');
+			$this->load->helper('download');
+			$this->load->dbutil();
+			$data = $this->input->post(NULL, true);
+		
+			$option[] = array('data' => $data['orderDate'], 'field' => 'create_at', 'action' => 'like');
+			$result = $this->o->getAll($option);
+			$csv = array();
+			$csv[0] = array('日期','礼品卡号', '密码', '产品', '姓名', '手机', '地址');
+			foreach ($result as $k=>$v){
+				$address = $this->s->getById($v['shopaddress']);
+				$giftcode = $this->g->getById($v['payment']);
+				$csv[$k+1][] = $v['create_at'];
+				$csv[$k+1]['serialnumber'] = $giftcode['serialnumber'];
+				$csv[$k+1]['password'] = $giftcode['password'];
+				$csv[$k+1]['product'] = $v['product'];
+				$csv[$k+1]['username'] = $address['cnname'];
+				$csv[$k+1]['mobile'] = $address['mobile'];
+				$csv[$k+1]['address'] = $address['address'];
+			}
+				
+			$csv_data = '';
+			foreach ($csv as $k=>$v){
+				foreach ($v as $vv){
+					$csv_data .= '"' . $vv . '",';
+				}
+				$csv_data = rtrim($csv_data);
+				$csv_data .= "\r\n";
+			}
+				
+			$name = 'order.csv';
+			header("Content-type:text/csv;");
+			header("Content-Disposition:attachment;filename=" . $name);
+			header('Cache-Control:must-revalidate,post-check=0,pre-check=0');
+			header('Expires:0');
+			header('Pragma:public');
+			force_download($name, $csv_data);
+		}
+	}
+	
 	/**
 	 * 处理用户的Ajax请求，返回对应的结果
 	 * source区分用户获取的信息
