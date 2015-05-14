@@ -46,12 +46,12 @@ $(document).ready(function(){
 			"url":'/index.php/manage/fest/serverside',
 			"type":"post",
 			"data": function(d){
-				d.source = 'consultant';
+				d.source = 'forum';
 			}
 		},
 		'columns':[
 		    {"data":"id"},
-			{"data":"aid"},
+			{"data":"fid"},
 			{"data":"f_title"},
 			{"data":"f_thumb"},
 			{
