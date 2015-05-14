@@ -10,17 +10,13 @@ class Forum_Model extends MY_Model {
 					'name'=>'get_all_fest',
 					'parameter'=> array('0'),
 			)))),
-			array('name'=>'aid', 'comment'=>'杂志ID', 'form'=> array('type'=>'select', 'option'=>array('type'=>'function', 'data'=>array(
-					'model'=>'article_model',
-					'name'=>'getById',
-					'parameter'=> array('0'),
-			)))),
 			array('name'=>'f_type', 'comment'=>'资源类型', 'form'=>array('type'=>'select', 
 				'option'=>array('type'=>'static', 'data'=>array('1'=>'杂志','2'=>'影像')))
 			),
-			array('name'=>'f_title', 'comment'=>'自定标题', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入顾问姓名')),
-			array('name'=>'f_thumb', 'comment'=>'缩略图', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入顾问姓名')),
-			array('name'=>'f_order', 'comment'=>'排序', 'form'=> array('type'=>'text')),
+			array('name'=>'aid', 'comment'=>'杂志ID', 'form'=> array('type'=>'hidden', 'data'=>array('source'=>'static','value'=>''))),
+			array('name'=>'f_title', 'comment'=>'自定标题', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'默认为杂志/影像标题，可自定义修改')),
+			array('name'=>'f_thumb', 'comment'=>'缩略图', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请选择所显示的缩略图')),
+			array('name'=>'f_order', 'comment'=>'排序', 'form'=> array('type'=>'text','validation'=>'required')),
 			array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 
 				'option'=>array('type'=>'static', 'data'=>array('0'=>'草稿','1'=>'已发布')))
 			),
