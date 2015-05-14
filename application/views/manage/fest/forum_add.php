@@ -14,8 +14,19 @@ $(document).ready(function(){
 	}
 
 	$('.ys-article-lists .media-list').on('click',function(e){
-		console.log('Article Click TEST');
-		console.log(e);
+		if($(e.target).hasClass('article-title')){
+			$.ajax({
+				'type'	:	'POST',
+				'dataType'	:	'json',
+				'url'	:	'/manage/resource/ajaxGet',
+				'data'	:	{
+					'aid'	:	$(e.target).data('id')
+				},
+				'success':function(result){
+					
+				}
+			});
+		}
 	});
 	
 	//判断用户选择的分类，加载数据
@@ -46,9 +57,9 @@ $(document).ready(function(){
 					$.each(result,function(k,v){
 						var cover = '';
 						if(v.cover != ''){
-							cover = "<div class='media-left'><a href='javascript:void(0);'><img class='media-object' src='"+v.cover+"'></a></div>";
+							cover = "<div class='media-left'><a href='javascript:void(0);' data-id='"+v.id+"'><img class='media-object' src='"+v.cover+"'></a></div>";
  						}
-						$('.ys-article-lists .media-list').append("<li class='media'>"+cover+"<div class='media-body'><a class='article-title' href='javascript:void(0);'>"+v.name+"</a></div></li>");
+						$('.ys-article-lists .media-list').append("<li class='media'>"+cover+"<div class='media-body'><a class='article-title'  data-id='"+v.id+"' href='javascript:void(0);'>"+v.name+"</a></div></li>");
 					});
 				}
 			}
