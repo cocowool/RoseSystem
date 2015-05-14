@@ -82,7 +82,11 @@ class Fest extends MY_Controller {
 	}
 	
 	private function forum_list(){
+		$data = array();
 		
+		$data['content_view'] = 'manage/fest/forum_list';
+		$data['content_data'] = $data;
+		$this->load->view('manage/main', $data);
 	}
 	
 	protected function get_selector_html(){
