@@ -33,6 +33,14 @@ class Fest extends MY_Controller {
 		}
 	}
 	
+	private function carnival_list(){
+		$data = array();
+		
+		$data['content_view'] = 'manage/fest/carnival_list';
+		$data['content_data'] = $data;
+		$this->load->view('manage/main', $data);
+	}
+	
 	public function forum($action = 'list', $id = ''){
 		switch ($action){
 			case 'add':
@@ -302,6 +310,21 @@ class Fest extends MY_Controller {
 					
 					$data['data'][$k]['operation'] = '<a href="/manage/fest/consultant/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 					$data['data'][$k]['operation'] .= '<a href="/manage/fest/consultant/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+				}
+				echo json_encode($data);
+				break;
+			case 'carnival':
+				$this->load->model('carnival_model','c');
+				$this->load->model('fest_model','f');
+				$data = $this->c->dtRequest($request);
+				//可以在此处进行返回数据的自定义处理
+				foreach($data['data'] as $k=>$v){
+					$fest = $this->f->getById($v['fid']);
+					$data['data'][$k]['fid'] = $fest['f_year'];
+					$data['data'][$k]['f_thumb'] = "<img src='".$v['f_thumb']."' height='50px;' />";
+					
+					$data['data'][$k]['operation'] = '<a href="/manage/fest/carnival/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+					$data['data'][$k]['operation'] .= '<a href="/manage/fest/carnival/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 				}
 				echo json_encode($data);
 				break;
