@@ -15,6 +15,24 @@ class Fest extends MY_Controller {
 		$this->load->view('manage/main', $data);
 	}
 	
+	public function carnival($action = 'list', $id = ''){
+		switch ($action){
+			case 'add':
+				$this->carnival_add();
+				break;
+			case 'edit':
+				$this->carnival_edit($id);
+				break;
+			case "del":
+				$this->carnival_del($id);
+				break;
+			case 'list':
+			default:
+				$this->carnival_list();
+				break;
+		}
+	}
+	
 	public function forum($action = 'list', $id = ''){
 		switch ($action){
 			case 'add':
