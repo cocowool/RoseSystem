@@ -86,7 +86,13 @@ class Fest extends MY_Controller {
 	}
 	
 	protected function get_selector_html(){
-		$html = "<div class='form-group'><label>选择资源</label></div>";
+		$html = "<div class='form-group'><label>选择资源</label>";
+		$html .= "<div class='row'>";
+		$html .= "<div class='col-md-4'><div class='form-group'><label>一级分类</label><select class='form-control'></select></div></div>";
+		$html .= "<div class='col-md-4'><div class='form-group'><label>文章列表</label><select class='form-control'></select></div></div>";
+		$html .= "<div class='col-md-4'><div class='form-group'><label>资源预览</label><select class='form-control'></select></div></div>";
+		$html .= "<div class='col-md-12'><p><a href='javascript:void(0);' class='btn btn-default'>导入数据</a></p></div>";
+		$html .= "</div></div>";
 		
 		return $html;
 	}

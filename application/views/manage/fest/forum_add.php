@@ -7,3 +7,15 @@
 		<?php echo $html_form; ?>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	//判断用户选择的分类，加载数据
+
+	function loadCategory(){
+		var f_type = $('');
+		$.ajax({
+
+		});
+	}
+});
+</script>
