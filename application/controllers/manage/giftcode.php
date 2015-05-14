@@ -16,7 +16,7 @@ class Giftcode extends MY_Controller {
 	public function orderexport(){
 		$data = array();
 		$this->load->model('Order_Model','o');
-		$this->load->model('Shopaddress_Model','s');
+		$this->load->model('Address_Model','s');
 		$this->load->model('Giftcode_Model','g');
 		$this->lang->load('form_validation', 'chinese');
 		$config = array(
@@ -30,8 +30,9 @@ class Giftcode extends MY_Controller {
 		$this->form_validation->set_rules($config);
 		
 		if($this->form_validation->run() == FALSE){
-			$data['title']	=	'导出页面';
-			$this->load->view('manage/order/order_export', $data);
+			$data['content_view'] = 'manage/giftcode/order_export';
+			$data['content_data'] = $data;
+			$this->load->view('manage/main', $data);
 		}else{
 			$this->load->helper('date');
 			$this->load->helper('download');
