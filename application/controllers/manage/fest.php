@@ -86,8 +86,8 @@ class Fest extends MY_Controller {
 	}
 	
 	protected function get_selector_html(){
-		$html = "<p>This is a html selector.</p>";
-		echo 'xxxxxx';
+		$html = "<div class='form-group'><label>选择资源</label></div>";
+		
 		return $html;
 	}
 	

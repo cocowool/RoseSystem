@@ -14,6 +14,11 @@ class Auth extends MY_Controller {
 		$referer = $this->input->post('referer', TRUE);
 		
 		if( !$username || !$password ){
+			if($this->input->server('HTTP_REFERER') != ''){
+				$data['referer'] = $this->input->server('HTTP_REFERER');
+			}else{
+				$data['referer'] = '';
+			}
 			$this->load->view('manage/login', $data);
 		}else{
 			if( $username == $this->config->item('adm_username') && $password == $this->config->item('adm_password') ){
@@ -49,5 +54,10 @@ class Auth extends MY_Controller {
 				return FALSE;
 			}
 		}
+	}
+	
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('/manage');		
 	}
 }

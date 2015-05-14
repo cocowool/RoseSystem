@@ -35,7 +35,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">退出</a></li>
+            <li><a href="/manage/auth/logout">退出</a></li>
           </ul>
         </div>
       </div>
