@@ -21,7 +21,14 @@ $(document).ready(function(){
 				'category'	:	$(this).val()
 			},
 			'success':function(result){
-				console.log(result);
+				$('#article').find('option').remove();
+				if(result.length == 0){
+					$('#article').append("<option value=''>该分类下没有文章</option>");
+				}else{
+					$.each(result,function(k,v){
+						$('#article').append("<option value='"+v.id+"'>"+v.name+"</option>");
+					});
+				}
 			}
 		});
 	});
