@@ -90,7 +90,7 @@ class Fest extends MY_Controller {
 		$html .= "<div class='row'>";
 		$html .= "<div class='col-md-4'><div class='form-group'><label>分类</label><select id='category_id' name='category_id' class='form-control'></select></div></div>";
 		$html .= "<div class='col-md-4'><div class='form-group'><label>文章列表</label><div class='ys-article-lists row'><ul class='media-list'></ul></div></div></div>";
-		$html .= "<div class='col-md-4'><div class='form-group'><label>资源预览</label><div class='ys-resource-container'></div></div></div>";
+		$html .= "<div class='col-md-4'><div class='form-group'><label>资源预览</label><div class='ys-resource-container row'></div></div></div>";
 		$html .= "<div class='col-md-12'><p><a href='javascript:void(0);' class='btn btn-default'>导入数据</a></p></div>";
 		$html .= "</div></div>";
 		

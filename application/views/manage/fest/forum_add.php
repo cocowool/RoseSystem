@@ -12,9 +12,16 @@ $(document).ready(function(){
 	function loadResource(id){
 		console.log(id);
 	}
+	$('.ys-resource-container').on('click', function(e){
+		if($(e.target).hasClass('ys-resource')){
+			$('#f_thumb').val($(e.target).attr('src'));
+		}		
+	});
 
 	$('.ys-article-lists .media-list').on('click',function(e){
 		if($(e.target).hasClass('article-title')){
+			$('#f_title').val($(e.target).html());
+			$('#aid').val($(e.target).data('id'));
 			$.ajax({
 				'type'	:	'POST',
 				'dataType'	:	'json',
@@ -23,7 +30,15 @@ $(document).ready(function(){
 					'aid'	:	$(e.target).data('id')
 				},
 				'success':function(result){
-					
+					$('.ys-resource-container').html('');
+					if(result.length == 0){
+						$('.ys-resource-container').html("没有图片资源");
+					}else{
+						$.each(result,function(k,v){
+							$('.ys-resource-container').append("<div class='col-md-6'><div class='thumbnail'><a href='javascript:void(0);'><img class='ys-resource' src='"+v.web_path+"' /></a></div></div>");
+						});
+					}
+				
 				}
 			});
 		}
@@ -85,6 +100,9 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-.ys-article-lists , .ys-resource-container { border:1px solid #ececec; padding:0.5em;  
+.ys-article-lists { border:1px solid #ececec;  padding:0.5em;
 height:auto; max-height:200px; overflow:auto; }
+.ys-resource-container {
+	height:auto; max-height:200px; overflow:auto; 
+}
 </style>

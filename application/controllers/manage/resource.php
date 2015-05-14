@@ -15,6 +15,20 @@ class Resource extends MY_Controller {
 		$data['content_data'] = $data;
 		$this->load->view('manage/main', $data);
 	}
+	
+	public function ajaxGet(){
+		$json_data = array();
+		$request = $this->input->post();
+		$this->load->model('article_model','a');
+		$this->load->model('category_model','c');
+		$this->load->model('resource_model','r');
+		
+		$option = array();
+		$option[] = array('data'=>$request['aid'], 'field'=>'aid','action'=>'where_in');
+		$json_data = $this->r->getAll($option);
+		
+		echo json_encode($json_data);
+	}
 
 	/**
 	 * 处理用户的Ajax请求，返回对应的结果

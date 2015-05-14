@@ -145,7 +145,7 @@ if ( ! function_exists('form_hidden'))
 
 		if ( ! is_array($value))
 		{
-			$form .= '<input type="hidden" name="'.$name.'" value="'.form_prep($value, $name).'" />'."\n";
+			$form .= '<input type="hidden" id="'.$name.'" name="'.$name.'" value="'.form_prep($value, $name).'" />'."\n";
 		}
 		else
 		{
