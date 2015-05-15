@@ -59,7 +59,7 @@
 						
 						$article_row_count++;
 						if($article_row_count%3==0 and $article_row_count != 9){
-							$article_html .= '</div><div class="row ys_latest hide">';
+							$article_html .= '</div><div class="row ys_latest">';
 						}
 					}
 					$article_html .= '</div>';
@@ -77,9 +77,9 @@
 			      	}
 			      	?>
 			      	<div class="row">
-			      		<div class="ys_pagelink hide">
-				      		<?php echo $page_links; ?>
-			      		</div>
+			      	<nav class="ys_pagelink">
+			      		<?php echo $page_links; ?>
+			      	</nav>
 			      	</div>
       			</div>
       			
@@ -110,9 +110,12 @@
 				'type'	:	'POST',
 				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
 				'data'	:	{
-					'count'	:	1
+					'pagesize'	:	'9',
+					'cagtegory'	:'<?php echo $current_category; ?>',
+					'request'	:	'0'
 				},
 				'success'	:	function(result){
+					console.log(result);
 					console.log($('.ys_article_list .hide'));
 					$('.ys_article_list .hide').first().removeClass('hide');
 					console.log($('.ys_article_list .hide'));

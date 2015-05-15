@@ -32,6 +32,20 @@ class Article extends My_Controller {
 		$config['total_rows'] = $data['article_total'];
 		$config['uri_segment'] = 4;
 		$config['per_page'] = 9;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] ='<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] ='<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['prev_tag_open'] ='<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] ='<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['cur_tag_open'] ='<li class="active"><a href="javascript:void(0);">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] ='<li>';
+		$config['num_tag_close'] = '</li>';
 		$this->pagination->initialize($config);
 		$data['page_links'] = $this->pagination->create_links();
 		
@@ -43,7 +57,7 @@ class Article extends My_Controller {
 	 * @param number $category
 	 * @param number $count
 	 */
-	public function serverside($category, $start = 0, $count = 3){
+	public function serverside(){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Article_Model', 'a');
