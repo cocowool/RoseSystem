@@ -7,10 +7,7 @@ class Index extends MY_Controller {
 	}
 
 	public function index(){
-		$data = array();
-		$data['content_view'] = 'manage/default';
-		$data['content_data'] = $data;
-		$this->load->view('manage/main', $data);
+		$this->focus();
 	}
 	
 	public function top($action = '', $id = ''){
