@@ -44,8 +44,8 @@ class Giftcode extends MY_Controller {
 			$this->load->dbutil();
 			$data = $this->input->post(NULL, true);
 		
-			$option[] = array('data' => $data['startDate'], 'field' => 'create_at >=', 'action' => 'like');
-			$option[] = array('data' => $data['endDate'], 'field' => 'create_at <=', 'action' => 'like');
+			$option[] = array('data' => $data['startDate'], 'field' => 'create_at >=', 'action' => 'where');
+			$option[] = array('data' => $data['endDate'], 'field' => 'create_at <=', 'action' => 'where');
 			$result = $this->o->getAll($option);
 			$csv = array();
 			$csv[0] = array('日期','礼品卡号', '密码', '产品', '姓名', '手机', '地址');
