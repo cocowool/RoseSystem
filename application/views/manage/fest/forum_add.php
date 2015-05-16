@@ -55,6 +55,20 @@ $(document).ready(function(){
 		});
 	});
 
+	$('#f_type').change(function(){
+		$.ajax({
+			'type'	:	'POST',
+			'dataType'	:	'json',
+			'url'	:	'/manage/category/ajaxGet',
+			'data'	:	{
+				'f_type'	:	$(this).val()
+			},
+			'success'	:	function(result){
+				console.log(result);
+			}
+		});
+	});
+
 	var _this = this;
 	$('#category_id').change(function(){
 		$.ajax({
