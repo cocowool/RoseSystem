@@ -21,8 +21,13 @@ class Giftcode extends MY_Controller {
 		$this->lang->load('form_validation', 'chinese');
 		$config = array(
 			array(
-					'field'	=>	'orderDate',
-					'label'	=>	'导出日期',
+					'field'	=>	'startDate',
+					'label'	=>	'开始日期',
+					'rules'	=>	'trim|required'
+			),
+			array(
+					'field'	=>	'endDate',
+					'label'	=>	'结束日期',
 					'rules'	=>	'trim|required'
 			)
 		);
@@ -39,7 +44,8 @@ class Giftcode extends MY_Controller {
 			$this->load->dbutil();
 			$data = $this->input->post(NULL, true);
 		
-			$option[] = array('data' => $data['orderDate'], 'field' => 'create_at', 'action' => 'like');
+			$option[] = array('data' => $data['startDate'], 'field' => 'create_at >=', 'action' => 'like');
+			$option[] = array('data' => $data['endDate'], 'field' => 'create_at <=', 'action' => 'like');
 			$result = $this->o->getAll($option);
 			$csv = array();
 			$csv[0] = array('日期','礼品卡号', '密码', '产品', '姓名', '手机', '地址');
