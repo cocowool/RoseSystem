@@ -65,6 +65,10 @@ $(document).ready(function(){
 			},
 			'success'	:	function(result){
 				console.log(result);
+				$('#category_id').find('option').remove();
+				$.each(result,function(k,v){
+					$('#category_id').append('<option>'+v.val+'</option>');
+				});
 			}
 		});
 	});
