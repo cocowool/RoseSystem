@@ -67,7 +67,7 @@ $(document).ready(function(){
 				console.log(result);
 				$('#category_id').find('option').remove();
 				$.each(result,function(k,v){
-					$('#category_id').append('<option>'+v.val+'</option>');
+					$('#category_id').append('<option value="'+v.key+'">'+v.val+'</option>');
 				});
 			}
 		});
