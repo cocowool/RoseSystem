@@ -285,7 +285,21 @@ class Fest extends MY_Controller {
 		}else{
 			$this->load->helper('date');
 			$data = $this->input->post(NULL, true);
-		
+
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+			if ( ! $this->upload->do_upload( 'f_pic' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/fest/consultant', '/manage/fest/consultant');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+			
 			$result = $this->s->update( $data );
 			$this->redirectAction($result, $data, '/manage/fest/consultant', '/manage/fest/consultant/edit/'.$id);
 		}		
@@ -325,7 +339,21 @@ class Fest extends MY_Controller {
 			$this->load->helper('date');
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
-		
+
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
+			if ( ! $this->upload->do_upload( 'f_pic' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/fest/consultant', '/manage/fest/consultant');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+			
 			$result = $this->s->insert( $data );
 			$this->redirectAction($result, $data, '/manage/fest', '/manage/fest/add');
 		}		
@@ -347,6 +375,7 @@ class Fest extends MY_Controller {
 				foreach($data['data'] as $k=>$v){
 					$fest = $this->f->getById($v['fid']);
 					$data['data'][$k]['fid'] = $fest['f_year'];
+					$data['data'][$k]['f_pic'] = '<img height="60px" src="'.$v['f_pic'].'" />';
 					
 					$data['data'][$k]['operation'] = '<a href="/manage/fest/consultant/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 					$data['data'][$k]['operation'] .= '<a href="/manage/fest/consultant/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
