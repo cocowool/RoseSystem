@@ -25,21 +25,31 @@
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
 				<div id="carousel-example-generic" class="carousel slide ys_homefocus" data-ride="carousel">
+				<?php 
+				if(!empty($focus_list)){
+				?>
 			        <ol class="carousel-indicators">
-         	 			<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-				        <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-				        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+			        	<?php 
+			        	foreach ($focus_list as $k=>$v){
+							if($k==0){
+								$style = 'active';
+							}else{ $style = ''; }
+							echo '<li data-target="#carousel-example-generic" data-slide-to="'.$k.'" class="'.$style.'"></li>';
+						}
+			        	?>
 			        </ol>
 			        <div class="carousel-inner" role="listbox">
-          				<div class="item">
-            				<img data-src="" alt="First slide [1140x500]" src="/temp/f1.png" data-holder-rendered="false">
-          				</div>
-          				<div class="item active">
-            				<img data-src="" alt="Second slide [1140x500]" src="/temp/f2.png" data-holder-rendered="false">
-          				</div>
-	          			<div class="item">
-            				<img data-src="" alt="Third slide [1140x500]" src="/temp/f3.png" data-holder-rendered="false">
-          				</div>
+			        <?php 
+			        foreach ($focus_list as $k=>$v){
+						if($k==0){
+							echo '<div class="item active">';
+						}else{
+							echo '<div class="item">';
+						}
+						echo '<a href="'.$v['f_link'].'"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.$v['f_img'].'" data-holder-rendered="false"></a>';
+						echo '</div>';
+					}
+			        ?>
         			</div>
         			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
           				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -49,6 +59,11 @@
           				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           				<span class="sr-only">Next</span>
         			</a>
+        		<?php 
+        		}else{
+					echo "暂时没有焦点图";
+				}
+        		?>
       			</div>
       			
       			<div class="ys_container">
