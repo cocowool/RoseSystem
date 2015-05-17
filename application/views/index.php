@@ -68,39 +68,24 @@
       			
       			<div class="ys_container">
 					<div class="row ys_latest">
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb1.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb2.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb3.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
+					<?php 
+					if(empty($top_list)){
+						echo '暂时没有首页推荐';
+					}else{
+						foreach ($top_list as $k=>$v){
+							$top_html = '';
+							$top_html .= '<div class="col-md-4">';
+							$top_html .= '<div class="ys_thumbnail_block">';
+							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.$v['f_img'].'" /></a>';
+							$top_html .= '<div class="ys_caption"><h3><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h3>';
+							$top_html .= '<p>'.$v['f_desc'].'</p>';
+							$top_html .= '</div></div></div>';
+							
+							echo $top_html;
+						}
+					}
+					
+					?>
 					</div>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">
