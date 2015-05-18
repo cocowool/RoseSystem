@@ -25,21 +25,31 @@
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
 				<div id="carousel-example-generic" class="carousel slide ys_homefocus" data-ride="carousel">
+				<?php 
+				if(!empty($focus_list)){
+				?>
 			        <ol class="carousel-indicators">
-         	 			<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-				        <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-				        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+			        	<?php 
+			        	foreach ($focus_list as $k=>$v){
+							if($k==0){
+								$style = 'active';
+							}else{ $style = ''; }
+							echo '<li data-target="#carousel-example-generic" data-slide-to="'.$k.'" class="'.$style.'"></li>';
+						}
+			        	?>
 			        </ol>
 			        <div class="carousel-inner" role="listbox">
-          				<div class="item">
-            				<img data-src="" alt="First slide [1140x500]" src="/temp/f1.png" data-holder-rendered="false">
-          				</div>
-          				<div class="item active">
-            				<img data-src="" alt="Second slide [1140x500]" src="/temp/f2.png" data-holder-rendered="false">
-          				</div>
-	          			<div class="item">
-            				<img data-src="" alt="Third slide [1140x500]" src="/temp/f3.png" data-holder-rendered="false">
-          				</div>
+			        <?php 
+			        foreach ($focus_list as $k=>$v){
+						if($k==0){
+							echo '<div class="item active">';
+						}else{
+							echo '<div class="item">';
+						}
+						echo '<a href="'.$v['f_link'].'"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.$v['f_img'].'" data-holder-rendered="false"></a>';
+						echo '</div>';
+					}
+			        ?>
         			</div>
         			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
           				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -49,43 +59,33 @@
           				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
           				<span class="sr-only">Next</span>
         			</a>
+        		<?php 
+        		}else{
+					echo "暂时没有焦点图";
+				}
+        		?>
       			</div>
       			
       			<div class="ys_container">
 					<div class="row ys_latest">
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb1.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb2.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="ys_thumbnail_block">
-								<a href="javascript:void(0);">
-									<img src="/temp/tb3.png" />
-								</a>
-								<div class="ys_caption">
-									<h3><a href="javascript:void(0);">匠心独运</a></h3>
-									<p>这里地处维多利亚交通枢纽附近，人们每天从近郊的家坐火车到这里，换乘地铁去上班，所以街道上永远都充斥着西装革履端着咖啡的上班族，目不斜视大步流星地掠过，还有背着大包小包的游客，握着地图四处张望着。</p>
-								</div>
-							</div>
-						</div>
+					<?php 
+					if(empty($top_list)){
+						echo '暂时没有首页推荐';
+					}else{
+						foreach ($top_list as $k=>$v){
+							$top_html = '';
+							$top_html .= '<div class="col-md-4">';
+							$top_html .= '<div class="ys_thumbnail_block">';
+							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.$v['f_img'].'" /></a>';
+							$top_html .= '<div class="ys_caption"><h3><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h3>';
+							$top_html .= '<p>'.$v['f_desc'].'</p>';
+							$top_html .= '</div></div></div>';
+							
+							echo $top_html;
+						}
+					}
+					
+					?>
 					</div>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">

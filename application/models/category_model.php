@@ -66,12 +66,9 @@ class Category_Model extends MY_Model {
 					$ids = array_merge($ids, $sub_ids);
 				}
 			}
-
-			return $ids;
-		}else{
-			return false;
 		}
-		
+
+		return $ids;
 	}
 	
 	/**

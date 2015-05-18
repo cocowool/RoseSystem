@@ -19,6 +19,8 @@
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="/libs/DataTables-1.10.2/js/jquery.dataTables.js"></script>
+	<link rel="stylesheet" type="text/css" href="/libs/jquery-ui-1.11.4/jquery-ui.css">  
+	<script type="text/javascript" src="/libs/jquery-ui-1.11.4/jquery-ui.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 </head>
 <body>

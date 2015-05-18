@@ -9,6 +9,7 @@
 				<tr>
 					<th></th>
 					<th>悦食大会</th>
+					<th>顾问头像</th>
 					<th>顾问姓名</th>
 					<th>顾问排序</th>
 					<th>操作</th>
@@ -18,6 +19,7 @@
 				<tr>
 					<th></th>
 					<th>悦食大会</th>
+					<th>顾问头像</th>
 					<th>顾问姓名</th>
 					<th>顾问排序</th>
 					<th>操作</th>
@@ -52,6 +54,7 @@ $(document).ready(function(){
 		'columns':[
 		    {"data":"id"},
 			{"data":"fid"},
+			{"data":"f_pic"},
 			{"data":"f_name"},
 			{"data":"f_order"},
 			{

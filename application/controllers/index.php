@@ -11,6 +11,16 @@ class Index extends My_Controller {
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		
+		$this->load->model('top_model', 't');
+		$this->load->model('focus_model','f');
+		$option = array();
+		$option[] = array('data' => '1', 'field' => 'status', 'action' => 'where' );
+		$data['focus_list'] = $this->f->getAll($option, 0, 999, 'f_order', 'desc');
+		
+		$option = array();
+		$option[] = array('data' => '1', 'field' => 'status', 'action' => 'where' );
+		$data['top_list'] = $this->t->getAll($option, 0, 999, 'f_order', 'desc');
+		
 		$this->load->view('index', $data);
 	}
 	
