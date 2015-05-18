@@ -67,7 +67,7 @@
       			</div>
       			
       			<div class="ys_container">
-					<div class="row ys_latest">
+					<div class="row ys_latest" id="ys_top_article">
 					<?php 
 					if(empty($top_list)){
 						echo '暂时没有首页推荐';
@@ -120,5 +120,14 @@
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/libs/jquery-plugin/masonry.pkgd.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var $container = $('#ys_top_article');
+			$container.masonry({
+			  columnWidth: 266,
+			  itemSelector: '.col-md-4'
+			});
+		});
+	</script>
 </body>
 </html>
