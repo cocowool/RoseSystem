@@ -16,7 +16,7 @@
 				<div class="rs_container_login">
 				<form id='login' name='login' method='post' action='/manage/auth'>
 					<p><h3>后台登录</h3></p>
-					<input type='hidden' name='referer' value='<?php $referer; ?>' />
+					<input type='hidden' name='referer' value='<?php echo $referer; ?>' />
 					<p><label for="username">账号：</label><input type="text" class="form-control" placeholder='请输入用户名' name="username" id="username" /></p>
 					<p><label for="password">密码：</label><input type="password" class="form-control" placeholder='请输入密码' name="password" id="password" /></p>
 					<p><input type='submit' id='submit' name='submit' value='登录' class="form-control btn btn-primary" /></p>
