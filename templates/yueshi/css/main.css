@@ -10,6 +10,9 @@ body {
 	/* background-color:#fefefe; */
 }
 
+.row { margin:0 -5px; }
+.col-md-4 { padding:0 5px; }
+
 ::selection { background-color:#e13300; color:#ffffff; }
 ul,li { list-style:none; }
 .hide { display:none; }
@@ -86,7 +89,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_menu_nav li a:hover { text-decoration:none;  }
 .ys_menu_nav li a:hover, .ys_menu_nav li a.active { border-bottom:1px solid #f33; }
 
-.ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:2em; border:1px solid #ddd; padding:4px; background-color:#fff; }
+.ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:1em; border:1px solid #ddd; padding:4px; background-color:#fff; }
 .ys_thumbnail_block img { width:100%; }
 .ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; }
 .ys_video_item_container a { display:inline-block; }

@@ -124,7 +124,7 @@
 		$(document).ready(function(){
 			var $container = $('#ys_top_article');
 			$container.masonry({
-			  columnWidth: 266,
+			  columnWidth: 254,
 			  itemSelector: '.col-md-4'
 			});
 		});
