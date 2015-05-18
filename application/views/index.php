@@ -87,11 +87,17 @@
 					
 					?>
 					</div>
+					<?php 
+					if(!empty($top_list)){
+					?>
 			      	<div class="row">
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
 			      	</div>	
+			      	<?php 
+			      	}
+			      	?>
       			</div>
 			</div>
 			<div class="col-md-2">
@@ -112,6 +118,7 @@
 	<?php $this->load->view('common/footer'); ?>
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery-plugin/masonry.pkgd.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 </body>
 </html>
