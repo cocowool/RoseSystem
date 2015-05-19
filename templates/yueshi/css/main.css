@@ -19,6 +19,13 @@ ul,li { list-style:none; }
 a:hover { color:#e13300; }
 .container { width:960px; }
 
+/*--------------------------------------------------------------------------*/
+/*------- 针对移动设备的优化 -------*/
+@media (min-width: 768px; ) {  }
+@media (min-width: 992px; ) {  }
+@media (min-width: 1200px; ) {  }
+
+/*--------------------------------------------------------------------------*/
 a.ys_link_red { text-decoration:underline; margin:0 0.5em; color:#e13300; }
 a.ys_link_red:hover { text-decoration:none; }
 .ys_container { margin-top:1em; }

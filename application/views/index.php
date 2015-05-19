@@ -46,7 +46,7 @@
 						}else{
 							echo '<div class="item">';
 						}
-						echo '<a href="'.$v['f_link'].'"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.$v['f_img'].'" data-holder-rendered="false"></a>';
+						echo '<a href="'.$v['f_link'].'"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
 						echo '</div>';
 					}
 			        ?>
@@ -76,7 +76,7 @@
 							$top_html = '';
 							$top_html .= '<div class="col-md-4">';
 							$top_html .= '<div class="ys_thumbnail_block">';
-							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.$v['f_img'].'" /></a>';
+							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
 							$top_html .= '<div class="ys_caption"><h3><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h3>';
 							$top_html .= '<p>'.$v['f_desc'].'</p>';
 							$top_html .= '</div></div></div>';
