@@ -24,6 +24,11 @@ class Index extends My_Controller {
 		$this->load->view('index', $data);
 	}
 	
+	public function test(){
+		$data = array();
+		$this->load->view('test', $data);
+	}
+	
 	/**
 	 * 返回首页最新的几条文章
 	 */

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<title>悦食中国</title>
 	<meta name="keyword" content="悦食中国，悦食，美食，食物，生活顾问，重建人与食物的关系">
 	<meta name="description" content="悦食中国（Yueshi China）是由殳俏女士发起的以食物为根基、多方向展开的生活顾问项目。通过悦食中国项目，连同众多线上和线下的市场宣传活动，重建人与食物的关系，引导大众关注并保护中国濒临绝迹的手工食物和传统食材，同时推广“悦食中国”项目通过公平、公正原则认可的高品质食材及加工食品。">
