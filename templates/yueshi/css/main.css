@@ -32,9 +32,11 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_container_register { margin-top:1em; }
 
 .ys_top_info { text-align:right; }
-.ys_header { background-color:#f5f5f5; border: none; height: 30px; min-height:30px; line-height:30px; }
+.ys_header { background-color:#f5f5f5; border: none; height: 42px; min-height:42px; line-height:42px; }
+.ys_header .navbar-form  { padding:0; margin:0; }
+.ys_header a { margin:0 5px; }
 .ys_header .row {}
-.ys_header input { padding:0; margin:0; height:1.8em; line-height:1.8em; margin-top:0.15em; margin-right:0.5em; }
+.ys_header input { padding:0 1em; margin:0; margin-right:0.5em; }
 .ys_top_title { border-bottom:1px solid #c4c4c4; text-align:center; }
 .ys_top_title h1 { margin:0px; height:40px; font-size:12px; }
 .ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;

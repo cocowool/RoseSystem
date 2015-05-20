@@ -28,7 +28,7 @@
 					}
 					?>
 			</div>
-			<div class="row">
+			<div class="row hide">
 				<div class="col-md-4 ys_search">
 					<p><input type='text' name='ys_site_search' id='ys_site_search' /><a href="#">搜索</a></p>
 				</div>
