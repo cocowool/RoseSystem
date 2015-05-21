@@ -47,7 +47,7 @@
       			
       			<div class="ys_container ys_article_list">
 					<?php
-					$article_html = '<div class="row ys_latest">'; 
+					$article_html = '<div class="row">'; 
 					$article_row_count = 0;
 					$article_html .= '';
 					foreach($video_list as $k=>$v){
