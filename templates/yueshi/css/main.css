@@ -103,6 +103,11 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_menu_nav li a:hover { text-decoration:none;  }
 .ys_menu_nav li a:hover, .ys_menu_nav li a.active { border-bottom:1px solid #f33; }
 .ys_article_list p { text-align:justify; padding:0 1em; text-indent:2em; }
+.ys_article_list .ys_ajaxmore p { text-align:center; }
+.ys_pagelink { margin:10px 15px; text-align:center; }
+.ys_pagelink a { display:inline-block; border:1px solid rgb(51, 122, 183); padding:0.2em 0.5em; margin:0 0.5em; }
+.ys_pagelink strong { display:inline-block; border:1px solid rgb(51,122,183); padding:0.2em 0.5em; }
+
 
 .ys_footer { font-size:12px; border-top:1px solid #e1e1e1; margin-top:1em; color:#bbbbbb; line-height:2em; padding:0 0 2em; }
 .ys_foot_links li { display:inline-block; }  
@@ -170,10 +175,6 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_fest_logo { text-align:center; }
 .ys_fest_logo img { width:150px; }
 .ys_fest_forum, .ys_fest_carnival, .ys_fest_consultant { border-top:1px solid #ececec; padding:1.5em 0; }
-
-.ys_pagelink { margin:10px 15px; text-align:center; }
-.ys_pagelink a { display:inline-block; border:1px solid rgb(51, 122, 183); padding:0.2em 0.5em; margin:0 0.5em; }
-.ys_pagelink strong { display:inline-block; border:1px solid rgb(51,122,183); padding:0.2em 0.5em; }
 
 .ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }
 .ys_share_links .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style {
