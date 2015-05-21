@@ -1,12 +1,12 @@
 <nav class="navbar ys_navbar">
 	<div class="container">
     	<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		        	<span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		        </button>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	        	<span class="sr-only">显示导航</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
 			<form name='ys_search' id='ys_search' method='post' class='navabar-form ys_search_form' action=''>
 				<div class='form-group'>
 					<input type='text' name='ys_site_search' id='ys_site_search' class="form-control input-sm" placeholder='输入搜索的内容' />
@@ -15,14 +15,13 @@
 			</form>	
 		</div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-			
 				<?php 
 				if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername'])){
 				?>
-				<p class="ys_top_info">
-						<a href="/user/detail"><?php echo $this->session->userdata('gUsername'); ?></a>
-						<a href="/user/logout" id='loginBtn'>注销</a>
-				</p>
+				<div class="navbar-right">
+					<a href="/user/detail" class=""><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<?php echo $this->session->userdata('gUsername'); ?></a>&nbsp;&nbsp;
+					<a href="/user/logout" id='loginBtn'>注销</a>
+				</div>
 				<?php
 				}else{
 				?>
