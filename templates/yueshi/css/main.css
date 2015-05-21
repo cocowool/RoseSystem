@@ -21,6 +21,8 @@ a:hover { color:#e13300; }
 .row { margin:0 -5px; }
 .col-md-4 { padding:0 5px; }
 .navbar { border-radius:0; border:0; }
+.carousel-indicators li { border:1px solid #cc3300; margin-right:2px; }
+.carousel-indicators .active { background-color:#cc3300; margin-right:2px; }
 
 /* ------- 针对移动设备的优化 ------- */
 @media ( min-width:480px ){
@@ -57,6 +59,8 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_top_title h1 { margin:0px; height:40px; font-size:12px; }
 .ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
 	background:url(/templates/yueshi/images/yue.png) center center no-repeat; }
+.ys_homefocus { margin-top:15px; }
+
 /* 
 
 .ys_logo { position:relative; }
@@ -65,7 +69,6 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_date { position:absolute; z-index:100; top:3.3em; left:1.4em; }
 .ys_date p { text-align:center; font-weight:bold; font-size: 1.2em; color:#ee3333; line-height:2.2em; font-family:Georgia, Helvetica, Verdana; }
 
-.ys_homefocus { margin-top:15px; }
 
 .ys_tips_error { }
 .ys_title_register { font-size:1.5em; border-bottom:1px solid #c4c4c4; line-height:2.5em; margin-right:60%; padding-left:5em; }
