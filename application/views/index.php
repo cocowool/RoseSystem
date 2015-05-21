@@ -88,6 +88,9 @@
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
+			      		<div class="ys_loading hide">
+			      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
+			      		</div>
 			      	</div>	
 			      	<?php 
 			      	}
@@ -119,11 +122,15 @@
 			$('.ys_ajaxmore a').click(function(){
 				$.ajax({
 					'type'	:	'POST',
-					'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+					'url'	:	'/article/serverside/1',
 					'data'	:	{
 						'pagesize'	:	'9',
-						'cagtegory'	:'<?php echo $current_category; ?>',
+						'cagtegory'	:	'0',
 						'request'	:	'0'
+					},
+					'beforeSend'	:	function(){
+						$('.ys_ajaxmore').hide();
+						$('.ys_loading').removeClass('hide');
 					},
 					'success'	:	function(result){
 						console.log(result);
