@@ -47,13 +47,13 @@
       			
       			<div class="ys_container ys_article_list">
 					<?php
-					$article_html = '<div class="row ys_latest">'; 
+					$article_html = '<div class="row">'; 
 					$article_row_count = 0;
 					$article_html .= '';
 					foreach($article_list as $k=>$v){
 						$article_html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
 						$article_html .= '<a href="/article/detail/'.$v['id'].'"><img src="'.$v['cover'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h3><a href="/article/detail/'.$v['id'].'">'.$v['name'].'</a></h3>';
+						$article_html .= '<div class="ys_caption"><h4><a href="/article/detail/'.$v['id'].'">'.$v['name'].'</a></h4>';
 						$article_html .= '<p>'.$v['foreword'].'</p>';
 						$article_html .= '</div></div></div>';
 						

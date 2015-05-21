@@ -119,8 +119,6 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var start;
-			start = $('.ys_latest>div').length;
 			$('.ys_ajaxmore a').click(function(){
 				$.ajax({
 					'type'	:	'POST',
@@ -128,7 +126,7 @@
 					'url'	:	'/index/serverside',
 					'data'	:	{
 						'pagesize'	:	'3',
-						'start'	:	start
+						'start'	:	$('.ys_latest>div').length
 					},
 					'beforeSend'	:	function(){
 						$('.ys_ajaxmore').hide();
