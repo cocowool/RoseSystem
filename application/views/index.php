@@ -119,28 +119,27 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var start;
+			start = $('.ys_latest>div').length;
 			$('.ys_ajaxmore a').click(function(){
 				$.ajax({
 					'type'	:	'POST',
-					'url'	:	'/article/serverside/1',
+					'dataType'	:	'json',
+					'url'	:	'/index/serverside',
 					'data'	:	{
-						'pagesize'	:	'9',
-						'cagtegory'	:	'0',
-						'request'	:	'0'
+						'pagesize'	:	'3',
+						'start'	:	start
 					},
 					'beforeSend'	:	function(){
 						$('.ys_ajaxmore').hide();
 						$('.ys_loading').removeClass('hide');
 					},
 					'success'	:	function(result){
-						console.log(result);
-						console.log($('.ys_article_list .hide'));
-						$('.ys_article_list .hide').first().removeClass('hide');
-						console.log($('.ys_article_list .hide'));
-						if( !$('.ys_article_list .hide').first() ){
-							$('.ys_pagelink').removeClass('hide');
-							$('.ys_ajaxmore').addClass('hide');
-						}
+						$.each(result,function(k,v){
+							$('.ys_latest').append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"><div class="ys_thumbnail_block"><a href="'+v.f_link+'"><img src="'+v.f_img+'"></a><div class="ys_caption"><h4><a href="'+v.f_link+'">'+v.f_title+'</a></h4><p>'+v.f_desc+'</p></div></div></div>');
+						});
+						$('.ys_loading').hide();
+						$('.ys_ajaxmore').show();
 					}
 				});	
 			});

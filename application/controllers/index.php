@@ -29,6 +29,18 @@ class Index extends My_Controller {
 		$this->load->view('test', $data);
 	}
 	
+	public function serverside(){
+		$this->load->model('top_model', 'f');
+		$pagesize = $this->input->post('pagesize');
+		$start = $this->input->post('start');
+		
+		$option = array();
+		$option[] = array('data' => '1', 'field' => 'status', 'action' => 'where' );
+		$data['top_list'] = $this->f->getAll($option, $start, $pagesize, 'f_order', 'asc');
+		
+		echo json_encode($data['top_list']);
+	}
+	
 	/**
 	 * 返回首页最新的几条文章
 	 */
