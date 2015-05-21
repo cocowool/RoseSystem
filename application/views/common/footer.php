@@ -1,9 +1,9 @@
 <div class="container ys_footer">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			CopyRight&copy;2015 Vita Group(China). All Rights Reserved.
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-7 col-sm-12 col-xs-12">
 			<ul class="ys_foot_links">
 				<li><a href="/article/detail/18">©官方微信</a></li>
 				<li><a href="http://e.weibo.com/yszg2012/profile">©官方微博</a></li>
