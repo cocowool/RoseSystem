@@ -20,7 +20,7 @@
 	<?php $this->load->view('common/header'); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-10 col-xs-12">
 				<div class='ys_top_title'>
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
@@ -74,7 +74,7 @@
 					}else{
 						foreach ($top_list as $k=>$v){
 							$top_html = '';
-							$top_html .= '<div class="col-md-4">';
+							$top_html .= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">';
 							$top_html .= '<div class="ys_thumbnail_block">';
 							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
 							$top_html .= '<div class="ys_caption"><h3><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h3>';
