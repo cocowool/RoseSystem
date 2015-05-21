@@ -174,10 +174,12 @@ class Index extends MY_Controller {
 		$request = $this->input->post();
 		$this->load->model('focus_model','f');
 		$data = $this->f->dtRequest($request);
+		$status_option = $this->f->getField('status');
 		
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
 			$data['data'][$k]['f_img'] = "<a href='javascript:void(0);'><img height='50px' src='".$v['f_img']."'/></a>";
+			$data['data'][$k]['status'] = $status_option['form']['option']['data'][$v['status']];
 			$data['data'][$k]['operation'] = '<a href="/manage/index/focus/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/index/focus/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
@@ -189,10 +191,13 @@ class Index extends MY_Controller {
 		$request = $this->input->post();
 		$this->load->model('top_model','f');
 		$data = $this->f->dtRequest($request);
-		
+		$status_option = $this->f->getField('status');
+				
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
 			$data['data'][$k]['f_img'] = "<a href='javascript:void(0);'><img height='50px' src='".$v['f_img']."'/></a>";
+			$data['data'][$k]['status'] = $status_option['form']['option']['data'][$v['status']];
+			
 			$data['data'][$k]['operation'] = '<a href="/manage/index/top/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/index/top/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}

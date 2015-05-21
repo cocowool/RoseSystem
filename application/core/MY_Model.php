@@ -6,6 +6,16 @@ class MY_Model extends CI_Model{
 		parent::__construct();
 	}
 	
+	public function getField($field){
+		foreach ($this->fields as $k=>$v){
+			if($field == $v['name']){
+				return $v;
+			}
+		}
+		
+		return false;
+	}
+	
 	public function setField( $field ){
 		$this->fields = array_merge($this->fields, $field);
 	}
