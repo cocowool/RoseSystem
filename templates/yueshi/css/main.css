@@ -25,13 +25,18 @@ a:hover { color:#e13300; }
 .carousel-indicators .active { background-color:#cc3300; margin-right:2px; }
 
 /* ------- 针对移动设备的优化 ------- */
+@media ( max-width:480px ){
+	.ys_sidebar { display:none; }
+}
 @media ( min-width:480px ){
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
+	.col-xs-6 { padding:0 5px; }
 }
 @media ( min-width: 768px ) { 
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
+	.col-xs-6 { padding:0 5px; }
 }
 @media ( min-width: 992px ) {
 	.container { width:960px; }
@@ -64,6 +69,9 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
 	background:url(/templates/yueshi/images/yue.png) center center no-repeat; }
 .ys_homefocus { margin-top:15px; }
+.ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:1em; border:1px solid #ddd; padding:4px; background-color:#fff; }
+.ys_thumbnail_block img { width:100%; }
+
 
 .ys_logo { position:relative; }
 .ys_logo h2 { margin:0; padding:0; }
@@ -124,8 +132,6 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_article_related h3 { font-size:1.2em; font-weight:bold; margin:0; padding:0; line-height:1.8em;
 	font-family:"微软雅黑",sans-serif; }
 
-.ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:1em; border:1px solid #ddd; padding:4px; background-color:#fff; }
-.ys_thumbnail_block img { width:100%; }
 .ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; }
 .ys_video_item_container a { display:inline-block; }
 .ys_video_item_container img { padding:1px;width:100%; }

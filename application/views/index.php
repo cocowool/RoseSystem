@@ -67,20 +67,19 @@
       			</div>
       			
       			<div class="ys_container">
-					
 					<?php 
 					if(empty($top_list)){
 						echo "<div class='jumbotron'><h1>暂时没有首页推荐</h1></div>";
 					}else{
-						$top_html = '<div class="row ys_latest" id="ys_top_article">';
+						$top_html = '<div class="row ys_latest">';
 						foreach ($top_list as $k=>$v){
 							$top_html .= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">';
 							$top_html .= '<div class="ys_thumbnail_block">';
 							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
-							$top_html .= '<div class="ys_caption"><h3><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h3>';
+							$top_html .= '<div class="ys_caption"><h4><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h4>';
 							$top_html .= '<p>'.$v['f_desc'].'</p>';
-							$top_html .= '</div></div></div>';
-							
+							$top_html .= '</div></div>';
+							$top_html .= '</div>';
 						}
 						$top_html .= '</div>';
 						echo $top_html;
