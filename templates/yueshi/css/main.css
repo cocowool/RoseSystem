@@ -18,6 +18,9 @@ ul,li { list-style:none; }
 .hide { display:none; }
 a:hover { color:#e13300; }
 
+/*-- 针对BOOTSTRAP默认样式的修改 --*/
+.navbar { border-radius:0; border:0; }
+
 /* ------- 针对移动设备的优化 ------- */
 @media (min-width: 768px; ) {  }
 @media (min-width: 992px; ) {  }
@@ -30,12 +33,13 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_container { margin-top:1em; }
 .ys_container_register { margin-top:1em; }
 
-.ys_navbar { line-height:42px; min-height:42px; margin:0 0 0; background-color:#f5f5f5; }
+.ys_navbar { line-height:44px; min-height:44px; margin:0 0 0; background-color:#f5f5f5; }
 .ys_navbar .navbar-form { margin:0; }
 .ys_navbar .navbar-toggle { margin-top:4px; margin-bottom:4px; }
 .ys_search_form { float:left; width:auto; }
 .ys_search_form .form-group { display:inline-block; }
 .ys_navbar .navbar-toggle .icon-bar { background-color:#333; }
+.ys_navbar .form-group { margin-bottom:7px; }
 
 /* .ys_top_info { text-align:right; }
 .ys_header { background-color:#f5f5f5; border: none; height: 42px; min-height:42px; line-height:42px; }
