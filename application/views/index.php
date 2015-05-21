@@ -116,6 +116,28 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$('.ys_ajaxmore a').click(function(){
+				$.ajax({
+					'type'	:	'POST',
+					'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+					'data'	:	{
+						'pagesize'	:	'9',
+						'cagtegory'	:'<?php echo $current_category; ?>',
+						'request'	:	'0'
+					},
+					'success'	:	function(result){
+						console.log(result);
+						console.log($('.ys_article_list .hide'));
+						$('.ys_article_list .hide').first().removeClass('hide');
+						console.log($('.ys_article_list .hide'));
+						if( !$('.ys_article_list .hide').first() ){
+							$('.ys_pagelink').removeClass('hide');
+							$('.ys_ajaxmore').addClass('hide');
+						}
+					}
+				});	
+			});
+			
 			var $container = $('#ys_top_article');
 			$container.masonry({
 			  columnWidth: 254,

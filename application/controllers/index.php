@@ -19,7 +19,7 @@ class Index extends My_Controller {
 		
 		$option = array();
 		$option[] = array('data' => '1', 'field' => 'status', 'action' => 'where' );
-		$data['top_list'] = $this->t->getAll($option, 0, 999, 'f_order', 'asc');
+		$data['top_list'] = $this->t->getAll($option, 0, 3, 'f_order', 'asc');
 		
 		$this->load->view('index', $data);
 	}
