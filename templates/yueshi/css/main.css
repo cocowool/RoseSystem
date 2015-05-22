@@ -149,7 +149,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_caption a { color:#337ab7; text-decoration:none; }
 .ys_caption h3 a { font-size:0.7em; }
 .ys_caption h3 a:hover { color:#ddd; }
-.ys_caption p { color:#555; margin:0 1em 1em; font-size:1.2em; line-height:1.5em; text-align:left; }
+.ys_caption p { color:#555; margin:0 0 1em; line-height:1.5em; text-align:justify; }
 
 .ys_chef_nav { margin-top:0.5em; position:relative; }
 .ys_chef_top { position:relative; }
