@@ -51,7 +51,7 @@
 					$article_row_count = 0;
 					$article_html .= '';
 					foreach($article_list as $k=>$v){
-						$article_html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
+						$article_html .= '<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block">';
 						$article_html .= '<a href="/article/detail/'.$v['id'].'"><img src="'.$v['cover'].'" /></a>';
 						$article_html .= '<div class="ys_caption"><h4><a href="/article/detail/'.$v['id'].'">'.$v['name'].'</a></h4>';
 						$article_html .= '<p>'.$v['foreword'].'</p>';
@@ -59,7 +59,7 @@
 						
 						$article_row_count++;
 						if($article_row_count%3==0 and $article_row_count != 9){
-							$article_html .= '</div><div class="row ys_latest">';
+							$article_html .= '';
 						}
 					}
 					$article_html .= '</div>';
@@ -85,7 +85,7 @@
       			</div>
       			
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-2 ys_sidebar">
 				<div class="ys_logo">
 					<h2><a href="javascript:void(0);">悦食中国</a></h2>
 					<div class="ys_date">
@@ -109,11 +109,12 @@
 		$('.ys_ajaxmore a').click(function(){
 			$.ajax({
 				'type'	:	'POST',
+				'dataType'	:	'json',
 				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
 				'data'	:	{
 					'pagesize'	:	'9',
 					'cagtegory'	:'<?php echo $current_category; ?>',
-					'request'	:	'0'
+					'request'	:	$('.ys_latest>div').length
 				},
 				'success'	:	function(result){
 					console.log(result);

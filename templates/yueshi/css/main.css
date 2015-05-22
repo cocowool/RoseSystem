@@ -7,7 +7,7 @@ html, * {
 }
 
 body {
-	background-color:#fefefe;
+	background-color:#fff;
 }
 
 ::selection { background-color:#e13300; color:#ffffff; }
