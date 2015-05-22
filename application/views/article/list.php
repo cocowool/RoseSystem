@@ -72,15 +72,16 @@
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
+			      		<div class="ys_loading hide">
+			      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
+			      		</div>
+				      	<nav class="ys_pagelink">
+				      		<?php echo $page_links; ?>
+				      	</nav>
 			      	</div>	
 			      	<?php 
 			      	}
 			      	?>
-			      	<div class="row">
-			      	<nav class="ys_pagelink">
-			      		<?php echo $page_links; ?>
-			      	</nav>
-			      	</div>
       			</div>
       			
 			</div>
