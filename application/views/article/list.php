@@ -118,7 +118,7 @@
 					'data'	:	{
 						'pagesize'	:	'9',
 						'cagtegory'	:'<?php echo $current_category; ?>',
-						'start'	:	$('.ys_article_list>div').length
+						'start'	:	$('.ys_article_list .row>div').length
 					},
 					'beforeSend'	:	function(){
 						$('.ys_ajaxmore').hide();

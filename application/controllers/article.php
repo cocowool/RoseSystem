@@ -14,11 +14,9 @@ class Article extends My_Controller {
 		$this->load->model('Category_Model', 'c');
 		
 		$data['current_category'] = $category;
-		//默认调取杂志分类下的信息
-		$default_category = '0';
 		$option = array();
 		$option[] = array('data' => '1', 'field' => 'ctype', 'action' => 'where' );
-		$option[] = array('data' => $default_category, 'field' => 'pid', 'action' => 'where' );
+		$option[] = array('data' => $category, 'field' => 'pid', 'action' => 'where' );
 		$data['category_list'] = $this->c->getAll($option);
 		
 		$option = array();
@@ -26,6 +24,17 @@ class Article extends My_Controller {
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
 		$data['article_total'] = $this->a->getTotal($option);
 		$data['article_list'] = $this->a->getAll($option, $page, 9);
+		
+		foreach ($data['article_list'] as $k=>$v){
+			if(empty($v['cover'])){
+				$result = $this->r->getById($v['id'],'aid');
+				if(isset($result['web_path'])){
+					$data['article_list'][$k]['cover'] = $result['web_path'];
+				}else if(isset($result[0]['web_path'])){
+					$data['article_list'][$k]['cover'] = $result[0]['web_path'];
+				}
+			}
+		}
 
 		$this->load->library('pagination');
 		$config['base_url'] = '/article/index/'.$category.'/';
@@ -81,6 +90,17 @@ class Article extends My_Controller {
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
 		$result = $this->a->getAll($option,$start,$pagesize);
 
+		foreach ($result as $k=>$v){
+			if(empty($v['cover'])){
+				$rr = $this->r->getById($v['id'],'aid');
+				if(isset($rr['web_path'])){
+					$result[$k]['cover'] = $rr['web_path'];
+				}else if(isset($rr[0]['web_path'])){
+					$result[$k]['cover'] = $rr[0]['web_path'];
+				}
+			}
+		}
+		
 		echo json_encode($result);
 	}
 	
