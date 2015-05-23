@@ -136,15 +136,19 @@
 						$('.ys_loading').removeClass('hide');
 					},
 					'success'	:	function(result){
-						console.log(result.length==0);
 						if(result.length==0){
 							$('.ys_loading').hide();
 							$('.ys_ajaxmore').removeClass('hide').show();
 							$('.ys_ajaxmore p').html('没有更多内容了');
 						}else{
 							$('.ys_loading').hide();
+							var elements = [];
 							$.each(result,function(k,v){
-								$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
+								elements.push('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
+								//$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
+							});
+							$container.prepend( elements ).imagesLoaded(function(){
+								$container.masonry('prepend', elements, true);
 							});
 	
 							if($('.ys_article_list .row>div').length >= maxitem){
