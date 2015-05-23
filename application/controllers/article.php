@@ -6,7 +6,7 @@ class Article extends My_Controller {
 		parent::__construct();
 	}
 	
-	public function index($category = 0, $page = 1){
+	public function index($category = 0, $page = 0){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Article_Model', 'a');
@@ -14,9 +14,10 @@ class Article extends My_Controller {
 		$this->load->model('Category_Model', 'c');
 		
 		$data['current_category'] = $category;
+		$data['page'] = $page;
 		$option = array();
 		$option[] = array('data' => '1', 'field' => 'ctype', 'action' => 'where' );
-		$option[] = array('data' => $category, 'field' => 'pid', 'action' => 'where' );
+		$option[] = array('data' => 0, 'field' => 'pid', 'action' => 'where' );
 		$data['category_list'] = $this->c->getAll($option);
 		
 		$option = array();
@@ -73,7 +74,7 @@ class Article extends My_Controller {
 		$this->load->model('Resource_Model', 'r');
 		$this->load->model('Category_Model', 'c');
 		
-		$category = $this->input->post('catgory');
+		$category = $this->input->post('category');
 		$pagesize = $this->input->post('pagesize');
 		$start = $this->input->post('start');
 		//默认调取杂志分类下的信息

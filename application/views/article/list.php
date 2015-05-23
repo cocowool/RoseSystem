@@ -36,7 +36,7 @@
 									if($v['id']==$current_category){
 										$class='active';
 									}
-									$category_html .= '<li><a href="/article/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
+									$category_html .= '<li><a href="/article/'.$v['id'].'" class="'.$class.'">'.$v['category'].'</a></li>';
 								}
 								echo $category_html;
 							?>
@@ -117,24 +117,30 @@
 					'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
 					'data'	:	{
 						'pagesize'	:	'9',
-						'cagtegory'	:'<?php echo $current_category; ?>',
-						'start'	:	$('.ys_article_list .row>div').length
+						'category'	:'<?php echo $current_category; ?>',
+						'start'	:	$('.ys_article_list .row>div').length + <?php echo $page; ?>
 					},
 					'beforeSend'	:	function(){
 						$('.ys_ajaxmore').hide();
 						$('.ys_loading').removeClass('hide');
 					},
 					'success'	:	function(result){
-						console.log(result);
-						$('.ys_loading').hide();
-						$.each(result,function(k,v){
-							$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
-						});
-
-						if($('.ys_article_list .row>div').length >= maxitem){
-							$('.ys_pagelink').removeClass('hide');
+						console.log(result.length==0);
+						if(result.length==0){
+							$('.ys_loading').hide();
+							$('.ys_ajaxmore').removeClass('hide').show();
+							$('.ys_ajaxmore p').html('没有更多内容了');
 						}else{
-							$('.ys_ajaxmore').show();
+							$('.ys_loading').hide();
+							$.each(result,function(k,v){
+								$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
+							});
+	
+							if($('.ys_article_list .row>div').length >= maxitem){
+								$('.ys_pagelink').removeClass('hide');
+							}else{
+								$('.ys_ajaxmore').show();
+							}
 						}
 					}
 				});
