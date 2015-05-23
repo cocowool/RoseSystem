@@ -102,9 +102,20 @@
 	<?php $this->load->view('common/footer'); ?>
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery-plugin/masonry.pkgd.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery-plugin/imagesloaded.pkgd.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
+		var $container = $('.ys_article_list .row');
+		$container.imagesLoaded(function(){
+			$container.masonry({
+			  itemSelector: '.col-md-4',
+			  isAnimated: true,
+			  resizeable: true
+			});
+		});
+	
 		$('.ys_ajaxmore a').click(function(){
 			var maxitem = 27;
 			if($('.ys_article_list .row>div').length >= maxitem){
