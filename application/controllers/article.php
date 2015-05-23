@@ -31,7 +31,7 @@ class Article extends My_Controller {
 		$config['base_url'] = '/article/index/'.$category.'/';
 		$config['total_rows'] = $data['article_total'];
 		$config['uri_segment'] = 4;
-		$config['per_page'] = 9;
+		$config['per_page'] = 27;
 		$config['full_tag_open'] = '<ul class="pagination">';
 		$config['full_tag_close'] = '</ul>';
 		$config['first_tag_open'] ='<li>';
@@ -64,19 +64,24 @@ class Article extends My_Controller {
 		$this->load->model('Resource_Model', 'r');
 		$this->load->model('Category_Model', 'c');
 		
-		$data['current_category'] = $category;
+		$category = $this->input->post('catgory');
+		$pagesize = $this->input->post('pagesize');
+		$start = $this->input->post('start');
 		//默认调取杂志分类下的信息
-		$default_category = '0';
+		if(empty($category)){
+			$category = '0';
+		}
 		$option = array();
 		$option[] = array('data' => '1', 'field' => 'ctype', 'action' => 'where' );
-		$option[] = array('data' => $default_category, 'field' => 'pid', 'action' => 'where' );
+		$option[] = array('data' => $category, 'field' => 'pid', 'action' => 'where' );
 		$data['category_list'] = $this->c->getAll($option);
 		
 		$option = array();
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
-		$data['article_list'] = $this->a->getAll($option,$start,$count);
-		
+		$result = $this->a->getAll($option,$start,$pagesize);
+
+		echo json_encode($result);
 	}
 	
 	/**

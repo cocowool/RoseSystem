@@ -65,25 +65,24 @@
 					$article_html .= '</div>';
 					echo $article_html;
 					?>
-					<?php 
-					if(!empty($page_links)){
-					?>
-			      	<div class="row">
-			      		<div class="ys_ajaxmore">
-			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
-			      		</div>
-			      		<div class="ys_loading hide">
-			      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
-			      		</div>
-				      	<nav class="ys_pagelink">
-				      		<?php echo $page_links; ?>
-				      	</nav>
-			      	</div>	
-			      	<?php 
-			      	}
-			      	?>
-      			</div>
-      			
+				</div>
+				<?php 
+				if(!empty($page_links)){
+				?>
+		      	<div class="row">
+		      		<div class="ys_ajaxmore">
+		      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
+		      		</div>
+		      		<div class="ys_loading hide">
+		      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
+		      		</div>
+			      	<nav class="ys_pagelink hide">
+			      		<?php echo $page_links; ?>
+			      	</nav>
+		      	</div>	
+		      	<?php 
+		      	}
+		      	?>
 			</div>
 			<div class="col-md-2 ys_sidebar">
 				<div class="ys_logo">
@@ -107,26 +106,39 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$('.ys_ajaxmore a').click(function(){
-			$.ajax({
-				'type'	:	'POST',
-				'dataType'	:	'json',
-				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
-				'data'	:	{
-					'pagesize'	:	'9',
-					'cagtegory'	:'<?php echo $current_category; ?>',
-					'request'	:	$('.ys_latest>div').length
-				},
-				'success'	:	function(result){
-					console.log(result);
-					console.log($('.ys_article_list .hide'));
-					$('.ys_article_list .hide').first().removeClass('hide');
-					console.log($('.ys_article_list .hide'));
-					if( !$('.ys_article_list .hide').first() ){
-						$('.ys_pagelink').removeClass('hide');
-						$('.ys_ajaxmore').addClass('hide');
+			var maxitem = 27;
+			if($('.ys_article_list .row>div').length >= maxitem){
+				$('.ys_pagelink').removeClass('hide');
+				$('.ys_ajaxmore').hide();
+			}else{
+				$.ajax({
+					'type'	:	'POST',
+					'dataType'	:	'json',
+					'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+					'data'	:	{
+						'pagesize'	:	'9',
+						'cagtegory'	:'<?php echo $current_category; ?>',
+						'start'	:	$('.ys_article_list>div').length
+					},
+					'beforeSend'	:	function(){
+						$('.ys_ajaxmore').hide();
+						$('.ys_loading').removeClass('hide');
+					},
+					'success'	:	function(result){
+						console.log(result);
+						$('.ys_loading').hide();
+						$.each(result,function(k,v){
+							$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
+						});
+
+						if($('.ys_article_list .row>div').length >= maxitem){
+							$('.ys_pagelink').removeClass('hide');
+						}else{
+							$('.ys_ajaxmore').show();
+						}
 					}
-				}
-			});
+				});
+			}
 		});
 	});
 	</script>

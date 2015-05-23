@@ -75,7 +75,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_ajaxmore { margin:10px 15px; background-color:#f9f9f9; text-align:center; line-height:2em; }
 .ys_ajaxmore a { display:block; text-decoration:none; color:#d7d7d7; line-height:2em; }
 .ys_ajaxmore a:hover { color:#e13300; }
-.ys_loading { text-align:center; }
+.ys_loading, .ys_article_list .ys_loading p { text-align:center; }
 .ys_loading img { height:150px; }
 
 .ys_logo { position:relative; }
