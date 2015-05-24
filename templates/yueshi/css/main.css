@@ -19,7 +19,7 @@ a:hover { color:#e13300; }
 
 /*-- 针对BOOTSTRAP默认样式的修改 --*/
 .row { margin:0 -5px; }
-.col-md-4 { padding:0 5px; }
+.col-md-6, .col-md-4 { padding:0 5px; }
 .navbar { border-radius:0; border:0; }
 .carousel-indicators li { border:1px solid #cc3300; margin-right:2px; }
 .carousel-indicators .active { background-color:#cc3300; margin-right:2px; }
@@ -90,7 +90,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_menu_container { position:relative; z-index:0; }
 .ys_menu { position:relative;list-style:none; padding-left:20%; z-index:0; }
 .ys_menu_item { position:relative; text-align:center; cursor:pointer; z-index:10; }
-.ys_menu_text, .ys_submenu_text { position:relative; z-index:100; display:block; text-decoration:none; color:#574e3f; font-size:1.2em; line-height:2em; }
+.ys_menu_text, .ys_submenu_text { position:relative; z-index:100; display:block; text-decoration:none; color:#574e3f; line-height:2em; }
 .ys_menu_text:hover, .ys_submenu_text:hover { color:#ed1d25 }
 .ys_submenu_container { position:absolute; z-index:150; width:7em; left:-67%; padding-top:30px; top:-4px; }
 .ys_submenu { position:relative; display:block; z-index:980; border-top:1px solid #d9d9d9; border-right:1px solid #d9d9d9; }
@@ -111,6 +111,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; }
 .ys_video_item_container a { display:inline-block; }
 .ys_video_item_container img { padding:1px;width:100%; }
+.ys_video_desc { padding:2em 0; }
 
 .ys_footer { font-size:12px; border-top:1px solid #e1e1e1; margin-top:1em; color:#bbbbbb; line-height:2em; padding:0 0 2em; }
 .ys_foot_links li { display:inline-block; }  

@@ -28,7 +28,7 @@
 				
 				<div class="ys_breadcrum">
 					<p>
-						<?php echo $breadcrum; ?>
+						<ol class='breadcrumb'><?php echo $breadcrum; ?></ol>
 					</p>
 				</div>
       			
@@ -38,7 +38,7 @@
       				<div class="ys_video_player embed-responsive embed-responsive-16by9">
 	      				<iframe class="embed-responsive-item" src="<?php echo $v_youku; ?>" frameborder=0 allowfullscreen></iframe>
       				</div>
-      				<div class="ys_video_desc well">
+      				<div class="ys_video_desc">
       					<?php echo $v_desc; ?>
       				</div>
       				<div class="ys_article_stat">
