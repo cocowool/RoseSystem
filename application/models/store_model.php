@@ -10,6 +10,7 @@ class Store_Model extends MY_Model {
 			array('name'=>'s_text', 'comment'=>'商品详情', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入商品的简介')),
 			array('name'=>'s_thumb', 'comment'=>'商品缩略图', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img') ),	//存储WEB访问调用地址
 			array('name'=>'s_location', 'comment'=>'视频存放位置' ),	//存储物理存储位置
+			array('name'=>'s_order', 'comment'=>'排序序号', 'form'=> array('type'=>'text')),
 			array('name'=>'s_click', 'comment'=>'访问次数', 'form'=> array('type'=>'text')),
 			array('name'=>'s_like', 'comment'=>'喜欢次数', 'form'=> array('type'=>'text')),
 			array('name'=>'s_fav', 'comment'=>'收藏次数', 'form'=> array('type'=>'text')),

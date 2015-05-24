@@ -13,11 +13,13 @@ class Store extends My_Controller {
 		$this->load->model('Category_Model', 'c');
 		$this->load->model('Resource_Model', 'r');
 		
-		$pagesize = 2;
+		$pagesize = 6;
 		
+		$data['page'] = $page;
+		$data['pagesize'] = $pagesize;
 		$option = array();
 		$data['store_total'] = $this->s->getTotal($option);
-		$data['store_list'] = $this->s->getAll($option, $page, $pagesize);
+		$data['store_list'] = $this->s->getAll($option, $page, $pagesize, 's_order', 'desc');
 		
 		$this->load->library('pagination');
 		$config['base_url'] = '/store/';
@@ -45,8 +47,21 @@ class Store extends My_Controller {
 	}
 	
 	public function serverside(){
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		$this->load->model('Article_Model', 'a');
+		$this->load->model('Resource_Model', 'r');
+		$this->load->model('Category_Model', 'c');
+		$this->load->model('Store_Model', 's');
 		
+		$pagesize = $this->input->post('pagesize');
+		$start = $this->input->post('start');
+		//默认调取杂志分类下的信息
+		$option = array();
+		$option[] = array('data'=>'1', 'field'=>'status','action'=>'where_in');
+		$result = $this->s->getAll($option,$start,$pagesize, 's_order', 'desc');
 		
+		echo json_encode($result);		
 	}
 
 	public function detail($id){
