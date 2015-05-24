@@ -164,7 +164,7 @@
       						$count = 0;
       						$html = '';
       						foreach ($related_article as $k=>$v){
-								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
+								$html .= '<div class="col-md-4 col-sm-6 col-xs-6"><div class="ys_thumbnail_block">';
 								$html .= '<a href="/article/detail/'.$v['id'].'"><img src="' . $v['cover'] . '" /></a>';
 								$html .= '<div class="ys_caption"><h3><a href="/article/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
 								$count++;

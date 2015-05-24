@@ -27,18 +27,38 @@
 				</div>
 				
 				<div class="ys_breadcrum">
-					<p>
-						<?php //echo $breadcrum; ?>
-					</p>
+				<p>
+					<ol class="breadcrumb">
+						<li><a href="/">首页</a></li>
+						<li><a href="/store">悦食家</a></li>
+					</ol>
+				</p>
 				</div>
       			
-      			<div class="ys_video">
+      			<div class="ys_store_detail">
       				<h1><?php echo $s_title; ?></h1>
       				<h2><?php //echo $subtitle; ?></h2>
       				<div class="ys_store_desc">
       					<?php echo $s_desc; ?>
       				</div>
       				<div class="ys_article_stat">
+      					<div class="ys_share_links">
+							<!-- JiaThis Button BEGIN -->
+							<div class="jiathis_style_32x32">
+								<a class="jiathis_button_qzone"></a>
+								<a class="jiathis_button_tsina"></a>
+								<a class="jiathis_button_tqq"></a>
+								<a class="jiathis_button_weixin"></a>
+								<a class="jiathis_button_renren"></a>
+								<a href="http://www.jiathis.com/share?uid=905086" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+								<a class="jiathis_counter_style"></a>
+							</div>
+							<script type="text/javascript">
+							var jiathis_config = {data_track_clickback:'true'};
+							</script>
+							<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=905086" charset="utf-8"></script>
+							<!-- JiaThis Button END -->					
+						</div>
       					<p>
       						<span>阅读：</span><?php echo $s_click; ?>&nbsp;&nbsp;
       						<button type="button" class="btn btn-default btn-xs ys_like">
@@ -49,26 +69,6 @@
 							</button>
       					</p>
       				</div>
-      				<div class="share-links">
-						<!-- JiaThis Button BEGIN -->
-						<div class="jiathis_style">
-						<a class="jiathis_button_tsina"></a>
-						<a class="jiathis_button_weixin"></a>
-						<a class="jiathis_button_email"></a>
-						<a class="jiathis_button_douban"></a>
-						<a href="http://www.jiathis.com/share?uid=905086" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-						<a class="jiathis_counter_style"></a>
-						</div>
-						<script type="text/javascript" >
-						var jiathis_config={
-							data_track_clickback:true,
-							summary:"",
-							hideMore:false
-						}
-						</script>
-						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=905086" charset="utf-8"></script>
-						<!-- JiaThis Button END -->						
-					</div>
       				<div class="ys_article_comment">
       					<div class="ys_comment_recorder">
       						<?php 
@@ -145,7 +145,7 @@
       						$count = 0;
       						$html = '';
       						foreach ($related_store as $k=>$v){
-								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
+								$html .= '<div class="col-md-4 col-sm-6 col-xs-6"><div class="ys_thumbnail_block">';
 								$html .= '<a href="/store/detail/'.$v['id'].'"><img src="' . $v['s_thumb'] . '" /></a>';
 								$html .= '<div class="ys_caption"><h3><a href="/store/detail/' . $v['id'] . '">' . $v['s_title'] . '</a></h3></div></div></div>';
 								$count++;

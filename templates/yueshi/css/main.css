@@ -127,6 +127,9 @@ a.ys_link_red:hover { text-decoration:none; }
 
 .ys_breadcrum { line-height:1.5em; }
 .ys_breadcrum .breadcrumb { background-color:transparent; padding:0; }
+.ys_store_detail { padding:0 2em; }
+.ys_store_detail h1 { font-size:2em; text-align:center; }
+.ys_store_desc { margin:0 0 3em; text-indent:2em; line-height:1.5em; }
 .ys_article { padding:0 2em; }
 .ys_article h1 { font-size:2em; text-align:center; }
 .ys_article .ys_article_content { line-height:180%; color:#666666; }
