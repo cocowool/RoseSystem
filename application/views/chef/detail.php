@@ -85,7 +85,7 @@
 				        </ol>
 				        <div class="carousel-inner" role="listbox">
 				        <?php foreach($focus_html as $k=>$v){?>
-	          				<div class="item">
+	          				<div class="item <?php if($k==0) echo "active";?>">
 	            				<img data-src="" alt="First slide [1140x500]" src="<?php echo $v; ?>" data-holder-rendered="false">
 	          				</div>
 	          			<?php }?>
