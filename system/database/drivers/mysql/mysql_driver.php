@@ -141,7 +141,11 @@ class CI_DB_mysql_driver extends CI_DB {
 			// mysql_set_charset() requires PHP >= 5.2.3 and MySQL >= 5.0.7, use SET NAMES as fallback
 			$this->use_set_names = (version_compare(PHP_VERSION, '5.2.3', '>=') && version_compare(mysql_get_server_info(), '5.0.7', '>=')) ? FALSE : TRUE;
 		}
-
+		
+		if( !function_exists('mysql_set_charset') ){
+			$this->use_set_names = TRUE;	//解决白屏显示的问题 by shiqiang
+		}
+		
 		if ($this->use_set_names === TRUE)
 		{
 			return @mysql_query("SET NAMES '".$this->escape_str($charset)."' COLLATE '".$this->escape_str($collation)."'", $this->conn_id);
