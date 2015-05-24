@@ -25,9 +25,9 @@
 				<div class='ys_top_title'>
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
-      			<div class="ys_container ys_article_list">
+      			<div class="ys_container ys_video_list">
 					<?php
-					$article_html = '<div class="row ys_latest">'; 
+					$article_html = '<div class="row">'; 
 					$article_row_count = 0;
 					$article_html .= '';
 					foreach($store_list as $k=>$v){
@@ -36,36 +36,29 @@
 						$article_html .= '<div class="ys_caption"><h3><a href="/store/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
 						$article_html .= '<p>'.$v['s_desc'].'</p>';
 						$article_html .= '</div></div></div>';
-						
-						$article_row_count++;
-						if($article_row_count%3==0 and $article_row_count != 9){
-							$article_html .= '</div><div class="row ys_latest hide">';
-						}
 					}
 					$article_html .= '</div>';
 					echo $article_html;
 					?>
-					
-					<?php 
-					if(!empty($page_links)){
-					?>
-			      	<div class="row">
-			      		<div class="ys_ajaxmore">
-			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
-			      		</div>
-			      	</div>	
-			      	<?php 
-			      	}
-			      	?>
-			      	
-			      	<div class="row">
-			      		<div class="ys_pagelink hide">
-				      		<?php echo $page_links; ?>
-			      		</div>
-			      	</div>
-      			</div>
+				</div>
+				<?php 
+				if(!empty($page_links)){
+				?>
+		      	<div class="row">
+		      		<div class="ys_ajaxmore">
+		      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
+		      		</div>
+		      	</div>	
+		      	<div class="row">
+		      		<div class="ys_pagelink hide">
+			      		<?php echo $page_links; ?>
+		      		</div>
+		      	</div>
+		      	<?php 
+		      	}
+		      	?>
+      		</div>
       			
-			</div>
 			<div class="col-md-2">
 				<div class="ys_logo">
 					<h2><a href="javascript:void(0);">悦食中国</a></h2>
@@ -96,7 +89,7 @@
 			}
 			$.ajax({
 				'type'	:	'POST',
-				'url'	:	'/article/serverside/<?php echo $current_category ?>/1',
+				'url'	:	'/article/serverside',
 				'data'	:	{
 					'count'	:	1
 				},

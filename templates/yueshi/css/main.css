@@ -102,13 +102,13 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_menu_nav li a { color:#444; display:inline-block; line-height:2em; border-bottom:1px solid transparent; }
 .ys_menu_nav li a:hover { text-decoration:none;  }
 .ys_menu_nav li a:hover, .ys_menu_nav li a.active { border-bottom:1px solid #f33; }
-.ys_article_list p { text-align:justify; padding:0 1em; text-indent:2em; }
+.ys_video_list p, .ys_article_list p { text-align:justify; padding:0 1em; text-indent:2em; }
 .ys_article_list .ys_ajaxmore p { text-align:center; }
 .ys_pagelink { margin:10px 15px; text-align:center; }
 .ys_pagelink a { display:inline-block; border:1px solid rgb(51, 122, 183); padding:0.2em 0.5em; margin:0 0.5em; }
 .ys_pagelink strong { display:inline-block; border:1px solid rgb(51,122,183); padding:0.2em 0.5em; }
 
-.ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; }
+.ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; margin-bottom:1em; }
 .ys_video_item_container a { display:inline-block; }
 .ys_video_item_container img { padding:1px;width:100%; }
 .ys_video_desc { padding:2em 0; }
