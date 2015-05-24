@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-md-10">
 				<div class='ys_top_title'>
-					<h1><a href="javascript:void(0);">悦食中国</a></h1>
+					<h1><a href="javascript:void(0);" name="top">悦食中国</a></h1>
 				</div>
 				
 				<div class="ys_breadcrum">
@@ -103,12 +103,50 @@
       							</div>
       						</div>
       					</div>
+      					<div class="ys_go_top">
+      						<p><a href="#top">回到顶部</a></p>
+      					</div>
       				</div>
       				<div class="ys_fest_carnival">
-      				
+      					<h4 class="ys_column_title">悦食市集嘉年华</h4>
+      					<div class="ys_carnival">
+							<ul class="ys_menu_nav">
+      							<li><a href="javascipt:void(0);" class="active">农夫实验室</a></li>
+      							<li><a href="javascipt:void(0);">味觉会馆</a></li>
+      							<li><a href="javascipt:void(0);">流动厨艺学校</a></li>
+      							<li><a href="javascipt:void(0);">悦食影像展</a></li>
+      						</ul>
+      						<div class="ys_carnival_list">
+      						
+      						</div>
+      					</div>
+      					<div class="">
+      					
+      					</div>
+      					<div class="ys_go_top">
+      						<p><a href="#top">回到顶部</a></p>
+      					</div>
       				</div>
       				<div class="ys_fest_consultant">
-      				
+      					<h4 class="ys_column_title">悦食顾问</h4>
+      					<div class="ys_consultant_list row">
+      						<div class="col-xs-3 col-md-1 col-sm-4">
+      							<a href="javascript:void(0);" class="thumbnail"><img src="/temp/H1.jpg" /></a>
+      						</div>
+      					</div>
+      					<div class="ys_consultant_detail">
+      						<div class="row ys_consultant_desc">
+      							<div class="col-md-2 col-xs-1"></div>
+      							<div class="col-md-8 col-xs-10"></div>
+      							<div class="col-md-2 col-xs-1"></div>
+      						</div>
+      						<div class="row ys_consultant_words">
+      							<p>另外，我们要抱团推西部区域，抱团的发轫是从秦皇半岛开始的，我看到现在北部的万科、恒大、兴龙都在抱团，下面还要把玉带湾加进来，这是一个好现象，从板块整体来说，大家都是为了一个更好的目的，都是为了更好的销售，只是各个板块之间有不同的优势和缺点。有一些因素是先天的，我们没有办法过多的评价，但对于具体的项目，我们有更多的战术要去弥补和改进。对于板块整体向外推广，前些年一些媒体或者一些项目也在做，但是结果不是特别好，中间有一个关键问题，之所以大连、威海这些城市能够做的好，我觉得要上升到城市意识，它们有政府在做依靠，但是秦皇岛在这方面会弱一些，之前我到北京的房展会去看，秦皇岛还是比较松散的。举个例子，今天上午我路过南戴河的时候，看到交通指示牌下写着“抚宁县南戴河”，实际上这是地方权利分割的问题，一些区域在地方管辖上还没有太理顺，这是一个政府的力度的问题。</p>
+      						</div>
+      					</div>
+      					<div class="ys_go_top">
+      						<p><a href="#top">回到顶部</a></p>
+      					</div>
       				</div>
       				<?php } ?>
       			</div>

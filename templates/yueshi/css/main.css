@@ -19,7 +19,7 @@ a:hover { color:#e13300; }
 
 /*-- 针对BOOTSTRAP默认样式的修改 --*/
 .row { margin:0 -5px; }
-.col-md-6, .col-md-4, .col-md-8 { padding:0 5px; }
+.col-md-6, .col-md-4, .col-md-8, .col-md-1 { padding:0 5px; }
 .navbar { border-radius:0; border:0; }
 .carousel-indicators li { border:1px solid #cc3300; margin-right:2px; }
 .carousel-indicators .active { background-color:#cc3300; margin-right:2px; }
@@ -194,7 +194,8 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_forum_speaker_container .media .media-body p { font-size:12px; }
 .ys_forum_speaker_container .media:hover, .ys_forum_speaker_container .active { cursor:pointer; background-color:#1e1e1e; color:#fff; }
 .ys_forum_speaker_container .media-object { height:100%; }
-
+.ys_go_top { text-align:center; line-height:2em; margin-top:0.5em; }
+.ys_consultant_detail { background:#1e1e1e; padding:1em; }
 
 
 .ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }
