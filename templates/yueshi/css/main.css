@@ -137,6 +137,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_store_desc { margin:0 0 3em; text-indent:2em; line-height:1.5em; }
 .ys_article { padding:0 2em; }
 .ys_article h1 { font-size:2em; text-align:center; }
+.ys_article h2 { font-size:1.4em; text-align:center; }
 .ys_article .ys_article_content { line-height:180%; color:#666666; }
 .ys_article .ys_article_content p { text-indent:2em; }
 .ys_article .ys_article_content strong {  }
