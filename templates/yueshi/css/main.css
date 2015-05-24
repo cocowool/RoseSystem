@@ -19,7 +19,7 @@ a:hover { color:#e13300; }
 
 /*-- 针对BOOTSTRAP默认样式的修改 --*/
 .row { margin:0 -5px; }
-.col-md-6, .col-md-4 { padding:0 5px; }
+.col-md-6, .col-md-4, .col-md-8 { padding:0 5px; }
 .navbar { border-radius:0; border:0; }
 .carousel-indicators li { border:1px solid #cc3300; margin-right:2px; }
 .carousel-indicators .active { background-color:#cc3300; margin-right:2px; }
@@ -186,6 +186,15 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_fest_logo img { width:150px; }
 .ys_fest_forum, .ys_fest_carnival, .ys_fest_consultant { border-top:1px solid #ececec; padding:1em 0; }
 .ys_column_title { margin:0; font-size:1em; margin-bottom:1.5em; }
+.ys_forum_speaker_container {  }
+.ys_forum_speaker_container .media { background-color:#f7f7f7;color:#cecece; margin-top:5px; }
+.ys_forum_speaker_container .media:first-child { margin-top:0; }
+.ys_forum_speaker_container .media .media-body { padding:0.5em;  }
+.ys_forum_speaker_container .media .media-body h4 { font-size:1em; }
+.ys_forum_speaker_container .media .media-body p { font-size:12px; }
+.ys_forum_speaker_container .media:hover, .ys_forum_speaker_container .active { cursor:pointer; background-color:#1e1e1e; color:#fff; }
+.ys_forum_speaker_container .media-object { height:100%; }
+
 
 
 .ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }

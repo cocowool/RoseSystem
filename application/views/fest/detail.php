@@ -73,7 +73,7 @@
 							echo $forum_html;
 						}
       					?>
-      					<div class="row">
+      					<div class="row ys_forum_speaker_container">
       						<div class="col-md-4 col-sm-0 col-xs-0">
       							<div class="media">
       								<div class="media-left">
@@ -84,9 +84,23 @@
       									<p>宫保鸡丁的食材选择</p>
       								</div>
       							</div>
+      							<div class="media active">
+      								<div class="media-left">
+	      								<a href="javascript:void(0);"><img class="media-object" src="/temp/H2.jpg"/></a>
+      								</div>
+      								<div class="media-body">
+      									<h4 class="media-heading">侯晓文</h4>
+      									<p>宫保鸡丁的食材选择</p>
+      								</div>
+      							</div>
       						</div>
       						<div class="col-md-8 col-sm-12 col-xs-12">
-      							
+      							<div class="ys_forum_item active">
+      								<a href="javascript:void(0);"><img src="/temp/f1.jpg" /></a>
+      							</div>
+      							<div class="ys_forum_item hide">
+      								<a href="javascript:void(0);"><img src="/temp/f2.jpg" /></a>
+      							</div>
       						</div>
       					</div>
       				</div>
