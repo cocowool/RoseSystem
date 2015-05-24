@@ -27,26 +27,31 @@ a:hover { color:#e13300; }
 /* ------- 针对移动设备的优化 ------- */
 @media ( max-width:480px ){
 	.ys_sidebar { display:none; }
+	.ys_fest_forum .col-md-4 { display:none; }
 }
 @media ( min-width:480px ){
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
 	.col-xs-6 { padding:0 5px; }
+	.ys_fest_forum .col-md-4 { display:none; }
 }
 @media ( min-width: 768px ) { 
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
 	.col-xs-6 { padding:0 5px; }
+	.ys_fest_forum .col-md-4 { display:block; }
 }
 @media ( min-width: 992px ) {
 	.container { width:960px; }
 	.ys_sidebar { display:block; }
 	.ys_footer { text-align:left; }
+	.ys_fest_forum .col-md-4 { display:block; }
 }
 @media ( min-width: 1200px ) { 
 	.container { width:960px; }
 	.ys_sidebar { display:block; }
 	.ys_footer { text-align:left; }
+	.ys_fest_forum .col-md-4 { display:block; }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -179,7 +184,9 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_fest_container { position:relative; }
 .ys_fest_logo { text-align:center; }
 .ys_fest_logo img { width:150px; }
-.ys_fest_forum, .ys_fest_carnival, .ys_fest_consultant { border-top:1px solid #ececec; padding:1.5em 0; }
+.ys_fest_forum, .ys_fest_carnival, .ys_fest_consultant { border-top:1px solid #ececec; padding:1em 0; }
+.ys_column_title { margin:0; font-size:1em; margin-bottom:1.5em; }
+
 
 .ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }
 .ys_share_links .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style {

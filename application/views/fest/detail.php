@@ -37,6 +37,12 @@
       				<div class="ys_fest_logo">
       					<p><a href="/fest"></a><img src="/templates/yueshi/images/festlogo.png" /></a></p>
       				</div>
+      				
+      				<?php 
+      				if(empty($fest_list)){
+						echo "<div><p>暂时没有内容。</p></div>";
+					}else{
+      				?>
       				<div class="ys_fest_nav">
       					<ul class="ys_menu_nav">
       					<?php 
@@ -56,7 +62,33 @@
       					?>
       				</div>
       				<div class="ys_fest_forum">
-      				
+      					<?php 
+      					if(!empty($forum_list)){
+							$forum_html = '';
+							$forum_html .= '<h4 class="ys_column_title">悦食论坛</h4>';
+							foreach ($forum_list as $k=>$v){
+				
+							}
+
+							echo $forum_html;
+						}
+      					?>
+      					<div class="row">
+      						<div class="col-md-4 col-sm-0 col-xs-0">
+      							<div class="media">
+      								<div class="media-left">
+	      								<a href="javascript:void(0);"><img class="media-object" src="/temp/H1.jpg"/></a>
+      								</div>
+      								<div class="media-body">
+      									<h4 class="media-heading">侯晓文</h4>
+      									<p>宫保鸡丁的食材选择</p>
+      								</div>
+      							</div>
+      						</div>
+      						<div class="col-md-8 col-sm-12 col-xs-12">
+      							
+      						</div>
+      					</div>
       				</div>
       				<div class="ys_fest_carnival">
       				
@@ -64,6 +96,7 @@
       				<div class="ys_fest_consultant">
       				
       				</div>
+      				<?php } ?>
       			</div>
       			
 			</div>

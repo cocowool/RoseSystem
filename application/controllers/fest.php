@@ -6,19 +6,29 @@ class Fest extends My_Controller {
 		parent::__construct();
 	}
 	
-	public function index($year = ''){
+	public function index($year = '2014'){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Fest_Model', 'f');
-		$this->load->model('Article_Model', 'a');
 		$this->load->model('Category_Model', 'c');
 		$this->load->model('Resource_Model', 'r');
+		$this->load->model('forum_model','fr');
 		
 		$option = array();
-		$option[] = array('data'=>$year, 'field'=>'f_year','action'=>'where_or');
-		$option[] = array('data'=>$year, 'field'=>'id','action'=>'where_or');
+		$option[] = array('data'=>$year, 'field'=>'f_year','action'=>'or_where');
+		$option[] = array('data'=>$year, 'field'=>'id','action'=>'or_where');
 		$data['fest_total'] = $this->f->getTotal($option);
-		$data['fest_list'] = $this->f->getAll($option, $year, 9);
+		$data['fest_list'] = $this->f->getAll($option);
+		
+		if(count($data['fest_list']) == 1){
+			$data['current_fest'] = $data['fest_list'][0];
+			
+			//加载悦食论坛
+			$option = array();
+			$option[] = array('data'=>$data['current_fest']['id'], 'field'=>'fid','action'=>'where');
+			$data['forum_list'] = $this->fr->getAll($option);
+			
+		}
 		
 		$this->load->library('pagination');
 		$config['base_url'] = '/fest/index/';
