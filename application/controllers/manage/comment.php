@@ -138,8 +138,8 @@ class Comment extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 				
-			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( $this->upload->do_upload( 's_thumb' ) ){
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_thumb')){
+// 			if ( $this->upload->do_upload( 's_thumb' ) ){
 				$updata = array('upload_data' => $this->upload->data());
 				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];

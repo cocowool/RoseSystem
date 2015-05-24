@@ -96,8 +96,8 @@ class Index extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 			
-			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( ! $this->upload->do_upload( 'f_img' ) ){
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_img')){
+// 			if ( ! $this->upload->do_upload( 'f_img' ) ){
 				$error = array('error' => $this->upload->display_errors());
 				$data['content_data']['user_text'] = $error['error'];
 				$this->redirectAction(FALSE, $data, '/manage/index/focus', '/manage/index/focus');
@@ -152,8 +152,8 @@ class Index extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 				
-			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( ! $this->upload->do_upload( 'f_img' ) ){
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_img')){
+// 			if ( ! $this->upload->do_upload( 'f_img' ) ){
 				$error = array('error' => $this->upload->display_errors());
 				$data['content_data']['user_text'] = $error['error'];
 				$this->redirectAction(FALSE, $data, '/manage/index/top', '/manage/index/top');
@@ -249,8 +249,8 @@ class Index extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 	
-			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( $this->upload->do_upload( 'f_img' ) ){
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_img')){
+// 			if ( $this->upload->do_upload( 'f_img' ) ){
 				$updata = array('upload_data' => $this->upload->data());
 				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];

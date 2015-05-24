@@ -129,8 +129,8 @@ class Resource extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 				
-			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
-			if ( ! $this->upload->do_upload( 'web_path' ) ){
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'web_path')){
+// 			if ( ! $this->upload->do_upload( 'web_path' ) ){
 				$error = array('error' => $this->upload->display_errors());
 				$data['content_data']['user_text'] = $error['error'];
 				$this->redirectAction(FALSE, $data, '/manage/resource', '/manage/resource');
