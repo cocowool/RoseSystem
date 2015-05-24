@@ -34,15 +34,15 @@ class Category_Model extends MY_Model {
 	public function get_breadcrum($id, $category = 'article'){
 		$breadcrum = '';
 		$category = $this->getById($id);
-		$breadcrum = "&nbsp;>&nbsp;<a href='/'.$category.'/list/" . $id . "'>".$category['category']."</a>";
+		$breadcrum = "<li><a href='/'.$category.'/list/" . $id . "'>".$category['category']."</a></li>";
 		if( $category['pid'] != 0 ){
 			$p_category = $this->get_breadcrum($category['pid']);
 			$breadcrum = $p_category . $breadcrum;
 		}else{
 			if($category == 'article'){
-				$breadcrum = "<a href='/'>首页</a>&nbsp;>&nbsp;<a href='/article'>杂志</a>" . $breadcrum;
+				$breadcrum = "<li><a href='/'>首页</a></li><li><a href='/article'>杂志</a></li>" . $breadcrum;
 			}else{
-				$breadcrum = "<a href='/'>首页</a>&nbsp;>&nbsp;<a href='/video'>影像</a>" . $breadcrum;
+				$breadcrum = "<li><a href='/'>首页</a></li><li><a href='/video'>影像</a></li>" . $breadcrum;
 			}
 		}
 		

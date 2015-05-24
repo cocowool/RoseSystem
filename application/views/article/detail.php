@@ -28,7 +28,7 @@
 				
 				<div class="ys_breadcrum">
 					<p>
-						<?php echo $breadcrum; ?>
+						<ol class='breadcrumb'><?php echo $breadcrum; ?></ol>
 					</p>
 				</div>
       			
