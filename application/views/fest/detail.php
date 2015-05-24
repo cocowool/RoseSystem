@@ -137,7 +137,21 @@
       					<div class="ys_consultant_detail">
       						<div class="row ys_consultant_desc">
       							<div class="col-md-2 col-xs-1"></div>
-      							<div class="col-md-8 col-xs-10"></div>
+      							<div class="col-md-8 col-xs-10 row">
+      								<div class="col-md-4">
+      									<a href="javascript:void(0);" class="thumbnail"><img src="/temp/H4.jpg" /></a>
+      								</div>
+      								<div class="col-md-6 ys_consultant_resume_container">
+      									<h4>侯晓文</h4>
+      									<div class="ys_consultant_resume">
+      										<p>1954.1.1</p>
+      										<p>巨蟹座</p>
+      										<p>北京市XXX协会</p>
+      										<p></p>
+      										<p></p>
+      									</div>
+      								</div>
+      							</div>
       							<div class="col-md-2 col-xs-1"></div>
       						</div>
       						<div class="row ys_consultant_words">

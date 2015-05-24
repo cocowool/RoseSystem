@@ -195,8 +195,11 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_forum_speaker_container .media:hover, .ys_forum_speaker_container .active { cursor:pointer; background-color:#1e1e1e; color:#fff; }
 .ys_forum_speaker_container .media-object { height:100%; }
 .ys_go_top { text-align:center; line-height:2em; margin-top:0.5em; }
-.ys_consultant_detail { background:#1e1e1e; padding:1em; }
-
+.ys_consultant_detail { background:#1e1e1e; padding:3em 1em; color:#cecece; }
+.ys_consultant_words {  overflow-y:auto; padding:1em 4em; text-indent:2em; font-size:12px; line-height:1.5em; }
+.ys_consultant_resume_container { padding:0 2em; }
+.ys_consultant_resume_container h4 { color:#fff; }
+.ys_consultant_resume_container p { margin:0; line-height:1.5em; }
 
 .ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }
 .ys_share_links .jiathis_style_32x32 .jiathis_counter.jiathis_bubble_style {
