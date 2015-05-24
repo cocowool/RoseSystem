@@ -116,12 +116,40 @@
       							<li><a href="javascipt:void(0);">流动厨艺学校</a></li>
       							<li><a href="javascipt:void(0);">悦食影像展</a></li>
       						</ul>
-      						<div class="ys_carnival_list">
-      						
-      						</div>
       					</div>
-      					<div class="">
-      					
+      					<div class="ys_carnival_list">
+      						<div id="ys-carnival-focus" class="carousel slide" data-ride="carousel">
+								<!-- Indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+									<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+								</ol>
+								
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item active">
+										<img src="/temp/c1.jpg" alt="">
+										<div class="carousel-caption">
+								        XXX
+										</div>
+									</div>
+									<div class="item">
+										<img src="/temp/c2.jpg" alt="">
+										<div class="carousel-caption">
+								        YYY
+										</div>
+									</div>
+								</div>
+								<!-- Controls -->
+								<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
       					</div>
       					<div class="ys_go_top">
       						<p><a href="#top">回到顶部</a></p>
@@ -131,7 +159,7 @@
       					<h4 class="ys_column_title">悦食顾问</h4>
       					<div class="ys_consultant_list row">
       						<div class="col-xs-3 col-md-1 col-sm-4">
-      							<a href="javascript:void(0);" class="thumbnail"><img src="/temp/H1.jpg" /></a>
+      							<a href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="侯晓文" data-placement="top"><img src="/temp/H1.jpg" /></a>
       						</div>
       					</div>
       					<div class="ys_consultant_detail">
@@ -186,7 +214,10 @@
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
-
+	$(document).ready(function(){
+		$('.carousel').carousel();
+		$('[data-toggle="tooltip"]').tooltip();
+	});
 	</script>
 </body>
 </html>
