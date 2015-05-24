@@ -26,9 +26,10 @@ class Chef extends MY_Controller {
 		$data = $this->c->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
+			$data['data'][$k]['s_desc'] = '<p alt="'.$v['s_desc'].'" style="width:300px; margin:0; padding:0;">'. mb_substr($v['s_desc'], 0, 50, 'UTF-8' ) . '...' . '</p>';
 			$data['data'][$k]['s_thumb'] = '<a href=""><img src="' .$v['s_thumb'] .'" height="50px" /></a>';
-			$data['data'][$k]['operation'] = '<a href="/manage/store/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="/manage/store/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
+			$data['data'][$k]['operation'] = '<a href="/manage/chef/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
+			$data['data'][$k]['operation'] .= '<a href="/manage/chef/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 		}
 		
 		echo json_encode($data);
@@ -156,7 +157,7 @@ class Chef extends MY_Controller {
 	public function edit($id){
 		$data = array();
 	
-		$this->load->model('Store_Model','s');
+		$this->load->model('Chef_Model','s');
 		$this->lang->load('form_validation', 'chinese');
 		$validations = array(
 				array(
@@ -182,7 +183,7 @@ class Chef extends MY_Controller {
 		if($this->form_validation->run() == FALSE){
 			$data = $this->s->getById($id);
 			$data['html_form'] = $this->generate_edit_form($data, $this->s, 'manage/chef/edit/' . $id);
-			$data['content_view'] = 'manage/chef/store_add';
+			$data['content_view'] = 'manage/chef/chef_add';
 			$data['content_data'] = '';
 			$this->load->view('manage/main', $data);
 		}else{

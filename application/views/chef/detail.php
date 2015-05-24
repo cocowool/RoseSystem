@@ -26,6 +26,15 @@
 					<h1><a href="javascript:void(0);">悦食中国</a></h1>
 				</div>
 				
+				<div class="ys_breadcrum">
+					<p>
+						<ol class="breadcrumb">
+							<li><a href="/">首页</a></li>
+							<li><a href="/chef">厨艺学校</a></li>
+						</ol>
+					</p>
+				</div>
+				
 				<div class="ys_chef_nav">
 					<div class="ys_chef_top">
 						<img src="<?php echo $current_chef['s_thumb']; ?>" />
