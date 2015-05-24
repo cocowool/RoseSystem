@@ -15,6 +15,8 @@ class Fest extends My_Controller {
 		$this->load->model('Resource_Model', 'r');
 		
 		$option = array();
+		$option[] = array('data'=>$year, 'field'=>'f_year','action'=>'where_or');
+		$option[] = array('data'=>$year, 'field'=>'id','action'=>'where_or');
 		$data['fest_total'] = $this->f->getTotal($option);
 		$data['fest_list'] = $this->f->getAll($option, $year, 9);
 		

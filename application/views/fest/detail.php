@@ -39,8 +39,13 @@
       				</div>
       				<div class="ys_fest_nav">
       					<ul class="ys_menu_nav">
-      						<li><a href="javascript:void(0);" class="active">2014</a></li>
-      						<li><a href="javascript:void(0);">2015</a></li>
+      					<?php 
+      					$style = '';
+      					foreach ($fest_list as $k=>$v){
+							if($k==0) $style = 'active';
+      						echo '<li><a href="/fest/'.$v['f_year'].'" class="'.$style.'">'.$v['f_year'].'</a></li>';
+						}
+      					?>
       					</ul>
       				</div>
       				<div class="ys_fest_desc">
