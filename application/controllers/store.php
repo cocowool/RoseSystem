@@ -13,19 +13,40 @@ class Store extends My_Controller {
 		$this->load->model('Category_Model', 'c');
 		$this->load->model('Resource_Model', 'r');
 		
+		$pagesize = 2;
+		
 		$option = array();
 		$data['store_total'] = $this->s->getTotal($option);
-		$data['store_list'] = $this->s->getAll($option, $page, 9);
+		$data['store_list'] = $this->s->getAll($option, $page, $pagesize);
 		
 		$this->load->library('pagination');
-		$config['base_url'] = '/store/index/';
+		$config['base_url'] = '/store/';
 		$config['total_rows'] = $data['store_total'];
-		$config['uri_segment'] = 4;
-		$config['per_page'] = 9;
+		$config['uri_segment'] = 2;
+		$config['per_page'] = $pagesize;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] ='<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] ='<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['prev_tag_open'] ='<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] ='<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['cur_tag_open'] ='<li class="active"><a href="javascript:void(0);">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] ='<li>';
+		$config['num_tag_close'] = '</li>';
 		$this->pagination->initialize($config);
 		$data['page_links'] = $this->pagination->create_links();
-
+		
 		$this->load->view('store/list', $data);
+	}
+	
+	public function serverside(){
+		
+		
 	}
 
 	public function detail($id){

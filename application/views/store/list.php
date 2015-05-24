@@ -89,9 +89,9 @@
 			}
 			$.ajax({
 				'type'	:	'POST',
-				'url'	:	'/article/serverside',
+				'url'	:	'/store/serverside',
 				'data'	:	{
-					'count'	:	1
+					'start'	:	1
 				},
 				'success'	:	function(result){
 					$('.ys_article_list .hide').first().removeClass('hide');
