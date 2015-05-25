@@ -1,6 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Resource extends MY_Controller {
+	private $sae_domain = 's1';
 	private $colum_title = '资源管理';
 
 	public function __construct(){

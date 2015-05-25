@@ -1,6 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Store extends MY_Controller {
+	private $sae_domain = 's1';
 	public function __construct(){
 		parent::__construct();
 	}

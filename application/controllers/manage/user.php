@@ -1,6 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends MY_Controller {
+	private $sae_domain = 's1';
 	private $colum_title = '用户管理';
 
 	public function __construct(){
