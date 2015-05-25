@@ -14,7 +14,7 @@ class Article_Model extends MY_Model {
 		array('name'=>'category', 'comment'=>'所属栏目', 'form'=>array('type'=>'select', 'option'=>array('type'=>'function', 'data'=>array(
 				"model"=>"category_model",
 				"name"=>"get_all_category",
-				"parameter" => 0,
+				"parameter" => array(0,0,1),
 			)))),	
 		array('name'=>'subtitle', 'comment'=>'文章副标题','form'=> array('type'=>'text', 'tips'=>'请输入文章副标题')),
 		array('name'=>'foreword', 'comment'=>'引言','form'=> array('type'=>'textarea', 'tips'=>'请输入文章引言')),
