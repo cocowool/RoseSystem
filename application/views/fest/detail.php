@@ -66,43 +66,39 @@
       					if(!empty($forum_list)){
 							$forum_html = '';
 							$forum_html .= '<h4 class="ys_column_title">悦食论坛</h4>';
+							$forum_html .= '<div class="row ys_forum_speaker_container"><div class="col-md-4 col-sm-0 col-xs-0">';
 							foreach ($forum_list as $k=>$v){
-				
+								$style = '';
+								if($k==0) $style = 'active';
+		
+								$forum_html .= '<div class="media '.$style.'">';
+								$forum_html .= 	'<div class="media-left">';
+								$forum_html .= 	'<a href="javascript:void(0);"><img class="media-object" src="'.$v['f_thumb'].'"/></a>';
+								$forum_html .= 	'</div>';
+								$forum_html .= 	'<div class="media-body">';
+								$forum_html .= 	'<h4 class="media-heading">'.$v['id'].'</h4><p>'.mb_substr($v['f_title'],0,12,'utf-8').'</p>';
+								$forum_html .= 	'</div>';
+								$forum_html .= '</div>';
 							}
-
+							$forum_html .= '</div>';
+							$forum_html .= '<div class="col-md-8 col-sm-12 col-xs-12">';
+							foreach ($forum_list as $k=>$v){
+								$style = '';
+								if($k==0) $style = 'active';
+								$forum_html .= '<div class="ys_forum_item '.$style.'">';
+								if($v['f_type'] == 1){
+									$url = '/article/detail/' . $v['aid'];
+								}else{
+									$url = '/video/detail/' . $v['aid'];
+								}
+								$forum_html .= '<a href="'.$url.'"><img src="'.$v['f_thumb'].'" /></a></div>';
+							}
+							$forum_html .= '</div></div>';
+							
+			
 							echo $forum_html;
 						}
       					?>
-      					<div class="row ys_forum_speaker_container">
-      						<div class="col-md-4 col-sm-0 col-xs-0">
-      							<div class="media">
-      								<div class="media-left">
-	      								<a href="javascript:void(0);"><img class="media-object" src="/temp/H1.jpg"/></a>
-      								</div>
-      								<div class="media-body">
-      									<h4 class="media-heading">侯晓文</h4>
-      									<p>宫保鸡丁的食材选择</p>
-      								</div>
-      							</div>
-      							<div class="media active">
-      								<div class="media-left">
-	      								<a href="javascript:void(0);"><img class="media-object" src="/temp/H2.jpg"/></a>
-      								</div>
-      								<div class="media-body">
-      									<h4 class="media-heading">侯晓文</h4>
-      									<p>宫保鸡丁的食材选择</p>
-      								</div>
-      							</div>
-      						</div>
-      						<div class="col-md-8 col-sm-12 col-xs-12">
-      							<div class="ys_forum_item active">
-      								<a href="javascript:void(0);"><img src="/temp/f1.jpg" /></a>
-      							</div>
-      							<div class="ys_forum_item hide">
-      								<a href="javascript:void(0);"><img src="/temp/f2.jpg" /></a>
-      							</div>
-      						</div>
-      					</div>
       					<div class="ys_go_top">
       						<p><a href="#top">回到顶部</a></p>
       					</div>
@@ -217,6 +213,10 @@
 	$(document).ready(function(){
 		$('.carousel').carousel();
 		$('[data-toggle="tooltip"]').tooltip();
+
+		$('.media').click(function(){
+			$('.ys_forum_item').hide().eq($(this).index()).removeClass('hide').show();
+		});
 	});
 	</script>
 </body>

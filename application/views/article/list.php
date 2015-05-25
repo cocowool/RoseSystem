@@ -159,12 +159,12 @@
 								$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
 							});
 
-							$container.masonry('destroy');
-							
-// 							$container.append( elements ).imagesLoaded(function(){
-// 								$container.masonry('appended', elements, 'reload');
-// 								console.log($container.masonry({itemSelector:'.col-md-4'}));
+// 							var $elements = $(elements);
+// 							$container.append( $elements );
+// 							$elements.imagesLoaded(function(){
+// 								$container.masonry('appended', $elements);
 // 							});
+							$container.masonry('destroy');
 							$container.imagesLoaded(function(){
 								$container.masonry({
 									  itemSelector: '.col-md-4',
