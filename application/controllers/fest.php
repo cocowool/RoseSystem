@@ -13,6 +13,7 @@ class Fest extends My_Controller {
 		$this->load->model('Category_Model', 'c');
 		$this->load->model('Resource_Model', 'r');
 		$this->load->model('forum_model','fr');
+		$this->load->model('carnival_model', 'ca');
 		
 		$option = array();
 		$option[] = array('data'=>$year, 'field'=>'f_year','action'=>'or_where');
@@ -28,6 +29,12 @@ class Fest extends My_Controller {
 			$option[] = array('data'=>$data['current_fest']['id'], 'field'=>'fid','action'=>'where');
 			$data['forum_list'] = $this->fr->getAll($option);
 			
+			//加载嘉年华
+			$option = array();
+			$option[] = array('data'=>$data['current_fest']['id'], 'field'=>'fid','action'=>'where');
+			$data['carnival_list'] = $this->ca->getAll($option);
+			
+			print_r($data['carnival_list']);
 		}
 		
 		$this->load->library('pagination');
