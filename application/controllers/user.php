@@ -235,6 +235,35 @@ class User extends My_Controller {
 		$this->load->view('user/register_result', $data);
 	}
 
+	public function getPassword(){
+		$this->load->model('User_Model', 'u');
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		
+		$config = array(
+			array(
+				'field'	=>	'username',
+				'label'	=>	'用户名称',
+				'rules'	=>	'trim|required|min_length[3]|max_length[12]|xss_clean'
+			),
+			array(
+				'field'	=>	'email',
+				'label'	=>	'邮箱',
+				'rules'	=>	'trim|required|valid_email'
+			),
+		);
+		
+		$this->config->set_item('language', 'chinese');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules($config);
+		
+		if($this->form_validation->run() == FALSE){
+			$this->load->view('user/get_password', $data);
+		}else{
+		
+		}
+	}
+	
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('');

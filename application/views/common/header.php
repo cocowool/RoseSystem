@@ -34,7 +34,7 @@
 					<input type='hidden' name='referer' id='referer' value='<?php echo current_url(); ?>' />
 					</div>
 					<a href="javascript:void(0);" id='loginBtn'>登录</a>
-					<a href="javascript:void(0);">忘记密码</a>
+					<a href="/user/getPassword">忘记密码</a>
 					<a href="/user/register">注册</a>
 				</form>
 				<?php 
