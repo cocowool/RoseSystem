@@ -98,8 +98,8 @@ class Video extends MY_Controller {
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'v_thumb')){
 // 			if ( $this->upload->do_upload( 'v_thumb' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
+				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
 				$data['v_location'] = $updata['upload_data']['full_path'];
 			}
 			$data[$this->v->id] = $id;
@@ -163,8 +163,8 @@ class Video extends MY_Controller {
 				die('Upload Failed');
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
+				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
 				$data['v_location'] = $updata['upload_data']['full_path'];
 			}
 			

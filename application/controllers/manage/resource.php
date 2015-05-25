@@ -138,8 +138,8 @@ class Resource extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['web_path'] = 'http://yueshichina.my/temp/' . $updata['upload_data']['file_name'];
+				$data['web_path'] = $updata['upload_data']['sae_full_path'];
+// 				$data['web_path'] = 'http://yueshichina.my/temp/' . $updata['upload_data']['file_name'];
 				$data['path'] = $updata['upload_data']['full_path'];
 				$data['filename'] = $updata['upload_data']['file_name'];
 			}

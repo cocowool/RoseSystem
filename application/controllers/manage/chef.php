@@ -83,60 +83,70 @@ class Chef extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
 			}
 	
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic1')){
 // 			if ( $this->upload->do_upload( 's_pic1' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic1'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic1'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic1'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic2')){
 // 			if ( $this->upload->do_upload( 's_pic2' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic2'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic2'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic2'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic3')){
 // 			if ( $this->upload->do_upload( 's_pic3' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic3'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic3'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic3'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic4')){
 // 			if ( $this->upload->do_upload( 's_pic4' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic4'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic4'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic4'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic5')){
 // 			if ( $this->upload->do_upload( 's_pic5' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic5'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic5'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic5'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic6')){
 // 			if ( $this->upload->do_upload( 's_pic6' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic6'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic6'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic6'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic7')){
 // 			if ( $this->upload->do_upload( 's_pic7' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic7'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic7'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic7'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic8')){
 // 			if ( $this->upload->do_upload( 's_pic8' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic8'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic8'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic8'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic9')){
 // 			if ( $this->upload->do_upload( 's_pic9' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic9'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic9'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic9'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_pic10')){
 // 			if ( $this->upload->do_upload( 's_pic10' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['s_pic10'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_pic10'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_pic10'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 				
 			$result = $this->s->insert( $data );
@@ -197,8 +207,8 @@ class Chef extends MY_Controller {
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_thumb')){
 // 			if ( $this->upload->do_upload( 's_thumb' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
 			}
 	

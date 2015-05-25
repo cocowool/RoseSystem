@@ -202,8 +202,8 @@ class Giftcode extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
 			}
 				
@@ -265,8 +265,8 @@ class Giftcode extends MY_Controller {
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 's_thumb')){
 // 			if ( $this->upload->do_upload( 's_thumb' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
 			}
 				

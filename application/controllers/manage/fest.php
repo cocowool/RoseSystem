@@ -297,8 +297,8 @@ class Fest extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['f_pic'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			
 			$result = $this->s->update( $data );
@@ -351,8 +351,8 @@ class Fest extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['f_pic'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			
 			$result = $this->s->insert( $data );

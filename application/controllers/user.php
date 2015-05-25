@@ -167,8 +167,8 @@ class User extends My_Controller {
 			//if ( ! $this->upload->sae_upload( $this->sae_domain, 'path')){
 			if ( $this->upload->do_upload( 'usericon' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['v_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['v_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['usericon'] = $updata['upload_data']['full_path'];
 			}
 				

@@ -105,8 +105,8 @@ class Index extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['f_img'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 			
 			$result = $this->v->insert( $data );
@@ -161,8 +161,8 @@ class Index extends MY_Controller {
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['f_img'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 				
 			$result = $this->v->insert( $data );
@@ -253,8 +253,8 @@ class Index extends MY_Controller {
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_img')){
 // 			if ( $this->upload->do_upload( 'f_img' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				//$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['f_img'] = $updata['upload_data']['sae_full_path'];
+// 				$data['s_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
 			}
 	
