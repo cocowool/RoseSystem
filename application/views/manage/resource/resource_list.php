@@ -9,8 +9,8 @@
 				<tr>
 					<th></th>
 					<th>图片</th>
-					<th>介绍</th>
-					<th>作者</th>
+					<th>图片描述</th>
+					<th>关联文章</th>
 					<th>排序</th>
 					<th>操作</th>
 				</tr>
@@ -19,8 +19,8 @@
 				<tr>
 					<th></th>
 					<th>图片</th>
-					<th>介绍</th>
-					<th>作者</th>
+					<th>图片描述</th>
+					<th>关联文章</th>
 					<th>排序</th>
 					<th>操作</th>
 				</tr>
@@ -55,7 +55,7 @@ $(document).ready(function(){
 		    {"data":"id"},
 			{"data":"image"},
 			{"data":"description"},
-			{"data":"author"},
+			{"data":"aid"},
 			{"data":"sort"},
 			{
 				"class":"operation-control",

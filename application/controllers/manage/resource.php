@@ -8,7 +8,7 @@ class Resource extends MY_Controller {
 		parent::__construct();
 	}
 
-	public function index($id){
+	public function index($id = 0){
 		$data = array();
 		$data['aid'] = $id;
 		
@@ -39,13 +39,14 @@ class Resource extends MY_Controller {
 		$this->load->model('resource_model','r');
 		
 		//处理自定义条件
-		if( isset($request['aid']) ){
+		if( isset($request['aid']) and $request['aid'] != 0 ){
 			$request['condition'][] = array('data'	=>	$request['aid'], 'field' => 'aid', 'action' => 'where'	);
 		}
 		
 		$data = $this->r->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
+			$data['data'][$k]['aid'] = '<a href="/article/detail/' . $v['aid'] .'">查看</a>';
 			$data['data'][$k]['image'] = '<a href=""><img src="' .$v['web_path'] .'" height="50px" /></a>';
 			$data['data'][$k]['operation'] = '<a href="/manage/resource/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/resource/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';

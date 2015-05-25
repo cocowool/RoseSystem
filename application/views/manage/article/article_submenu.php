@@ -29,7 +29,7 @@
   		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			<li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/resource">图片列表</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="/manage/resource/add">新增图片</a></li>
+		    <li role="presentation" style="display:none;"><a role="menuitem" tabindex="-1" href="/manage/resource/add">新增图片</a></li>
 		</ul>
 	</div>
 </div>
