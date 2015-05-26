@@ -34,7 +34,7 @@ class Fest extends My_Controller {
 			$option[] = array('data'=>$data['current_fest']['id'], 'field'=>'fid','action'=>'where');
 			$data['carnival_list'] = $this->ca->getAll($option);
 			
-			print_r($data['carnival_list']);
+			//print_r($data['carnival_list']);
 		}
 		
 		$this->load->library('pagination');

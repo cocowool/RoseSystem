@@ -105,21 +105,36 @@
       				</div>
       				<div class="ys_fest_carnival">
       					<h4 class="ys_column_title">悦食市集嘉年华</h4>
-      					<div class="ys_carnival">
-							<ul class="ys_menu_nav">
-      							<li><a href="javascipt:void(0);" class="active">农夫实验室</a></li>
-      							<li><a href="javascipt:void(0);">味觉会馆</a></li>
-      							<li><a href="javascipt:void(0);">流动厨艺学校</a></li>
-      							<li><a href="javascipt:void(0);">悦食影像展</a></li>
-      						</ul>
-      					</div>
-      					<div class="ys_carnival_list">
-      						<div id="ys-carnival-focus" class="carousel slide" data-ride="carousel">
+      					<?php 
+      					if(empty($carnival_list)){
+							echo '<p>暂时没有内容</p>';
+						}else{
+							$carnival_html = '';
+							$carnival_html .= '<div class="ys_carnival">';
+							$carnival_html .= '<ul class="ys_menu_nav">';
+							foreach ($carnival_list as $k=>$v){
+								$style = '';
+								if($k==0) $style = 'active';
+								$carnival_html .= '<li><a href="javascipt:void(0);" class="'.$style.'">'.$v['f_title'].'</a></li>';
+							}
+							$carnival_html .= '</ul></div>';
+							//顶部导航结束
+							$carnival_html .= '<div class="ys_carnival_list">';
+							$carnival_html .= '<div id="ys-carnival-focus" class="carousel slide" data-ride="carousel">';
+							$carnival_html .= '<ol class="carousel-indicators">';
+							foreach ($carnival_list as $k=>$v){
+								$style = '';
+								if($k==0) $style = 'active';
+								$carnival_html .= '<li data-target="#carousel-example-generic" data-slide-to="'.'" class="active"></li>';
+							}
+							$carnival_html .= '</ol>';
+      					?>      						
+      					
+      						
 								<!-- Indicators -->
-								<ol class="carousel-indicators">
-									<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+								
+									
 									<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-								</ol>
 								
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
@@ -147,6 +162,7 @@
 								</a>
 							</div>
       					</div>
+      					<?php } ?>
       					<div class="ys_go_top">
       						<p><a href="#top">回到顶部</a></p>
       					</div>
