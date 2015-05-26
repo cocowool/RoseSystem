@@ -154,35 +154,37 @@
       				</div>
       				<div class="ys_fest_consultant">
       					<h4 class="ys_column_title">悦食顾问</h4>
-      					<div class="ys_consultant_list row">
-      						<div class="col-xs-3 col-md-1 col-sm-4">
-      							<a href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="侯晓文" data-placement="top"><img src="/temp/H1.jpg" /></a>
-      						</div>
-      					</div>
-      					<div class="ys_consultant_detail">
-      						<div class="row ys_consultant_desc">
-      							<div class="col-md-2 col-xs-1"></div>
-      							<div class="col-md-8 col-xs-10 row">
-      								<div class="col-md-4">
-      									<a href="javascript:void(0);" class="thumbnail"><img src="/temp/H4.jpg" /></a>
-      								</div>
-      								<div class="col-md-6 ys_consultant_resume_container">
-      									<h4>侯晓文</h4>
-      									<div class="ys_consultant_resume">
-      										<p>1954.1.1</p>
-      										<p>巨蟹座</p>
-      										<p>北京市XXX协会</p>
-      										<p></p>
-      										<p></p>
-      									</div>
-      								</div>
-      							</div>
-      							<div class="col-md-2 col-xs-1"></div>
-      						</div>
-      						<div class="row ys_consultant_words">
-      							<p>另外，我们要抱团推西部区域，抱团的发轫是从秦皇半岛开始的，我看到现在北部的万科、恒大、兴龙都在抱团，下面还要把玉带湾加进来，这是一个好现象，从板块整体来说，大家都是为了一个更好的目的，都是为了更好的销售，只是各个板块之间有不同的优势和缺点。有一些因素是先天的，我们没有办法过多的评价，但对于具体的项目，我们有更多的战术要去弥补和改进。对于板块整体向外推广，前些年一些媒体或者一些项目也在做，但是结果不是特别好，中间有一个关键问题，之所以大连、威海这些城市能够做的好，我觉得要上升到城市意识，它们有政府在做依靠，但是秦皇岛在这方面会弱一些，之前我到北京的房展会去看，秦皇岛还是比较松散的。举个例子，今天上午我路过南戴河的时候，看到交通指示牌下写着“抚宁县南戴河”，实际上这是地方权利分割的问题，一些区域在地方管辖上还没有太理顺，这是一个政府的力度的问题。</p>
-      						</div>
-      					</div>
+      					<?php 
+      					if(empty($consultant_list)){
+							echo '<p>暂时没有内容</p>';
+						}else{
+							$consultant_html = '<div class="ys_consultant_list row">';
+							foreach ($consultant_list as $k=>$v){
+								$style = '';
+								if($k==0) $style = 'active';
+								$consultant_html .= '<div class="col-xs-3 col-md-1 col-sm-4">';
+								$consultant_html .= '<a href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="'.$v['f_name'].'" data-placement="top"><img src="'.$v['f_pic'].'" /></a>';
+								$consultant_html .= '</div>';
+							}
+							$consultant_html .= '</div>';
+							$consultant_html .= '<div class="ys_consultant_detail">';
+							foreach ($consultant_list as $k=>$v){
+								$consultant_html .= '<div class="row ys_consultant_desc"><div class="col-md-2 col-xs-1"></div>';
+								$consultant_html .= '<div class="col-md-8 col-xs-10 row">';
+								$consultant_html .= '<div class="col-md-4">';
+								$consultant_html .= '<a href="javascript:void(0);" class="thumbnail"><img src="'.$v['f_pic'].'" /></a>';
+								$consultant_html .= '</div>';
+								$consultant_html .= '<div class="col-md-6 ys_consultant_resume_container">';
+								$consultant_html .= '<h4>'.$v['f_name'].'</h4>';
+								$consultant_html .= '<div class="ys_consultant_resume">'.$v['f_desc'].'</div>';
+								$consultant_html .= '</div></div><div class="col-md-2 col-xs-1"></div></div>';
+								$consultant_html .= '<div class="row ys_consultant_words">'.$v['f_words'].'</div>';
+							}
+							$consultant_html .= '</div>';
+							
+							echo $consultant_html;
+						}
+      					?>
       					<div class="ys_go_top">
       						<p><a href="#top">回到顶部</a></p>
       					</div>

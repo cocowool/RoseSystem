@@ -342,13 +342,8 @@ class Fest extends MY_Controller {
 
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
-			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_pic')){
+			if ( $this->upload->sae_upload( $this->sae_domain, 'f_pic')){
 // 			if ( ! $this->upload->do_upload( 'f_pic' ) ){
-				$error = array('error' => $this->upload->display_errors());
-				$data['content_data']['user_text'] = $error['error'];
-				$this->redirectAction(FALSE, $data, '/manage/fest/consultant', '/manage/fest/consultant');
-				return false;
-			}else{
 				$updata = array('upload_data' => $this->upload->data());
 				$data['f_pic'] = $updata['upload_data']['sae_full_path'];
 // 				$data['f_pic'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
@@ -409,7 +404,7 @@ class Fest extends MY_Controller {
 			}
 			
 			$result = $this->s->insert( $data );
-			$this->redirectAction($result, $data, '/manage/fest', '/manage/fest/add');
+			$this->redirectAction($result, $data, '/manage/fest/consultant', '/manage/fest/consultant/add');
 		}		
 	}
 	

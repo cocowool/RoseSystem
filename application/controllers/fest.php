@@ -14,6 +14,7 @@ class Fest extends My_Controller {
 		$this->load->model('Resource_Model', 'r');
 		$this->load->model('forum_model','fr');
 		$this->load->model('carnival_model', 'ca');
+		$this->load->model('consultant_model', 'ct');
 		
 		$option = array();
 		$option[] = array('data'=>$year, 'field'=>'f_year','action'=>'or_where');
@@ -34,7 +35,10 @@ class Fest extends My_Controller {
 			$option[] = array('data'=>$data['current_fest']['id'], 'field'=>'fid','action'=>'where');
 			$data['carnival_list'] = $this->ca->getAll($option);
 			
-			//print_r($data['carnival_list']);
+			//加载顾问
+			$option = array();
+			$option[] = array('data'=>$data['current_fest']['id'], 'field'=>'fid','action'=>'where');
+			$data['consultant_list'] = $this->ct->getAll($option);
 		}
 		
 		$this->load->library('pagination');

@@ -11,9 +11,9 @@ class Consultant_Model extends MY_Model {
 					'parameter'=> array('0'),
 			)))),
 			array('name'=>'f_name', 'comment'=>'顾问姓名', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入顾问姓名')),
-			array('name'=>'f_desc', 'comment'=>'顾问介绍', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入顾问简要介绍')),
+			array('name'=>'f_desc', 'comment'=>'顾问介绍', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入顾问简要介绍')),
 			array('name'=>'f_words', 'comment'=>'顾问发言', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入顾问对大会的评价')),
-			array('name'=>'f_pic', 'comment'=>'顾问头像', 'form'=> array('type'=>'file', 'validation'=>'required', 'tips'=>'顾问头像')),
+			array('name'=>'f_pic', 'comment'=>'顾问头像', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img', 'tips'=>'顾问头像')),
 			array('name'=>'f_order', 'comment'=>'排序', 'form'=> array('type'=>'text')),
 			array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 
 				'option'=>array('type'=>'static', 'data'=>array('0'=>'草稿','1'=>'已发布')))
