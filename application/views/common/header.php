@@ -27,7 +27,7 @@
 				?>
 				<form name='ys_login' id='ys_login' method='post' class='navbar-form navbar-right' action='/user/login'>
 					<div class="form-group">
-						<input type='text' name='username' id='username' placeholder="请输入用户名" class="form-control input-sm" >
+						<input type='text' name='username' id='username' data-toggle="tooltip" title="请输入用户名" data-placement="bottom" placeholder="请输入用户名" class="form-control input-sm" >
 					</div>
 					<div class="form-group">
 						<input type='password' name='password' id='password' placeholder="请输入密码" class="form-control input-sm" >

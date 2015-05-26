@@ -46,8 +46,6 @@
 							<span class="focus two-line hide">6-20位字符，可使用数字、字母和符号的组合</span>
 							<span></span>
 						</div>
-						<input type='hidden' name='referer' id='referer' value="<?php echo $referer; ?>" />
-						<input type="hidden" name="eventid" id="eventid" value="<?php echo $eventid; ?>" />
 						<div class="form-group">
 							<a href="javascript:void(0);" class="btn btn-primary login-button">提交</a>&nbsp;&nbsp;
 							<a href="/user/login">登录</a>
@@ -79,6 +77,7 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 		$(window).ready(function(){
+			
 			$('.main-menu-item').hover(function(){
 				$(this).addClass('sub-menu-on');
 				$(this).children('.main-menu-text').next().show();

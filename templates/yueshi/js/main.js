@@ -2,7 +2,8 @@
 $(document).ready(function(){
 	$('#loginBtn').click(function(){
 		if($('#username').val() == ''){
-			alert('请输入用户名');
+			//$('[data-toggle="tooltip"]').tooltip();
+			//alert('请输入用户名');
 			$('#username').focus();
 			return false;
 		}
