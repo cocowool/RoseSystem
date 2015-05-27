@@ -98,7 +98,7 @@ a.ys_link_red:hover { text-decoration:none; }
 
 .ys_top_menu { border-top:1px solid #ececec; text-align:center; }
 .ys_top_menu ul { padding:0; }
-.ys_navbar .ys_top_menu ul li { line-height:2em; height:2em; }
+.ys_navbar .ys_top_menu ul li { line-height:2em; height:2em; border-bottom:1px solid #e9e9e9; }
 
 #YS_MENU { height:auto; padding-top:10em; position:relative; z-index:0; }
 .ys_menu_container { position:relative; z-index:0; }
