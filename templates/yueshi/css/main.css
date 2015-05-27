@@ -28,30 +28,35 @@ a:hover { color:#e13300; }
 @media ( max-width:480px ){
 	.ys_sidebar { display:none; }
 	.ys_fest_forum .col-md-4 { display:none; }
+	.ys_top_menu { display:block; }
 }
 @media ( min-width:480px ){
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
 	.col-xs-6 { padding:0 5px; }
 	.ys_fest_forum .col-md-4 { display:none; }
+	.ys_top_menu { display:block; }
 }
 @media ( min-width: 768px ) { 
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
 	.col-xs-6 { padding:0 5px; }
 	.ys_fest_forum .col-md-4 { display:block; }
+	.ys_top_menu { display:block; }
 }
 @media ( min-width: 992px ) {
 	.container { width:960px; }
 	.ys_sidebar { display:block; }
 	.ys_footer { text-align:left; }
 	.ys_fest_forum .col-md-4 { display:block; }
+	.ys_top_menu { display:none; '}
 }
 @media ( min-width: 1200px ) { 
 	.container { width:960px; }
 	.ys_sidebar { display:block; }
 	.ys_footer { text-align:left; }
 	.ys_fest_forum .col-md-4 { display:block; }
+	.ys_top_menu { display:none; }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -90,6 +95,10 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_date { position:absolute; z-index:100; top:3.6em; left:1.4em; }
 .ys_date p { text-align:center; font-weight:bold; font-size: 1.2em; color:#ee3333; 
 	line-height:2.0em; font-family:Georgia, Helvetica, Verdana; }
+
+.ys_top_menu { border-top:1px solid #ececec; text-align:center; }
+.ys_top_menu ul { padding:0; }
+.ys_navbar .ys_top_menu ul li { line-height:2em; height:2em; }
 
 #YS_MENU { height:auto; padding-top:10em; position:relative; z-index:0; }
 .ys_menu_container { position:relative; z-index:0; }

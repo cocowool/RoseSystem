@@ -40,6 +40,16 @@
 				<?php 
 				}
 				?>
-			</div><!--/.navbar-collapse -->
+				<div class="ys_top_menu">
+					<ul>
+						<li><a href="/article">杂志</a></li>
+						<li><a href="/video">影像</a></li>
+						<li><a href="/store">店铺</a></li>
+						<li><a href="/chef">厨艺学校</a></li>
+						<li><a href="/fest">悦食大会</a></li>
+					</ul>
+				</div>
+		</div>
+			<!--/.navbar-collapse -->
 	</div>
 </nav>
