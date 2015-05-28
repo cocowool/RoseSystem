@@ -20,6 +20,7 @@ $lang['is_natural']			= "项目 %s 必须包含一个数字.";
 $lang['is_natural_no_zero']	= "项目 %s 必须包含一个非零的数字.";
 $lang['not_empty']			= "项目 %s 必须填写";
 
+$lang['chkDuplicate']	=	'没有这个用户名或邮箱';
 
 /* End of file validation_lang.php */
 /* Location: ./system/language/english/validation_lang.php */

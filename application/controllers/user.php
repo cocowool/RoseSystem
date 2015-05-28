@@ -244,12 +244,12 @@ class User extends My_Controller {
 			array(
 				'field'	=>	'username',
 				'label'	=>	'用户名称',
-				'rules'	=>	'trim|required|min_length[3]|max_length[12]|xss_clean'
+				'rules'	=>	'trim|required|min_length[3]|max_length[12]|xss_clean|callback_chkUsername'
 			),
 			array(
 				'field'	=>	'email',
 				'label'	=>	'邮箱',
-				'rules'	=>	'trim|required|valid_email'
+				'rules'	=>	'trim|required|valid_email|callback_chkEmail'
 			),
 		);
 		
@@ -260,8 +260,38 @@ class User extends My_Controller {
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('user/get_password', $data);
 		}else{
-		
+			
 		}
+	}
+	
+	public function chkUsername($username = ''){
+		if(empty($username)){
+			$username = $this->input->post('username');
+		}
+		
+		$this->load->model('User_Model','u');
+		$result = $this->u->getById($username, 'username');
+		if( !$result ){
+			$this->form_validation->set_message('chkUsername', '没有这个用户名或邮箱');
+			return FALSE;
+		}else{
+			return TRUE;
+		}		
+	}
+	
+	public function chkEmail($email = ''){
+		if(empty($username)){
+			$username = $this->input->post('email');
+		}
+		
+		$this->load->model('User_Model','u');
+		$result = $this->u->getById($email, 'email');
+		if( !$result ){
+			$this->form_validation->set_message('chkEmail', '没有这个用户名或邮箱');
+			return FALSE;
+		}else{
+			return TRUE;
+		}		
 	}
 	
 	public function logout(){

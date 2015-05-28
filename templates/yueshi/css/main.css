@@ -130,7 +130,8 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_footer { font-size:12px; border-top:1px solid #e1e1e1; margin-top:1em; color:#bbbbbb; line-height:2em; padding:0 0 2em; }
 .ys_foot_links li { display:inline-block; }  
 
-.ys_tips_error { }
+.ys_tips_error { padding:1em; }
+.ys_tips_error p { margin:0; }
 .ys_title_register { font-size:1.5em; border-bottom:1px solid #c4c4c4; line-height:2.5em; margin-right:60%; padding-left:5em; }
 .ys_form_section label, .ys_form_section input { display:inline-block; }
 .ys_form_section label { width:8em; text-align:right: }

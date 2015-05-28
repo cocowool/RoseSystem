@@ -26,9 +26,9 @@
 				</div>
 				
       			<div class="ys_container_register">
-					<form name="loginForm" id="loginForm" action="/user/login" method="post">
+					<form name="loginForm" id="loginForm" action="/user/getPassword" method="post">
 					<?php if(validation_errors() ){ ?>
-					<div class="ys_tips_error">
+					<div class="ys_tips_error bg-danger">
 						<?php echo validation_errors(); ?>
 					</div>
 					<?php } ?>
@@ -95,12 +95,17 @@
 			$('.ys_form_section #username').keypress(function(){
 				$('.ys_form_section #username').next().next().hide();
 			});
-			$('.ys_form_section #password').keypress(function(){
-				$('.ys_form_section #password').next().next().hide();
+			$('.ys_form_section #email').keypress(function(){
+				$('.ys_form_section #email').next().next().hide();
 			});
 
 			$('.ys_form_section #username').on('input', function(){
 				$('.ys_form_section #username').parent().removeClass('has-error');
+				$('.ys_form_section #username').next().next().hide();
+			});
+			$('.ys_form_section #email').on('input', function(){
+				$('.ys_form_section #email').parent().removeClass('has-error');
+				$('.ys_form_section #email').next().next().hide();
 			});
 			
 			$('.login-button').click(function(){
@@ -110,8 +115,11 @@
 					
 					return false;
 				}
-				if(  ! $('.ys_form_section #password').val() ){					
-					$('.ys_form_section #password').next().next().html('用户密码不能为空').show();
+				if(  ! $('.ys_form_section #email').val() ){					
+					$('.ys_form_section #email').focus().parent().addClass('has-error');				
+					$('.ys_form_section #email').next().next().html('邮箱不能为空').show();
+
+					return false;
 				}
 				console.log('test');
 				$('#loginForm').submit();
