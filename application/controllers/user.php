@@ -260,6 +260,10 @@ class User extends My_Controller {
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('user/get_password', $data);
 		}else{
+			$mail = new SaeMail();
+			$ret = $mail->quickSend('shiqiang.wang@me.com', '悦食中国密码找回邮件', '本邮件为悦食中国密码找回测试邮件', 'cocowool@qq.com', 'cocowool239!@');
+			
+			var_dump($ret);
 			
 		}
 	}
