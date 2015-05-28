@@ -99,9 +99,15 @@
 				$('.ys_form_section #password').next().next().hide();
 			});
 
+			$('.ys_form_section #username').on('input', function(){
+				$('.ys_form_section #username').parent().removeClass('has-error');
+			});
+			
 			$('.login-button').click(function(){
-				if(  ! $('.ys_form_section #username').val() ){					
+				if(  ! $('.ys_form_section #username').val() ){	
+					$('.ys_form_section #username').focus().parent().addClass('has-error');				
 					$('.ys_form_section #username').next().next().html('用户名称不能为空').show();
+					
 					return false;
 				}
 				if(  ! $('.ys_form_section #password').val() ){					
