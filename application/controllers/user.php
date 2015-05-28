@@ -234,7 +234,40 @@ class User extends My_Controller {
 		$data['errmsg'] = '具体原因，请咨询网站管理员';
 		$this->load->view('user/register_result', $data);
 	}
+	
+	public function resetPassword($key = ''){
+		$mmc=memcache_init();
+		if($mmc==false)
+			echo "mc init failed\n";
+		else{
+			$email = memcache_get($mmc,$key);
+			
+			echo $email;
+		}
+		
+	}
 
+	/**
+	 * 生成随即文字，然后存入SESSION
+	 */
+	private function random($length = 6){
+		// 密码字符集，可任意添加你需要的字符
+		// 		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+		$chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+	
+		$password = '';
+		for ( $i = 0; $i < $length; $i++ )
+		{
+			// 这里提供两种字符获取方式
+			// 第一种是使用 substr 截取$chars中的任意一位字符；
+			// 第二种是取字符数组 $chars 的任意元素
+			// $password .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+			$password .= $chars[ mt_rand(0, strlen($chars) - 1) ];
+		}
+	
+		return $password;
+	}	
+	
 	public function getPassword(){
 		$this->load->model('User_Model', 'u');
 		$data = array();
@@ -260,6 +293,25 @@ class User extends My_Controller {
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('user/get_password', $data);
 		}else{
+			$email = $this->input->post('email');
+			$username = $this->input->post('username');
+			
+			$reset_link = 'http://www.yueshichina.com/user/resetPassword/' . md5($email);
+			$this->session->set_userdata(md5($email), array('email'=>$email,'username'=>$username));
+			
+			$mmc=memcache_init();
+			if($mmc==false)
+				echo "mc init failed\n";
+			else{
+				memcache_set($mmc,md5($email),$email, 0, 60*30);
+			}
+			
+			$email_content = '';
+			$email_content .= '<div>';
+			$email_content .= '<h3>悦食中国密码找回</h3>';
+			$email_content .= '<p>请单击<a href="'.$reset_link.'">此处</a>，或访问 '.$reset_link.' 进行密码重置，该链接在30分钟内有效。</p>';
+			$email_content .= '</div>';
+			
 			$mail = new SaeMail();
 			$ret = $mail->quickSend('shiqiang.wang@me.com', '悦食中国密码找回邮件', '本邮件为悦食中国密码找回测试邮件', 'cocowool@qq.com', 'cocowool239!@');
 			
