@@ -248,7 +248,9 @@ class User extends My_Controller {
 			
 			if($email){
 				$this->load->model('user_model','u');
-				$userinfo = $this->u->getById($email, 'email');
+				$data['userinfo'] = $this->u->getById($email, 'email');
+				
+				$this->load->view('user/reset_password', $data);
 			}else{
 				$data = array();
 				$data = array_merge($data, $this->getPubData());

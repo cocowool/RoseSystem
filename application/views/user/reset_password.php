@@ -26,29 +26,28 @@
 				</div>
 				
       			<div class="ys_container_register">
-					<form name="loginForm" id="loginForm" action="/user/getPassword" method="post">
+					<form name="loginForm" id="loginForm" action="/user/resetPassword" method="post">
 					<?php if(validation_errors() ){ ?>
 					<div class="ys_tips_error bg-danger">
 						<?php echo validation_errors(); ?>
 					</div>
 					<?php } ?>
-					<h2 class="ys_title_register">找回密码</h2>
+					<h2 class="ys_title_register">密码重置</h2>
 					<div class="ys_form_section">
 						<div class="form-group">
-							<label class="ys_form_label" for="username">用户名称<b>*</b></label>
-							<input type="text" class="form-control" name="username" id="username" placeholder="请输入用户名" value="<?php echo set_value('username'); ?>" />
+							<label class="ys_form_label" for="password">密码<b>*</b></label>
+							<input type="password" class="form-control" name="password" id="password" placeholder="请输入新的密码" value="<?php echo set_value('username'); ?>" />
 							<span></span>
 							<span></span>
 						</div>
 						<div class="form-group">
-							<label for="email" class="ys_form_label">邮箱<b>*</b></label>
-							<input type="text" class="form-control" name="email" id="email" placeholder="请输入邮箱" value="<?php echo set_value('password'); ?>" />
+							<label for="passwordChk" class="ys_form_label">密码确认<b>*</b></label>
+							<input type="password" class="form-control" name="passwordChk" id="passwordChk" placeholder="请再次输入新的密码" value="<?php echo set_value('password'); ?>" />
 							<span class="focus two-line hide">6-20位字符，可使用数字、字母和符号的组合</span>
 							<span></span>
 						</div>
 						<div class="form-group">
-							<a href="javascript:void(0);" class="btn btn-primary login-button">提交</a>&nbsp;&nbsp;
-							<a href="/user/login">登录</a>
+							<a href="javascript:void(0);" class="btn btn-primary login-button">保存</a>&nbsp;&nbsp;
 						</div>
 					</div>
 					</form>
@@ -92,36 +91,35 @@
 				$(this).next().hide();
 			});		
 
-			$('.ys_form_section #username').keypress(function(){
-				$('.ys_form_section #username').next().next().hide();
+			$('.ys_form_section #password').keypress(function(){
+				$('.ys_form_section #password').next().next().hide();
 			});
-			$('.ys_form_section #email').keypress(function(){
-				$('.ys_form_section #email').next().next().hide();
+			$('.ys_form_section #passwordChk').keypress(function(){
+				$('.ys_form_section #passwordChk').next().next().hide();
 			});
 
-			$('.ys_form_section #username').on('input', function(){
-				$('.ys_form_section #username').parent().removeClass('has-error');
-				$('.ys_form_section #username').next().next().hide();
+			$('.ys_form_section #password').on('input', function(){
+				$('.ys_form_section #password').parent().removeClass('has-error');
+				$('.ys_form_section #password').next().next().hide();
 			});
-			$('.ys_form_section #email').on('input', function(){
-				$('.ys_form_section #email').parent().removeClass('has-error');
-				$('.ys_form_section #email').next().next().hide();
+			$('.ys_form_section #passwordChk').on('input', function(){
+				$('.ys_form_section #passwordChk').parent().removeClass('has-error');
+				$('.ys_form_section #passwordChk').next().next().hide();
 			});
 			
 			$('.login-button').click(function(){
-				if(  ! $('.ys_form_section #username').val() ){	
-					$('.ys_form_section #username').focus().parent().addClass('has-error');				
-					$('.ys_form_section #username').next().next().html('用户名称不能为空').show();
+				if(  ! $('.ys_form_section #password').val() ){	
+					$('.ys_form_section #password').focus().parent().addClass('has-error');				
+					$('.ys_form_section #password').next().next().html('密码不能为空').show();
 					
 					return false;
 				}
-				if(  ! $('.ys_form_section #email').val() ){					
-					$('.ys_form_section #email').focus().parent().addClass('has-error');				
-					$('.ys_form_section #email').next().next().html('邮箱不能为空').show();
+				if(  ! $('.ys_form_section #passwordChk').val() ){					
+					$('.ys_form_section #passwordChk').focus().parent().addClass('has-error');				
+					$('.ys_form_section #passwordChk').next().next().html('密码不能为空').show();
 
 					return false;
 				}
-				console.log('test');
 				$('#loginForm').submit();
 			});
 		});
