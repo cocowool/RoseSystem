@@ -235,6 +235,44 @@ class User extends My_Controller {
 		$this->load->view('user/register_result', $data);
 	}
 	
+	public function updatePassword(){
+		//注意安全
+		$password = $this->input->post('password');
+		$passwordChk = $this->input->post('passwordChk');
+		$key = $this->input->post('key');
+		
+		$mmc=memcache_init();
+		$email = memcache_get($mmc,$key);
+		
+		if(!$email){
+			$data = array();
+			$data = array_merge($data, $this->getPubData());
+			$data['status'] = '出错了，请联系管理员。';
+			$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+			$this->load->view('user/register_result', $data);
+		}else{
+			$this->load->model('user_model','u');
+			$userinfo = $this->u->getById($email, 'email');
+			$data['id'] = $userinfo['id'];
+			$data['password'] = $password;
+			$result = $this->u->update($data);
+			
+			if($result){
+				$data = array();
+				$data = array_merge($data, $this->getPubData());
+				$data['status'] = '密码更新成功，马上<a href="/user/login">重新登录</a>';
+				$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+				$this->load->view('user/register_result', $data);
+			}else{
+				$data = array();
+				$data = array_merge($data, $this->getPubData());
+				$data['status'] = '出错了，请联系管理员。';
+				$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+				$this->load->view('user/register_result', $data);
+			}
+		}
+	}
+	
 	public function resetPassword($key = ''){
 		$mmc=memcache_init();
 		if($mmc==false){
@@ -249,6 +287,8 @@ class User extends My_Controller {
 			if($email){
 				$this->load->model('user_model','u');
 				$data['userinfo'] = $this->u->getById($email, 'email');
+				memcache_set($mmc,md5($email),$email, 0, 60*30);
+				$data['key'] = md5($email);
 				
 				$this->load->view('user/reset_password', $data);
 			}else{

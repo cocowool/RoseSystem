@@ -46,6 +46,7 @@
 							<span class="focus two-line hide">6-20位字符，可使用数字、字母和符号的组合</span>
 							<span></span>
 						</div>
+						<input type="hidden" id='key' name='key' value="<?php echo $key; ?>" />
 						<div class="form-group">
 							<a href="javascript:void(0);" class="btn btn-primary login-button">保存</a>&nbsp;&nbsp;
 						</div>
