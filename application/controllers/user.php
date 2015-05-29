@@ -315,9 +315,20 @@ class User extends My_Controller {
 			$mail = new SaeMail();
 			$ret = $mail->quickSend('shiqiang.wang@me.com', '悦食中国密码找回邮件', '本邮件为悦食中国密码找回测试邮件', 'cocowool@qq.com', 'cocowool239!@');
 			
-			var_dump($ret);
+			if( $ret ){
+			
+			}else{
+			
+			}
+				
 			
 		}
+	}
+	
+	public function test(){
+		$data['status'] = '您好';
+		$data['errmsg'] = '您的密码找回信息已经发送到';
+		$this->load->view('user/register_result', $data);
 	}
 	
 	public function chkUsername($username = ''){
