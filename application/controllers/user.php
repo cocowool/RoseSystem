@@ -237,14 +237,26 @@ class User extends My_Controller {
 	
 	public function resetPassword($key = ''){
 		$mmc=memcache_init();
-		if($mmc==false)
-			echo "mc init failed\n";
-		else{
+		if($mmc==false){
+			$data = array();
+			$data = array_merge($data, $this->getPubData());
+			$data['status'] = '出错了，请联系管理员。';
+			$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+			$this->load->view('user/register_result', $data);
+		}else{
 			$email = memcache_get($mmc,$key);
 			
-			echo $email;
+			if($email){
+				$this->load->model('user_model','u');
+				$userinfo = $this->u->getById($email, 'email');
+			}else{
+				$data = array();
+				$data = array_merge($data, $this->getPubData());
+				$data['status'] = '找回密码链接失效，你可以<a href=/user/getPassword"">重新</a>再找回。';
+				$data['errmsg'] = '<a href="/">返回主页</a>';
+				$this->load->view('user/register_result', $data);
+			}
 		}
-		
 	}
 
 	/**
@@ -313,21 +325,29 @@ class User extends My_Controller {
 			$email_content .= '</div>';
 			
 			$mail = new SaeMail();
-			$ret = $mail->quickSend('shiqiang.wang@me.com', '悦食中国密码找回邮件', '本邮件为悦食中国密码找回测试邮件', 'cocowool@qq.com', 'cocowool239!@');
+			$ret = $mail->quickSend($email, $email_content, 'cocowool@qq.com', 'cocowool239!@');
 			
 			if( $ret ){
-			
+				$data = array();
+				$data = array_merge($data, $this->getPubData());
+				$data['status'] = '密码找回方式已发送至您的 $email 邮箱，请按照提示进行操作。';
+				$data['errmsg'] = '<a href="/">返回主页</a>';
+				$this->load->view('user/register_result', $data);
 			}else{
-			
+				$data = array();
+				$data = array_merge($data, $this->getPubData());
+				$data['status'] = '出错了，请联系系统管理员。';
+				$data['errmsg'] = '<a href="/">返回主页</a>';
+				$this->load->view('user/register_result', $data);
 			}
-				
-			
 		}
 	}
 	
 	public function test(){
-		$data['status'] = '您好';
-		$data['errmsg'] = '您的密码找回信息已经发送到';
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		$data['status'] = '密码找回方式已发送至您的 $email 邮箱，请按照提示进行操作。';
+		$data['errmsg'] = '<a href="/">返回主页</a>';
 		$this->load->view('user/register_result', $data);
 	}
 	
