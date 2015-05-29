@@ -10,6 +10,7 @@
 	<link rel="icon" href="/favicon.ico">
 	<link href="/libs/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="/libs/bootstrap-3.3.4/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+	<link href="/libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" media="screen">
 	<link href="/templates/yueshi/css/main.css" rel="stylesheet" media="screen">
 	<!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -207,7 +208,18 @@
 	<?php $this->load->view('common/footer'); ?>
 
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#birthday').datepicker({
+			'dateFormat' : 'yy-mm-dd',
+			'changeMonth' : true,
+			'changeYear' : true,
+			'yearRange' : '1900:2013'
+		});
+	});
+	</script>
 </body>
 </html>
