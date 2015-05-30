@@ -187,6 +187,7 @@ class Article extends My_Controller {
 	 */
 	private function realted_article($cid, $id = ''){
 		$this->load->model('Article_Model','a');
+		$this->load->model('Resource_Model', 'r');
 		$option = array();
 		$option[] = array( 'data' => $cid, 'field' => 'category', 'action' => 'where' );
 		if( !empty($id) ){
@@ -194,6 +195,18 @@ class Article extends My_Controller {
 		}
 		$data = $this->a->getAll($option, 0, 1000);
 	
+		foreach ($data as $k=>$v){
+			if(empty($v['cover'])){
+				$result = $this->r->getById($v['id'],'aid');
+				if(isset($result['web_path'])){
+					$data[$k]['cover'] = $result['web_path'];
+				}else if(isset($result[0]['web_path'])){
+					$data[$k]['cover'] = $result[0]['web_path'];
+				}
+			}
+		}
+		
+		
 		if( empty($data) ){
 			return false;
 		}
