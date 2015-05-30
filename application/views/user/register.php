@@ -108,12 +108,12 @@
 				            <option value="澳门">澳门</option>
 				            <option value="海外">海外</option>
 			            </select>
-						<label class="focus hide">请选择居住地</label>
+						<span class="focus hide">请选择居住地</span>
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label" for="email">电子邮箱<b>*</b></label>
 						<input type="text" class="form-control" name="email" id="email" value="<?php echo set_value('email'); ?>" />
-						<label class="focus hide">请输入合法的电子邮箱地址</label>
+						<span class="focus hide">请输入合法的电子邮箱地址</span>
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label"></label>
@@ -131,13 +131,13 @@
 					<div class="form-group">
 						<label class="ys_form_label" for="address">邮寄地址<b>*</b></label>
 						<input type="text" class="form-control" name="address" id="address" value="<?php echo set_value('address'); ?>" />
-						<label class="focus hide">请输入邮寄地址</label>
+						<span class="focus hide">请输入邮寄地址</span>
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label" for="mobile">手机号码<b>*</b></label>
 						<input type="text" class="form-control" name="mobile" id="mobile" value="<?php echo set_value('mobile'); ?>" />
-						<label class="focus hide">请输入手机号码</label>
-						<label class="feedback hide"></label>
+						<span class="focus hide">请输入手机号码</span>
+						<span class="feedback hide"></span>
 					</div>
 					<div class="form-group">
 						<label class="ys_form_label" for="chkMobile">验证码<b>*</b></label>
