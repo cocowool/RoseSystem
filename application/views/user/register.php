@@ -219,6 +219,24 @@
 			'changeYear' : true,
 			'yearRange' : '1900:2013'
 		});
+
+		$('.form-group input').focus(function(){
+			$(this).next().removeClass('hide').show();
+		}).blur(function(){
+			$(this).next().hide();
+		});	
+		
+		$('.register-button').click(function(){
+			if( !check_mobile() ){
+				return false;
+			}
+			if( !check_email( $('#email').val() ) ){
+				alert('请输入正确的邮件地址');
+				return false;
+			}
+			
+			$('#registerForm').submit();
+		});
 	});
 	</script>
 </body>
