@@ -57,7 +57,7 @@
 	            	<li class="<?php echo $this->uri->segment(2)=='comment'?'active':''; ?>"><a href="/manage/comment">评论管理</a></li>
 	            	<li class="<?php echo $this->uri->segment(2)=='user'?'active':''; ?>"><a href="/manage/user">会员管理</a></li>
 	          	</ul>
-	          	<ul class="nav nav-sidebar">
+	          	<ul class="nav nav-sidebar hide">
 	            	<li class="<?php echo $this->uri->segment(2)=='member'?'active':''; ?>"><a href="/manage/barcode">二维码</a></li>
 	          	</ul>
 	        </div>
