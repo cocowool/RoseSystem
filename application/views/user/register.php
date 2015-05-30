@@ -116,7 +116,6 @@
 						<span class="focus hide">请输入合法的电子邮箱地址</span>
 					</div>
 					<div class="form-group">
-						<label class="ys_form_label"></label>
 						<div class="register-policy">
 							<p>
 								<input type="checkbox" checked /> 我希望订阅 [ 悦食中国 ] 的电子刊物。
@@ -145,7 +144,7 @@
 							<img src="http://www.yueshichina.com/register/captcha" />
 					</div>
 				</div>
-				<div class="ys_form_section">
+				<div class="ys_form_section ys_questionnaire">
 					<div class="form-group">
 						<p>&copy;您经常在家吃饭吗?</p>
 						<p>
@@ -181,7 +180,7 @@
 						</p>						
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group ys_register_btn">
 					<a href="javascript:void(0);" class="btn btn-danger register-button">注册</a>&nbsp;&nbsp;
 					<a href="/user/login">已有帐号，登陆</a>&nbsp;&nbsp;<a class="hide" href="#">忘记密码？</a>
 				</div>

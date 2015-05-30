@@ -140,6 +140,9 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_form_select { width:10em; display:inline-block; }
 .ys_form_label { font-size:1em;  }
 .ys_form_label b { color:#e13300; margin:0 2em 0 0.2em; }
+.register-policy { padding-left:140px; }
+.ys_questionnaire, .ys_register_btn { padding:0 0 0 140px; }
+.ys_register_btn { margin-top:30px; }
 
 .ys_breadcrum { line-height:1.5em; }
 .ys_breadcrum .breadcrumb { background-color:transparent; padding:0; }
