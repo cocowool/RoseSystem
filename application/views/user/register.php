@@ -182,7 +182,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<a href="#" class="btn btn-danger">注册</a>&nbsp;&nbsp;
+					<a href="javascript:void(0);" class="btn btn-danger register-button">注册</a>&nbsp;&nbsp;
 					<a href="/user/login">已有帐号，登陆</a>&nbsp;&nbsp;<a class="hide" href="#">忘记密码？</a>
 				</div>
 				
@@ -225,13 +225,33 @@
 		}).blur(function(){
 			$(this).next().hide();
 		});	
+
+		function check_mobile(){
+			if( $('#mobile').val() == '' ){
+				$('#mobile').next().next().html( $('#mobile').next().html() ).removeClass('hide').show();
+				return false;
+			}
+
+			if(!$("#mobile").val().match(/^1[3|4|5|8][0-9]\d{8}$/)){
+				$('#mobile').next().next().html('手机号格式不正确').removeClass('hide').show();
+				return false;
+			}
+
+			return true;
+		}
+
+		function check_email( email ){
+			var patten = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+			return patten.test(email);
+		}
 		
 		$('.register-button').click(function(){
 			if( !check_mobile() ){
+				$('#mobile').focus().parent().addClass('has-error');
 				return false;
 			}
 			if( !check_email( $('#email').val() ) ){
-				alert('请输入正确的邮件地址');
+				$('#email').focus();
 				return false;
 			}
 			
