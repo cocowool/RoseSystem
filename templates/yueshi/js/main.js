@@ -16,6 +16,10 @@ $(document).ready(function(){
 		$('#ys_login').submit();
 	});
 	
+	$('.ys_serach').click(function(){
+		$('#ys_search').submit();
+	});
+	
 	$('.ys_btn_edit_user').click(function(){
 		$('#editForm').submit();
 	});

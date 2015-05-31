@@ -11,7 +11,7 @@
 				<div class='form-group'>
 					<input type='text' name='bdcsMain' id='bdcsMain' class="form-control input-sm" placeholder='输入搜索的内容' />
 				</div>
-				<a href="javascript:void(0);">搜索</a>
+				<a href="javascript:void(0);" class="ys_serach">搜索</a>
 			</form>	
 		</div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
