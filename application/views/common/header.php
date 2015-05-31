@@ -9,7 +9,7 @@
 	        </button>
 			<form name='ys_search' id='ys_search' method='post' class='navabar-form ys_search_form' action=''>
 				<div class='form-group'>
-					<input type='text' name='ys_site_search' id='ys_site_search' class="form-control input-sm" placeholder='输入搜索的内容' />
+					<input type='text' name='bdcsMain' id='bdcsMain' class="form-control input-sm" placeholder='输入搜索的内容' />
 				</div>
 				<a href="javascript:void(0);">搜索</a>
 			</form>	
