@@ -16,9 +16,9 @@ $config['project_name'] = '悦食中国';
 $config['image_upload_config'] = array(
 	'upload_path' => 'temp',
 	'allowed_types' => 'gif|jpg|png',
-	'max_size' => '1000',
-	'max_width' => '1024',
-	'max_height' => '768',
+	'max_size' => '10000',
+	'max_width' => '10240',
+	'max_height' => '7680',
 );
 
 $config['default_icon'] = '/templates/yueshi/images/male.jpg';
