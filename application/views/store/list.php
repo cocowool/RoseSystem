@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-md-10">
 				<div class='ys_top_title'>
-					<h1><a href="javascript:void(0);">悦食中国</a></h1>
+					<h1>悦食中国</h1>
 				</div>
       			<div class="ys_container ys_video_list">
 					<?php
