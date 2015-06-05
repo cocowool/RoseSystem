@@ -77,7 +77,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_top_title { border-bottom:1px solid #c4c4c4; text-align:center; }
 .ys_top_title h1 { margin:0px; height:40px; font-size:12px; }
 .ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
-	background:url(/templates/yueshi/images/yue.png) center center no-repeat; }
+	background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 .ys_homefocus { margin-top:15px; }
 .ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:1em; border:1px solid #ddd; padding:4px; background-color:#fff; }
 .ys_thumbnail_block img { width:100%; }
