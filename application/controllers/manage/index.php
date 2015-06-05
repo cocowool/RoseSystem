@@ -256,12 +256,6 @@ class Index extends MY_Controller {
 				$data['f_img'] = $updata['upload_data']['sae_full_path'];
 // 				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
-			}else{
-				$error = array('error' => $this->upload->display_errors());
-				$data['content_data']['user_text'] = $error['error'];
-				
-				$this->redirectAction(FALSE, $data, '/manage/index/top', '/manage/index/top');
-				return false;
 			}
 	
 			$result = $this->s->update( $data, $data['id'] );
