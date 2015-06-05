@@ -9,6 +9,10 @@
 </div>
 <script type="text/javascript" src="/libs/ckeditor-4.4.7/ckeditor.js"></script>
 <script type="text/javascript">
-	CKEDITOR.replace('foreword');
-	CKEDITOR.replace('content');
+	CKEDITOR.replace('foreword',{
+		language : 'en'
+	});
+	CKEDITOR.replace('content',{
+		language : 'en'
+	});
 </script>
