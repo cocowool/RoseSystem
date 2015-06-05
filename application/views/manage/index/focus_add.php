@@ -11,7 +11,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	CKEDITOR.replace('f_desc', {
-		toolbar: 'full'
+		language : 'en'
 	});
 });
 </script>
