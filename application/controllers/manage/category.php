@@ -117,6 +117,11 @@ class Category extends MY_Controller {
 		
 		if($this->form_validation->run() == FALSE){
 			$data = $this->c->getById($id);
+			$data['category_type'] = $data['ctype'];
+			$ctype = $data['ctype'];
+			//增加个隐藏字段
+			$this->c->setField( array(array('name'=>'ctype', 'comment'=>'分类', 'form'=> array('type'=>'hidden','data'=>array('source'=>'static','value'=> $ctype))) ));
+			$this->c->setFieldParameter('pid', array(0,0,$ctype));
 			$data['html_form'] = $this->generate_edit_form($data, $this->c, 'manage/category/edit/' . $id);
 		
 			$data['content_view'] = 'manage/video/video_add';
