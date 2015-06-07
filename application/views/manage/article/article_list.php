@@ -10,6 +10,7 @@
 					<th></th>
 					<th>文章名称</th>
 					<th>分类</th>
+					<th>封面图</th>
 					<th>排序</th>
 					<th>图片资源</th>
 					<th>操作</th>
@@ -20,6 +21,7 @@
 					<th></th>
 					<th>文章名称</th>
 					<th>分类</th>
+					<th>封面图</th>
 					<th>排序</th>
 					<th>图片资源</th>
 					<th>操作</th>
@@ -55,6 +57,7 @@ $(document).ready(function(){
 		    {"data":"id"},
 			{"data":"name"},
 			{"data":"category"},
+			{"data":"cover"},
 			{"data":"sort"},
 			{"data":"resource"},
 			{

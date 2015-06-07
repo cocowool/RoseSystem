@@ -41,6 +41,9 @@ class Article extends MY_Controller {
 		$data = $this->a->dtRequest($request);
 		//可以在此处进行返回数据的自定义处理
 		foreach($data['data'] as $k=>$v){
+			if(!empty($v['cover'])){
+				$data['data'][$k]['cover'] = '<a href="'.$v['cover'].'" target="_blank"><img style="height:50px;" src="'.$v['cover'].'" /></a>';
+			}
 			$data['data'][$k]['category'] = $category[$v['category']];
 			$data['data'][$k]['resource'] = '<a href="/manage/resource/' . $v['id'] . '">图片资源</a>&nbsp;&nbsp;';
 			$data['data'][$k]['resource'] .= '<a href="/manage/resource/add/' . $v['id'] . '">新增图片</a>&nbsp;&nbsp;';
@@ -136,9 +139,9 @@ class Article extends MY_Controller {
 			$data = $this->input->post(NULL, true);
 	
 			$config = $this->config->item('image_upload_config');
-// 			$this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 			if ( $this->upload->sae_upload( $this->sae_domain, 'cover')){
-			if ( $this->upload->do_upload( 'cover' ) ){
+// 			if ( $this->upload->do_upload( 'cover' ) ){
 				$updata = array('upload_data' => $this->upload->data());
 				$data['cover'] = $updata['upload_data']['sae_full_path'];
 // 				$data['cover'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
