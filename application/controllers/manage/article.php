@@ -82,6 +82,21 @@ class Article extends MY_Controller {
 			$this->load->helper('date');
 			$_POST['create_at'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
+
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+				
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'cover')){
+// 			if ( ! $this->upload->do_upload( 'cover' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/article', '/manage/article/add');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+				$data['cover'] = $updata['upload_data']['sae_full_path'];
+// 				$data['cover'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
 			$result = $this->a->insert( $data );
 			
 			$this->redirectAction($result, $data, '/manage/article', '/manage/article/add');
@@ -120,6 +135,16 @@ class Article extends MY_Controller {
 			$this->load->helper('date');
 			$data = $this->input->post(NULL, true);
 	
+			$config = $this->config->item('image_upload_config');
+// 			$this->load->library('upload', $config);
+			if ( $this->upload->sae_upload( $this->sae_domain, 'cover')){
+			if ( $this->upload->do_upload( 'cover' ) ){
+				$updata = array('upload_data' => $this->upload->data());
+				$data['cover'] = $updata['upload_data']['sae_full_path'];
+// 				$data['cover'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['s_location'] = $updata['upload_data']['full_path'];
+			}
+				
 			$result = $this->a->update( $data, $id );
 			$this->redirectAction($result, $data, '/manage/article', '/manage/article/edit'.$id);
 		}
