@@ -20,6 +20,15 @@ class Article extends My_Controller {
 		$option[] = array('data' => 0, 'field' => 'pid', 'action' => 'where' );
 		$data['category_list'] = $this->c->getAll($option);
 		
+		//去掉其它栏目
+		foreach ($data['category_list'] as $k=>$v){
+			if($v['id'] == 24){
+				unset($data['category_list'][$k]);
+				break;
+			}
+		}
+		
+		
 		$option = array();
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');

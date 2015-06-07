@@ -12,6 +12,7 @@ body {
 
 ::selection { background-color:#e13300; color:#ffffff; }
 ul,li { list-style:none; }
+a { color:#261a08 }
 a:hover { color:#e13300; }
 
 /*-- 公共基础样式 --*/
@@ -171,7 +172,7 @@ a.ys_link_red:hover { text-decoration:none; }
 	font-family:"微软雅黑",sans-serif; }
 
 .ys_caption { height:auto; overflow-y:hidden; color:#555; }
-.ys_caption a { color:#337ab7; text-decoration:none; }
+.ys_caption a { color:#261a08; text-decoration:none; }
 .ys_caption h3 a { font-size:0.7em; }
 .ys_caption h3 a:hover { color:#ddd; }
 .ys_caption p { color:#555; margin:0 0 1em; line-height:1.5em; text-align:justify; }
