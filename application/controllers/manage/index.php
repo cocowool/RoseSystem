@@ -250,11 +250,11 @@ class Index extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 	
-			if ( $this->upload->sae_upload( $this->sae_domain, 'f_img')){
-// 			if ( $this->upload->do_upload( 'f_img' ) ){
+// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_img')){
+			if ( $this->upload->do_upload( 'f_img' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-				$data['f_img'] = $updata['upload_data']['sae_full_path'];
-// 				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+// 				$data['f_img'] = $updata['upload_data']['sae_full_path'];
+				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['s_location'] = $updata['upload_data']['full_path'];
 			}
 	

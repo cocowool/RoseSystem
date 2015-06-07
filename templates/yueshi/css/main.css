@@ -21,8 +21,8 @@ a:hover { color:#e13300; }
 .row { margin:0 -5px; }
 .col-md-6, .col-md-4, .col-md-8, .col-md-1 { padding:0 5px; }
 .navbar { border-radius:0; border:0; }
-.carousel-indicators li { border:1px solid #cc3300; margin-right:2px; }
-.carousel-indicators .active { background-color:#cc3300; margin-right:2px; }
+.carousel-indicators li { border:1px solid #fff; margin-right:2px; }
+.carousel-indicators .active { background-color:#fff; margin-right:2px; }
 
 /* ------- 针对移动设备的优化 ------- */
 @media ( max-width:480px ){
