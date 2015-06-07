@@ -36,7 +36,7 @@
 									if($v['id']==$current_category){
 										$class='active';
 									}
-									$category_html .= '<li><a href="/video/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
+									$category_html .= '<li><a target="_blank" href="/video/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
 								}
 								echo $category_html;
 							?>
@@ -52,8 +52,8 @@
 					$article_html .= '';
 					foreach($video_list as $k=>$v){
 						$article_html .= '<div class="col-md-6"><div class="ys_video_item_container">';
-						$article_html .= '<a href="/video/detail/'.$v['id'].'"><img src="'.$v['v_thumb'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h3><a href="/video/detail/'.$v['id'].'">'.$v['v_title'].'</a></h3>';
+						$article_html .= '<a target="_blank" href="/video/detail/'.$v['id'].'"><img src="'.$v['v_thumb'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h3><a target="_blank" href="/video/detail/'.$v['id'].'">'.$v['v_title'].'</a></h3>';
 						$article_html .= '<p>'.$v['v_desc'].'</p>';
 						$article_html .= '</div></div></div>';
 						

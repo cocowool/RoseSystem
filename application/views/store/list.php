@@ -32,8 +32,8 @@
 					$article_html .= '';
 					foreach($store_list as $k=>$v){
 						$article_html .= '<div class="col-md-6 col-xs-12 com-sm-12"><div class="ys_video_item_container">';
-						$article_html .= '<a href="/store/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h3><a href="/store/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
+						$article_html .= '<a target="_blank" href="/store/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h3><a target="_blank" href="/store/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
 						$article_html .= '<p>'.$v['s_desc'].'</p>';
 						$article_html .= '</div></div></div>';
 					}
@@ -121,7 +121,7 @@
 							//console.log(result);
 							$('.ys_loading').hide();
 							$.each(result,function(k,v){
-								$('.ys_video_list .row').append('<div class="col-md-6 col-xs-12 com-sm-12"><div class="ys_video_item_container"><a href="/store/detail/'+v.id+'"><img src="'+v.s_thumb+'"></a><div class="ys_caption"><h3><a href="/store/detail/'+v.id+'">'+v.s_title+'</a></h3><p>'+v.s_desc+'</p></div></div></div>');
+								$('.ys_video_list .row').append('<div class="col-md-6 col-xs-12 com-sm-12"><div class="ys_video_item_container"><a target="_blank" href="/store/detail/'+v.id+'"><img src="'+v.s_thumb+'"></a><div class="ys_caption"><h3><a target="_blank" href="/store/detail/'+v.id+'">'+v.s_title+'</a></h3><p>'+v.s_desc+'</p></div></div></div>');
 							});
 							$container.masonry('destroy');
 							$container.imagesLoaded(function(){

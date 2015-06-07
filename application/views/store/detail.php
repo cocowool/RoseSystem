@@ -146,8 +146,8 @@
       						$html = '';
       						foreach ($related_store as $k=>$v){
 								$html .= '<div class="col-md-4 col-sm-6 col-xs-6"><div class="ys_thumbnail_block">';
-								$html .= '<a href="/store/detail/'.$v['id'].'"><img src="' . $v['s_thumb'] . '" /></a>';
-								$html .= '<div class="ys_caption"><h3><a href="/store/detail/' . $v['id'] . '">' . $v['s_title'] . '</a></h3></div></div></div>';
+								$html .= '<a target="_blank" href="/store/detail/'.$v['id'].'"><img src="' . $v['s_thumb'] . '" /></a>';
+								$html .= '<div class="ys_caption"><h3><a target="_blank" href="/store/detail/' . $v['id'] . '">' . $v['s_title'] . '</a></h3></div></div></div>';
 								$count++;
 								if($count>2) break;
 							}

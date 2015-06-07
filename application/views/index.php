@@ -22,7 +22,7 @@
 		<div class="row">
 			<div class="col-md-10 col-xs-12">
 				<div class='ys_top_title'>
-					<h1><a href="javascript:void(0);">悦食中国</a></h1>
+					<h1><a target="_blank" href="javascript:void(0);">悦食中国</a></h1>
 				</div>
 				<div id="carousel-example-generic" class="carousel slide ys_homefocus" data-ride="carousel">
 				<?php 
@@ -46,7 +46,7 @@
 						}else{
 							echo '<div class="item">';
 						}
-						echo '<a href="'.$v['f_link'].'" target="_blank"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
+						echo '<a target="_blank" href="'.$v['f_link'].'" target="_blank"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
 						echo '</div>';
 					}
 			        ?>
@@ -76,7 +76,7 @@
 							$top_html .= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">';
 							$top_html .= '<div class="ys_thumbnail_block">';
 							$top_html .= '<a href="'.$v['f_link'].'" target="_blank"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
-							$top_html .= '<div class="ys_caption"><h4><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h4>';
+							$top_html .= '<div class="ys_caption"><h4><a target="_blank" href="'.$v['f_link'].'">'.$v['f_title'].'</a></h4>';
 							$top_html .= '<p>'.$v['f_desc'].'</p>';
 							$top_html .= '</div></div>';
 							$top_html .= '</div>';
@@ -99,7 +99,7 @@
 			</div>
 			<div class="col-md-2 ys_sidebar">
 				<div class="ys_logo">
-					<h2><a href="javascript:void(0);">悦食中国</a></h2>
+					<h2><a target="_blank" href="javascript:void(0);">悦食中国</a></h2>
 					<div class="ys_date">
 						<p><?php echo date('Y', time()); ?></p>
 						<p><?php echo date('m', time()); ?></p>
@@ -134,7 +134,7 @@
 					},
 					'success'	:	function(result){
 						$.each(result,function(k,v){
-							$('.ys_latest').append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"><div class="ys_thumbnail_block"><a href="'+v.f_link+'"><img src="'+v.f_img+'"></a><div class="ys_caption"><h4><a href="'+v.f_link+'">'+v.f_title+'</a></h4><p>'+v.f_desc+'</p></div></div></div>');
+							$('.ys_latest').append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"><div class="ys_thumbnail_block"><a target="_blank" href="'+v.f_link+'"><img src="'+v.f_img+'"></a><div class="ys_caption"><h4><a href="'+v.f_link+'">'+v.f_title+'</a></h4><p>'+v.f_desc+'</p></div></div></div>');
 						});
 						$('.ys_loading').hide();
 						$('.ys_ajaxmore').show();

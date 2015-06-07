@@ -47,7 +47,7 @@
 							$html_chef_list = ''; 
 							foreach ($chef_list as $k=>$v ){
 								$html_chef_list .= '<li>';
-								$html_chef_list .= '<a href="/chef/'.$v['id'].'">'.$v['s_title'].'</a>';
+								$html_chef_list .= '<a target="_blank" href="/chef/'.$v['id'].'">'.$v['s_title'].'</a>';
 								$html_chef_list .= '</li>';
 							}
 							echo $html_chef_list;

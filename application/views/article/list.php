@@ -36,7 +36,7 @@
 									if($v['id']==$current_category){
 										$class='active';
 									}
-									$category_html .= '<li><a href="/article/'.$v['id'].'" class="'.$class.'">'.$v['category'].'</a></li>';
+									$category_html .= '<li><a target="_blank" href="/article/'.$v['id'].'" class="'.$class.'">'.$v['category'].'</a></li>';
 								}
 								echo $category_html;
 							?>
@@ -52,8 +52,8 @@
 					$article_html .= '';
 					foreach($article_list as $k=>$v){
 						$article_html .= '<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block">';
-						$article_html .= '<a href="/article/detail/'.$v['id'].'"><img src="'.$v['cover'].'" /></a>';
-						$article_html .= '<div class="ys_caption"><h4><a href="/article/detail/'.$v['id'].'">'.$v['name'].'</a></h4>';
+						$article_html .= '<a target="_blank" href="/article/detail/'.$v['id'].'"><img src="'.$v['cover'].'" /></a>';
+						$article_html .= '<div class="ys_caption"><h4><a target="_blank" href="/article/detail/'.$v['id'].'">'.$v['name'].'</a></h4>';
 						$article_html .= '<p>'.$v['foreword'].'</p>';
 						$article_html .= '</div></div></div>';
 						
@@ -156,7 +156,7 @@
 							var elements = [];
 							$.each(result,function(k,v){
 // 								elements.push('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
-								$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
+								$('.ys_article_list .row').append('<div class="col-md-4 col-xs-6 col-sm-6 col-lg-4"><div class="ys_thumbnail_block"><a target="_blank" href="/article/detail/'+v.id+'"><img src="'+v.cover+'"></a><div class="ys_caption"><h4><a target="_blank" href="/article/detail/'+v.id+'">'+v.name+'</a></h4><p>'+v.foreword+'</p></div></div></div>');
 							});
 
 // 							var $elements = $(elements);

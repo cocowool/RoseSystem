@@ -49,7 +49,7 @@
       					$style = '';
       					foreach ($fest_list as $k=>$v){
 							if($k==0) $style = 'active';
-      						echo '<li><a href="/fest/'.$v['f_year'].'" class="'.$style.'">'.$v['f_year'].'</a></li>';
+      						echo '<li><a target="_blank" href="/fest/'.$v['f_year'].'" class="'.$style.'">'.$v['f_year'].'</a></li>';
 						}
       					?>
       					</ul>
@@ -73,7 +73,7 @@
 		
 								$forum_html .= '<div class="media '.$style.'">';
 								$forum_html .= 	'<div class="media-left">';
-								$forum_html .= 	'<a href="javascript:void(0);"><img class="media-object" src="'.$v['f_thumb'].'"/></a>';
+								$forum_html .= 	'<a target="_blank" href="javascript:void(0);"><img class="media-object" src="'.$v['f_thumb'].'"/></a>';
 								$forum_html .= 	'</div>';
 								$forum_html .= 	'<div class="media-body">';
 								$forum_html .= 	'<h4 class="media-heading">'.$v['id'].'</h4><p>'.mb_substr($v['f_title'],0,12,'utf-8').'</p>';
@@ -91,7 +91,7 @@
 								}else{
 									$url = '/video/detail/' . $v['aid'];
 								}
-								$forum_html .= '<a href="'.$url.'"><img src="'.$v['f_thumb'].'" /></a></div>';
+								$forum_html .= '<a target="_blank" href="'.$url.'"><img src="'.$v['f_thumb'].'" /></a></div>';
 							}
 							$forum_html .= '</div></div>';
 							
@@ -115,7 +115,7 @@
 							foreach ($carnival_list as $k=>$v){
 								$style = '';
 								if($k==0) $style = 'active';
-								$carnival_html .= '<li><a href="javascipt:void(0);" class="'.$style.'">'.$v['f_title'].'</a></li>';
+								$carnival_html .= '<li><a target="_blank" href="javascipt:void(0);" class="'.$style.'">'.$v['f_title'].'</a></li>';
 							}
 							$carnival_html .= '</ul></div>';
 							//顶部导航结束
@@ -163,7 +163,7 @@
 								$style = '';
 								if($k==0) $style = 'active';
 								$consultant_html .= '<div class="col-xs-3 col-md-1 col-sm-4">';
-								$consultant_html .= '<a href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="'.$v['f_name'].'" data-placement="top"><img src="'.$v['f_pic'].'" /></a>';
+								$consultant_html .= '<a target="_blank" href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="'.$v['f_name'].'" data-placement="top"><img src="'.$v['f_pic'].'" /></a>';
 								$consultant_html .= '</div>';
 							}
 							$consultant_html .= '</div>';
@@ -172,7 +172,7 @@
 								$consultant_html .= '<div class="row ys_consultant_desc"><div class="col-md-2 col-xs-1"></div>';
 								$consultant_html .= '<div class="col-md-8 col-xs-10 row">';
 								$consultant_html .= '<div class="col-md-4">';
-								$consultant_html .= '<a href="javascript:void(0);" class="thumbnail"><img src="'.$v['f_pic'].'" /></a>';
+								$consultant_html .= '<a target="_blank" href="javascript:void(0);" class="thumbnail"><img src="'.$v['f_pic'].'" /></a>';
 								$consultant_html .= '</div>';
 								$consultant_html .= '<div class="col-md-6 ys_consultant_resume_container">';
 								$consultant_html .= '<h4>'.$v['f_name'].'</h4>';

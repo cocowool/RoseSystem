@@ -124,7 +124,7 @@ class Category extends MY_Controller {
 			$this->c->setFieldParameter('pid', array(0,0,$ctype));
 			$data['html_form'] = $this->generate_edit_form($data, $this->c, 'manage/category/edit/' . $id);
 		
-			$data['content_view'] = 'manage/video/video_add';
+			$data['content_view'] = 'manage/category/category_add';
 			$data['content_data'] = '';
 		}else{
 			$this->load->helper('date');

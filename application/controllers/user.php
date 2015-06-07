@@ -224,7 +224,7 @@ class User extends My_Controller {
 	}
 	
 	public function success(){
-		$data['status'] = '注册成功，欢迎加入悦食会。前往 <a href="/">首页</a>';
+		$data['status'] = '注册成功，欢迎加入悦食会。前往 <a target="_blank" href="/">首页</a>';
 		$data['errmsg'] = '';
 		$this->load->view('user/register_result', $data);
 	}
@@ -248,7 +248,7 @@ class User extends My_Controller {
 			$data = array();
 			$data = array_merge($data, $this->getPubData());
 			$data['status'] = '出错了，请联系管理员。';
-			$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+			$data['errmsg'] = '您还可以，<a target="_blank" href="/">返回主页</a>';
 			$this->load->view('user/register_result', $data);
 		}else{
 			$this->load->model('user_model','u');
@@ -260,14 +260,14 @@ class User extends My_Controller {
 			if($result){
 				$data = array();
 				$data = array_merge($data, $this->getPubData());
-				$data['status'] = '密码更新成功，马上<a href="/user/login">重新登录</a>';
-				$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+				$data['status'] = '密码更新成功，马上<a target="_blank" href="/user/login">重新登录</a>';
+				$data['errmsg'] = '您还可以，<a target="_blank" href="/">返回主页</a>';
 				$this->load->view('user/register_result', $data);
 			}else{
 				$data = array();
 				$data = array_merge($data, $this->getPubData());
 				$data['status'] = '出错了，请联系管理员。';
-				$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+				$data['errmsg'] = '您还可以，<a target="_blank" href="/">返回主页</a>';
 				$this->load->view('user/register_result', $data);
 			}
 		}
@@ -279,7 +279,7 @@ class User extends My_Controller {
 			$data = array();
 			$data = array_merge($data, $this->getPubData());
 			$data['status'] = '出错了，请联系管理员。';
-			$data['errmsg'] = '您还可以，<a href="/">返回主页</a>';
+			$data['errmsg'] = '您还可以，<a target="_blank" href="/">返回主页</a>';
 			$this->load->view('user/register_result', $data);
 		}else{
 			$email = memcache_get($mmc,$key);
@@ -294,8 +294,8 @@ class User extends My_Controller {
 			}else{
 				$data = array();
 				$data = array_merge($data, $this->getPubData());
-				$data['status'] = '找回密码链接失效，你可以<a href=/user/getPassword"">重新</a>再找回。';
-				$data['errmsg'] = '<a href="/">返回主页</a>';
+				$data['status'] = '找回密码链接失效，你可以<a target="_blank" href=/user/getPassword"">重新</a>再找回。';
+				$data['errmsg'] = '<a target="_blank" href="/">返回主页</a>';
 				$this->load->view('user/register_result', $data);
 			}
 		}
@@ -363,7 +363,7 @@ class User extends My_Controller {
 			$email_content = '';
 			$email_content .= '<div>';
 			$email_content .= '<h3>悦食中国密码找回</h3>';
-			$email_content .= '<p>请单击<a href="'.$reset_link.'">此处</a>，或访问 '.$reset_link.' 进行密码重置，该链接在30分钟内有效。</p>';
+			$email_content .= '<p>请单击<a target="_blank" href="'.$reset_link.'">此处</a>，或访问 '.$reset_link.' 进行密码重置，该链接在30分钟内有效。</p>';
 			$email_content .= '</div>';
 			
 			$mail = new SaeMail();
@@ -373,13 +373,13 @@ class User extends My_Controller {
 				$data = array();
 				$data = array_merge($data, $this->getPubData());
 				$data['status'] = '密码找回方式已发送至您的 $email 邮箱，请按照提示进行操作。';
-				$data['errmsg'] = '<a href="/">返回主页</a>';
+				$data['errmsg'] = '<a target="_blank" href="/">返回主页</a>';
 				$this->load->view('user/register_result', $data);
 			}else{
 				$data = array();
 				$data = array_merge($data, $this->getPubData());
 				$data['status'] = '出错了，请联系系统管理员。';
-				$data['errmsg'] = '<a href="/">返回主页</a>';
+				$data['errmsg'] = '<a target="_blank" href="/">返回主页</a>';
 				$this->load->view('user/register_result', $data);
 			}
 		}
@@ -389,7 +389,7 @@ class User extends My_Controller {
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$data['status'] = '密码找回方式已发送至您的 $email 邮箱，请按照提示进行操作。';
-		$data['errmsg'] = '<a href="/">返回主页</a>';
+		$data['errmsg'] = '<a target="_blank" href="/">返回主页</a>';
 		$this->load->view('user/register_result', $data);
 	}
 	

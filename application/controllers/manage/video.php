@@ -165,8 +165,9 @@ class Video extends MY_Controller {
 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'v_thumb')){
 // 			if ( ! $this->upload->do_upload( 'v_thumb' ) ){
 				$error = array('error' => $this->upload->display_errors());
-				print_r($error);
-				die('Upload Failed');
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/article', '/manage/article/add');
+				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
 				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
