@@ -7,6 +7,7 @@ class Store_Model extends MY_Model {
 			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
 			array('name'=>'s_title', 'comment'=>'商品名称', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入商品的名称')),
 			array('name'=>'s_desc', 'comment'=>'商品简介', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入商品的简介')),
+			array('name'=>'s_link', 'comment'=>'外部链接', 'form'=> array('type'=>'text', 'tips'=>'如果输入外部链接，则可以不用输入商品详情')),
 			array('name'=>'s_text', 'comment'=>'商品详情', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入商品的简介')),
 			array('name'=>'s_thumb', 'comment'=>'商品缩略图', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img') ),	//存储WEB访问调用地址
 			array('name'=>'s_location', 'comment'=>'视频存放位置' ),	//存储物理存储位置
