@@ -13,6 +13,7 @@
 					<th>封面图</th>
 					<th>排序</th>
 					<th>图片资源</th>
+					<th>更新时间</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -24,6 +25,7 @@
 					<th>封面图</th>
 					<th>排序</th>
 					<th>图片资源</th>
+					<th>更新时间</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -46,6 +48,7 @@ $(document).ready(function(){
 			'info': '当前页为 _PAGE_ 共 _PAGES_',
 			'infoEmpty':'没有找到记录'
 		},
+		"orderFixed": [6, 'desc'],
 		'ajax': {
 			"url":'/index.php/manage/article/serverside',
 			"type":"post",
@@ -60,6 +63,7 @@ $(document).ready(function(){
 			{"data":"cover"},
 			{"data":"sort"},
 			{"data":"resource"},
+			{"data":"update_at"},
 			{
 				"class":"operation-control",
 				"orderable":false,
