@@ -46,7 +46,7 @@
 						}else{
 							echo '<div class="item">';
 						}
-						echo '<a href="'.$v['f_link'].'"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
+						echo '<a href="'.$v['f_link'].'" target="_blank"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
 						echo '</div>';
 					}
 			        ?>
@@ -75,7 +75,7 @@
 						foreach ($top_list as $k=>$v){
 							$top_html .= '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">';
 							$top_html .= '<div class="ys_thumbnail_block">';
-							$top_html .= '<a href="'.$v['f_link'].'"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
+							$top_html .= '<a href="'.$v['f_link'].'" target="_blank"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
 							$top_html .= '<div class="ys_caption"><h4><a href="'.$v['f_link'].'">'.$v['f_title'].'</a></h4>';
 							$top_html .= '<p>'.$v['f_desc'].'</p>';
 							$top_html .= '</div></div>';
