@@ -86,7 +86,7 @@
       			</div>
       			
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-2 ys_sidebar">
 				<div class="ys_logo">
 					<h2><a href="javascript:void(0);">悦食中国</a></h2>
 					<div class="ys_date">
