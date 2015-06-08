@@ -100,7 +100,7 @@
 						}
       					?>
       					<div class="ys_go_top">
-      						<p><a href="#top">回到顶部</a></p>
+      						<p class="hide"><a href="#top">回到顶部</a></p>
       					</div>
       				</div>
       				<div class="ys_fest_carnival">
@@ -149,7 +149,7 @@
 							echo $carnival_html;
       					} ?>
       					<div class="ys_go_top">
-      						<p><a href="#top">回到顶部</a></p>
+      						<p class="hide"><a href="#top">回到顶部</a></p>
       					</div>
       				</div>
       				<div class="ys_fest_consultant">
@@ -186,7 +186,7 @@
 						}
       					?>
       					<div class="ys_go_top">
-      						<p><a href="#top">回到顶部</a></p>
+      						<p class="hide"><a href="#top">回到顶部</a></p>
       					</div>
       				</div>
       				<?php } ?>
