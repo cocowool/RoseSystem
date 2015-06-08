@@ -34,6 +34,7 @@ a:hover { color:#e13300; }
 	.ys_top_menu { display:block; }
 	.ys_top_title h1 a { line-height:54px; background:none; text-indent:0; }
 	.ys_caption p { padding:0 1em; text-indent:2em; }
+	.ys_top_text { padding:0 1em; text-indent:2em; height:4em; max-height:4em; overflow-y:hidden; }
 }
 @media ( min-width:480px ){
 	.container, .col-md-10 { padding:0 5px; }
@@ -44,6 +45,7 @@ a:hover { color:#e13300; }
 	.ys_top_menu { display:block; }
 	.ys_top_title h1 a { line-height:54px; background:none; text-indent:0; }
 	.ys_caption p { padding:0 1em; text-indent:2em; }
+	.ys_top_text { padding:0 1em; text-indent:2em; height:4em; max-height:4em; overflow-y:hidden; }
 }
 @media ( min-width: 768px ) { 
 	.container, .col-md-10 { padding:0 15px; }
@@ -55,6 +57,7 @@ a:hover { color:#e13300; }
 	.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
 		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 	.ys_caption p { padding:0 1.5em; text-indent:2em; }
+	.ys_top_text { padding:0 1.5em; text-indent:2em; height:4em; max-height:4em; overflow-y:hidden; }
 }
 @media ( min-width: 992px ) {
 	.container, .col-md-10 { padding:0 15px; }
@@ -66,6 +69,7 @@ a:hover { color:#e13300; }
 	.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
 		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 	.ys_caption p { padding:0 1.5em; text-indent:2em; }
+	.ys_top_text { padding:0 1.5em; text-indent:2em; height:4em; max-height:4em; overflow-y:hidden; }
 }
 @media ( min-width: 1200px ) { 
 	.container, .col-md-10 { padding:0 15px; }
@@ -77,6 +81,7 @@ a:hover { color:#e13300; }
 	.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
 		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 	.ys_caption p { padding:0 1.5em; text-indent:2em; }
+	.ys_top_text { padding:0 1.5em; text-indent:2em; height:4em; max-height:4em; overflow-y:hidden; }
 }
 
 /* -------------------------------------------------------------------------- */

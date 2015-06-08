@@ -77,7 +77,7 @@
 							$top_html .= '<div class="ys_thumbnail_block">';
 							$top_html .= '<a href="'.$v['f_link'].'" target="_blank"><img src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" /></a>';
 							$top_html .= '<div class="ys_caption"><h4><a target="_blank" href="'.$v['f_link'].'">'.$v['f_title'].'</a></h4>';
-							$top_html .= '<p>'.$v['f_desc'].'</p>';
+							$top_html .= '<div class="ys_top_text">'.$v['f_desc'].'</div>';
 							$top_html .= '</div></div>';
 							$top_html .= '</div>';
 						}
