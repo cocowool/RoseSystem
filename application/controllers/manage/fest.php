@@ -188,6 +188,32 @@ class Fest extends MY_Controller {
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
 		
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+				
+// 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_person')){
+			if ( ! $this->upload->do_upload( 'f_person' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum/add');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+// 				$data['f_person'] = $updata['upload_data']['sae_full_path'];
+				$data['f_person'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+
+// 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_focus')){
+			if ( ! $this->upload->do_upload( 'f_focus' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum/add');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+// 				$data['f_focus'] = $updata['upload_data']['sae_full_path'];
+				$data['f_focus'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}			
 			$result = $this->s->insert( $data );
 			$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum/add');
 		}		
@@ -229,6 +255,21 @@ class Fest extends MY_Controller {
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
 		
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_person')){
+			if ( $this->upload->do_upload( 'f_person' ) ){
+				$updata = array('upload_data' => $this->upload->data());
+// 				$data['f_person'] = $updata['upload_data']['sae_full_path'];
+				$data['f_person'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_focus')){
+			if ( $this->upload->do_upload( 'f_focus' ) ){
+				$updata = array('upload_data' => $this->upload->data());
+// 				$data['f_focus'] = $updata['upload_data']['sae_full_path'];
+				$data['f_focus'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+			
 			$result = $this->s->update( $data );
 			$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum/add');
 		}		
@@ -455,6 +496,8 @@ class Fest extends MY_Controller {
 					$fest = $this->f->getById($v['fid']);
 					$data['data'][$k]['fid'] = $fest['f_year'];
 					$data['data'][$k]['f_thumb'] = "<img src='".$v['f_thumb']."' height='50px;' />";
+					$data['data'][$k]['f_person'] = "<img src='".$v['f_person']."' height='50px;' />";
+					$data['data'][$k]['f_focus'] = "<img src='".$v['f_focus']."' height='50px;' />";
 					
 					$data['data'][$k]['operation'] = '<a href="/manage/fest/forum/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 					$data['data'][$k]['operation'] .= '<a href="/manage/fest/forum/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';

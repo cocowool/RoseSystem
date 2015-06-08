@@ -73,7 +73,7 @@
 		
 								$forum_html .= '<div class="media '.$style.'">';
 								$forum_html .= 	'<div class="media-left">';
-								$forum_html .= 	'<a target="_blank" href="javascript:void(0);"><img class="media-object" src="'.$v['f_thumb'].'"/></a>';
+								$forum_html .= 	'<a target="_blank" href="javascript:void(0);"><img class="media-object" src="'.$v['f_person'].'"/></a>';
 								$forum_html .= 	'</div>';
 								$forum_html .= 	'<div class="media-body">';
 								$forum_html .= 	'<h4 class="media-heading">'.$v['id'].'</h4><p>'.mb_substr($v['f_title'],0,12,'utf-8').'</p>';
@@ -91,7 +91,7 @@
 								}else{
 									$url = '/video/detail/' . $v['aid'];
 								}
-								$forum_html .= '<a target="_blank" href="'.$url.'"><img src="'.$v['f_thumb'].'" /></a></div>';
+								$forum_html .= '<a target="_blank" href="'.$url.'"><img src="'.$v['f_focus'].'" /></a></div>';
 							}
 							$forum_html .= '</div></div>';
 							

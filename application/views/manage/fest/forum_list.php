@@ -10,7 +10,8 @@
 					<th></th>
 					<th>悦食大会</th>
 					<th>论坛名称</th>
-					<th>缩略图</th>
+					<th>嘉宾头像</th>
+					<th>论坛大图</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -19,7 +20,8 @@
 					<th></th>
 					<th>悦食大会</th>
 					<th>论坛名称</th>
-					<th>缩略图</th>
+					<th>嘉宾头像</th>
+					<th>论坛大图</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -53,7 +55,8 @@ $(document).ready(function(){
 		    {"data":"id"},
 			{"data":"fid"},
 			{"data":"f_title"},
-			{"data":"f_thumb"},
+			{"data":"f_person"},
+			{"data":"f_focus"},
 			{
 				"class":"operation-control",
 				"orderable":false,
