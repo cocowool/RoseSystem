@@ -22,7 +22,7 @@
 		<div class="row">
 			<div class="col-md-10 col-xs-12">
 				<div class='ys_top_title'>
-					<h1><a target="_blank" href="javascript:void(0);">悦食中国</a></h1>
+					<h1><a target="_blank" href="javascript:void(0);">YUESHI CHINA</a></h1>
 				</div>
 				<div id="carousel-example-generic" class="carousel slide ys_homefocus" data-ride="carousel">
 				<?php 

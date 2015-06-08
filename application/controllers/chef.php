@@ -6,10 +6,43 @@ class Chef extends My_Controller {
 		parent::__construct();
 	}
 	
-	public function index($id = ''){
+	public function index($page = '0'){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 
+		$this->load->model('Chef_Model','c');
+		$data['chef_total'] = $this->c->getTotal();
+		$data['chef_list'] = $this->c->getAll();
+		
+		$this->load->library('pagination');
+		$config['base_url'] = '/chef/index/';
+		$config['total_rows'] = $data['chef_total'];
+		$config['uri_segment'] = 3;
+		$config['per_page'] = 10;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] ='<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] ='<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['prev_tag_open'] ='<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] ='<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['cur_tag_open'] ='<li class="active"><a href="javascript:void(0);">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] ='<li>';
+		$config['num_tag_close'] = '</li>';
+		$this->pagination->initialize($config);
+		$data['page_links'] = $this->pagination->create_links();
+		
+		$this->load->view('chef/list', $data);
+	}
+	
+	public function detail($id){
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		
 		$this->load->model('Chef_Model','c');
 		$data['chef_list'] = $this->c->getAll();
 		
