@@ -12,6 +12,7 @@ body {
 
 ::selection { background-color:#e13300; color:#ffffff; }
 ul,li { list-style:none; }
+ul { -webkit-padding-start: 0px; }
 a { color:#261a08 }
 a:hover { color:#e13300; }
 
@@ -30,6 +31,7 @@ a:hover { color:#e13300; }
 	.ys_sidebar { display:none; }
 	.ys_fest_forum .col-md-4 { display:none; }
 	.ys_top_menu { display:block; }
+	.ys_top_title h1 a { line-height:54px; background:none; text-indent:0; }
 }
 @media ( min-width:480px ){
 	.ys_sidebar { display:none; }
@@ -37,6 +39,7 @@ a:hover { color:#e13300; }
 	.col-xs-6 { padding:0 5px; }
 	.ys_fest_forum .col-md-4 { display:none; }
 	.ys_top_menu { display:block; }
+	.ys_top_title h1 a { line-height:54px; background:none; text-indent:0; }
 }
 @media ( min-width: 768px ) { 
 	.ys_sidebar { display:none; }
@@ -44,6 +47,8 @@ a:hover { color:#e13300; }
 	.col-xs-6 { padding:0 5px; }
 	.ys_fest_forum .col-md-4 { display:block; }
 	.ys_top_menu { display:block; }
+	.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
+		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 }
 @media ( min-width: 992px ) {
 	.container { width:960px; }
@@ -51,6 +56,8 @@ a:hover { color:#e13300; }
 	.ys_footer { text-align:left; }
 	.ys_fest_forum .col-md-4 { display:block; }
 	.ys_top_menu { display:none; '}
+	.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
+		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 }
 @media ( min-width: 1200px ) { 
 	.container { width:960px; }
@@ -58,6 +65,8 @@ a:hover { color:#e13300; }
 	.ys_footer { text-align:left; }
 	.ys_fest_forum .col-md-4 { display:block; }
 	.ys_top_menu { display:none; }
+	.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
+		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -77,8 +86,6 @@ a.ys_link_red:hover { text-decoration:none; }
 
 .ys_top_title { border-bottom:1px solid #c4c4c4; text-align:center; }
 .ys_top_title h1 { margin:0px; height:40px; font-size:12px; }
-.ys_top_title h1 a { margin:0px; padding:0px; display:block; height:40px; text-indent:-9999px;
-	background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 .ys_homefocus { margin-top:15px; }
 .ys_thumbnail_block { display:block; margin:0 auto; text-align:center; margin-bottom:1em; border:1px solid #ddd; padding:4px; background-color:#fff; }
 .ys_thumbnail_block img { width:100%; }
