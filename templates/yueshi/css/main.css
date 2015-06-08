@@ -128,6 +128,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_menu { position:relative;list-style:none; padding-left:0; z-index:0; }
 .ys_menu_item { position:relative; text-align:center; cursor:pointer; z-index:10; }
 .ys_menu_text, .ys_submenu_text { position:relative; z-index:100; display:block; text-decoration:none; color:#261a08; line-height:2em; }
+.ys_menu_text { font-family:"宋体","微软雅黑",sans-serif; }
 .ys_menu_text:hover, .ys_submenu_text:hover { color:#ed1d25; }
 .yushi-barcode { text-align:center; }
 .ys_submenu_container { position:absolute; z-index:150; width:7em; left:-67%; padding-top:30px; top:-4px; }
