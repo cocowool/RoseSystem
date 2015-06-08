@@ -10,6 +10,7 @@
 					<th></th>
 					<th>大会年份</th>
 					<th>大会名称</th>
+					<th>大会LOGO</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -18,6 +19,7 @@
 					<th></th>
 					<th>大会年份</th>
 					<th>大会名称</th>
+					<th>大会LOGO</th>
 					<th>操作</th>
 				</tr>
 			</tfoot>
@@ -51,6 +53,7 @@ $(document).ready(function(){
 		    {"data":"id"},
 			{"data":"f_year"},
 			{"data":"f_name"},
+			{"data":"f_logo"},
 			{
 				"class":"operation-control",
 				"orderable":false,

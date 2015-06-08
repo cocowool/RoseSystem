@@ -467,6 +467,7 @@ class Fest extends MY_Controller {
 				$data = $this->f->dtRequest($request);
 				//可以在此处进行返回数据的自定义处理
 				foreach($data['data'] as $k=>$v){
+					$data['data'][$k]['f_logo'] = (empty($v['f_logo']))?'':'<img src="'.$v['f_logo'].'" style="height:50px;" />';
 					$data['data'][$k]['operation'] = '<a href="/manage/fest/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 					$data['data'][$k]['operation'] .= '<a href="/manage/fest/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
 				}
@@ -512,6 +513,21 @@ class Fest extends MY_Controller {
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
 	
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+				
+// 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_logo')){
+			if ( ! $this->upload->do_upload( 'f_logo' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/fest', '/manage/fest/add');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+// 				$data['f_logo'] = $updata['upload_data']['sae_full_path'];
+				$data['f_logo'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+			
 			$result = $this->s->insert( $data );
 			$this->redirectAction($result, $data, '/manage/fest', '/manage/fest/add');
 		}
@@ -565,6 +581,15 @@ class Fest extends MY_Controller {
 			$this->load->helper('date');
 			$data = $this->input->post(NULL, true);
 	
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_logo')){
+			if ( $this->upload->do_upload( 'f_logo' ) ){
+				$updata = array('upload_data' => $this->upload->data());
+// 				$data['f_logo'] = $updata['upload_data']['sae_full_path'];
+				$data['f_logo'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+
 			$result = $this->s->update( $data, $data['id'] );
 			$this->redirectAction($result, $data, '/manage/fest', '/manage/fest/'.$data['id']);
 		}

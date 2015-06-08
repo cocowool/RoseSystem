@@ -7,6 +7,7 @@ class Fest_Model extends MY_Model {
 			array('name'=>'id', 'comment'=>'序号', 'primary' => TRUE, 'form'=>array('type'=>'primary')),
 			array('name'=>'f_year', 'comment'=>'大会年份', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入大会年份，四位数字')),
 			array('name'=>'f_name', 'comment'=>'大会名称', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入本届大会名称或主题')),
+			array('name'=>'f_logo', 'comment'=>'大会LOGO', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img')),
 			array('name'=>'f_desc', 'comment'=>'大会介绍', 'form'=> array('type'=>'textarea', 'validation'=>'required', 'tips'=>'请输入本届大会介绍')),
 			array('name'=>'f_order', 'comment'=>'排序', 'form'=> array('type'=>'text')),
 			array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 

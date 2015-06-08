@@ -46,9 +46,9 @@
       				<div class="ys_fest_nav">
       					<ul class="ys_menu_nav">
       					<?php 
-      					$style = '';
       					foreach ($fest_list as $k=>$v){
-							if($k==0) $style = 'active';
+	      					$style = '';
+							if($v['id'] == $current_fest['id']) $style = 'active';
       						echo '<li><a target="_blank" href="/fest/'.$v['f_year'].'" class="'.$style.'">'.$v['f_year'].'</a></li>';
 						}
       					?>
