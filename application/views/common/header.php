@@ -15,6 +15,15 @@
 			</form>	
 		</div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+				<div class="ys_top_menu">
+					<ul>
+						<li><a href="/article">杂志</a></li>
+						<li><a href="/video">影像</a></li>
+						<li><a href="/store">店铺</a></li>
+						<li><a href="/chef">厨艺学校</a></li>
+						<li><a href="/fest">悦食大会</a></li>
+					</ul>
+				</div>
 				<?php 
 				if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername'])){
 				?>
@@ -40,15 +49,6 @@
 				<?php 
 				}
 				?>
-				<div class="ys_top_menu">
-					<ul>
-						<li><a href="/article">杂志</a></li>
-						<li><a href="/video">影像</a></li>
-						<li><a href="/store">店铺</a></li>
-						<li><a href="/chef">厨艺学校</a></li>
-						<li><a href="/fest">悦食大会</a></li>
-					</ul>
-				</div>
 		</div>
 			<!--/.navbar-collapse -->
 	</div>
