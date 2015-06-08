@@ -6,7 +6,7 @@ class Video extends My_Controller {
 		parent::__construct();
 	}
 
-	public function index($category = '0', $page = '0'){
+	public function index($category = 0, $page = 0){
 		$data = array();
 		$data = array_merge($data, $this->getPubData());
 		$this->load->model('Video_Model', 'v');
@@ -18,7 +18,7 @@ class Video extends My_Controller {
 		$default_category = '0';
 		$option = array();
 		$option[] = array('data' => '2', 'field' => 'ctype', 'action' => 'where' );
-		$option[] = array('data' => $default_category, 'field' => 'pid', 'action' => 'where' );
+		$option[] = array('data' => 0, 'field' => 'pid', 'action' => 'where' );
 		$data['category_list'] = $this->c->getAll($option);
 		
 		$option = array();

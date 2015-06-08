@@ -34,8 +34,8 @@
 					$article_html .= '';
 					foreach($chef_list as $k=>$v){
 						$article_html .= '<div class="col-md-6 col-xs-12"><div class="ys_video_item_container">';
-						$article_html .= '<a target="_blank" href="/video/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
-						$article_html .= '</div></div><div class="col-md-6 col-xs-12"><div class="ys_chef_text"><h3><a target="_blank" href="/video/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
+						$article_html .= '<a target="_blank" href="/chef/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
+						$article_html .= '</div></div><div class="col-md-6 col-xs-12"><div class="ys_chef_text"><h3><a target="_blank" href="/chef/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
 						$article_html .= '<p>'.$v['s_desc'].'</p>';
 						$article_html .= '</div></div>';
 						

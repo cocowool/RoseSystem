@@ -28,7 +28,6 @@ class Article extends My_Controller {
 			}
 		}
 		
-		
 		$option = array();
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');

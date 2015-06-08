@@ -36,7 +36,7 @@
 									if($v['id']==$current_category){
 										$class='active';
 									}
-									$category_html .= '<li><a target="_blank" href="/video/'.$v['id'].'/1" class="'.$class.'">'.$v['category'].'</a></li>';
+									$category_html .= '<li><a href="/video/'.$v['id'].'" class="'.$class.'">'.$v['category'].'</a></li>';
 								}
 								echo $category_html;
 							?>
