@@ -49,7 +49,7 @@
       					foreach ($fest_list as $k=>$v){
 	      					$style = '';
 							if($v['id'] == $current_fest['id']) $style = 'active';
-      						echo '<li><a target="_blank" href="/fest/'.$v['f_year'].'" class="'.$style.'">'.$v['f_year'].'</a></li>';
+      						echo '<li><a href="/fest/'.$v['f_year'].'" class="'.$style.'">'.$v['f_year'].'</a></li>';
 						}
       					?>
       					</ul>
