@@ -103,10 +103,11 @@ a.ys_link_red:hover { text-decoration:none; }
 
 #YS_MENU { height:auto; padding-top:10em; position:relative; z-index:0; }
 .ys_menu_container { position:relative; z-index:0; }
-.ys_menu { position:relative;list-style:none; padding-left:20%; z-index:0; }
+.ys_menu { position:relative;list-style:none; padding-left:0; z-index:0; }
 .ys_menu_item { position:relative; text-align:center; cursor:pointer; z-index:10; }
-.ys_menu_text, .ys_submenu_text { position:relative; z-index:100; display:block; text-decoration:none; color:#574e3f; line-height:2em; }
-.ys_menu_text:hover, .ys_submenu_text:hover { color:#ed1d25 }
+.ys_menu_text, .ys_submenu_text { position:relative; z-index:100; display:block; text-decoration:none; color:#261a08; line-height:2em; }
+.ys_menu_text:hover, .ys_submenu_text:hover { color:#ed1d25; }
+.yushi-barcode { text-align:center; }
 .ys_submenu_container { position:absolute; z-index:150; width:7em; left:-67%; padding-top:30px; top:-4px; }
 .ys_submenu { position:relative; display:block; z-index:980; border-top:1px solid #d9d9d9; border-right:1px solid #d9d9d9; }
 .ys_tie_1 { background: url(/templates/yueshi/images/tie2.jpg) right top no-repeat; }
