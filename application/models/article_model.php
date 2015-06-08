@@ -26,7 +26,9 @@ class Article_Model extends MY_Model {
 		array('name'=>'content', 'comment'=>'文章内容', 'form'=> array('type'=>'textarea','validation'=>'required', 'tips'=>'请输入文章内容') ),	
 		array('name'=>'cover', 'comment'=>'文章封面配图', 'form'=>array('type'=>'file', 'validation'=>'required', 'edit'=>'img')),	
 		array('name'=>'resource', 'comment'=>'资源', 'allowHTML' => TRUE, 'notintable' => TRUE),	
-		array('name'=>'status', 'comment'=>'状态', 'options' => array('0' => '草稿', '1' => '已发布' ), 'invisible' => TRUE ),	
+		array('name'=>'status', 'comment'=>'状态', 'form'=>array('type'=>'select', 
+				'option'=>array('type'=>'static', 'data'=>array('0'=>'草稿','1'=>'已发布')))
+		, 'invisible' => TRUE ),	
 		array('name'=>'click', 'comment'=>'点击次数'),	
 		array('name'=>'fav', 'comment'=>'收藏次数'),	
 		array('name'=>'like', 'comment'=>'喜欢次数'),	

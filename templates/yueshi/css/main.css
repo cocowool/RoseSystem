@@ -44,6 +44,7 @@ a:hover { color:#e13300; }
 	.ys_top_title h1 a { line-height:54px; background:none; text-indent:0; }
 }
 @media ( min-width: 768px ) { 
+	.container, .col-md-10 { padding:0 15px; }
 	.ys_sidebar { display:none; }
 	.ys_footer,.ys_foot_links { text-align:center; }
 	.col-xs-6 { padding:0 5px; }
@@ -53,6 +54,7 @@ a:hover { color:#e13300; }
 		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 }
 @media ( min-width: 992px ) {
+	.container, .col-md-10 { padding:0 15px; }
 	.container { width:960px; }
 	.ys_sidebar { display:block; }
 	.ys_footer { text-align:left; }
@@ -62,6 +64,7 @@ a:hover { color:#e13300; }
 		background:url(/templates/yueshi/images/yue.png) center center no-repeat; cursor:default; }
 }
 @media ( min-width: 1200px ) { 
+	.container, .col-md-10 { padding:0 15px; }
 	.container { width:960px; }
 	.ys_sidebar { display:block; }
 	.ys_footer { text-align:left; }
@@ -186,7 +189,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_caption h4 { font-size:16px; }
 .ys_caption h3 a { font-size:0.7em; }
 .ys_caption h3 a:hover { color:#ddd; }
-.ys_caption p { color:#555; margin:0 0 1em; line-height:1.5em; text-align:justify; }
+.ys_caption p { color:#555; margin:0 0 1em; padding:0 1em; line-height:1.5em; text-align:justify; }
 
 .ys_chef_nav { margin-top:0.5em; position:relative; }
 .ys_chef_top { position:relative; }
