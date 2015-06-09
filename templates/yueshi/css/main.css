@@ -153,8 +153,10 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_pagelink strong { display:inline-block; border:1px solid #261a08; padding:0.2em 0.5em; }
 
 .ys_video_item_container { display:block; border:1px solid #ececec; text-align:center; margin-bottom:1em; }
-.ys_video_item_container a { display:inline-block; }
+.ys_video_item_container a { display:inline-block; position:relative; }
 .ys_video_item_container img { padding:1px;width:100%; }
+.ys_btn_container { position:absolute; width:60px; height:60px; left:50%; top:50%; }
+.ys_playerbtn { position:absolute; width:60px; height:60px; left:-30px; top:-30px; background:url(/templates/yueshi/images/play.png) 0 0 no-repeat; z-index:99; }
 .ys_video_desc { padding:2em 0; }
 
 .ys_footer { font-size:12px; border-top:1px solid #e1e1e1; margin-top:1em; color:#bbbbbb; line-height:2em; padding:0 0 2em; }
