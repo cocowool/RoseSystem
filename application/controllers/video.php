@@ -14,6 +14,7 @@ class Video extends My_Controller {
 		$this->load->model('Resource_Model', 'r');
 		
 		$data['current_category'] = $category;
+		$data['page'] = $page;
 		//默认调取杂志分类下的信息
 		$default_category = '0';
 		$option = array();
@@ -25,13 +26,13 @@ class Video extends My_Controller {
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'v_category','action'=>'where_in');
 		$data['video_total'] = $this->v->getTotal($option);
-		$data['video_list'] = $this->v->getAll($option, $page, 9);
+		$data['video_list'] = $this->v->getAll($option, $page, 6);
 		
 		$this->load->library('pagination');
 		$config['base_url'] = '/video/index/'.$category.'/';
 		$config['total_rows'] = $data['video_total'];
 		$config['uri_segment'] = 4;
-		$config['per_page'] = 9;
+		$config['per_page'] = 18;
 		$this->pagination->initialize($config);
 		$data['page_links'] = $this->pagination->create_links();
 
@@ -74,6 +75,33 @@ class Video extends My_Controller {
 		}
 	
 		echo json_encode($json);
+	}
+
+	public function serverside(){
+		$data = array();
+		$data = array_merge($data, $this->getPubData());
+		$this->load->model('Video_Model', 'a');
+		$this->load->model('Resource_Model', 'r');
+		$this->load->model('Category_Model', 'c');
+	
+		$category = $this->input->post('category');
+		$pagesize = $this->input->post('pagesize');
+		$start = $this->input->post('start');
+		//默认调取杂志分类下的信息
+		if(empty($category)){
+			$category = '0';
+		}
+		$option = array();
+		$option[] = array('data' => '2', 'field' => 'ctype', 'action' => 'where' );
+		$option[] = array('data' => $category, 'field' => 'pid', 'action' => 'where' );
+		$data['category_list'] = $this->c->getAll($option);
+	
+		$option = array();
+		$ids = $this->c->get_category_ids($category);
+		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
+		$result = $this->a->getAll($option,$start,$pagesize);
+	
+		echo json_encode($result);
 	}
 	
 	public function detail($id){

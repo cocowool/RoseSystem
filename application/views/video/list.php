@@ -59,7 +59,7 @@
 						
 						$article_row_count++;
 						if($article_row_count%3==0 and $article_row_count != 9){
-							$article_html .= '</div><div class="row ys_latest hide">';
+							$article_html .= '';
 						}
 					}
 					$article_html .= '</div>';
@@ -73,16 +73,16 @@
 			      		<div class="ys_ajaxmore">
 			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 			      		</div>
+			      		<div class="ys_loading hide">
+			      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
+			      		</div>
+				      	<nav class="ys_pagelink hide">
+				      		<?php echo $page_links; ?>
+				      	</nav>
 			      	</div>	
 			      	<?php 
 			      	}
 			      	?>
-			      	
-			      	<div class="row">
-			      		<div class="ys_pagelink hide">
-				      		<?php echo $page_links; ?>
-			      		</div>
-			      	</div>
       			</div>
       			
 			</div>
@@ -104,27 +104,72 @@
 	<?php $this->load->view('common/footer'); ?>
 	<script type="text/javascript" src="/libs/jquery/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery-plugin/masonry.pkgd.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery-plugin/imagesloaded.pkgd.min.js"></script>
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
-		var count = 1;
-		$('.ys_ajaxmore a').click(function(){
-			if(count == 3){
-				$('.ys_ajaxmore').hide();
-				$('.ys_pagelink').show();
-				$('.ys_pagelink').removeClass('hide');
-			}
-			$.ajax({
-				'type'	:	'POST',
-				'url'	:	'/video/serverside/<?php echo $current_category ?>/1',
-				'data'	:	{
-					'count'	:	1
-				},
-				'success'	:	function(result){
-					$('.ys_article_list .hide').first().removeClass('hide');
-				}
+		var $container = $('.ys_article_list .row');
+		$container.imagesLoaded(function(){
+			$container.masonry({
+			  itemSelector: '.col-md-6',
+			  isAnimated: true,
+			  resizeable: true
 			});
 		});
+
+		$('.ys_ajaxmore a').click(function(){
+			var maxitem = 18;
+			if($('.ys_article_list .row>div').length >= maxitem){
+				$('.ys_pagelink').removeClass('hide');
+				$('.ys_ajaxmore').hide();
+			}else{
+				$.ajax({
+					'type'	:	'POST',
+					'dataType'	:	'json',
+					'url'	:	'/video/serverside/<?php echo $current_category ?>/1',
+					'data'	:	{
+						'pagesize'	:	'6',
+						'category'	:'<?php echo $current_category; ?>',
+						'start'	:	$('.ys_article_list .row>div').length + <?php echo $page; ?>
+					},
+					'beforeSend'	:	function(){
+						$('.ys_ajaxmore').hide();
+						$('.ys_loading').removeClass('hide');
+					},
+					'success'	:	function(result){
+						if(result.length==0){
+							$('.ys_loading').hide();
+							$('.ys_ajaxmore').removeClass('hide').show();
+							$('.ys_ajaxmore p').html('没有更多内容了');
+						}else{
+							$('.ys_loading').hide();
+							var elements = [];
+							$.each(result,function(k,v){
+								console.log(v);
+								$('.ys_article_list .row').append('<div class="col-md-6"><div class="ys_video_item_container"><a target="_blank" href="/video/detail/'+v.id+'"><img src="'+v.v_thumb+'"></a><div class="ys_caption"><h3><a target="_blank" href="/video/detail/'+v.id+'">'+v.v_title+'</a></h3><p>'+v.v_desc+'</p></div></div></div>');
+							});
+
+							$container.masonry('destroy');
+							$container.imagesLoaded(function(){
+								$container.masonry({
+									  itemSelector: '.col-md-4',
+									  isAnimated: true,
+									  resizeable: true
+								});
+							});
+	
+							if($('.ys_article_list .row>div').length >= maxitem){
+								$('.ys_pagelink').removeClass('hide');
+							}else{
+								$('.ys_ajaxmore').show();
+							}
+						}
+					}
+				});
+			}			
+		});		
+		
 	});
 	</script>
 </body>
