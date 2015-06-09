@@ -35,7 +35,7 @@
       			<div class="ys_fest_container">
       				
       				<div class="ys_fest_logo">
-      					<p><a href="/fest"></a><img src="/templates/yueshi/images/festlogo.png" /></a></p>
+      					<p><a href="/fest"></a><img src="<?php echo $current_fest['f_logo']; ?>" /></a></p>
       				</div>
       				
       				<?php 
@@ -56,8 +56,8 @@
       				</div>
       				<div class="ys_fest_desc">
       					<?php 
-      						if(!empty($f_desc)){
-								echo $f_desc;
+      						if(!empty($current_fest['f_desc'])){
+								echo $current_fest['f_desc'];
 							}
       					?>
       				</div>

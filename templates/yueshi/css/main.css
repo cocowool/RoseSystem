@@ -235,6 +235,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_fest_logo { text-align:center; }
 .ys_fest_logo img { width:150px; }
 .ys_fest_forum, .ys_fest_carnival, .ys_fest_consultant { border-top:1px solid #ececec; padding:1em 0; }
+.ys_fest_desc { padding:1.5em; text-indent:2em; }
 .ys_column_title { margin:0; font-size:1em; margin-bottom:1.5em; }
 .ys_forum_speaker_container {  }
 .ys_forum_speaker_container .media { background-color:#f7f7f7;color:#cecece; margin-top:5px; }
