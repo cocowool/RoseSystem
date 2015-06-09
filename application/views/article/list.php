@@ -29,6 +29,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<ul class="ys_menu_nav">
+								<li><a href="/video" class="<?php echo ($current_category==0)?'active':''; ?>">全部</a></li>
 							<?php
 								$category_html = ''; 
 								foreach ($category_list as $k=>$v){
@@ -66,23 +67,25 @@
 					echo $article_html;
 					?>
 				</div>
-				<?php 
-				if(!empty($page_links)){
-				?>
 		      	<div class="row">
+		      	<?php if(!empty($article_list)){ ?>
 		      		<div class="ys_ajaxmore">
 		      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
 		      		</div>
+		      	<?php } ?>
 		      		<div class="ys_loading hide">
 		      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
 		      		</div>
+				<?php 
+				if(!empty($page_links)){
+				?>
 			      	<nav class="ys_pagelink hide">
 			      		<?php echo $page_links; ?>
 			      	</nav>
-		      	</div>	
 		      	<?php 
 		      	}
 		      	?>
+		      	</div>	
 			</div>
 			<div class="col-md-2 ys_sidebar">
 				<div class="ys_logo">

@@ -34,7 +34,7 @@ a:hover { color:#e13300; }
 	.ys_top_menu { display:block; }
 	.ys_top_title h1 a { line-height:54px; background:none; text-indent:0; }
 	.ys_caption p { padding:0 1em; text-indent:2em; }
-	.ys_top_text { padding:0 1em; text-align:center; margin-bottom:1em; height:6em; max-height:6em; overflow-y:hidden; }
+	.ys_top_text { padding:0 1em; text-align:center; margin-bottom:1em; height:5.9em; max-height:5.9em; overflow-y:hidden; }
 	.ys_top_text { padding:0; }
 }
 @media ( min-width:480px ){
