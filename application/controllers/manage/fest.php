@@ -257,14 +257,14 @@ class Fest extends MY_Controller {
 		
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
-// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_person')){
-			if ( $this->upload->do_upload( 'f_person' ) ){
+			if ( $this->upload->sae_upload( $this->sae_domain, 'f_person')){
+// 			if ( $this->upload->do_upload( 'f_person' ) ){
 				$updata = array('upload_data' => $this->upload->data());
 // 				$data['f_person'] = $updata['upload_data']['sae_full_path'];
 				$data['f_person'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
-// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_focus')){
-			if ( $this->upload->do_upload( 'f_focus' ) ){
+			if ( $this->upload->sae_upload( $this->sae_domain, 'f_focus')){
+// 			if ( $this->upload->do_upload( 'f_focus' ) ){
 				$updata = array('upload_data' => $this->upload->data());
 // 				$data['f_focus'] = $updata['upload_data']['sae_full_path'];
 				$data['f_focus'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
@@ -626,11 +626,11 @@ class Fest extends MY_Controller {
 	
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
-// 			if ( $this->upload->sae_upload( $this->sae_domain, 'f_logo')){
-			if ( $this->upload->do_upload( 'f_logo' ) ){
+			if ( $this->upload->sae_upload( $this->sae_domain, 'f_logo')){
+// 			if ( $this->upload->do_upload( 'f_logo' ) ){
 				$updata = array('upload_data' => $this->upload->data());
-// 				$data['f_logo'] = $updata['upload_data']['sae_full_path'];
-				$data['f_logo'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['f_logo'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_logo'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 			}
 
 			$result = $this->s->update( $data, $data['id'] );
