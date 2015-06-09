@@ -101,12 +101,6 @@ class Video extends MY_Controller {
 				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
 // 				$data['v_thumb'] = 'http://yueshi.my/temp/' . $updata['upload_data']['file_name'];
 				$data['v_location'] = $updata['upload_data']['full_path'];
-			}else{
-				$error = array('error' => $this->upload->display_errors());
-				$data['content_data']['user_text'] = $error['error'];
-				
-				$this->redirectAction(FALSE, $data, '/manage/video', '/manage/video');
-				return false;
 			}
 			$data[$this->v->id] = $id;
 				
@@ -162,16 +156,16 @@ class Video extends MY_Controller {
 			$config = $this->config->item('image_upload_config');
 			$this->load->library('upload', $config);
 			
-// 			if ( ! $this->upload->sae_upload( $this->sae_domain, 'v_thumb')){
-			if ( ! $this->upload->do_upload( 'v_thumb' ) ){
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'v_thumb')){
+// 			if ( ! $this->upload->do_upload( 'v_thumb' ) ){
 				$error = array('error' => $this->upload->display_errors());
 				$data['content_data']['user_text'] = $error['error'];
 				$this->redirectAction(FALSE, $data, '/manage/article', '/manage/article/add');
 				return false;
 			}else{
 				$updata = array('upload_data' => $this->upload->data());
-// 				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
-				$data['v_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+				$data['v_thumb'] = $updata['upload_data']['sae_full_path'];
+// 				$data['v_thumb'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
 				$data['v_location'] = $updata['upload_data']['full_path'];
 			}
 			
