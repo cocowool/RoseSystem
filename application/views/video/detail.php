@@ -147,7 +147,7 @@
       						foreach ($related_video as $k=>$v){
 								$html .= '<div class="col-md-4"><div class="ys_thumbnail_block">';
 								$html .= '<a target="_blank" href="/video/detail/'.$v['id'].'"><img src="' . $v['v_thumb'] . '" /></a>';
-								$html .= '<div class="ys_caption"><h3><a target="_blank" href="/video/detail/' . $v['id'] . '">' . $v['name'] . '</a></h3></div></div></div>';
+								$html .= '<div class="ys_caption"><h3><a target="_blank" href="/video/detail/' . $v['id'] . '">' . $v['v_title'] . '</a></h3></div></div></div>';
 								$count++;
 								if($count>2) break;
 							}
