@@ -65,25 +65,25 @@
 					$article_html .= '</div>';
 					echo $article_html;
 					?>
-					
-					<?php 
-					if(!empty($page_links)){
-					?>
-			      	<div class="row">
-			      		<div class="ys_ajaxmore">
-			      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
-			      		</div>
-			      		<div class="ys_loading hide">
-			      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
-			      		</div>
-				      	<nav class="ys_pagelink hide">
-				      		<?php echo $page_links; ?>
-				      	</nav>
-			      	</div>	
-			      	<?php 
-			      	}
-			      	?>
       			</div>
+					
+				<?php 
+				if(!empty($page_links)){
+				?>
+		      	<div class="row">
+		      		<div class="ys_ajaxmore">
+		      			<p><a href="javascript:void(0);">点击加载更多精彩内容 </a></p>
+		      		</div>
+		      		<div class="ys_loading hide">
+		      			<p><span><img src='/templates/yueshi/images/big_load.gif' ></span></p>
+		      		</div>
+			      	<nav class="ys_pagelink hide">
+			      		<?php echo $page_links; ?>
+			      	</nav>
+		      	</div>	
+		      	<?php 
+		      	}
+		      	?>
       			
 			</div>
 			<div class="col-md-2 ys_sidebar">
@@ -119,7 +119,7 @@
 		});
 
 		$('.ys_ajaxmore a').click(function(){
-			var maxitem = 18;
+			var maxitem = 8;
 			if($('.ys_article_list .row>div').length >= maxitem){
 				$('.ys_pagelink').removeClass('hide');
 				$('.ys_ajaxmore').hide();
@@ -127,9 +127,9 @@
 				$.ajax({
 					'type'	:	'POST',
 					'dataType'	:	'json',
-					'url'	:	'/video/serverside/<?php echo $current_category ?>/1',
+					'url'	:	'/video/serverside/<?php echo $current_category ?>',
 					'data'	:	{
-						'pagesize'	:	'6',
+						'pagesize'	:	'4',
 						'category'	:'<?php echo $current_category; ?>',
 						'start'	:	$('.ys_article_list .row>div').length + <?php echo $page; ?>
 					},
@@ -146,14 +146,13 @@
 							$('.ys_loading').hide();
 							var elements = [];
 							$.each(result,function(k,v){
-								console.log(v);
 								$('.ys_article_list .row').append('<div class="col-md-6"><div class="ys_video_item_container"><a target="_blank" href="/video/detail/'+v.id+'"><img src="'+v.v_thumb+'"></a><div class="ys_caption"><h3><a target="_blank" href="/video/detail/'+v.id+'">'+v.v_title+'</a></h3><p>'+v.v_desc+'</p></div></div></div>');
 							});
 
 							$container.masonry('destroy');
 							$container.imagesLoaded(function(){
 								$container.masonry({
-									  itemSelector: '.col-md-4',
+									  itemSelector: '.col-md-6',
 									  isAnimated: true,
 									  resizeable: true
 								});

@@ -26,16 +26,30 @@ class Video extends My_Controller {
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'v_category','action'=>'where_in');
 		$data['video_total'] = $this->v->getTotal($option);
-		$data['video_list'] = $this->v->getAll($option, $page, 6);
+		$data['video_list'] = $this->v->getAll($option, $page, 4);
 		
 		$this->load->library('pagination');
 		$config['base_url'] = '/video/index/'.$category.'/';
 		$config['total_rows'] = $data['video_total'];
 		$config['uri_segment'] = 4;
-		$config['per_page'] = 18;
+		$config['per_page'] = 8;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_tag_open'] ='<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] ='<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['prev_tag_open'] ='<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] ='<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['cur_tag_open'] ='<li class="active"><a href="javascript:void(0);">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['num_tag_open'] ='<li>';
+		$config['num_tag_close'] = '</li>';
 		$this->pagination->initialize($config);
 		$data['page_links'] = $this->pagination->create_links();
-
+		
 		$this->load->view('video/list', $data);
 	}
 	
@@ -98,7 +112,7 @@ class Video extends My_Controller {
 	
 		$option = array();
 		$ids = $this->c->get_category_ids($category);
-		$option[] = array('data'=>$ids, 'field'=>'category','action'=>'where_in');
+		$option[] = array('data'=>$ids, 'field'=>'v_category','action'=>'where_in');
 		$result = $this->a->getAll($option,$start,$pagesize);
 	
 		echo json_encode($result);
