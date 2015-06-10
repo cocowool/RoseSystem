@@ -106,6 +106,20 @@ class Article extends MY_Controller {
 		}
 	}
 	
+	public function del($id){
+		$data = array();
+		$this->load->model('article_Model','r');
+		$article = $this->r->getById($id);
+		if(empty($id) && !$article ){
+			$this->redirectAction(FALSE, $data, '', '/manage/article');
+			return false;
+		}else{
+			$result = $this->r->delete($id);
+			$this->redirectAction($result, $data, '/manage/article/', '/manage/article');
+			return;
+		}
+	}
+		
 	public function edit($id){
 		$data = array();
 	
