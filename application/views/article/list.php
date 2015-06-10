@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<ul class="ys_menu_nav">
-								<li><a href="/video" class="<?php echo ($current_category==0)?'active':''; ?>">全部</a></li>
+								<li><a href="/article" class="<?php echo ($current_category==0)?'active':''; ?>">全部</a></li>
 							<?php
 								$category_html = ''; 
 								foreach ($category_list as $k=>$v){
