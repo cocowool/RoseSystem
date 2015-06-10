@@ -71,7 +71,7 @@
 								$style = '';
 								if($k==0) $style = 'active';
 		
-								$forum_html .= '<div class="media '.$style.'">';
+								$forum_html .= '<div class="media ys_forum_nav '.$style.'">';
 								$forum_html .= 	'<div class="media-left">';
 								$forum_html .= 	'<a target="_blank" href="javascript:void(0);"><img class="media-object" src="'.$v['f_person'].'"/></a>';
 								$forum_html .= 	'</div>';
@@ -214,6 +214,8 @@
 
 		$('.media').click(function(){
 			$('.ys_forum_item').hide().eq($(this).index()).removeClass('hide').show();
+
+			$('.ys_forum_nav').removeClass('active').eq($(this).index()).addClass('active');
 			console.log($('.ys_forum_item').eq($(this).index()));
 		});
 	});

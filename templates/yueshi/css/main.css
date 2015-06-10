@@ -245,6 +245,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_forum_speaker_container .media .media-body { padding:0.5em;  }
 .ys_forum_speaker_container .media .media-body h4 { font-size:1em; }
 .ys_forum_speaker_container .media .media-body p { font-size:12px; }
+.ys_forum_speaker_container .media .media-left { color:#261a08; }
 .ys_forum_speaker_container .media:hover, .ys_forum_speaker_container .active { cursor:pointer; background-color:#1e1e1e; color:#fff; }
 .ys_forum_speaker_container .media-object { height:100%; max-height:60px; }
 .ys_go_top { text-align:center; line-height:2em; margin-top:0.5em; }
