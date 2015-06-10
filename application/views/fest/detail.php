@@ -164,7 +164,7 @@
 							$consultant_html .= '</div>';
 							$consultant_html .= '<div class="ys_consultant_detail">';
 							foreach ($consultant_list as $k=>$v){
-								$consultant_html .= '<div class="row ys_consultant_desc"><div class="col-md-2 col-xs-1"></div>';
+								$consultant_html .= '<div class="row ys_consultant_desc">';
 								$consultant_html .= '<div class="col-md-8 col-xs-10 row">';
 								$consultant_html .= '<div class="col-md-4">';
 								$consultant_html .= '<a target="_blank" href="javascript:void(0);" class="thumbnail"><img src="'.$v['f_pic'].'" /></a>';
