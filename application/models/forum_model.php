@@ -17,6 +17,7 @@ class Forum_Model extends MY_Model {
 				'function'	=>	'get_selector_html',	
 			))),
 			array('name'=>'aid', 'comment'=>'杂志ID', 'form'=> array('type'=>'hidden', 'data'=>array('source'=>'static','value'=>''))),
+			array('name'=>'f_username', 'comment'=>'嘉宾姓名', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入嘉宾姓名')),
 			array('name'=>'f_title', 'comment'=>'自定标题', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'默认为杂志/影像标题，可自定义修改')),
 			array('name'=>'f_thumb', 'comment'=>'缩略图', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请选择所显示的缩略图')),
 			array('name'=>'f_link', 'comment'=>'链接', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入论坛将要链接的地址')),
