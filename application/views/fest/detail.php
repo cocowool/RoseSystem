@@ -76,7 +76,7 @@
 								$forum_html .= 	'<a target="_blank" href="javascript:void(0);"><img class="media-object" src="'.$v['f_person'].'"/></a>';
 								$forum_html .= 	'</div>';
 								$forum_html .= 	'<div class="media-body">';
-								$forum_html .= 	'<h4 class="media-heading">'.$v['id'].'</h4><p>'.mb_substr($v['f_title'],0,12,'utf-8').'</p>';
+								$forum_html .= 	'<h4 class="media-heading">'.$v['f_username'].'</h4><p>'.mb_substr($v['f_title'],0,12,'utf-8').'</p>';
 								$forum_html .= 	'</div>';
 								$forum_html .= '</div>';
 							}
@@ -84,14 +84,9 @@
 							$forum_html .= '<div class="col-md-8 col-sm-12 col-xs-12">';
 							foreach ($forum_list as $k=>$v){
 								$style = '';
-								if($k==0) $style = 'active';
+								if($k!=0) $style = 'hide';
 								$forum_html .= '<div class="ys_forum_item '.$style.'">';
-								if($v['f_type'] == 1){
-									$url = '/article/detail/' . $v['aid'];
-								}else{
-									$url = '/video/detail/' . $v['aid'];
-								}
-								$forum_html .= '<a target="_blank" href="'.$url.'"><img src="'.$v['f_focus'].'" /></a></div>';
+								$forum_html .= '<a target="_blank" href="'.$v['f_link'].'"><img class="" src="'.$v['f_focus'].'" /></a></div>';
 							}
 							$forum_html .= '</div></div>';
 							
@@ -219,6 +214,7 @@
 
 		$('.media').click(function(){
 			$('.ys_forum_item').hide().eq($(this).index()).removeClass('hide').show();
+			console.log($('.ys_forum_item').eq($(this).index()));
 		});
 	});
 	</script>
