@@ -99,6 +99,28 @@ class Category extends MY_Controller {
 		
 	}
 	
+	public function del($id){
+		$data = array();
+		$this->load->model('Category_Model','r');
+		$category = $this->r->getById($id);
+		if(empty($id) && !$category ){
+			$this->redirectAction(FALSE, $data, '', '/manage/category/' . $category['ctype']);
+			return false;
+		}else{
+			$option = array();
+			$sub_category = $this->r->getById($id, 'pid');
+			if($sub_category){
+				$data['content_data']['user_text'] = '该分类下还有其它分类，请删除后再删除该分类。';
+				$this->redirectAction(FALSE, $data, '/manage/category/' . $category['ctype'], '/manage/category/' . $category['ctype']);
+				return;
+			}else{
+				$result = $this->r->delete($id);
+				$this->redirectAction($result, $data, '/manage/category/' . $category['ctype'], '/manage/category/' . $category['ctype']);
+				return;
+			}
+		}
+	}
+	
 	public function edit($id){
 		$data = array();
 		
