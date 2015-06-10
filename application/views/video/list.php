@@ -149,7 +149,7 @@
 							$('.ys_loading').hide();
 							var elements = [];
 							$.each(result,function(k,v){
-								$('.ys_article_list .row').append('<div class="col-md-6"><div class="ys_video_item_container"><a target="_blank" href="/video/detail/'+v.id+'"><img src="'+v.v_thumb+'"></a><div class="ys_caption"><h3><a target="_blank" href="/video/detail/'+v.id+'">'+v.v_title+'</a></h3><p>'+v.v_desc+'</p></div></div></div>');
+								$('.ys_article_list .row').append('<div class="col-md-6"><div class="ys_video_item_container"><a target="_blank" href="/video/detail/'+v.id+'"><img src="'+v.v_thumb+'"><div class="ys_btn_container"><div class="ys_playerbtn"></div></div></a><div class="ys_caption"><h3><a target="_blank" href="/video/detail/'+v.id+'">'+v.v_title+'</a></h3><p>'+v.v_desc+'</p></div></div></div>');
 							});
 
 							$container.masonry('destroy');
