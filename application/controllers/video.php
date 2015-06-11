@@ -26,7 +26,7 @@ class Video extends My_Controller {
 		$ids = $this->c->get_category_ids($category);
 		$option[] = array('data'=>$ids, 'field'=>'v_category','action'=>'where_in');
 		$data['video_total'] = $this->v->getTotal($option);
-		$data['video_list'] = $this->v->getAll($option, $page, 4);
+		$data['video_list'] = $this->v->getAll($option, $page, 4, 'sort','desc');
 		
 		$this->load->library('pagination');
 		$config['base_url'] = '/video/index/'.$category.'/';

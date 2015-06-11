@@ -15,6 +15,7 @@ class Video_Model extends MY_Model {
 			array('name'=>'v_youku', 'comment'=>'优酷链接', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入优酷链接')),
 			array('name'=>'v_thumb', 'comment'=>'视频缩略图', 'form'=> array('type'=>'file', 'validation'=>'required', 'edit'=>'img') ),	//存储WEB访问调用地址
 			array('name'=>'v_location', 'comment'=>'视频存放位置' ),	//存储物理存储位置
+			array('name'=>'v_sort', 'comment'=>'排序序号', 'form'=> array('type'=>'text', 'validation'=>'required', 'tips'=>'请输入排序序号，序号越大越靠前')),
 			array('name'=>'v_click', 'comment'=>'访问次数', 'form'=> array('type'=>'text')),
 			array('name'=>'v_like', 'comment'=>'喜欢次数', 'form'=> array('type'=>'text')),
 			array('name'=>'v_fav', 'comment'=>'收藏次数', 'form'=> array('type'=>'text')),
