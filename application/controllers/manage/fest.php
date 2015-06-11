@@ -58,8 +58,8 @@ class Fest extends MY_Controller {
 						'rules'	=>	'trim|required'
 				),
 				array(
-						'field'	=>	'f_thumb',
-						'label'	=>	'缩略图',
+						'field'	=>	'f_link',
+						'label'	=>	'链接地址',
 						'rules'	=>	'trim|required'
 				)
 		);
@@ -76,9 +76,23 @@ class Fest extends MY_Controller {
 			$this->load->helper('date');
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
-		
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->sae_upload( $this->sae_domain, 'f_img')){
+// 			if ( ! $this->upload->do_upload( 'f_img' ) ){
+				$error = array('error' => $this->upload->display_errors());
+				$data['content_data']['user_text'] = $error['error'];
+				$this->redirectAction(FALSE, $data, '/manage/carnival', '/manage/carnival/add');
+				return false;
+			}else{
+				$updata = array('upload_data' => $this->upload->data());
+				$data['f_img'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+						
 			$result = $this->s->insert( $data );
-			$this->redirectAction($result, $data, '/manage/fest/forum', '/manage/fest/forum/add');
+			$this->redirectAction($result, $data, '/manage/fest/carnival', '/manage/fest/carnival/add');
 		}		
 	}
 
@@ -98,8 +112,8 @@ class Fest extends MY_Controller {
 						'rules'	=>	'trim|required'
 				),
 				array(
-						'field'	=>	'f_thumb',
-						'label'	=>	'缩略图',
+						'field'	=>	'f_link',
+						'label'	=>	'链接地址',
 						'rules'	=>	'trim|required'
 				)
 		);
@@ -117,7 +131,16 @@ class Fest extends MY_Controller {
 			$this->load->helper('date');
 			$_POST['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
 			$data = $this->input->post(NULL, true);
-	
+
+			$config = $this->config->item('image_upload_config');
+			$this->load->library('upload', $config);
+			if ( $this->upload->sae_upload( $this->sae_domain, 'f_img')){
+// 			if ( $this->upload->do_upload( 'f_img' ) ){
+				$updata = array('upload_data' => $this->upload->data());
+				$data['f_img'] = $updata['upload_data']['sae_full_path'];
+// 				$data['f_img'] = 'http://' . $_SERVER['SERVER_NAME'] . '/temp/' . $updata['upload_data']['file_name'];
+			}
+				
 			$result = $this->s->update( $data );
 			$this->redirectAction($result, $data, '/manage/fest/carnival', '/manage/fest/carnival/add');
 		}
