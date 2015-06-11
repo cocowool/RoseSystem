@@ -101,7 +101,15 @@ class My_Controller extends CI_Controller {
 					if(form_error($v['name'])){
 						$error_class = ' has-error';
 					}
-					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> $data[$v['name']], 'class'=>'form-control', 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
+					$class = '';
+					if(isset($v['form']['class'])){
+						if(is_array($v['form']['class'])){
+							$class = implode(' ', $v['form']['class']);
+						}else{
+							$class = $v['form']['class'];
+						}
+					}
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> $data[$v['name']], 'class'=>'form-control ' . $class, 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
 					$html_form .= form_error($v['name']) . '</div>';
 					break;
 				case 'textarea':
@@ -193,7 +201,16 @@ class My_Controller extends CI_Controller {
 					if(form_error($v['name'])){
 						$error_class = ' has-error';
 					}
-					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control', 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
+					$class = '';
+					if(isset($v['form']['class'])){
+						if(is_array($v['form']['class'])){
+							$class = implode(' ', $v['form']['class']);
+						}else{
+							$class = $v['form']['class'];
+						}
+					}
+					
+					$html_form .= '<div class="form-group' . $error_class . '">' . form_label($v['comment'], $v['name']) .$validation .  form_input( array('name'=>$v['name'], 'id'=>$v['name'], 'value'=> set_value($v['name']), 'class'=>'form-control ' . $class, 'placeholder'=>(isset($v['form']['tips'])?$v['form']['tips']:'') ) );
 					$html_form .= form_error($v['name']) . '</div>';
 					break;
 				case 'textarea':
