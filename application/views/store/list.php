@@ -32,7 +32,11 @@
 					$article_html .= '';
 					foreach($store_list as $k=>$v){
 						$article_html .= '<div class="col-md-6 col-xs-12 com-sm-12"><div class="ys_video_item_container">';
-						$article_html .= '<a target="_blank" href="/store/detail/'.$v['id'].'"><img src="'.$v['s_thumb'].'" /></a>';
+						$link = $v['s_link'];
+						if(empty($link)){
+							$link = '/store/detail/' . $v['id'];
+						}
+						$article_html .= '<a target="_blank" href="'.$link.'"><img src="'.$v['s_thumb'].'" /></a>';
 						$article_html .= '<div class="ys_caption"><h3><a target="_blank" href="/store/detail/'.$v['id'].'">'.$v['s_title'].'</a></h3>';
 						$article_html .= '<p>'.$v['s_desc'].'</p>';
 						$article_html .= '</div></div></div>';
