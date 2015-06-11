@@ -128,7 +128,7 @@
 								$style = '';
 								if($k==0) $style = 'active';
 								$carnival_html .= '<div class="item '.$style.'">';
-								$carnival_html .= '<img src="'.$v['f_thumb'].'" alt="">';
+								$carnival_html .= '<a href="'.$v['f_link'].'" target="_blank"><img src="'.$v['f_img'].'" alt=""></a>';
 								$carnival_html .= '<div class="carousel-caption"></div>';
 								$carnival_html .= '</div>';
 							}
