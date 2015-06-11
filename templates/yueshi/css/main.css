@@ -93,6 +93,8 @@ a:hover { color:#e13300; }
 a.ys_link_red { text-decoration:underline; margin:0 0.5em; color:#e13300; }
 a.ys_link_red:hover { text-decoration:none; }
 
+.embed-responsive-youku { padding-bottom: 61.55%; }
+
 .ys_container { margin-top:1em; }
 .ys_container_register { margin-top:1em; }
 

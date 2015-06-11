@@ -35,7 +35,7 @@
       			<div class="ys_video">
       				<h1><?php echo $v_title; ?></h1>
       				<h2><?php //echo $subtitle; ?></h2>
-      				<div class="ys_video_player embed-responsive embed-responsive-16by9">
+      				<div class="ys_video_player embed-responsive embed-responsive-youku">
 	      				<iframe class="embed-responsive-item" src="<?php echo $v_youku; ?>" frameborder=0 allowfullscreen></iframe>
       				</div>
       				<div class="ys_video_desc">
