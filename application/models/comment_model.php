@@ -25,11 +25,15 @@ class Comment_Model extends MY_Model {
 		parent::__construct();
 	}
 
-	public function getCommentList($id){
+	public function getCommentList($id, $ctype = '1'){
 		if(empty($id)){
 			return false;
 		}
 		
-		return $this->getById($id, 'cid', 'insert_time','desc',true);
+		$option = array();
+		$option[] = array('data' => $id, 'field' => 'cid', 'action' => 'where');
+		$option[] = array('data' => $ctype, 'field' => 'ctype', 'action' => 'where');
+		
+		return $this->getAll($option,0,99,'insert_time','desc');
 	}
 }

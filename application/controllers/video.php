@@ -130,7 +130,7 @@ class Video extends My_Controller {
 		$data['breadcrum'] = $this->c->get_breadcrum($data['v_category']);
 		$this->click_addone($data, $id);
 		
-		$data['comment_list'] = $this->t->getCommentList($id);
+		$data['comment_list'] = $this->t->getCommentList($id, 2);
 		foreach ($data['comment_list'] as $k=>$v){
 			$userinfo = $this->u->getById($v['userid']);
 			$data['comment_list'][$k]['userinfo'] = $userinfo;
