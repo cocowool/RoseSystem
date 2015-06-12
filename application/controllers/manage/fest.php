@@ -445,7 +445,7 @@ class Fest extends MY_Controller {
 		
 		if($this->form_validation->run() == FALSE){
 			$data['html_form'] = $this->generate_add_form($this->s, 'manage/fest/consultant/add');
-			$data['content_view'] = 'manage/fest/fest_add';
+			$data['content_view'] = 'manage/fest/consultant_add';
 			$data['content_data'] = '';
 			$this->load->view('manage/main', $data);
 		}else{
