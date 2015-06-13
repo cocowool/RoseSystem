@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-md-10">
 				<div class='ys_top_title'>
-					<h1><a href="javascript:void(0);" name="top">悦食中国</a></h1>
+					<h1><a href="javascript:void(0);" name="top">YUESHI CHINA</a></h1>
 				</div>
 				
 				<div class="ys_breadcrum">
@@ -157,7 +157,7 @@
 							foreach ($consultant_list as $k=>$v){
 								$style = '';
 								if($k==0) $style = 'active';
-								$consultant_html .= '<div class="col-xs-3 col-md-1 col-sm-4">';
+								$consultant_html .= '<div class="col-xs-3 col-md-1 col-sm-4 ys_consultant_nav">';
 								$consultant_html .= '<a target="_blank" href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="'.$v['f_name'].'" data-placement="top"><img src="'.$v['f_pic'].'" /></a>';
 								$consultant_html .= '</div>';
 							}
@@ -190,7 +190,7 @@
       			</div>
       			
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-2 ys_sidebar">
 				<div class="ys_logo">
 					<h2><a href="javascript:void(0);">悦食中国</a></h2>
 					<div class="ys_date">
@@ -218,7 +218,10 @@
 			$('.ys_forum_item').hide().eq($(this).index()).removeClass('hide').show();
 
 			$('.ys_forum_nav').removeClass('active').eq($(this).index()).addClass('active');
-			console.log($('.ys_forum_item').eq($(this).index()));
+		});
+
+		$('.ys_consultant_nav').click(function(){
+			$('.ys_consultant_item').addClass('hide').eq($(this).index()).removeClass('hide').show();
 		});
 	});
 	</script>
