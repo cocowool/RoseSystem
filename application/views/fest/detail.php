@@ -166,16 +166,16 @@
 							foreach ($consultant_list as $k=>$v){
 								$style = '';
 								if($k != 0) $style = 'hide';
-								$consultant_html .= '<div class="row ys_consultant_desc '.$style.'">';
-								$consultant_html .= '<div class="col-md-8 col-xs-10 row">';
+								$consultant_html .= '<div class="ys_consultant_item '.$style.'"><div class="row ys_consultant_desc">';
+								$consultant_html .= '<div class="col-md-12 row">';
 								$consultant_html .= '<div class="col-md-4">';
 								$consultant_html .= '<a target="_blank" href="javascript:void(0);" class="thumbnail"><img src="'.$v['f_pic'].'" /></a>';
 								$consultant_html .= '</div>';
 								$consultant_html .= '<div class="col-md-6 ys_consultant_resume_container">';
 								$consultant_html .= '<h4>'.$v['f_name'].'</h4>';
 								$consultant_html .= '<div class="ys_consultant_resume">'.$v['f_desc'].'</div>';
-								$consultant_html .= '</div></div><div class="col-md-2 col-xs-1"></div></div>';
-								$consultant_html .= '<div class="row ys_consultant_words">'.$v['f_words'].'</div>';
+								$consultant_html .= '</div></div></div>';
+								$consultant_html .= '<div class="row ys_consultant_words">'.$v['f_words'].'</div></div>';
 							}
 							$consultant_html .= '</div>';
 							
