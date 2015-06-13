@@ -44,6 +44,7 @@ class Article extends MY_Controller {
 			if(!empty($v['cover'])){
 				$data['data'][$k]['cover'] = '<a href="'.$v['cover'].'" target="_blank"><img style="height:50px;" src="'.$v['cover'].'" /></a>';
 			}
+			$data['data'][$k]['update_at'] = date('Y-m-d H:i', strtotime($v['update_at']));
 			$data['data'][$k]['category'] = $category[$v['category']];
 			$data['data'][$k]['resource'] = '<a href="/manage/resource/' . $v['id'] . '">图片资源</a>&nbsp;&nbsp;';
 			$data['data'][$k]['resource'] .= '<a href="/manage/resource/add/' . $v['id'] . '">新增图片</a>&nbsp;&nbsp;';
