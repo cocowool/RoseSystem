@@ -157,7 +157,7 @@
 							foreach ($consultant_list as $k=>$v){
 								$style = '';
 								if($k==0) $style = 'active';
-								$consultant_html .= '<div class="col-xs-3 col-md-1 col-sm-4 ys_consultant_nav">';
+								$consultant_html .= '<div class="col-xs-3 col-md-1 col-sm-4 ys_consultant_nav '.$style.'">';
 								$consultant_html .= '<a target="_blank" href="javascript:void(0);" class="thumbnail" data-toggle="tooltip" title="'.$v['f_name'].'" data-placement="top"><img src="'.$v['f_pic'].'" /></a>';
 								$consultant_html .= '</div>';
 							}
@@ -221,6 +221,8 @@
 		});
 
 		$('.ys_consultant_nav').click(function(){
+			$('.ys_consultant_nav').removeClass('active');
+			$(this).addClass('active');
 			$('.ys_consultant_item').addClass('hide').eq($(this).index()).removeClass('hide').show();
 		});
 	});

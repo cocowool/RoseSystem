@@ -257,6 +257,7 @@ a.ys_link_red:hover { text-decoration:none; }
 .ys_consultant_resume_container { padding:0 2em; }
 .ys_consultant_resume_container h4 { color:#fff; }
 .ys_consultant_resume_container p { margin:0; line-height:1.5em; }
+.ys_consultant_list .active { background:url(/templates/yueshi/images/arrow.jpg) bottom center no-repeat; }
 .ys_forum_item img { width:100%; }
 
 .ys_share_links { margin:0 0 0.5em 0; position:relative; border:1px solid #fff; }
