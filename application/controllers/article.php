@@ -124,21 +124,34 @@ class Article extends My_Controller {
 		$article = $this->a->getById($id);
 		$data['id'] = $id;
 		
-		$ua_data['userid'] = '';
-		
-		$data[$type] = $article[$type] + 1;
-		$result = $this->a->update($data, $id);
-		
-		if($result){
-			$json = array(
-				'errno'=>0,
-				'errinfo'=>'更新成功',
-				'count'=>$article[$type]+1,
-			);
+		if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername']) ){
+			$ua_data['userid'] = $sess_data['gUserid'];
+			$ua_data['ctype'] = 1;
+			$ua_data['cid'] = $id;
+			$ua_data['caction'] = 1;	//1 喜欢，2收藏
+			
+			
+			
+			$data[$type] = $article[$type] + 1;
+			$result = $this->a->update($data, $id);
+			
+			if($result){
+				$json = array(
+					'errno'=>0,
+					'errinfo'=>'更新成功',
+					'count'=>$article[$type]+1,
+				);
+			}else{
+				$json = array(
+					'errno'=>'E500',
+					'errinfo'=>'数据库更新失败',
+					'count'=>$article[$type]+1,
+				);
+			}
 		}else{
 			$json = array(
-				'errno'=>'E500',
-				'errinfo'=>'数据库更新失败',
+				'errno'=>'E300',
+				'errinfo'=>'用户未登录',
 				'count'=>$article[$type]+1,
 			);
 		}

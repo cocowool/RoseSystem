@@ -17,4 +17,10 @@ class Useraction_Model extends MY_Model {
 		parent::__construct();
 	}
 
+	public function check_useraction($data){
+		$option = array();
+		$option[] = array('data' => $data['userid'], 'field' => 'userid', 'action' => 'where');
+		$option[] = array('data' => $data['ctype'], 'field' => 'userid', 'action' => 'where');
+		
+	}
 }
