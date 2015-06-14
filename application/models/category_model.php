@@ -31,7 +31,7 @@ class Category_Model extends MY_Model {
 		$this->fields[2]['options'] = $this->get_parent_category();
 	}
 	
-	public function get_breadcrum($id, $category = 'article'){
+	public function get_breadcrum($id, $ctype = 'article'){
 		$breadcrum = '';
 		$category = $this->getById($id);
 		$breadcrum = "<li><a href='/'.$category.'/list/" . $id . "'>".$category['category']."</a></li>";
@@ -39,8 +39,8 @@ class Category_Model extends MY_Model {
 			$p_category = $this->get_breadcrum($category['pid']);
 			$breadcrum = $p_category . $breadcrum;
 		}else{
-			if($category == 'article'){
-				$breadcrum = "<li><a href='/'>首页</a></li><li><a href='/article'>杂志</a></li>" . $breadcrum;
+			if($ctype == 'article'){
+				$breadcrum = "<li><a href='/'>首页</a></li><li><a data-toggle='popover' title='Popover title' data-content='And here's some amazing content. It's very engaging. Right?' href='/article'>杂志</a></li>" . $breadcrum;
 			}else{
 				$breadcrum = "<li><a href='/'>首页</a></li><li><a href='/video'>影像</a></li>" . $breadcrum;
 			}

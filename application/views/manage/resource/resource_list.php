@@ -30,8 +30,6 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	
 	var dt = $('#rs_table').DataTable({
 		'processing': true,
 		'serverSide': true,
@@ -107,7 +105,8 @@ $(document).ready(function(){
 // 	});
 
 	$('[data-toggle="popover"]').popover();
-	
+
+
 	$('#rs_table').delegate('.ys_copylink', 'click', function(e){
 		e.preventDefault();
 		copyToClipboard($(this).attr('href'));

@@ -199,6 +199,10 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
+		$(function () {
+			$('[data-toggle="popover"]').popover()
+		});
+		
 		$('.ys_like').click(function(){
 			$.ajax({
 				dataType : 'json',
