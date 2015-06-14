@@ -99,17 +99,13 @@ $(document).ready(function(){
 	    }
 	}
 
-// 	$("#rs_table .ys_copylink").live('click', function(){
-// 		//alert('TEST');
-// 		console.log('TEST');
-// 	});
-
-	$('[data-toggle="popover"]').popover();
-
-
 	$('#rs_table').delegate('.ys_copylink', 'click', function(e){
 		e.preventDefault();
-		copyToClipboard($(this).attr('href'));
+		$(this).popover('toggle');
+		//copyToClipboard($(this).attr('href'));
+	});
+	$('#rs_table').delegate('.ys_copylink', 'focusout', function(e){
+		$(this).popover('hide');
 	});
 });
 </script>

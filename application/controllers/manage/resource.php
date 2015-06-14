@@ -50,7 +50,7 @@ class Resource extends MY_Controller {
 			$data['data'][$k]['image'] = '<a href=""><img src="' .$v['web_path'] .'" height="50px" /></a>';
 			$data['data'][$k]['operation'] = '<a href="/manage/resource/edit/' . $v['id'] . '">编辑</a>&nbsp;&nbsp;';
 			$data['data'][$k]['operation'] .= '<a href="/manage/resource/del/' . $v['id'] . '">删除</a>&nbsp;&nbsp;';
-			$data['data'][$k]['operation'] .= '<a href="'.$v['web_path'].'" class="ys_copylink" data-toggle="popover" title="图片地址" data-content="'.$v['web_path'].'">复制链接</a>';
+			$data['data'][$k]['operation'] .= '<a href="'.$v['web_path'].'" role="button" data-placement="left" data-trigger="focus" tableindex="'.$k.'" class="ys_copylink" data-toggle="popover" title="图片地址" data-content="'.$v['web_path'].'">复制链接</a>';
 		}
 		
 		echo json_encode($data);

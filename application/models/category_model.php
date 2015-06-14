@@ -40,7 +40,7 @@ class Category_Model extends MY_Model {
 			$breadcrum = $p_category . $breadcrum;
 		}else{
 			if($ctype == 'article'){
-				$breadcrum = "<li><a href='/'>首页</a></li><li><a data-toggle='popover' title='Popover title' data-content='And here's some amazing content. It's very engaging. Right?' href='/article'>杂志</a></li>" . $breadcrum;
+				$breadcrum = "<li><a href='/'>首页</a></li><li><a href='/article'>杂志</a></li>" . $breadcrum;
 			}else{
 				$breadcrum = "<li><a href='/'>首页</a></li><li><a href='/video'>影像</a></li>" . $breadcrum;
 			}
