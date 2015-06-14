@@ -120,8 +120,12 @@ class Article extends My_Controller {
 	 */
 	public function feedback($type = 'like', $id){
 		$this->load->model('Article_Model', 'a');
+		$this->load->model('Useraction_Model', 'ua');
 		$article = $this->a->getById($id);
 		$data['id'] = $id;
+		
+		$ua_data['userid'] = '';
+		
 		$data[$type] = $article[$type] + 1;
 		$result = $this->a->update($data, $id);
 		
