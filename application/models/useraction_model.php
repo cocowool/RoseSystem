@@ -20,7 +20,16 @@ class Useraction_Model extends MY_Model {
 	public function check_useraction($data){
 		$option = array();
 		$option[] = array('data' => $data['userid'], 'field' => 'userid', 'action' => 'where');
-		$option[] = array('data' => $data['ctype'], 'field' => 'userid', 'action' => 'where');
+		$option[] = array('data' => $data['ctype'], 'field' => 'ctype', 'action' => 'where');
+		$option[] = array('data' => $data['cid'], 'field' => 'cid', 'action' => 'where');
+		$option[] = array('data' => $data['caction'], 'field' => 'caction', 'action' => 'where');
 		
+		$result = $this->getAll($option);
+		
+		if(count($result)>=1){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
