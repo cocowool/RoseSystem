@@ -223,7 +223,6 @@
 				dataType : 'json',
 				url	:	'/article/feedback/fav/<?php echo $id; ?>',
 				success : function(result){
-					console.log(result.errno);
 					switch(result.errno){
 						case '0':
 							$('.ys_fav em').html(result.count);

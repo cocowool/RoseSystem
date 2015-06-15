@@ -69,25 +69,55 @@ class Video extends My_Controller {
 		}
 		
 		$this->load->model('Video_Model', 'v');
+		$this->load->model('Useraction_Model', 'ua');
 		$article = $this->v->getById($id);
 		$data['id'] = $id;
-		$data[$type] = $article[$type] + 1;
-		$result = $this->v->update($data, $id);
-	
-		if($result){
-			$json = array(
-					'errno'=>0,
-					'errinfo'=>'更新成功',
-					'count'=>$article[$type]+1,
-			);
+		$sess_data = $this->session->all_userdata();
+		
+		if( isset($sess_data['gUsername']) and !empty($sess_data['gUsername']) ){
+			$ua_data['userid'] = $sess_data['gUserid'];
+			$ua_data['ctype'] = 1;
+			$ua_data['cid'] = $id;
+			$ua_data['caction'] = ($type == 'v_like')?1:2;	//1 喜欢，2收藏
+				
+			//var_dump($this->ua->check_useraction($ua_data));
+			if($this->ua->check_useraction($ua_data)){
+				$json = array(
+						'errno'=>'E501',
+						'errinfo'=>'用户已经点击',
+						'count'=>$article[$type]+1,
+				);
+			}else{
+				$this->load->helper('date');
+				$us_data['insert_time'] = unix_to_human( local_to_gmt(), TRUE, 'eu');
+				$this->ua->insert($ua_data);
+		
+				$data[$type] = $article[$type] + 1;
+				$result = $this->v->update($data, $id);
+		
+				if($result){
+					$json = array(
+							'errno'=>"0",
+							'errinfo'=>'更新成功',
+							'count'=>$article[$type]+1,
+					);
+				}else{
+					$json = array(
+							'errno'=>'E500',
+							'errinfo'=>'数据库更新失败',
+							'count'=>$article[$type]+1,
+					);
+				}
+			}
+				
 		}else{
 			$json = array(
-					'errno'=>'E500',
-					'errinfo'=>'数据库更新失败',
-					'count'=>$article[$type]+1,
+					'errno'=>'E300',
+					'errinfo'=>'用户未登录',
+					'count'=>$article[$type],
 			);
 		}
-	
+		
 		echo json_encode($json);
 	}
 
