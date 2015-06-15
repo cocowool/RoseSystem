@@ -204,7 +204,17 @@
 				dataType : 'json',
 				url	:	'/article/feedback/like/<?php echo $id; ?>',
 				success : function(result){
-					$('.ys_like em').html(result.count);
+					switch(result.errno){
+						case '0':
+							$('.ys_like em').html(result.count);
+							break;
+						case 'E501':
+							alert('你已经点过了哦')
+							break;
+						case 'E300':
+							alert('用户未登录');
+							break;
+					}
 				}
 			});
 		});
@@ -213,7 +223,18 @@
 				dataType : 'json',
 				url	:	'/article/feedback/fav/<?php echo $id; ?>',
 				success : function(result){
-					$('.ys_fav em').html(result.count);
+					console.log(result.errno);
+					switch(result.errno){
+						case '0':
+							$('.ys_fav em').html(result.count);
+							break;
+						case 'E501':
+							alert('你已经点过了哦')
+							break;
+						case 'E300':
+							alert('用户未登录');
+							break;
+					}
 				}
 			});
 		});
