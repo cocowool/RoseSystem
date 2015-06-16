@@ -42,9 +42,9 @@
 			        <?php 
 			        foreach ($focus_list as $k=>$v){
 						if($k==0){
-							echo '<div class="item active">';
+							echo '<div class="item active"><div class="ys_focus_mask"><a href="javascript:void(0);"></a></div>';
 						}else{
-							echo '<div class="item">';
+							echo '<div class="item"><div class="ys_focus_mask"><a href="javascript:void(0);"></a></div>';
 						}
 						echo '<a target="_blank" href="'.$v['f_link'].'" target="_blank"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
 						echo '</div>';

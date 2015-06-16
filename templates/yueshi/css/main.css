@@ -265,3 +265,5 @@ a.ys_link_red:hover { text-decoration:none; }
 	width:64px !important;
 }
 
+.ys_focus_mask { position:absolute; cursor:pointer; width:100%; height:100%; top:0; left:0; opacity:0.8; background-color:#fff; }
+
