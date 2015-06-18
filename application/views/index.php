@@ -42,7 +42,7 @@
 			        <?php 
 			        foreach ($focus_list as $k=>$v){
 						if($k==0){
-							echo '<div class="item active"><div class="ys_focus_mask"><a href="javascript:void(0);"><div><div></div></div></a></div>';
+							echo '<div class="item active"><div class="ys_focus_mask"><a href="javascript:void(0);"><div><div></div><p>[ 悦食家蟹宴 ] 金牌醉蟹</p><p>点击前往品鉴</p><p>——</p><p>More Info</p></div></a></div>';
 						}else{
 							echo '<div class="item"><div class="ys_focus_mask"><a href="javascript:void(0);"></a></div>';
 						}
