@@ -265,5 +265,8 @@ a.ys_link_red:hover { text-decoration:none; }
 	width:64px !important;
 }
 
-.ys_focus_mask { position:absolute; cursor:pointer; width:100%; height:100%; top:0; left:0; opacity:0.8; background-color:#fff; }
-
+.ys_focus_mask { display:none; position:absolute; cursor:pointer; width:100%; height:100%; top:0; left:0; opacity:0.8; background-color:#fff; }
+.ys_focus_mask a { width:100%; height:100%; font-size:16px; position:relative; text-align:center; display:table; }
+.ys_focus_mask a:hover { text-decoration:none; }
+.ys_focus_center { vertical-align:middle; display:table-cell; text-align:center; _position:absolute; _top:50%; -left:50%;  }
+.ys_focus_center_inner { display:inline-block; _position:relative; _top:-50%; _left:-50%; }

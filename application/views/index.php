@@ -42,9 +42,9 @@
 			        <?php 
 			        foreach ($focus_list as $k=>$v){
 						if($k==0){
-							echo '<div class="item active"><div class="ys_focus_mask"><a href="javascript:void(0);"><div><div></div><p>[ 悦食家蟹宴 ] 金牌醉蟹</p><p>点击前往品鉴</p><p>——</p><p>More Info</p></div></a></div>';
+							echo '<div class="item active"><div class="ys_focus_mask"><a href="javascript:void(0);"><div class="ys_focus_center"><div class="ys_focus_center_inner"><p>[ 悦食家蟹宴 ] 金牌醉蟹</p><p>点击前往品鉴</p><p>——</p><p>More Info</p></div></div></a></div>';
 						}else{
-							echo '<div class="item"><div class="ys_focus_mask"><a href="javascript:void(0);"></a></div>';
+							echo '<div class="item"><div class="ys_focus_mask"><a href="javascript:void(0);"><div class="ys_focus_center"><div class="ys_focus_center_inner"><p>[ 悦食家蟹宴 ] 金牌醉蟹</p><p>点击前往品鉴</p><p>——</p><p>More Info</p></div></div></a></div>';
 						}
 						echo '<a target="_blank" href="'.$v['f_link'].'" target="_blank"><img data-src="" alt="'.$v['f_title'].'[1140x500]" src="'.str_replace('http://www.yueshi.my', '', $v['f_img']).'" data-holder-rendered="false"></a>';
 						echo '</div>';
@@ -119,6 +119,10 @@
 	<script type="text/javascript" src="/templates/yueshi/js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$('.carousel-inner').hover(function(){
+				console.log('test');
+			});
+			
 			$('.ys_ajaxmore a').click(function(){
 				$.ajax({
 					'type'	:	'POST',
